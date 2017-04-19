@@ -1,0 +1,19 @@
+using Newtonsoft.Json;
+
+namespace Ivvy.Extensions.Setup
+{
+    /// <summary>
+    /// This class encapsulates the response an extension must return to
+    /// iVvy after verifying a setup request.
+    /// </summary>
+    public sealed class SetupResponse
+    {
+        [JsonProperty("success")]
+        public bool Success { get; private set; }
+
+        public SetupResponse(bool success)
+        {
+            this.Success = success;
+        }
+    }
+}
