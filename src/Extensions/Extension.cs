@@ -12,25 +12,27 @@ namespace Ivvy.Extensions
     /// </summary>
     public class Extension
     {
-        public string BaseUrl { get; private set; }
+        public string SetupVerifyUrl { get; private set; }
+        public string SetupConfigureUrl { get; private set; }
+        public string EventSetupVerifyUrl { get; private set; }
+        public string EventSetupConfigureUrl { get; private set; }
 
         private static HttpClient httpClient = new HttpClient();
-
-        /// <summary>
-        /// Constructs a new object with default values to call
-        /// production extension endpoints.
-        /// </summary>
-        public Extension() : this("https://www.ivvy.com")
-        {
-        }
 
         /// <summary>
         /// Constructs a new object with specific values to call
         /// extension endpoints on a specific environment.
         /// </summary>
-        public Extension(string baseUrl)
+        public Extension(
+            string setupVerifyUrl,
+            string setupConfigureUrl,
+            string eventSetupVerifyUrl,
+            string eventSetupConfigureUrl)
         {
-            BaseUrl = baseUrl.TrimEnd(new char[] { '/', ' ' });
+            SetupVerifyUrl = setupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
+            SetupConfigureUrl = setupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
+            EventSetupVerifyUrl = eventSetupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
+            EventSetupConfigureUrl = eventSetupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
         }
 
         /// <summary>
@@ -38,7 +40,7 @@ namespace Ivvy.Extensions
         /// </summary>
         public async Task<ResultOrError<VerifySetupResponse>> VerifySetupAsync(string accountId, string setupKey)
         {
-            return await this.CallAsync<VerifySetupResponse>("/extension/verify", accountId, setupKey);            
+            return await this.CallAsync<VerifySetupResponse>(SetupVerifyUrl, accountId, setupKey);            
         }
 
         /// <summary>
@@ -46,7 +48,7 @@ namespace Ivvy.Extensions
         /// </summary>
         public async Task<ResultOrError<VerifyConfigureResponse>> ConfigureAsync(string accountId, string setupKey)
         {
-            return await this.CallAsync<VerifyConfigureResponse>("/extension/configure", accountId, setupKey);
+            return await this.CallAsync<VerifyConfigureResponse>(SetupConfigureUrl, accountId, setupKey);
         }
 
         private async Task<ResultOrError<T>> CallAsync<T>(
@@ -57,7 +59,7 @@ namespace Ivvy.Extensions
                 new KeyValuePair<string, string>("setupKey", setupKey)
             });
             HttpResponseMessage httpResponse = await httpClient.PostAsync(
-                BaseUrl + requestUri, httpContent
+                requestUri, httpContent
             );
             string data = await httpResponse.Content.ReadAsStringAsync();
             var result = new ResultOrError<T>();
