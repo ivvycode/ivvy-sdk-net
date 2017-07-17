@@ -13,5 +13,20 @@ namespace Ivvy.Extensions.Setup
 
         [JsonProperty("setupKey")]
         public string SetupKey { get; set; }
+
+        [JsonProperty("ivvyApiEndPoint")]
+        public string IvvyApiEndPoint { get; set; }
+
+        [JsonProperty("ivvySetupVerifyUrl")]
+        public string IvvySetupVerifyUrl { get; set; }
+
+        [JsonProperty("ivvySetupConfigureUrl")]
+        public string IvvySetupConfigureUrl { get; set; }
+
+        [JsonProperty("ivvyEventSetupVerifyUrl")]
+        public string IvvyEventSetupVerifyUrl { get; set; }
+
+        [JsonProperty("ivvyEventSetupConfigureUrl")]
+        public string IvvyEventSetupConfigureUrl { get; set; }
     }
 }
