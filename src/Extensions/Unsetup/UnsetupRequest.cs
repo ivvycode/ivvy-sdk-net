@@ -8,6 +8,9 @@ namespace Ivvy.Extensions.Unsetup
     /// </summary>
     public sealed class UnsetupRequest
     {
+        [JsonProperty("region")]
+        public string Region { get; set; }
+
         [JsonProperty("accountId")]
         public string AccountId { get; set; }
 
