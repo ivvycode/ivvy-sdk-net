@@ -31,5 +31,11 @@ namespace Ivvy.Extensions.Setup
 
         [JsonProperty("ivvyEventSetupConfigureUrl")]
         public string IvvyEventSetupConfigureUrl { get; set; }
+
+        [JsonProperty("ivvyVenueSetupVerifyUrl")]
+        public string IvvyVenueSetupVerifyUrl { get; set; }
+
+        [JsonProperty("ivvyVenueSetupConfigureUrl")]
+        public string IvvyVenueSetupConfigureUrl { get; set; }
     }
 }

@@ -4,9 +4,9 @@ namespace Ivvy.Extensions.Setup
 {
     /// <summary>
     /// This class encapsulates the details returned by iVvy when
-    /// an extension verifies a setup request.
+    /// an extension verifies an event setup request.
     /// </summary>
-    public class VerifySetupResponse
+    public sealed class EventVerifySetupResponse
     {
         [JsonProperty("accountId")]
         public string AccountId { get; set; }
@@ -14,10 +14,10 @@ namespace Ivvy.Extensions.Setup
         [JsonProperty("accountDomain")]
         public string AccountDomain { get; set; }
 
-        [JsonProperty("apiKey")]
-        public string ApiKey { get; set; }
+        [JsonProperty("eventId")]
+        public string EventId { get; set; }
 
-        [JsonProperty("apiSecret")]
-        public string ApiSecret { get; set; }
+        [JsonProperty("eventHashId")]
+        public string EventHashId { get; set; }
     }
 }
