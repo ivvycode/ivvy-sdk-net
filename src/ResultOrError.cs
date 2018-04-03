@@ -35,7 +35,7 @@ namespace Ivvy
         /// </summary>
         public bool IsSuccess()
         {
-            return (ErrorCode == null);
+            return ErrorCode == null;
         }
     }
 }

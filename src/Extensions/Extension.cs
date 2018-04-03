@@ -10,7 +10,7 @@ namespace Ivvy.Extensions
     /// <summary>
     /// The primary class used to call the extension endpoints.
     /// </summary>
-    public class Extension
+    public class Extension : IExtension
     {
         public string SetupVerifyUrl { get; private set; }
         public string SetupConfigureUrl { get; private set; }
@@ -21,24 +21,35 @@ namespace Ivvy.Extensions
 
         private static HttpClient httpClient = new HttpClient();
 
-        /// <summary>
-        /// Constructs a new object with specific values to call
-        /// extension endpoints on a specific environment.
-        /// </summary>
-        public Extension(
-            string setupVerifyUrl,
-            string setupConfigureUrl,
-            string eventSetupVerifyUrl,
-            string eventSetupConfigureUrl,
-            string venueSetupVerifyUrl,
-            string venueSetupConfiguUrl)
+        ///// <summary>
+        ///// Constructs a new object with specific values to call
+        ///// extension endpoints on a specific environment.
+        ///// </summary>
+        //public Extension(
+        //    string setupVerifyUrl,
+        //    string setupConfigureUrl,
+        //    string eventSetupVerifyUrl,
+        //    string eventSetupConfigureUrl,
+        //    string venueSetupVerifyUrl,
+        //    string venueSetupConfiguUrl)
+        //{
+        //    SetupVerifyUrl = setupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
+        //    SetupConfigureUrl = setupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
+        //    EventSetupVerifyUrl = eventSetupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
+        //    EventSetupConfigureUrl = eventSetupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
+        //    VenueSetupVerifyUrl = venueSetupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
+        //    VenueSetupConfigureUrl = venueSetupConfiguUrl.TrimEnd(new char[] { '/', ' ' });
+        //}
+
+        public void InitializeExtension(string setupVerifyUrl, string setupConfigureUrl, string eventSetupVerifyUrl,
+            string eventSetupConfigureUrl, string venueSetupVerifyUrl, string venueSetupConfiguUrl)
         {
-            SetupVerifyUrl = setupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
-            SetupConfigureUrl = setupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
-            EventSetupVerifyUrl = eventSetupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
-            EventSetupConfigureUrl = eventSetupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
-            VenueSetupVerifyUrl = venueSetupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
-            VenueSetupConfigureUrl = venueSetupConfiguUrl.TrimEnd(new char[] { '/', ' ' });
+            SetupVerifyUrl = setupVerifyUrl.TrimEnd('/', ' ');
+            SetupConfigureUrl = setupConfigureUrl.TrimEnd('/', ' ');
+            EventSetupVerifyUrl = eventSetupVerifyUrl.TrimEnd('/', ' ');
+            EventSetupConfigureUrl = eventSetupConfigureUrl.TrimEnd('/', ' ');
+            VenueSetupVerifyUrl = venueSetupVerifyUrl.TrimEnd('/', ' ');
+            VenueSetupConfigureUrl = venueSetupConfiguUrl.TrimEnd('/', ' ');
         }
 
         /// <summary>

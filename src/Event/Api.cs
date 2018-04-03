@@ -2,19 +2,8 @@ using System.Threading.Tasks;
 
 namespace Ivvy
 {
-    public partial class Api
+    public partial class Api : IApi
     {
-        /// <summary>
-        /// This class encapsulates the optional params that can be
-        /// sent to the "getEventList" api method.
-        /// </summary>
-        public sealed class GetEventListOptions {
-            public bool IncludeVenueDetails { get; set; }
-            public bool IncludeTicketDetails { get; set; }
-            public bool IncludeInformationDetails { get; set; }
-            public bool IncludeHomePageContent { get; set; }
-        }
-
         /// <summary>
         /// Returns a specific event.
         /// </summary>
@@ -22,7 +11,7 @@ namespace Ivvy
             int id)
         {
             return await this.CallAsync<Event.Event>(
-                "event", "getEvent", new { id = id }        
+                "event", "getEvent", new { id = id }
             );
         }
 
@@ -34,11 +23,13 @@ namespace Ivvy
             int start,
             GetEventListOptions options = null)
         {
-            if (options == null) {
+            if (options == null)
+            {
                 options = new GetEventListOptions();
             }
             return await this.CallAsync<ResultList<Event.Event>>(
-                "event", "getEventList", new {
+                "event", "getEventList", new
+                {
                     perPage = perPage,
                     start = start,
                     includeVenueDetails = options.IncludeVenueDetails,
