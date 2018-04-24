@@ -43,10 +43,10 @@ namespace Ivvy.Venue
         public string CheckoutTime { get; set; }
 
         [JsonProperty("childAge")]
-        public int ChildAge { get; set; }
+        public int? ChildAge { get; set; }
 
         [JsonProperty("infantAge")]
-        public int InfantAge { get; set; }
+        public int? InfantAge { get; set; }
 
         [JsonProperty("currencyCode")]
         public string CurrencyCode { get; set; }
@@ -64,16 +64,16 @@ namespace Ivvy.Venue
         public bool HasAccommodation { get; set; }
 
         [JsonProperty("numMeetingRooms")]
-        public int NumMeetingRooms { get; set; }
+        public int? NumMeetingRooms { get; set; }
 
         [JsonProperty("numAccommodationRooms")]
-        public int NumAccommodationRooms { get; set; }
+        public int? NumAccommodationRooms { get; set; }
 
         [JsonProperty("maxSpaceArea")]
-        public float MaxSpaceArea { get; set; }
+        public float? MaxSpaceArea { get; set; }
 
         [JsonProperty("totalSpaceArea")]
-        public float TotalSpaceArea { get; set; }
+        public float? TotalSpaceArea { get; set; }
 
         [JsonProperty("longitude")]
         public string Longitude { get; set; }
