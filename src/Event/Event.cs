@@ -57,11 +57,6 @@ namespace Ivvy.Event
         [JsonProperty("timezone")]
         public string TimeZoneId { get; set; }
 
-        public TimeZoneInfo TimeZone {
-            get { return TimeZoneInfo.FindSystemTimeZoneById(this.TimeZoneId); }
-            private set { }
-        }
-
         [JsonProperty("startDateTime")]
         public DateTime StartDateTime { get; set; }
 
