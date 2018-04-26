@@ -37,5 +37,12 @@ namespace Ivvy.Extensions.Setup
 
         [JsonProperty("ivvyVenueSetupConfigureUrl")]
         public string IvvyVenueSetupConfigureUrl { get; set; }
+
+        /// <summary>
+        /// The url to use to inform iVvy the extension has been configured in the venue.
+        /// </summary>
+        /// <value>The ivvy venue setup configure URL.</value>
+        [JsonProperty("refType")]
+        public string RefType { get; set; }
     }
 }

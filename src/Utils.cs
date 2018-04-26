@@ -15,12 +15,12 @@ namespace Ivvy
         /// <summary>
         /// The format used for datetime values.
         /// </summary>
-        public readonly static string DateTimeFormat = "yyyy-MM-dd HH:mm:ss 'UTC'";
+        public static readonly string DateTimeFormat = "yyyy-MM-dd HH:mm:ss 'UTC'";
 
         /// <summary>
         /// Returns the MD5 hash of a string.
         /// </summary>
-        public static string GetMD5Hash(string input)
+        public static string GetMd5Hash(string input)
         {
             MD5 md5 = MD5.Create();
             byte[] data = md5.ComputeHash(Encoding.UTF8.GetBytes(input));

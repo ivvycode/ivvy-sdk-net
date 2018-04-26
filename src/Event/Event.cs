@@ -21,7 +21,7 @@ namespace Ivvy.Event
             Exhibition = 8,
             Roadshow = 9,
             Simple = 10,
-            Party18or21 = 11,
+            Party18Or21 = 11,
         }
 
         public enum StatusTypes {
