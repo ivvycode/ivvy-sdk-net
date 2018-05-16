@@ -1,16 +1,16 @@
+using Ivvy.Json.Converters;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Text;
-using Newtonsoft.Json;
-using Ivvy.Json.Converters;
+using System.Threading.Tasks;
 
 namespace Ivvy
 {
     /// <summary>
     /// The primary class used to call methods of the iVvy api.
     /// </summary>
-    public partial class Api
+    public partial class Api : IApi
     {
         /// <summary>
         /// The api version.
@@ -99,6 +99,18 @@ namespace Ivvy
             string data = await httpResponse.Content.ReadAsStringAsync();
             ResultOrError<T> response = JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
             return response;
+        }
+
+        public void InitializeApi(string apiKey, string apiSecret, string apiVersion, string baseUrl)
+        {
+            if (apiVersion != "1.0")
+            {
+                throw new ArgumentException("apiVersion is not a valid version number");
+            }
+            ApiKey = apiKey;
+            ApiSecret = apiSecret;
+            ApiVersion = apiVersion;
+            BaseUrl = baseUrl.TrimEnd('/', ' ');
         }
     }
 }

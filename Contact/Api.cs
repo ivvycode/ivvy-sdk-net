@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Ivvy
 {
-    public partial class Api
+    public partial class Api : IApi
     {
         /// <summary>
         /// Returns a specific contact.
@@ -26,6 +27,19 @@ namespace Ivvy
             );
         }
 
+        public async Task<ResultOrError<ResultList<Contact.Contact>>> GetContactListAsync(int perPage, int start,
+            Dictionary<string, string> filterRequest)
+        {
+            return await this.CallAsync<ResultList<Contact.Contact>>(
+                "contact", "getContactList", new
+                {
+                    perPage = perPage,
+                    start = start,
+                    filter = filterRequest
+                }
+            );
+        }
+
         /// <summary>
         /// Adds or updates a contact.
         /// </summary>
@@ -34,6 +48,13 @@ namespace Ivvy
         {
             return await this.CallAsync<Contact.ContactResult>(
                 "contact", "addOrUpdateContact", contact
+            );
+        }
+
+        public async Task<ResultOrError<Contact.Company>> GetCompanyAsync(int id)
+        {
+            return await this.CallAsync<Contact.Company>(
+                "contact", "getCompany", new { id = id }
             );
         }
     }

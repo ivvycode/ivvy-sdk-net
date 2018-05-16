@@ -1,6 +1,6 @@
-using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace Ivvy.Json.Converters
 {
@@ -33,15 +33,29 @@ namespace Ivvy.Json.Converters
             serializer.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
             serializer.DateFormatString = Utils.DateTimeFormat;
             serializer.DateParseHandling = DateParseHandling.DateTime;
+
             var resultOrError = new ResultOrError<T>();
-            var jsonObject = JObject.Load(reader);
-            if (jsonObject["errorCode"] == null) {
-                T result = new T();
-                serializer.Populate(jsonObject.CreateReader(), result);
-                resultOrError.Result = result;
+
+            if (reader.TokenType == JsonToken.StartObject)
+            {
+                var jsonObject = JObject.Load(reader);
+                if (jsonObject["errorCode"] == null)
+                {
+                    T result = new T();
+                    serializer.Populate(jsonObject.CreateReader(), result);
+                    resultOrError.Result = result;
+                }
+                else
+                {
+                    serializer.Populate(jsonObject.CreateReader(), resultOrError);
+                }
             }
-            else {
-                serializer.Populate(jsonObject.CreateReader(), resultOrError);
+            else
+            {
+                var jsonArray = JArray.Load(reader);
+                T result = new T();
+                serializer.Populate(jsonArray.CreateReader(), result);
+                resultOrError.Result = result;
             }
             return resultOrError;
         }

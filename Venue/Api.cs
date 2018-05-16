@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace Ivvy
 {
-    public partial class Api
+    public partial class Api : IApi
     {
         /// <summary>
         /// Returns a specific venue.
