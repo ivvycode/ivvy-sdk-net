@@ -1,5 +1,6 @@
-using System.Text;
+using Ivvy.API.Helper;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Ivvy
 {
@@ -49,6 +50,11 @@ namespace Ivvy
             HMACSHA1 hmacsha1 = new HMACSHA1(secretBytes);
             byte[] data = hmacsha1.ComputeHash(encoding.GetBytes(stringToSign));
             return BytesToString(data);
+        }
+
+        public static string GetFilterCondition(string propertyName, EnumHelper.FilterCondition filterCondition)
+        {
+            return $"{propertyName}__{filterCondition.ToString().ToUpperInvariant()}";
         }
     }
 }

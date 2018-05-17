@@ -37,5 +37,8 @@ namespace Ivvy.Extensions.Setup
 
         [JsonProperty("ivvyVenueSetupConfigureUrl")]
         public string IvvyVenueSetupConfigureUrl { get; set; }
+
+        [JsonProperty("refType")]
+        public string RefType { get; set; }
     }
 }

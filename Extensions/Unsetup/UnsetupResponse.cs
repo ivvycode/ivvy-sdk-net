@@ -9,11 +9,15 @@ namespace Ivvy.Extensions.Unsetup
     public sealed class UnsetupResponse
     {
         [JsonProperty("success")]
-        public bool Success { get; private set; }
+        public bool Success { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UnsetupResponse"/> class.
+        /// </summary>
+        /// <param name="success">if set to <c>true</c> [success].</param>
         public UnsetupResponse(bool success)
         {
-            this.Success = success;
+            Success = success;
         }
     }
 }
