@@ -23,6 +23,6 @@ namespace Ivvy.Invoice
         public float TotalTaxCost { get; set; }
 
         [JsonProperty("amountPaid")]
-        public float AmountPaid { get; set; }
+        public float? AmountPaid { get; set; }
     }
 }
