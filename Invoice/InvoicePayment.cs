@@ -5,6 +5,23 @@ namespace Ivvy.Invoice
 {
     public class InvoicePayment
     {
+        public enum PaymentMethods
+        {
+            Unknown = 0,
+            CreditCard = 1,
+            BPay = 2,
+            DirectDeposit = 3,
+            PayPal = 4,
+            Cheque = 5,
+            Cash = 6,
+            Custom = 7,
+            AccountsReceivable = 8,
+            Eftpos = 9,
+            WriteOff = 10,
+            Pos = 11,
+            WireTransfer = 12,
+        }
+
         [JsonProperty("paymentId")]
         public string PaymentId { get; set; }
 
@@ -12,7 +29,7 @@ namespace Ivvy.Invoice
         public string ReceiptNumber { get; set; }
 
         [JsonProperty("amountPaid")]
-        public decimal? AmountPaid { get; set; }
+        public float? AmountPaid { get; set; }
 
         [JsonProperty("notes")]
         public string Notes { get; set; }
@@ -21,7 +38,7 @@ namespace Ivvy.Invoice
         public string ChequeNumber { get; set; }
 
         [JsonProperty("paymentMethod")]
-        public string PaymentMethod { get; set; }
+        public PaymentMethods PaymentMethod { get; set; }
 
         [JsonProperty("paidDate")]
         public DateTime? PaidDate { get; set; }

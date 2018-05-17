@@ -1,12 +1,31 @@
-﻿using Newtonsoft.Json;
+﻿using Ivvy.Common;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using static Ivvy.API.Helper.EnumHelper;
 
 namespace Ivvy.Invoice
 {
     public class Invoice
     {
+        public enum StatusOptions
+        {
+            NotPaid = 0,
+            UnConfirmedPaid = 1,
+            Paid = 2,
+            WrittenOff = 3,
+            Cancelled = 4,
+            Refunded = 5
+        }
+
+        public enum RefTypes
+        {
+            Custom = 0,
+            EventRegistration = 1,
+            MembershipSignUp = 2,
+            MembershipRenewal = 3,
+            VenueBooking = 4
+        }
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -23,13 +42,13 @@ namespace Ivvy.Invoice
         public string Currency { get; set; }
 
         [JsonProperty("totalCost")]
-        public decimal? TotalCost { get; set; }
+        public float? TotalCost { get; set; }
 
         [JsonProperty("totalTaxCost")]
-        public decimal? TotalTaxCost { get; set; }
+        public float? TotalTaxCost { get; set; }
 
         [JsonProperty("amountPaid")]
-        public decimal? AmountPaid { get; set; }
+        public float? AmountPaid { get; set; }
 
         [JsonProperty("toContactEmail")]
         public string ToContactEmail { get; set; }
@@ -38,8 +57,7 @@ namespace Ivvy.Invoice
         public string ToContactName { get; set; }
 
         [JsonProperty("currentStatus")]
-        [EnumDataType(typeof(CurrentStatus))]
-        public CurrentStatus CurrentStatus { get; set; }
+        public StatusOptions CurrentStatus { get; set; }
 
         [JsonProperty("createdDate")]
         public string CreatedDate { get; set; }
@@ -48,9 +66,7 @@ namespace Ivvy.Invoice
         public string ModifiedDate { get; set; }
 
         [JsonProperty("refType")]
-
-        [EnumDataType(typeof(InvoiceRefType))]
-        public InvoiceRefType RefType { get; set; }
+        public RefTypes RefType { get; set; }
 
         [JsonProperty("refId")]
         public string refId { get; set; }
@@ -80,7 +96,7 @@ namespace Ivvy.Invoice
         public Address ToAddress { get; set; }
 
         [JsonProperty("items")]
-        public List<InvoiceItems> Items { get; set; }
+        public List<Item> Items { get; set; }
 
         [JsonProperty("payments")]
         public List<InvoicePayment> Payments { get; set; }

@@ -1,4 +1,3 @@
-using Ivvy.API.Helper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,27 +8,30 @@ namespace Ivvy
         /// <summary>
         /// Returns a specific event.
         /// </summary>
-        public async Task<ResultOrError<Event.Event>> GetEventAsync(
-            int id)
+        public async Task<ResultOrError<Event.Event>> GetEventAsync(int id)
         {
             return await this.CallAsync<Event.Event>(
                 "event", "getEvent", new { id = id }
             );
         }
 
-        public async Task<ResultOrError<ResultList<Event.Event>>> GetEventListAsync(int perPage, int start, Dictionary<string, string> filterRequest = null, GetEventListOptions options = null)
+        /// <summary>
+        /// Returns a collection of events.
+        /// </summary>
+        public async Task<ResultOrError<ResultList<Event.Event>>> GetEventListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, string> filterRequest = null,
+            Event.GetEventListOptions options = null)
         {
-            if (options == null)
-            {
-                options = new GetEventListOptions();
+            if (options == null) {
+                options = new Event.GetEventListOptions();
             }
-            if (filterRequest == null)
-            {
+            if (filterRequest == null) {
                 filterRequest = new Dictionary<string, string>();
             }
             return await this.CallAsync<ResultList<Event.Event>>(
-                "event", "getEventList", new
-                {
+                "event", "getEventList", new {
                     perPage = perPage,
                     start = start,
                     includeVenueDetails = options.IncludeVenueDetails,
@@ -41,11 +43,17 @@ namespace Ivvy
             );
         }
 
-        public async Task<ResultOrError<ResultList<EventAttendee.EventAttendee>>> GetEventAttendeeListAsync(int eventId, int perPage, int start, Dictionary<string, string> filterRequest = null)
+        /// <summary>
+        /// Returns a collection of event attendees.
+        /// </summary>
+        public async Task<ResultOrError<ResultList<Event.Attendee>>> GetEventAttendeeListAsync(
+            int eventId,
+            int perPage,
+            int start,
+            Dictionary<string, string> filterRequest = null)
         {
-            return await this.CallAsync<ResultList<EventAttendee.EventAttendee>>(
-                "event", "getAttendeeList", new
-                {
+            return await this.CallAsync<ResultList<Event.Attendee>>(
+                "event", "getAttendeeList", new {
                     eventId = eventId,
                     perPage = perPage,
                     start = start,
@@ -54,34 +62,23 @@ namespace Ivvy
             );
         }
 
-        //TODO: change the name of method once api ready
-        public async Task<ResultOrError<ResultList<EventAttendee.EventAttendee>>> GetEventAttendeeListAsyncWithoutEventId(
-            int perPage
-            , int start
-            , Dictionary<string, string> filterRequest = null)
-        {
-            return await this.CallAsync<ResultList<EventAttendee.EventAttendee>>(
-                "event", "getAttendeeListNew", new
-                {
-                    perPage = perPage,
-                    start = start,
-                    filter = filterRequest
-                }
-            );
-        }
-
-        public async Task<ResultOrError<ResultList<EventRegistration.EventRegistration>>> GetEventRegistrationListAsync(
+        /// <summary>
+        /// Returns a collection of event registrations.
+        /// </summary>
+        public async Task<ResultOrError<ResultList<Event.Registration>>> GetEventRegistrationListAsync(
+            int eventId,
             int perPage,
-            int start, Dictionary<string, string> filterRequest = null)
+            int start,
+            Dictionary<string, string> filterRequest = null)
         {
-            return await CallAsync<ResultList<EventRegistration.EventRegistration>>(Constants.EventApiNamespace,
-                Constants.GetEventRegistrationListAction
-                , new
-                {
+            return await CallAsync<ResultList<Event.Registration>>(
+                "event", "getRegistrationList", new {
+                    eventId = eventId,
                     perPage,
                     start,
                     filter = filterRequest
-                });
+                }
+            );
         }
     }
 }

@@ -1,16 +1,28 @@
-﻿using Ivvy.API.Helper;
-using Ivvy.Json;
+﻿using Ivvy.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.API.CustomField
+namespace Ivvy.Account
 {
     public class CustomField : ISerializable
     {
+        public enum FieldTypes
+        {
+            SmallText = 0,
+            LargeText = 1,
+            SingleSelect = 2,
+            MultipleSelect = 3,
+            Address = 4,
+            Date = 5,
+            File = 6,
+            StaticText = 7,
+            WholeNumber = 8
+        }
+
         [JsonProperty("fieldId")]
         public int FieldId { get; set; }
 
         [JsonProperty("fieldType")]
-        public EnumHelper.FieldType FieldType { get; set; }
+        public FieldTypes FieldType { get; set; }
 
         [JsonProperty("displayName")]
         public string DisplayName { get; set; }

@@ -16,8 +16,5 @@ namespace Ivvy.Extensions.Unsetup
 
         [JsonProperty("setupKey")]
         public string SetupKey { get; set; }
-
-        [JsonProperty("refType")]
-        public string RefType { get; set; }
     }
 }

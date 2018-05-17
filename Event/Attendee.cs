@@ -1,16 +1,20 @@
 ﻿using Ivvy.Json;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
-namespace Ivvy.EventAttendee
+namespace Ivvy.Event
 {
-    public class EventAttendee : ISerializable
+    public class Attendee : ISerializable
     {
         [JsonProperty("id")]
         public int Id { get; set; }
 
+        [JsonProperty("eventId")]
+        public int EventId { get; set; }
+
         [JsonProperty("registrationStatus")]
-        public int RegistrationStatus { get; set; }
+        public Registration.StatusOptions RegistrationStatus { get; set; }
 
         [JsonProperty("contactId")]
         public int ContactId { get; set; }
@@ -46,24 +50,24 @@ namespace Ivvy.EventAttendee
         public string TicketUrl { get; set; }
 
         [JsonProperty("attendedDatetime")]
-        public string AttendedDatetime { get; set; }
+        public DateTime AttendedDatetime { get; set; }
 
         [JsonProperty("sessionAttendedTimestamp")]
-        public string SessionAttendedTimestamp { get; set; }
+        public DateTime SessionAttendedTimestamp { get; set; }
 
         [JsonProperty("cost")]
-        public string Cost { get; set; }
+        public float Cost { get; set; }
 
         [JsonProperty("modifiedDate")]
-        public string ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
         [JsonProperty("customFields")]
         public List<CustomField> CustomFields { get; set; }
-
-        [JsonProperty("eventId")]
-        public int EventId { get; set; }
     }
 
+    /// <summary>
+    /// An attendee's custom field value.
+    /// </summary>
     public class CustomField : ISerializable
     {
         [JsonProperty("name")]

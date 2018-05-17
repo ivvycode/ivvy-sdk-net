@@ -11,10 +11,6 @@ namespace Ivvy.Extensions.Unsetup
         [JsonProperty("success")]
         public bool Success { get; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnsetupResponse"/> class.
-        /// </summary>
-        /// <param name="success">if set to <c>true</c> [success].</param>
         public UnsetupResponse(bool success)
         {
             Success = success;

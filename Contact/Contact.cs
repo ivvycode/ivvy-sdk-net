@@ -1,15 +1,32 @@
 using Ivvy.Json;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using static Ivvy.API.Helper.EnumHelper;
 
 namespace Ivvy.Contact
 {
     /// <summary>
-    /// An iVVy contact.
+    /// An iVvy contact.
     /// </summary>
     public class Contact : ISerializable
     {
+        public enum EmailStatusOptions
+        {
+            Subscribed = 1,
+            Unsubscribed = 2,
+            Bounced = 3,
+            Registering = 4,
+            NoMarketing = 5
+        }
+
+        public enum SmsStatusOptions
+        {
+            Subscribed = 1,
+            Unsubscribed = 2,
+            Failed = 3,
+            NoMarketing = 4,
+        }
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -26,15 +43,16 @@ namespace Ivvy.Contact
         public string Phone { get; set; }
 
         [JsonProperty("createdDate")]
-        public string CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
+
         [JsonProperty("modifiedDate")]
-        public string ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
         [JsonProperty("status")]
-        public EmailStatus EmailStatus { get; set; }
+        public EmailStatusOptions EmailStatus { get; set; }
 
         [JsonProperty("smsStatus")]
-        public SmsStatus SmsStatus { get; set; }
+        public SmsStatusOptions SmsStatus { get; set; }
 
         [JsonProperty("customFields")]
         public List<CustomField> customFields { get; set; }
@@ -43,10 +61,13 @@ namespace Ivvy.Contact
         public List<SubscriptionGroup> groups { get; set; }
     }
 
+    /// <summary>
+    /// A contact's custom field value.
+    /// </summary>
     public class CustomField : ISerializable
     {
         [JsonProperty("fieldId")]
-        public string FieldId { get; set; }
+        public int FieldId { get; set; }
 
         [JsonProperty("displayName")]
         public string DisplayName { get; set; }
@@ -55,6 +76,9 @@ namespace Ivvy.Contact
         public object Value { get; set; }
     }
 
+    /// <summary>
+    /// A contact's subscription group.
+    /// </summary>
     public class SubscriptionGroup : ISerializable
     {
         [JsonProperty("groupId")]
@@ -63,5 +87,4 @@ namespace Ivvy.Contact
         [JsonProperty("groupName")]
         public string GroupName { get; set; }
     }
-
 }

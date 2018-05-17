@@ -1,10 +1,22 @@
 ﻿using Ivvy.Json;
 using Newtonsoft.Json;
+using System;
 
-namespace Ivvy.EventRegistration
+namespace Ivvy.Event
 {
-    public class EventRegistration : ISerializable
+    public class Registration : ISerializable
     {
+        public enum StatusOptions
+        {
+            InProgress = 1,
+            Completed = 2,
+            Cancelled = 3,
+            Payment = 4,
+            Deleted = 5,
+            Checkout = 6,
+            Incomplete = 7
+        }
+
         [JsonProperty("id")]
         public int Id { get; set; }
 
@@ -12,7 +24,7 @@ namespace Ivvy.EventRegistration
         public int EventId { get; set; }
 
         [JsonProperty("currentStatus")]
-        public int CurrentStatus { get; set; }
+        public StatusOptions CurrentStatus { get; set; }
 
         [JsonProperty("isExhibitor")]
         public bool IsExhibitor { get; set; }
@@ -27,9 +39,9 @@ namespace Ivvy.EventRegistration
         public string Phone { get; set; }
 
         [JsonProperty("modifiedDate")]
-        public string ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
         [JsonProperty("completedDate")]
-        public string CompletedDate { get; set; }
+        public DateTime CompletedDate { get; set; }
     }
 }

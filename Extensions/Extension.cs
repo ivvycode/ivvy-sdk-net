@@ -31,41 +31,44 @@ namespace Ivvy.Extensions
             string eventSetupVerifyUrl,
             string eventSetupConfigureUrl,
             string venueSetupVerifyUrl,
-            string venueSetupConfiguUrl)
+            string venueSetupConfigureUrl)
+        {
+            InitializeExtension(
+                setupVerifyUrl,
+                setupConfigureUrl,
+                eventSetupVerifyUrl,
+                eventSetupConfigureUrl,
+                venueSetupVerifyUrl,
+                VenueSetupConfigureUrl);
+        }
+
+        /// <summary>
+        /// Initializes the extension object with values required to call the extension endpoints.
+        /// </summary>
+        public void InitializeExtension(
+            string setupVerifyUrl,
+            string setupConfigureUrl,
+            string eventSetupVerifyUrl,
+            string eventSetupConfigureUrl,
+            string venueSetupVerifyUrl,
+            string venueSetupConfigureUrl)
         {
             SetupVerifyUrl = setupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
             SetupConfigureUrl = setupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
             EventSetupVerifyUrl = eventSetupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
             EventSetupConfigureUrl = eventSetupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
             VenueSetupVerifyUrl = venueSetupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
-            VenueSetupConfigureUrl = venueSetupConfiguUrl.TrimEnd(new char[] { '/', ' ' });
-        }
-
-        public void InitializeExtension(string setupVerifyUrl
-            , string setupConfigureUrl
-            , string eventSetupVerifyUrl
-            , string eventSetupConfigureUrl
-            , string venueSetupVerifyUrl
-            , string venueSetupConfiguUrl)
-        {
-            SetupVerifyUrl = setupVerifyUrl.TrimEnd('/', ' ');
-            SetupConfigureUrl = setupConfigureUrl.TrimEnd('/', ' ');
-            EventSetupVerifyUrl = eventSetupVerifyUrl.TrimEnd('/', ' ');
-            EventSetupConfigureUrl = eventSetupConfigureUrl.TrimEnd('/', ' ');
-            VenueSetupVerifyUrl = venueSetupVerifyUrl.TrimEnd('/', ' ');
-            VenueSetupConfigureUrl = venueSetupConfiguUrl.TrimEnd('/', ' ');
+            VenueSetupConfigureUrl = venueSetupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
         }
 
         /// <summary>
         /// Verifies an iVvy client's request to add the extension to their account.
         /// </summary>
-        public async Task<ResultOrError<VerifySetupResponse>> VerifySetupAsync(
-                string accountId, string setupKey)
+        public async Task<ResultOrError<VerifySetupResponse>> VerifySetupAsync(string accountId, string setupKey)
         {
-            var dataMap = new Dictionary<string, string>
-            {
-                {"accountId", accountId},
-                { "setupKey", setupKey}
+            var dataMap = new Dictionary<string, string> {
+                { "accountId", accountId },
+                { "setupKey", setupKey }
             };
             return await this.CallAsync<VerifySetupResponse>(SetupVerifyUrl, dataMap);
         }
@@ -73,13 +76,11 @@ namespace Ivvy.Extensions
         /// <summary>
         /// This method is used by an extension to inform iVvy that it has been configured.
         /// </summary>
-        public async Task<ResultOrError<VerifyConfigureResponse>> ConfigureAsync(
-                string accountId, string setupKey)
+        public async Task<ResultOrError<VerifyConfigureResponse>> ConfigureAsync(string accountId, string setupKey)
         {
-            var dataMap = new Dictionary<string, string>
-            {
-                {"accountId", accountId},
-                { "setupKey", setupKey}
+            var dataMap = new Dictionary<string, string> {
+                { "accountId", accountId },
+                { "setupKey", setupKey }
             };
             return await this.CallAsync<VerifyConfigureResponse>(SetupConfigureUrl, dataMap);
         }
@@ -90,11 +91,10 @@ namespace Ivvy.Extensions
         public async Task<ResultOrError<EventVerifySetupResponse>> EventVerifySetupAsync(
                 string accountId, string eventId, string setupKey)
         {
-            var dataMap = new Dictionary<string, string>
-            {
-                {"accountId", accountId},
-                {"eventId", eventId},
-                {"setupKey", setupKey}
+            var dataMap = new Dictionary<string, string> {
+                { "accountId", accountId },
+                { "eventId", eventId },
+                { "setupKey", setupKey }
             };
             return await this.CallAsync<EventVerifySetupResponse>(EventSetupVerifyUrl, dataMap);
         }
@@ -105,11 +105,10 @@ namespace Ivvy.Extensions
         public async Task<ResultOrError<VerifyConfigureResponse>> EventConfigureAsync(
                 string accountId, string eventId, string setupKey)
         {
-            var dataMap = new Dictionary<string, string>
-            {
-                {"accountId", accountId},
-                {"eventId", eventId},
-                {"setupKey", setupKey}
+            var dataMap = new Dictionary<string, string> {
+                { "accountId", accountId },
+                { "eventId", eventId },
+                { "setupKey", setupKey }
             };
             return await this.CallAsync<VerifyConfigureResponse>(EventSetupConfigureUrl, dataMap);
         }
@@ -120,11 +119,10 @@ namespace Ivvy.Extensions
         public async Task<ResultOrError<VenueVerifySetupResponse>> VenueVerifySetupAsync(
                 string accountId, string venueId, string setupKey)
         {
-            var dataMap = new Dictionary<string, string>
-            {
-                {"accountId", accountId},
-                {"venueId", venueId},
-                {"setupKey", setupKey}
+            var dataMap = new Dictionary<string, string> {
+                { "accountId", accountId },
+                { "venueId", venueId },
+                { "setupKey", setupKey }
             };
             return await this.CallAsync<VenueVerifySetupResponse>(VenueSetupVerifyUrl, dataMap);
         }
@@ -135,11 +133,10 @@ namespace Ivvy.Extensions
         public async Task<ResultOrError<VerifyConfigureResponse>> VenueConfigureAsync(
                 string accountId, string venueId, string setupKey)
         {
-            var dataMap = new Dictionary<string, string>
-            {
-                {"accountId", accountId},
-                {"venueId", venueId},
-                {"setupKey", setupKey}
+            var dataMap = new Dictionary<string, string> {
+                { "accountId", accountId },
+                { "venueId", venueId },
+                { "setupKey", setupKey }
             };
             return await this.CallAsync<VerifyConfigureResponse>(VenueSetupConfigureUrl, dataMap);
         }

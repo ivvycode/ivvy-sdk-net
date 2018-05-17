@@ -8,8 +8,7 @@ namespace Ivvy
         /// <summary>
         /// Returns a specific contact.
         /// </summary>
-        public async Task<ResultOrError<Contact.Contact>> GetContactAsync(
-            int id)
+        public async Task<ResultOrError<Contact.Contact>> GetContactAsync(int id)
         {
             return await this.CallAsync<Contact.Contact>(
                 "contact", "getContact", new { id = id }
@@ -20,19 +19,13 @@ namespace Ivvy
         /// Returns a collection of contacts.
         /// </summary>
         public async Task<ResultOrError<ResultList<Contact.Contact>>> GetContactListAsync(
-            int perPage, int start)
-        {
-            return await this.CallAsync<ResultList<Contact.Contact>>(
-                "contact", "getContactList", new { perPage = perPage, start = start }
-            );
-        }
-
-        public async Task<ResultOrError<ResultList<Contact.Contact>>> GetContactListAsync(int perPage, int start,
+            int perPage,
+            int start,
             Dictionary<string, string> filterRequest)
         {
             return await this.CallAsync<ResultList<Contact.Contact>>(
-                "contact", "getContactList", new
-                {
+                "contact", "getContactList",
+                new {
                     perPage = perPage,
                     start = start,
                     filter = filterRequest
@@ -43,14 +36,16 @@ namespace Ivvy
         /// <summary>
         /// Adds or updates a contact.
         /// </summary>
-        public async Task<ResultOrError<Contact.ContactResult>> AddOrUpdateContactAsync(
-            Contact.Contact contact)
+        public async Task<ResultOrError<Contact.ContactResult>> AddOrUpdateContactAsync(Contact.Contact contact)
         {
             return await this.CallAsync<Contact.ContactResult>(
                 "contact", "addOrUpdateContact", contact
             );
         }
 
+        /// <summary>
+        /// Returns a specific company.
+        /// </summary>
         public async Task<ResultOrError<Contact.Company>> GetCompanyAsync(int id)
         {
             return await this.CallAsync<Contact.Company>(

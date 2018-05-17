@@ -1,7 +1,7 @@
 ﻿using Ivvy.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.API.Subscription
+namespace Ivvy.Account
 {
     public class SubscriptionGroup : ISerializable
     {

@@ -11,10 +11,6 @@ namespace Ivvy.Extensions.Setup
         [JsonProperty("success")]
         public bool Success { get; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SetupResponse"/> class.
-        /// </summary>
-        /// <param name="success">if set to <c>true</c> [success].</param>
         public SetupResponse(bool success)
         {
             Success = success;

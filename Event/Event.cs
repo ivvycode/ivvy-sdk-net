@@ -1,4 +1,3 @@
-using Ivvy.API.Helper;
 using Ivvy.Json;
 using Newtonsoft.Json;
 using System;
@@ -10,6 +9,26 @@ namespace Ivvy.Event
     /// </summary>
     public class Event : ISerializable
     {
+        public enum EventTypes {
+            Other = 0,
+            Party = 1,
+            Festival = 2,
+            GolfDay = 3,
+            Wedding = 4,
+            Meeting = 5,
+            Seminar = 6,
+            Conference = 7,
+            Exhibition = 8,
+            Roadshow = 9,
+            Simple = 10,
+            Party18or21 = 11,
+        }
+
+        public enum StatusTypes {
+            Draft = 0,
+            Closed = 1,
+            Launched = 3,
+        }
 
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -21,7 +40,7 @@ namespace Ivvy.Event
         public string Title { get; set; }
 
         [JsonProperty("eventType")]
-        public EnumHelper.EventTypes EventType { get; set; }
+        public EventTypes EventType { get; set; }
 
         [JsonProperty("capacity")]
         public int Capacity { get; set; }
@@ -30,7 +49,7 @@ namespace Ivvy.Event
         public int NumRegistered { get; set; }
 
         [JsonProperty("currentStatus")]
-        public EnumHelper.EventStatusTypes CurrentStatus { get; set; }
+        public StatusTypes CurrentStatus { get; set; }
 
         [JsonProperty("domainName")]
         public string DomainName { get; set; }
