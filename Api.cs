@@ -1,16 +1,18 @@
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Text;
-using Newtonsoft.Json;
+using Ivvy.Event;
 using Ivvy.Json.Converters;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Ivvy
 {
     /// <summary>
     /// The primary class used to call methods of the iVvy api.
     /// </summary>
-    public partial class Api
+    public partial class Api : IApi
     {
         /// <summary>
         /// The api version.
@@ -33,7 +35,7 @@ namespace Ivvy
         private string ApiSecret { get; set; }
 
         /// <summary>
-        /// Http client used to call the iVVy api.
+        /// Http client used to call the iVvy api.
         /// </summary>
         private static HttpClient httpClient = new HttpClient();
 
@@ -51,17 +53,11 @@ namespace Ivvy
         /// </summary>
         public Api(string apiKey, string apiSecret, string apiVersion, string baseUrl)
         {
-            if (apiVersion != "1.0") {
-                throw new ArgumentException("apiVersion is not a valid version number");
-            }
-            ApiKey = apiKey;
-            ApiSecret = apiSecret;
-            ApiVersion = apiVersion;
-            BaseUrl = baseUrl.TrimEnd(new char[] { '/', ' ' });
+            InitializeApi(apiKey, apiSecret, apiVersion, baseUrl);
         }
 
         /// <summary>
-        /// Calls a method of the iVVy api. Encapsulates the header and
+        /// Calls a method of the iVvy api. Encapsulates the header and
         /// signing requirements.
         /// </summary>
         protected async Task<ResultOrError<T>> CallAsync<T>(
@@ -99,6 +95,24 @@ namespace Ivvy
             string data = await httpResponse.Content.ReadAsStringAsync();
             ResultOrError<T> response = JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
             return response;
+        }
+
+        /// <summary>
+        /// Initializes the api object with values required to execute api actions.
+        /// </summary>
+        /// <param name="apiKey">The key required to call api methods.</param>
+        /// <param name="apiSecret">The secret required to call api methods.</param>
+        /// <param name="apiVersion">The api version.</param>
+        /// <param name="baseUrl">The base url of the api.</param>
+        public void InitializeApi(string apiKey, string apiSecret, string apiVersion, string baseUrl)
+        {
+            if (apiVersion != "1.0") {
+                throw new ArgumentException("apiVersion is not a valid version number");
+            }
+            ApiKey = apiKey;
+            ApiSecret = apiSecret;
+            ApiVersion = apiVersion;
+            BaseUrl = baseUrl.TrimEnd(new char[] { '/', ' ' });
         }
     }
 }

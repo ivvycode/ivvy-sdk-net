@@ -1,6 +1,6 @@
-using System;
-using Newtonsoft.Json;
 using Ivvy.Json;
+using Newtonsoft.Json;
+using System;
 
 namespace Ivvy.Event
 {

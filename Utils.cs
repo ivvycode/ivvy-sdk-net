@@ -1,5 +1,5 @@
-using System.Text;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Ivvy
 {
@@ -10,6 +10,18 @@ namespace Ivvy
     {
         private Utils()
         {
+        }
+
+        public enum FilterCondition
+        {
+            Contains​, // Return the results that contain the value.
+            Notcontains​, // Return the results that do not contain the value.
+            Begins​, // Return the results that start with the value.
+            Ends​, //Return the results that end with the value.
+            Lessthan​, //Return the results that are less than or equal to the value.
+            Greaterthan​, //Return the results that are greater than or equal to the
+            Not​, //Return the results that are not equal to the value.
+            Empty​ //Returns results that are empty
         }
 
         /// <summary>
@@ -49,6 +61,14 @@ namespace Ivvy
             HMACSHA1 hmacsha1 = new HMACSHA1(secretBytes);
             byte[] data = hmacsha1.ComputeHash(encoding.GetBytes(stringToSign));
             return BytesToString(data);
+        }
+
+        /// <summary>
+        /// Returns the string representation of filtering a property.
+        /// </summary>
+        public static string GetFilterCondition(string propertyName, FilterCondition filterCondition)
+        {
+            return $"{propertyName}__{filterCondition.ToString().ToUpperInvariant()}";
         }
     }
 }
