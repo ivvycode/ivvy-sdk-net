@@ -31,6 +31,9 @@ namespace Ivvy.Event
         [JsonProperty("email")]
         public string Email { get; set; }
 
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
         [JsonProperty("hasAttended")]
         public bool HasAttended { get; set; }
 

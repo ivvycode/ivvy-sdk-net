@@ -1,6 +1,5 @@
-using System;
-using Newtonsoft.Json;
 using Ivvy.Json;
+using Newtonsoft.Json;
 
 namespace Ivvy.Venue
 {

@@ -1,5 +1,4 @@
 ﻿using Ivvy.Common;
-using Ivvy.Json;
 using Newtonsoft.Json;
 
 namespace Ivvy.Contact

@@ -9,10 +9,7 @@ namespace Ivvy.Json.Converters
     /// </summary>
     public class ResponseConverter<T> : JsonConverter where T : new()
     {
-        public override bool CanRead
-        {
-            get { return true; }
-        }
+        public override bool CanRead => true;
 
         public override bool CanConvert(Type objectType)
         {
@@ -35,18 +32,22 @@ namespace Ivvy.Json.Converters
             serializer.DateParseHandling = DateParseHandling.DateTime;
 
             var resultOrError = new ResultOrError<T>();
-            if (reader.TokenType == JsonToken.StartObject) {
+            if (reader.TokenType == JsonToken.StartObject)
+            {
                 var jsonObject = JObject.Load(reader);
-                if (jsonObject["errorCode"] == null) {
+                if (jsonObject["errorCode"] == null)
+                {
                     T result = new T();
                     serializer.Populate(jsonObject.CreateReader(), result);
                     resultOrError.Result = result;
                 }
-                else {
+                else
+                {
                     serializer.Populate(jsonObject.CreateReader(), resultOrError);
                 }
             }
-            else {
+            else
+            {
                 var jsonArray = JArray.Load(reader);
                 T result = new T();
                 serializer.Populate(jsonArray.CreateReader(), result);
