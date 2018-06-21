@@ -71,5 +71,8 @@ namespace Ivvy.Event
 
         [JsonProperty("websiteUrl")]
         public string WebsiteUrl { get; set; }
+
+        [JsonProperty("modifiedDate")]
+        public DateTime ModifiedDate { get; set; }
     }
 }
