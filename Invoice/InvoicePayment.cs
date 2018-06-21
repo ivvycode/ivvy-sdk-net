@@ -19,7 +19,7 @@ namespace Ivvy.Invoice
             Eftpos = 9,
             WriteOff = 10,
             Pos = 11,
-            WireTransfer = 12,
+            WireTransfer = 12
         }
 
         [JsonProperty("paymentId")]

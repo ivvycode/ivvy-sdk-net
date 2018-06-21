@@ -29,12 +29,12 @@ namespace Ivvy
         /// <summary>
         /// Returns a collection of emails in an account.
         /// </summary>
-        public async Task<ResultOrError<ResultList<Account.EmailLog>>> GetEmailLogList(
+        public async Task<ResultOrError<ResultList<EmailLog>>> GetEmailLogList(
             int perPage,
             int start,
             Dictionary<string, string> filterRequest)
         {
-            return await CallAsync<ResultList<Account.EmailLog>>(
+            return await CallAsync<ResultList<EmailLog>>(
                 "account", "getEmailLogList", new {
                     perPage,
                     start,

@@ -25,7 +25,7 @@ namespace Ivvy
                 "invoice", "getInvoiceList", new {
                     perPage = perPage,
                     start = start,
-                    filter = filterRequest,
+                    filter = filterRequest
                 }
             );
         }

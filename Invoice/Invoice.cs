@@ -1,7 +1,6 @@
 ﻿using Ivvy.Common;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Ivvy.Invoice
 {
