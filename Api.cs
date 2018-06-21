@@ -63,8 +63,7 @@ namespace Ivvy
         /// <param name="baseUrl">The base url of the api.</param>
         public void InitializeApi(string apiKey, string apiSecret, string apiVersion, string baseUrl)
         {
-            if (apiVersion != "1.0")
-            {
+            if (apiVersion != "1.0") {
                 throw new ArgumentException("apiVersion is not a valid version number");
             }
             ApiKey = apiKey;

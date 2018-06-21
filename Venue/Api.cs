@@ -48,8 +48,7 @@ namespace Ivvy
         public async Task<ResultOrError<Venue.Booking>> GetVenueBookingAsync(int venueId, int id)
         {
             return await this.CallAsync<Venue.Booking>(
-                "venue", "getBooking", new
-                {
+                "venue", "getBooking", new {
                     venueId = venueId,
                     id = id
                 }
@@ -66,8 +65,7 @@ namespace Ivvy
             Dictionary<string, string> filterRequest)
         {
             return await this.CallAsync<ResultList<Venue.Booking>>(
-                "venue", "getBookingList", new
-                {
+                "venue", "getBookingList", new {
                     venueId = venueId,
                     perPage = perPage,
                     start = start,

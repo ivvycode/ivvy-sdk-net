@@ -46,8 +46,8 @@ namespace Ivvy
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListAsync(int venueId, int perPage, int start,
-            Dictionary<string, string> filterRequest);
+        Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListAsync(
+            int venueId, int perPage, int start, Dictionary<string, string> filterRequest);
 
         /// <summary>
         /// Returns a collection of venue bookings in an iVvy account.
@@ -56,7 +56,7 @@ namespace Ivvy
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListForAccountAsync(int perPage, int start,
-            Dictionary<string, string> filterRequest);
+        Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListForAccountAsync(
+            int perPage, int start, Dictionary<string, string> filterRequest);
     }
 }

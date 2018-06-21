@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Ivvy
@@ -19,7 +19,7 @@ namespace Ivvy
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Invoice.Invoice>>> GetInvoiceListAsync(int perPage, int start,
-            Dictionary<string, string> filterRequest);
+        Task<ResultOrError<ResultList<Invoice.Invoice>>> GetInvoiceListAsync(
+            int perPage, int start, Dictionary<string, string> filterRequest);
     }
 }

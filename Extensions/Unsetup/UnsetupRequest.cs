@@ -16,12 +16,5 @@ namespace Ivvy.Extensions.Unsetup
 
         [JsonProperty("setupKey")]
         public string SetupKey { get; set; }
-
-        /// <summary>
-        /// The url to use to inform iVvy the extension has been configured in the event or venue.
-        /// </summary>
-        /// <value>The type of the reference.</value>
-        [JsonProperty("refType")]
-        public string RefType { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Ivvy.Common;
+using Ivvy.Common;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 

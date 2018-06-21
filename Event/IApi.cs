@@ -8,7 +8,7 @@ namespace Ivvy
         /// <summary>
         /// Returns a specific event.
         /// </summary>
-        /// <param name="id">The identifier.</param>
+        /// <param name="id">The unique id of the event..</param>
         /// <returns></returns>
         Task<ResultOrError<Event.Event>> GetEventAsync(int id);
 
@@ -31,18 +31,18 @@ namespace Ivvy
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Event.Attendee>>> GetEventAttendeeListAsync(int eventId, int perPage, int start,
-            Dictionary<string, string> filterRequest = null);
+        Task<ResultOrError<ResultList<Event.Attendee>>> GetEventAttendeeListAsync(
+            int eventId, int perPage, int start, Dictionary<string, string> filterRequest = null);
 
         /// <summary>
-        /// Gets the attendee list for account asynchronous.
+        /// Returns a collection of event attendees across many events in the account.
         /// </summary>
         /// <param name="perPage">The per page records.</param>
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Event.Attendee>>> GetAttendeeListForAccountAsync(int perPage, int start,
-            Dictionary<string, string> filterRequest = null);
+        Task<ResultOrError<ResultList<Event.Attendee>>> GetAttendeeListForAccountAsync(
+            int perPage, int start, Dictionary<string, string> filterRequest = null);
 
         /// <summary>
         /// Returns a collection of event registrations.
@@ -52,17 +52,17 @@ namespace Ivvy
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Event.Registration>>> GetEventRegistrationListAsync(int eventId, int perPage,
-            int start, Dictionary<string, string> filterRequest = null);
+        Task<ResultOrError<ResultList<Event.Registration>>> GetEventRegistrationListAsync(
+            int eventId, int perPage, int start, Dictionary<string, string> filterRequest = null);
 
         /// <summary>
-        /// Gets the registration list for account asynchronous.
+        /// Returns a collection of event registrations across many events in the account.
         /// </summary>
         /// <param name="perPage">The per page.</param>
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Event.Registration>>> GetRegistrationListForAccountAsync(int perPage, int start,
-            Dictionary<string, string> filterRequest = null);
+        Task<ResultOrError<ResultList<Event.Registration>>> GetRegistrationListForAccountAsync(
+            int perPage, int start, Dictionary<string, string> filterRequest = null);
     }
 }
