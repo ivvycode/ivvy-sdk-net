@@ -11,19 +11,19 @@ namespace Ivvy
         /// The error code on error.
         /// </summary>
         [JsonProperty("errorCode")]
-        public string ErrorCode = null;
+        public string ErrorCode;
 
         /// <summary>
         /// The specific error code on error.
         /// </summary>
         [JsonProperty("specificCode")]
-        public string ErrorCodeSpecific = null;
+        public string ErrorCodeSpecific;
 
         /// <summary>
         /// The error message on error.
         /// </summary>
         [JsonProperty("message")]
-        public string ErrorMessage = null;
+        public string ErrorMessage;
 
         /// <summary>
         /// The result of a successful api method call.
@@ -35,7 +35,7 @@ namespace Ivvy
         /// </summary>
         public bool IsSuccess()
         {
-            return (ErrorCode == null);
+            return ErrorCode == null;
         }
     }
 }

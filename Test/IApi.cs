@@ -8,6 +8,7 @@ namespace Ivvy
         /// <summary>
         /// Pings the iVvy api. Useful for testing.
         /// </summary>
+        /// <returns></returns>
         Task<ResultOrError<Pong>> PingAsync();
     }
 }

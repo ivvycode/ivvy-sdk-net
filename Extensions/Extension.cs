@@ -39,7 +39,7 @@ namespace Ivvy.Extensions
                 eventSetupVerifyUrl,
                 eventSetupConfigureUrl,
                 venueSetupVerifyUrl,
-                VenueSetupConfigureUrl);
+                venueSetupConfigureUrl);
         }
 
         /// <summary>
@@ -53,12 +53,12 @@ namespace Ivvy.Extensions
             string venueSetupVerifyUrl,
             string venueSetupConfigureUrl)
         {
-            SetupVerifyUrl = setupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
-            SetupConfigureUrl = setupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
-            EventSetupVerifyUrl = eventSetupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
-            EventSetupConfigureUrl = eventSetupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
-            VenueSetupVerifyUrl = venueSetupVerifyUrl.TrimEnd(new char[] { '/', ' ' });
-            VenueSetupConfigureUrl = venueSetupConfigureUrl.TrimEnd(new char[] { '/', ' ' });
+            SetupVerifyUrl = setupVerifyUrl.TrimEnd('/', ' ');
+            SetupConfigureUrl = setupConfigureUrl.TrimEnd('/', ' ');
+            EventSetupVerifyUrl = eventSetupVerifyUrl.TrimEnd('/', ' ');
+            EventSetupConfigureUrl = eventSetupConfigureUrl.TrimEnd('/', ' ');
+            VenueSetupVerifyUrl = venueSetupVerifyUrl.TrimEnd('/', ' ');
+            VenueSetupConfigureUrl = venueSetupConfigureUrl.TrimEnd('/', ' ');
         }
 
         /// <summary>

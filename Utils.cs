@@ -6,12 +6,8 @@ namespace Ivvy
     /// <summary>
     /// This class contains some utility methods.
     /// </summary>
-    public sealed class Utils
+    public static class Utils
     {
-        private Utils()
-        {
-        }
-
         public enum FilterCondition
         {
             Contains​, // Return the results that contain the value.
@@ -27,11 +23,13 @@ namespace Ivvy
         /// <summary>
         /// The format used for datetime values.
         /// </summary>
-        public readonly static string DateTimeFormat = "yyyy-MM-dd HH:mm:ss 'UTC'";
+        public static readonly string DateTimeFormat = "yyyy-MM-dd HH:mm:ss 'UTC'";
 
         /// <summary>
         /// Returns the MD5 hash of a string.
         /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         public static string GetMD5Hash(string input)
         {
             MD5 md5 = MD5.Create();
@@ -42,6 +40,8 @@ namespace Ivvy
         /// <summary>
         /// Converts an array of bytes to a string.
         /// </summary>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
         public static string BytesToString(byte[] data)
         {
             StringBuilder builder = new StringBuilder();
@@ -54,6 +54,9 @@ namespace Ivvy
         /// <summary>
         /// Returns a sha1 hash of a string.
         /// </summary>
+        /// <param name="stringToSign">The string to sign.</param>
+        /// <param name="secret">The secret.</param>
+        /// <returns></returns>
         public static string SignString(string stringToSign, string secret)
         {
             Encoding encoding = Encoding.UTF8;
@@ -66,6 +69,9 @@ namespace Ivvy
         /// <summary>
         /// Returns the string representation of filtering a property.
         /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <param name="filterCondition">The filter condition.</param>
+        /// <returns></returns>
         public static string GetFilterCondition(string propertyName, FilterCondition filterCondition)
         {
             return $"{propertyName}__{filterCondition.ToString().ToUpperInvariant()}";

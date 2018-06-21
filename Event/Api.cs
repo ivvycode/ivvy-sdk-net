@@ -63,6 +63,23 @@ namespace Ivvy
         }
 
         /// <summary>
+        /// Returns a collection of event attendees across many events in the account.
+        /// </summary>
+        public async Task<ResultOrError<ResultList<Event.Attendee>>> GetAttendeeListForAccountAsync(
+            int perPage,
+            int start,
+            Dictionary<string, string> filterRequest = null)
+        {
+            return await this.CallAsync<ResultList<Event.Attendee>>(
+                "event", "getAttendeeListForAccount", new {
+                    perPage = perPage,
+                    start = start,
+                    filter = filterRequest
+                }
+            );
+        }
+
+        /// <summary>
         /// Returns a collection of event registrations.
         /// </summary>
         public async Task<ResultOrError<ResultList<Event.Registration>>> GetEventRegistrationListAsync(
@@ -79,6 +96,22 @@ namespace Ivvy
                     filter = filterRequest
                 }
             );
+        }
+
+        /// <summary>
+        /// Returns a collection of event registrations across many events in the account.
+        /// </summary>
+        public async Task<ResultOrError<ResultList<Event.Registration>>> GetRegistrationListForAccountAsync(
+            int perPage,
+            int start,
+            Dictionary<string, string> filterRequest = null)
+        {
+            return await CallAsync<ResultList<Event.Registration>>(
+                "event", "getRegistrationListForAccount", new {
+                    perPage,
+                    start,
+                    filter = filterRequest
+                });
         }
     }
 }

@@ -37,6 +37,6 @@ namespace Ivvy.Account
         public object SelectValues { get; set; }
 
         [JsonProperty("fileTypes")]
-        public string FileTypes { get; set; }
+        public string[] FileTypes { get; set; }
     }
 }

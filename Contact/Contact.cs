@@ -24,7 +24,7 @@ namespace Ivvy.Contact
             Subscribed = 1,
             Unsubscribed = 2,
             Failed = 3,
-            NoMarketing = 4,
+            NoMarketing = 4
         }
 
         [JsonProperty("id")]
@@ -55,10 +55,10 @@ namespace Ivvy.Contact
         public SmsStatusOptions SmsStatus { get; set; }
 
         [JsonProperty("customFields")]
-        public List<CustomField> customFields { get; set; }
+        public List<CustomField> CustomFields { get; set; }
 
         [JsonProperty("groups")]
-        public List<SubscriptionGroup> groups { get; set; }
+        public List<SubscriptionGroup> Groups { get; set; }
     }
 
     /// <summary>

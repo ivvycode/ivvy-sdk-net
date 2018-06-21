@@ -35,6 +35,9 @@ namespace Ivvy.Event
         [JsonProperty("lastName")]
         public string LastName { get; set; }
 
+        [JsonProperty("eventName")]
+        public string EventName { get; set; }
+
         [JsonProperty("phone")]
         public string Phone { get; set; }
 
@@ -42,6 +45,15 @@ namespace Ivvy.Event
         public DateTime ModifiedDate { get; set; }
 
         [JsonProperty("completedDate")]
-        public DateTime CompletedDate { get; set; }
+        public DateTime? CompletedDate { get; set; }
+
+        [JsonProperty("mainContactId")]
+        public int MainContactId { get; set; }
+
+        [JsonProperty("invoiceTotalCost")]
+        public double InvoiceTotalCost { get; set; }
+
+        [JsonProperty("invoiceTotalPaid")]
+        public double InvoiceTotalPaid { get; set; }
     }
 }

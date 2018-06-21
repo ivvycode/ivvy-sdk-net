@@ -9,10 +9,7 @@ namespace Ivvy.Json.Converters
     /// </summary>
     public class ResponseConverter<T> : JsonConverter where T : new()
     {
-        public override bool CanRead
-        {
-            get { return true; }
-        }
+        public override bool CanRead => true;
 
         public override bool CanConvert(Type objectType)
         {
