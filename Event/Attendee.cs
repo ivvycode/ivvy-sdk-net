@@ -17,7 +17,7 @@ namespace Ivvy.Event
         public Registration.StatusOptions RegistrationStatus { get; set; }
 
         [JsonProperty("contactId")]
-        public int ContactId { get; set; }
+        public int? ContactId { get; set; }
 
         [JsonProperty("ticketTitle")]
         public string TicketTitle { get; set; }
