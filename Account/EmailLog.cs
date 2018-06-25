@@ -127,7 +127,7 @@ namespace Ivvy.Account
         public EmailTypes EmailType { get; set; }
 
         [JsonProperty("refId")]
-        public int RefId { get; set; }
+        public int? RefId { get; set; }
 
         [JsonProperty("from")]
         public string FromAddress { get; set; }

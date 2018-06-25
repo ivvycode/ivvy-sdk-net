@@ -15,22 +15,22 @@ namespace Ivvy
         /// <summary>
         /// The api version.
         /// </summary>
-        public string ApiVersion { get; private set; }
+        public string ApiVersion { get; set; }
 
         /// <summary>
         /// The base url of the api.
         /// </summary>
-        public string BaseUrl { get; private set; }
+        public string BaseUrl { get; set; }
 
         /// <summary>
         /// The key required to call api methods.
         /// </summary>
-        private string ApiKey { get; set; }
+        public string ApiKey { get; set; }
 
         /// <summary>
         /// The secret required to call api methods.
         /// </summary>
-        private string ApiSecret { get; set; }
+        public string ApiSecret { get; set; }
 
         /// <summary>
         /// Http client used to call the iVvy api.
@@ -38,38 +38,11 @@ namespace Ivvy
         private static HttpClient httpClient = new HttpClient();
 
         /// <summary>
-        /// Constructs a new api object with default values to call methods
-        /// on the production iVvy api.
+        /// Constructs a new api object with default values to call methods on the production iVvy api.
+        /// /// Empty constructor to resolve the dependency.
         /// </summary>
-        public Api(string apiKey, string apiSecret) : this(apiKey, apiSecret, "1.0", "https://api.ivvy.com")
+        public Api()
         {
-        }
-
-        /// <summary>
-        /// Constructs a new api object with specific values to call methods
-        /// on a specific iVvy api environment.
-        /// </summary>
-        public Api(string apiKey, string apiSecret, string apiVersion, string baseUrl)
-        {
-            InitializeApi(apiKey, apiSecret, apiVersion, baseUrl);
-        }
-
-        /// <summary>
-        /// Initializes the api object with values required to execute api actions.
-        /// </summary>
-        /// <param name="apiKey">The key required to call api methods.</param>
-        /// <param name="apiSecret">The secret required to call api methods.</param>
-        /// <param name="apiVersion">The api version.</param>
-        /// <param name="baseUrl">The base url of the api.</param>
-        public void InitializeApi(string apiKey, string apiSecret, string apiVersion, string baseUrl)
-        {
-            if (apiVersion != "1.0") {
-                throw new ArgumentException("apiVersion is not a valid version number");
-            }
-            ApiKey = apiKey;
-            ApiSecret = apiSecret;
-            ApiVersion = apiVersion;
-            BaseUrl = baseUrl.TrimEnd('/', ' ');
         }
 
         /// <summary>
@@ -80,11 +53,13 @@ namespace Ivvy
             string apiNamespace, string action, object requestData) where T : new()
         {
             string postData = "";
-            if (requestData != null) {
+            if (requestData != null)
+            {
                 postData = JsonConvert.SerializeObject(
                     requestData,
                     Formatting.None,
-                    new JsonSerializerSettings {
+                    new JsonSerializerSettings
+                    {
                         NullValueHandling = NullValueHandling.Ignore
                     }
                 );
