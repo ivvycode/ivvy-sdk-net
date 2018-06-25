@@ -1,14 +1,25 @@
-﻿namespace Ivvy
+namespace Ivvy
 {
     public partial interface IApi
     {
         /// <summary>
-        /// Initializes the api object with values required to execute api actions.
+        /// The api version.
         /// </summary>
-        /// <param name="apiKey">The key required to call api methods.</param>
-        /// <param name="apiSecret">The secret required to call api methods.</param>
-        /// <param name="apiVersion">The api version.</param>
-        /// <param name="baseUrl">The base url of the api.</param>
-        void InitializeApi(string apiKey, string apiSecret, string apiVersion, string baseUrl);
+        string ApiVersion { get; set; }
+
+        /// <summary>
+        /// The base url of the api.
+        /// </summary>
+        string BaseUrl { get; set; }
+
+        /// <summary>
+        /// The key required to call api methods.
+        /// </summary>
+        string ApiKey { get; set; }
+
+        /// <summary>
+        /// The secret required to call api methods.
+        /// </summary>
+        string ApiSecret { get; set; }
     }
 }

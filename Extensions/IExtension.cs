@@ -1,4 +1,4 @@
-﻿using Ivvy.Extensions.Configure;
+using Ivvy.Extensions.Configure;
 using Ivvy.Extensions.Setup;
 using System.Threading.Tasks;
 
@@ -6,22 +6,12 @@ namespace Ivvy.Extensions
 {
     public interface IExtension
     {
-        /// <summary>
-        /// Initializes the extension object with values required to call the extension endpoints.
-        /// </summary>
-        /// <param name="setupVerifyUrl">The setup verify URL.</param>
-        /// <param name="setupConfigureUrl">The setup configure URL.</param>
-        /// <param name="eventSetupVerifyUrl">The event setup verify URL.</param>
-        /// <param name="eventSetupConfigureUrl">The event setup configure URL.</param>
-        /// <param name="venueSetupVerifyUrl">The venue setup verify URL.</param>
-        /// <param name="venueSetupConfigureUrl">The venue setup configure URL.</param>
-        void InitializeExtension(
-            string setupVerifyUrl,
-            string setupConfigureUrl,
-            string eventSetupVerifyUrl,
-            string eventSetupConfigureUrl,
-            string venueSetupVerifyUrl,
-            string venueSetupConfigureUrl);
+        string SetupVerifyUrl { get; set; }
+        string SetupConfigureUrl { get; set; }
+        string EventSetupVerifyUrl { get; set; }
+        string EventSetupConfigureUrl { get; set; }
+        string VenueSetupVerifyUrl { get; set; }
+        string VenueSetupConfigureUrl { get; set; }
 
         /// <summary>
         /// Verifies an iVvy client's request to add the extension to their account.

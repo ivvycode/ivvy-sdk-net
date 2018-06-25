@@ -12,53 +12,17 @@ namespace Ivvy.Extensions
     /// </summary>
     public class Extension : IExtension
     {
-        public string SetupVerifyUrl { get; private set; }
-        public string SetupConfigureUrl { get; private set; }
-        public string EventSetupVerifyUrl { get; private set; }
-        public string EventSetupConfigureUrl { get; private set; }
-        public string VenueSetupVerifyUrl { get; private set; }
-        public string VenueSetupConfigureUrl { get; private set; }
+        public string SetupVerifyUrl { get; set; }
+        public string SetupConfigureUrl { get; set; }
+        public string EventSetupVerifyUrl { get; set; }
+        public string EventSetupConfigureUrl { get; set; }
+        public string VenueSetupVerifyUrl { get; set; }
+        public string VenueSetupConfigureUrl { get; set; }
 
         private static HttpClient httpClient = new HttpClient();
 
-        /// <summary>
-        /// Constructs a new object with specific values to call
-        /// extension endpoints on a specific environment.
-        /// </summary>
-        public Extension(
-            string setupVerifyUrl,
-            string setupConfigureUrl,
-            string eventSetupVerifyUrl,
-            string eventSetupConfigureUrl,
-            string venueSetupVerifyUrl,
-            string venueSetupConfigureUrl)
+        public Extension()
         {
-            InitializeExtension(
-                setupVerifyUrl,
-                setupConfigureUrl,
-                eventSetupVerifyUrl,
-                eventSetupConfigureUrl,
-                venueSetupVerifyUrl,
-                venueSetupConfigureUrl);
-        }
-
-        /// <summary>
-        /// Initializes the extension object with values required to call the extension endpoints.
-        /// </summary>
-        public void InitializeExtension(
-            string setupVerifyUrl,
-            string setupConfigureUrl,
-            string eventSetupVerifyUrl,
-            string eventSetupConfigureUrl,
-            string venueSetupVerifyUrl,
-            string venueSetupConfigureUrl)
-        {
-            SetupVerifyUrl = setupVerifyUrl.TrimEnd('/', ' ');
-            SetupConfigureUrl = setupConfigureUrl.TrimEnd('/', ' ');
-            EventSetupVerifyUrl = eventSetupVerifyUrl.TrimEnd('/', ' ');
-            EventSetupConfigureUrl = eventSetupConfigureUrl.TrimEnd('/', ' ');
-            VenueSetupVerifyUrl = venueSetupVerifyUrl.TrimEnd('/', ' ');
-            VenueSetupConfigureUrl = venueSetupConfigureUrl.TrimEnd('/', ' ');
         }
 
         /// <summary>
