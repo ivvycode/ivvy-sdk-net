@@ -21,13 +21,8 @@ namespace Ivvy.Extensions
 
         private static HttpClient httpClient = new HttpClient();
 
-        /// <summary>
-        /// Constructs a new object with specific values to call extension endpoints on a specific environment.
-        /// Empty constructor to resolve the dependency.
-        /// </summary>
         public Extension()
         {
-
         }
 
         /// <summary>

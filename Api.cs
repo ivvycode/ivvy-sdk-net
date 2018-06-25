@@ -37,12 +37,9 @@ namespace Ivvy
         /// </summary>
         private static HttpClient httpClient = new HttpClient();
 
-        /// <summary>
-        /// Constructs a new api object with default values to call methods on the production iVvy api.
-        /// /// Empty constructor to resolve the dependency.
-        /// </summary>
         public Api()
         {
+            ApiVersion = "1.0";
         }
 
         /// <summary>
@@ -52,14 +49,15 @@ namespace Ivvy
         protected async Task<ResultOrError<T>> CallAsync<T>(
             string apiNamespace, string action, object requestData) where T : new()
         {
+            if (ApiVersion != "1.0") {
+                throw new ArgumentException("ApiVersion is not a valid version number");
+            }
             string postData = "";
-            if (requestData != null)
-            {
+            if (requestData != null) {
                 postData = JsonConvert.SerializeObject(
                     requestData,
                     Formatting.None,
-                    new JsonSerializerSettings
-                    {
+                    new JsonSerializerSettings {
                         NullValueHandling = NullValueHandling.Ignore
                     }
                 );

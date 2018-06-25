@@ -1,4 +1,4 @@
-﻿using Ivvy.Extensions.Configure;
+using Ivvy.Extensions.Configure;
 using Ivvy.Extensions.Setup;
 using System.Threading.Tasks;
 

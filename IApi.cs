@@ -1,4 +1,4 @@
-﻿namespace Ivvy
+namespace Ivvy
 {
     public partial interface IApi
     {
