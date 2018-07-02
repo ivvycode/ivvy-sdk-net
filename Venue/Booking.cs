@@ -68,22 +68,22 @@ namespace Ivvy.Venue
         public bool IsAccommIncluded { get; set; }
 
         [JsonProperty("dateAccomStart")]
-        public DateTime DateAccomStart { get; set; }
+        public DateTime? DateAccomStart { get; set; }
 
         [JsonProperty("dateAccomEnd")]
-        public DateTime DateAccomEnd { get; set; }
+        public DateTime? DateAccomEnd { get; set; }
 
         [JsonProperty("hasPackages")]
         public bool HasPackages { get; set; }
 
         [JsonProperty("decisionDate")]
-        public DateTime DecisionDate { get; set; }
+        public DateTime? DecisionDate { get; set; }
 
         [JsonProperty("isBeoFinalised")]
         public bool IsBeoFinalised { get; set; }
 
         [JsonProperty("beoFinalisedDate")]
-        public DateTime BeoFinalisedDate { get; set; }
+        public DateTime? BeoFinalisedDate { get; set; }
 
         [JsonProperty("eventType")]
         public string EventType { get; set; }
