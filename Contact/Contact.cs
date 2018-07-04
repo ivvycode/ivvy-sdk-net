@@ -59,6 +59,9 @@ namespace Ivvy.Contact
 
         [JsonProperty("groups")]
         public List<SubscriptionGroup> Groups { get; set; }
+
+        [JsonProperty("externalId")]
+        public string ExternalId { get; set; }
     }
 
     /// <summary>
