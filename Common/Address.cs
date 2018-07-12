@@ -26,8 +26,14 @@ namespace Ivvy.Common
         [JsonProperty("stateCode")]
         public string StateCode { get; set; }
 
+        [JsonProperty("stateName")]
+        public string StateName { get; set; }
+
         [JsonProperty("countryCode")]
         public string CountryCode { get; set; }
+
+        [JsonProperty("countryName")]
+        public string CountryName { get; set; }
 
         [JsonProperty("postalCode")]
         public string PostalCode { get; set; }
