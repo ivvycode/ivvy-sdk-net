@@ -1,5 +1,6 @@
 ﻿using Ivvy.Json;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Ivvy.Account
 {
@@ -34,7 +35,7 @@ namespace Ivvy.Account
         public int SortOrder { get; set; }
 
         [JsonProperty("selectValues")]
-        public object SelectValues { get; set; }
+        public Dictionary<string, string> SelectValues { get; set; }
 
         [JsonProperty("fileTypes")]
         public string[] FileTypes { get; set; }
