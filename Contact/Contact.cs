@@ -60,6 +60,12 @@ namespace Ivvy.Contact
         [JsonProperty("groups")]
         public List<SubscriptionGroup> Groups { get; set; }
 
+        [JsonProperty("companiesData")]
+        public List<Company> CompaniesData { get; set; }
+
+        [JsonProperty("companies")]
+        public List<int> Companies { get; set; }
+
         [JsonProperty("externalId")]
         public string ExternalId { get; set; }
     }
