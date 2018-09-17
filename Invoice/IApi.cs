@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Ivvy.API;
-using Ivvy.API.Invoice;
 
 namespace Ivvy
 {
@@ -23,12 +21,5 @@ namespace Ivvy
         /// <returns></returns>
         Task<ResultOrError<ResultList<Invoice.Invoice>>> GetInvoiceListAsync(
             int perPage, int start, Dictionary<string, string> filterRequest);
-
-        /// <summary>
-        /// Returns a collection of invoices.
-        /// </summary>
-        /// <param name="invoicePayment">The invoice payment.</param>
-        /// <returns>result object</returns>
-        Task<ResultOrError<ResultObject>> AddInvoicePayment(PayInvoice invoicePayment);
     }
 }
