@@ -1,9 +1,11 @@
 using Ivvy.Json.Converters;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Converters;
 
 namespace Ivvy
 {
@@ -49,16 +51,20 @@ namespace Ivvy
         protected async Task<ResultOrError<T>> CallAsync<T>(
             string apiNamespace, string action, object requestData) where T : new()
         {
-            if (ApiVersion != "1.0") {
+            if (ApiVersion != "1.0")
+            {
                 throw new ArgumentException("ApiVersion is not a valid version number");
             }
             string postData = "";
-            if (requestData != null) {
+            if (requestData != null)
+            {
                 postData = JsonConvert.SerializeObject(
                     requestData,
                     Formatting.None,
-                    new JsonSerializerSettings {
-                        NullValueHandling = NullValueHandling.Ignore
+                    new JsonSerializerSettings
+                    {
+                        NullValueHandling = NullValueHandling.Ignore,
+                        Converters = new List<JsonConverter>(){ new IsoDateTimeConverter() {DateTimeFormat = Utils.DateTimeFormat}} 
                     }
                 );
             }
