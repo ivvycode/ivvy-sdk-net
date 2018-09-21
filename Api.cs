@@ -1,9 +1,11 @@
 using Ivvy.Json.Converters;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Converters;
 
 namespace Ivvy
 {
@@ -58,7 +60,8 @@ namespace Ivvy
                     requestData,
                     Formatting.None,
                     new JsonSerializerSettings {
-                        NullValueHandling = NullValueHandling.Ignore
+                        NullValueHandling = NullValueHandling.Ignore,
+                        Converters = new List<JsonConverter>(){ new IsoDateTimeConverter() {DateTimeFormat = Utils.DateTimeFormat} }
                     }
                 );
             }
