@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace Ivvy.API
 {
-
     /// <summary>
-    /// This class is used to encapsulate the result object of an api call
+    /// This class is used to encapsulate the result of an api method call
+    /// that adds or updates a model object.
     /// </summary>
     /// <seealso cref="Ivvy.Json.ISerializable" />
     public class ResultObject : Ivvy.Json.ISerializable
@@ -19,19 +19,19 @@ namespace Ivvy.API
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or sets the message.
+        /// Gets or sets the error message (if success is false).
         /// </summary>
         /// <value>
-        /// The message.
+        /// The error message.
         /// </value>
         [JsonProperty("message")]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the unique id of the model object.
         /// </summary>
         /// <value>
-        /// The identifier.
+        /// The unique id of the model object.
         /// </value>
         [JsonProperty("id")]
         public int Id { get; set; }

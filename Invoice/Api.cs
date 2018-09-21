@@ -33,8 +33,9 @@ namespace Ivvy
         }
 
         /// <summary>
+        /// Adds a payment to an invoice.
         /// </summary>
-        public async Task<ResultOrError<ResultObject>> AddInvoicePayment(PayInvoice invoicePayment)
+        public async Task<ResultOrError<ResultObject>> AddInvoicePayment(AddPayment invoicePayment)
         {
             return await this.CallAsync<ResultObject>(
                 "invoice", "addPayment", invoicePayment

@@ -25,10 +25,10 @@ namespace Ivvy
             int perPage, int start, Dictionary<string, string> filterRequest);
 
         /// <summary>
-        /// Returns a collection of invoices.
+        /// Adds a payment to an invoice.
         /// </summary>
         /// <param name="invoicePayment">The invoice payment.</param>
-        /// <returns>result object</returns>
-        Task<ResultOrError<ResultObject>> AddInvoicePayment(PayInvoice invoicePayment);
+        /// <returns>The result object.</returns>
+        Task<ResultOrError<ResultObject>> AddInvoicePayment(AddPayment invoicePayment);
     }
 }

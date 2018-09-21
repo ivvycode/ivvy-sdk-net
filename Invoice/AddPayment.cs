@@ -5,22 +5,10 @@ using System;
 namespace Ivvy.API.Invoice
 {
     /// <summary>
-    /// Add Invoice Payment Object
+    /// Object that can be used to add a payment to an invoice.
     /// </summary>
-    public class PayInvoice
+    public class AddPayment
     {
-        /// <summary>
-        /// card types
-        /// </summary>
-        public enum CardTypes
-        {
-            Unknown = 0,
-            Visa = 1,
-            Master = 2,
-            Amex = 3,
-            Diners = 4
-        }
-
         [JsonProperty("invoiceId")]
         public int InvoiceId { get; set; }
 
@@ -43,7 +31,7 @@ namespace Ivvy.API.Invoice
         public string Notes { get; set; }
 
         [JsonProperty("cardType")]
-        public CardTypes CardType { get; set; }
+        public InvoicePayment.CardTypes CardType { get; set; }
 
         [JsonProperty("feePercentage")]
         public decimal? FeePercentage { get; set; }
@@ -62,9 +50,5 @@ namespace Ivvy.API.Invoice
 
         [JsonProperty("eftPaymentReference")]
         public string EftPaymentReference { get; set; }
-
-
     }
-
-
 }
