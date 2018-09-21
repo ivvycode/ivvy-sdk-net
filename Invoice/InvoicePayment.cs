@@ -22,6 +22,15 @@ namespace Ivvy.Invoice
             WireTransfer = 12
         }
 
+        public enum CardTypes
+        {
+            Unknown = 0,
+            Visa = 1,
+            Master = 2,
+            Amex = 3,
+            Diners = 4
+        }
+
         [JsonProperty("paymentId")]
         public string PaymentId { get; set; }
 
