@@ -7,6 +7,13 @@ namespace Ivvy
     public partial interface IApi
     {
         /// <summary>
+        /// Subscribes to account notifications.
+        /// </summary>
+        Task<ResultOrError<Account.NotificationsResult>> SubscribeToNotifications(
+            string eventsEndpoint,
+            string venuesEndpoint);
+
+        /// <summary>
         /// Returns the list of custom field definitions in an account.
         /// </summary>
         /// <returns></returns>

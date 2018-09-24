@@ -7,6 +7,21 @@ namespace Ivvy
     public partial class Api : IApi
     {
         /// <summary>
+        /// Subscribes to account notifications.
+        /// </summary>
+        public async Task<ResultOrError<NotificationsResult>> SubscribeToNotifications(
+            string eventsEndpoint,
+            string venuesEndpoint)
+        {
+            return await this.CallAsync<NotificationsResult>(
+                "account", "subscribeToNotifications", new {
+                    eventsEndpoint = eventsEndpoint,
+                    venuesEndpoint = venuesEndpoint
+                }
+            );
+        }
+
+        /// <summary>
         /// Returns the list of custom field definitions in an account.
         /// </summary>
         public async Task<ResultOrError<List<CustomField>>> GetCustomFieldDefinition()
@@ -36,8 +51,8 @@ namespace Ivvy
         {
             return await CallAsync<ResultList<EmailLog>>(
                 "account", "getEmailLogList", new {
-                    perPage,
-                    start,
+                    perPage = perPage,
+                    start = start,
                     filter = filterRequest
                 }
             );
