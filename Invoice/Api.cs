@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Ivvy.API;
-using Ivvy.API.Invoice;
 
 namespace Ivvy
 {
@@ -35,7 +33,7 @@ namespace Ivvy
         /// <summary>
         /// Adds a payment to an invoice.
         /// </summary>
-        public async Task<ResultOrError<ResultObject>> AddInvoicePayment(AddPayment invoicePayment)
+        public async Task<ResultOrError<ResultObject>> AddInvoicePayment(Invoice.AddPayment invoicePayment)
         {
             return await this.CallAsync<ResultObject>(
                 "invoice", "addPayment", invoicePayment
