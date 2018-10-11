@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -88,6 +89,90 @@ namespace Ivvy
                     perPage = perPage,
                     start = start,
                     filter = filterRequest
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomCounts(
+            int venueId,
+            int roomId,
+            string startDate,
+            string endDate,
+            int roomCount)
+        {
+            return await this.CallAsync<ResultSuccess>(
+                "venue", "addOrUpdateRoomCounts", new
+                {
+                    venueId = venueId,
+                    roomId = roomId,
+                    startDate = startDate,
+                    endDate = endDate,
+                    roomCount = roomCount
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomDynamicRates(
+            int venueId,
+            int ratePlanId,
+            int roomId,
+            string startDate,
+            string endDate,
+            double cost)
+        {
+            return await this.CallAsync<ResultSuccess>(
+                "venue", "addOrUpdateRoomDynamicRates", new
+                {
+                    venueId = venueId,
+                    barId = ratePlanId,
+                    roomId = roomId,
+                    startDate = startDate,
+                    endDate = endDate,
+                    cost = cost
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultSuccess>> RemoveVenueRoomDynamicRates(
+            int venueId,
+            int ratePlanId,
+            int roomId,
+            string startDate,
+            string endDate)
+        {
+            return await this.CallAsync<ResultSuccess>(
+                "venue", "removeRoomDynamicRates", new
+                {
+                    venueId = venueId,
+                    barId = ratePlanId,
+                    roomId = roomId,
+                    startDate = startDate,
+                    endDate = endDate
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRatePlanRules(
+            int venueId,
+            int ratePlanId,
+            int roomId,
+            string startDate,
+            string endDate,
+            Venue.RatePlan.CloseOutStatusOptions closeOutStatus)
+        {
+            return await this.CallAsync<ResultSuccess>(
+                "venue", "addOrUpdateRatePlanBookingRules", new
+                {
+                    venueId = venueId,
+                    barId = ratePlanId,
+                    roomId = roomId,
+                    startDate = startDate,
+                    endDate = endDate,
+                    closeOutStatus = closeOutStatus
                 }
             );
         }

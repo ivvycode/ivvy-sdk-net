@@ -8,6 +8,12 @@ namespace Ivvy.Venue
     /// </summary>
     public class RatePlan : ISerializable
     {
+        public enum CloseOutStatusOptions
+        {
+            Open = 1,
+            Closed = 2
+        }
+
         [JsonProperty("id")]
         public int Id { get; set; }
 
