@@ -23,6 +23,15 @@ namespace Ivvy
         Task<ResultOrError<ResultList<Venue.Room>>> GetVenueRoomListAsync(int venueId, int perPage, int start);
 
         /// <summary>
+        /// Returns a collection of venue accommodation rooms options.
+        /// </summary>
+        /// <param name="venueId">The venue identifier.</param>
+        /// <param name="perPage">The per page.</param>
+        /// <param name="start">The start.</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<Venue.RoomOption>>> GetVenueRoomOptionListAsync(int venueId, int perPage, int start);
+
+        /// <summary>
         /// Returns a collection of venue rate plans.
         /// </summary>
         /// <param name="venueId">The venue identifier.</param>
@@ -38,6 +47,30 @@ namespace Ivvy
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
         Task<ResultOrError<Venue.Booking>> GetVenueBookingAsync(int venueId, int id);
+
+        /// <summary>
+        /// Returns a collection of booking accommodation groups in an iVvy venue.
+        /// </summary>
+        /// <param name="venueId">The unique id of the venue to which the bookings belong</param>
+        /// <param name="perPage">The number of booking accomodation groups to fetch</param>
+        /// <param name="start">The starting result of the page. Note this is zero based (i.e. sending start=0 will start from the first result.)</param>
+        /// <param name="bookingId">The unique id of the booking to which the accommodation belongs</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<Venue.Bookings.Accommodation>>> GetVenueBookingAccommodationListAsync(
+            int venueId, int perPage, int start, int? bookingId, Dictionary<string, string> filterRequest
+        );
+
+        /// <summary>
+        /// Returns a collection of booking room reservations in an iVvy venue.
+        /// </summary>
+        /// <param name="venueId">The unique id of the venue to which the bookings belongs</param>
+        /// <param name="perPage">The number of booking room reservations to fetch</param>
+        /// <param name="start">The starting result of the page. Note this is zero based (i.e. sending start=0 will start from the first result.)</param>
+        /// <param name="bookingId">The unique id of the booking to which the room reservations belong</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<Venue.Bookings.RoomReservation>>> GetVenueBookingRoomReservationListAsync(
+            int venueId, int PerPage, int start, int? bookingId, Dictionary<string, string> filterRequest
+        );
 
         /// <summary>
         /// Returns a collection of venue bookings in an iVvy venue.

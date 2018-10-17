@@ -30,6 +30,17 @@ namespace Ivvy
             );
         }
 
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Venue.RoomOption>>> GetVenueRoomOptionListAsync(
+            int venueId,
+            int perPage,
+            int start)
+        {
+            return await this.CallAsync<ResultList<Venue.RoomOption>>(
+                "venue", "getVenueRoomOptionList", new { venueId = venueId, perPage = perPage, start = start }
+            );
+        }
+
         /// <summary>
         /// Returns a collection of venue rate plans.
         /// </summary>
@@ -52,6 +63,44 @@ namespace Ivvy
                 "venue", "getBooking", new {
                     venueId = venueId,
                     id = id
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Venue.Bookings.Accommodation>>> GetVenueBookingAccommodationListAsync(
+            int venueId,
+            int perPage,
+            int start, 
+            int? bookingId,
+            Dictionary<string, string> filterRequest)
+        {
+            return await this.CallAsync<ResultList<Venue.Bookings.Accommodation>>(
+                "venue", "getBookingAccommodationList", new {
+                    venueId = venueId,
+                    bookingId = bookingId,
+                    start = start,
+                    perPage = perPage,
+                    filter = filterRequest
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Venue.Bookings.RoomReservation>>> GetVenueBookingRoomReservationListAsync(
+            int venueId,
+            int perPage,
+            int start,
+            int? bookingId,
+            Dictionary<string, string> filterRequest)
+        {
+            return await this.CallAsync<ResultList<Venue.Bookings.RoomReservation>>(
+                "venue", "getBookingRoomReservationList", new {
+                    venueId = venueId,
+                    bookingId = bookingId,
+                    start = start,
+                    perPage = perPage,
+                    filter = filterRequest
                 }
             );
         }
