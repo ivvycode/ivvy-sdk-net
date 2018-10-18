@@ -73,7 +73,7 @@ namespace Ivvy
             int perPage,
             int start, 
             int? bookingId,
-            Dictionary<string, string> filterRequest)
+            Dictionary<string, object> filterRequest)
         {
             return await this.CallAsync<ResultList<Venue.Bookings.Accommodation>>(
                 "venue", "getBookingAccommodationList", new {
@@ -92,7 +92,7 @@ namespace Ivvy
             int perPage,
             int start,
             int? bookingId,
-            Dictionary<string, string> filterRequest)
+            Dictionary<string, object> filterRequest)
         {
             return await this.CallAsync<ResultList<Venue.Bookings.RoomReservation>>(
                 "venue", "getBookingRoomReservationList", new {
@@ -112,7 +112,7 @@ namespace Ivvy
             int venueId,
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest)
+            Dictionary<string, object> filterRequest)
         {
             return await this.CallAsync<ResultList<Venue.Booking>>(
                 "venue", "getBookingList", new {
@@ -130,7 +130,7 @@ namespace Ivvy
         public async Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListForAccountAsync(
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest)
+            Dictionary<string, object> filterRequest)
         {
             return await this.CallAsync<ResultList<Venue.Booking>>(
                 "venue", "getBookingListForAccount", new

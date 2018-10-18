@@ -35,6 +35,6 @@ namespace Ivvy
         Task<ResultOrError<ResultList<EmailLog>>> GetEmailLogList(
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest);
+            Dictionary<string, object> filterRequest);
     }
 }

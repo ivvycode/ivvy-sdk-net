@@ -21,7 +21,7 @@ namespace Ivvy
         public async Task<ResultOrError<ResultList<Contact.Contact>>> GetContactListAsync(
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest)
+            Dictionary<string, object> filterRequest)
         {
             return await this.CallAsync<ResultList<Contact.Contact>>(
                 "contact", "getContactList",

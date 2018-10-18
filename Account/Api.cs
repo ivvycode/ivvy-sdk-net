@@ -47,7 +47,7 @@ namespace Ivvy
         public async Task<ResultOrError<ResultList<EmailLog>>> GetEmailLogList(
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest)
+            Dictionary<string, object> filterRequest)
         {
             return await CallAsync<ResultList<EmailLog>>(
                 "account", "getEmailLogList", new {

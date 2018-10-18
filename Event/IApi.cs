@@ -21,7 +21,7 @@ namespace Ivvy
         /// <param name="options">The options.</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Event.Event>>> GetEventListAsync(int perPage, int start,
-            Dictionary<string, string> filterRequest = null, Event.GetEventListOptions options = null);
+            Dictionary<string, object> filterRequest = null, Event.GetEventListOptions options = null);
 
         /// <summary>
         /// Returns a collection of event attendees.
@@ -32,7 +32,7 @@ namespace Ivvy
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Event.Attendee>>> GetEventAttendeeListAsync(
-            int eventId, int perPage, int start, Dictionary<string, string> filterRequest = null);
+            int eventId, int perPage, int start, Dictionary<string, object> filterRequest = null);
 
         /// <summary>
         /// Returns a collection of event attendees across many events in the account.
@@ -42,7 +42,7 @@ namespace Ivvy
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Event.Attendee>>> GetAttendeeListForAccountAsync(
-            int perPage, int start, Dictionary<string, string> filterRequest = null);
+            int perPage, int start, Dictionary<string, object> filterRequest = null);
 
         /// <summary>
         /// Returns a collection of event registrations.
@@ -53,7 +53,7 @@ namespace Ivvy
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Event.Registration>>> GetEventRegistrationListAsync(
-            int eventId, int perPage, int start, Dictionary<string, string> filterRequest = null);
+            int eventId, int perPage, int start, Dictionary<string, object> filterRequest = null);
 
         /// <summary>
         /// Returns a collection of event registrations across many events in the account.
@@ -63,6 +63,6 @@ namespace Ivvy
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Event.Registration>>> GetRegistrationListForAccountAsync(
-            int perPage, int start, Dictionary<string, string> filterRequest = null);
+            int perPage, int start, Dictionary<string, object> filterRequest = null);
     }
 }

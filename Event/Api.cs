@@ -21,14 +21,14 @@ namespace Ivvy
         public async Task<ResultOrError<ResultList<Event.Event>>> GetEventListAsync(
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest = null,
+            Dictionary<string, object> filterRequest = null,
             Event.GetEventListOptions options = null)
         {
             if (options == null) {
                 options = new Event.GetEventListOptions();
             }
             if (filterRequest == null) {
-                filterRequest = new Dictionary<string, string>();
+                filterRequest = new Dictionary<string, object>();
             }
             return await this.CallAsync<ResultList<Event.Event>>(
                 "event", "getEventList", new {
@@ -50,7 +50,7 @@ namespace Ivvy
             int eventId,
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest = null)
+            Dictionary<string, object> filterRequest = null)
         {
             return await this.CallAsync<ResultList<Event.Attendee>>(
                 "event", "getAttendeeList", new {
@@ -68,7 +68,7 @@ namespace Ivvy
         public async Task<ResultOrError<ResultList<Event.Attendee>>> GetAttendeeListForAccountAsync(
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest = null)
+            Dictionary<string, object> filterRequest = null)
         {
             return await this.CallAsync<ResultList<Event.Attendee>>(
                 "event", "getAttendeeListForAccount", new {
@@ -86,7 +86,7 @@ namespace Ivvy
             int eventId,
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest = null)
+            Dictionary<string, object> filterRequest = null)
         {
             return await CallAsync<ResultList<Event.Registration>>(
                 "event", "getRegistrationList", new {
@@ -104,7 +104,7 @@ namespace Ivvy
         public async Task<ResultOrError<ResultList<Event.Registration>>> GetRegistrationListForAccountAsync(
             int perPage,
             int start,
-            Dictionary<string, string> filterRequest = null)
+            Dictionary<string, object> filterRequest = null)
         {
             return await CallAsync<ResultList<Event.Registration>>(
                 "event", "getRegistrationListForAccount", new {

@@ -57,7 +57,7 @@ namespace Ivvy
         /// <param name="bookingId">The unique id of the booking to which the accommodation belongs</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Venue.Bookings.Accommodation>>> GetVenueBookingAccommodationListAsync(
-            int venueId, int perPage, int start, int? bookingId, Dictionary<string, string> filterRequest
+            int venueId, int perPage, int start, int? bookingId, Dictionary<string, object> filterRequest
         );
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Ivvy
         /// <param name="bookingId">The unique id of the booking to which the room reservations belong</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Venue.Bookings.RoomReservation>>> GetVenueBookingRoomReservationListAsync(
-            int venueId, int PerPage, int start, int? bookingId, Dictionary<string, string> filterRequest
+            int venueId, int PerPage, int start, int? bookingId, Dictionary<string, object> filterRequest
         );
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Ivvy
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListAsync(
-            int venueId, int perPage, int start, Dictionary<string, string> filterRequest);
+            int venueId, int perPage, int start, Dictionary<string, object> filterRequest);
 
         /// <summary>
         /// Returns a collection of venue bookings in an iVvy account.
@@ -91,7 +91,7 @@ namespace Ivvy
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListForAccountAsync(
-            int perPage, int start, Dictionary<string, string> filterRequest);
+            int perPage, int start, Dictionary<string, object> filterRequest);
 
         /// <summary>
         /// Add or updates the dynamic inventory counts of a specific venue room.
