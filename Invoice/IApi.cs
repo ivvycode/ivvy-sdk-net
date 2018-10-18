@@ -20,7 +20,7 @@ namespace Ivvy
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Invoice.Invoice>>> GetInvoiceListAsync(
-            int perPage, int start, Dictionary<string, string> filterRequest);
+            int perPage, int start, Dictionary<string, object> filterRequest);
 
         /// <summary>
         /// Adds a payment to an invoice.

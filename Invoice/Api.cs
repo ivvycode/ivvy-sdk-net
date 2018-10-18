@@ -19,7 +19,7 @@ namespace Ivvy
         /// Returns a collection of invoices.
         /// </summary>
         public async Task<ResultOrError<ResultList<Invoice.Invoice>>> GetInvoiceListAsync(
-            int perPage, int start, Dictionary<string, string> filterRequest)
+            int perPage, int start, Dictionary<string, object> filterRequest)
         {
             return await this.CallAsync<ResultList<Invoice.Invoice>>(
                 "invoice", "getInvoiceList", new {
