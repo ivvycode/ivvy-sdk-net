@@ -1,3 +1,4 @@
+using Ivvy.Event;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -72,6 +73,53 @@ namespace Ivvy
         {
             return await this.CallAsync<ResultList<Event.Attendee>>(
                 "event", "getAttendeeListForAccount", new {
+                    perPage = perPage,
+                    start = start,
+                    filter = filterRequest
+                }
+            );
+        }
+
+        /// <summary>
+        /// Returns a collection of invited contact in the account.
+        /// </summary>
+        /// <param name="perPage">The per page.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        /// <returns></returns>
+        public async Task<ResultOrError<ResultList<InvitedContact>>> GetInvitedContactListForAccount(
+            int perPage, 
+            int start, 
+            Dictionary<string, object> filterRequest = null)
+        {
+            return await this.CallAsync<ResultList<InvitedContact>>(
+                "event", "getInvitedContactListForAccount", new
+                {
+                    perPage = perPage,
+                    start = start,
+                    filter = filterRequest
+                }
+            );
+        }
+
+        /// <summary>
+        /// Returns a collection of invited contact of the event.
+        /// </summary>
+        /// <param name="eventId">The event identifier.</param>
+        /// <param name="perPage">The per page.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        /// <returns></returns>
+        public async Task<ResultOrError<ResultList<InvitedContact>>> GetInvitedContactList(
+            int eventId, 
+            int perPage, 
+            int start, 
+            Dictionary<string, object> filterRequest = null)
+        {
+            return await this.CallAsync<ResultList<InvitedContact>>(
+                "event", "getInvitedContactList", new
+                {
+                    eventId = eventId,
                     perPage = perPage,
                     start = start,
                     filter = filterRequest

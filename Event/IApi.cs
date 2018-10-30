@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Ivvy.Event;
 
 namespace Ivvy
 {
@@ -45,6 +46,27 @@ namespace Ivvy
             int perPage, int start, Dictionary<string, object> filterRequest = null);
 
         /// <summary>
+        /// Gets the invited contact list for account.
+        /// </summary>
+        /// <param name="perPage">The per page.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<InvitedContact>>> GetInvitedContactListForAccount(
+            int perPage, int start, Dictionary<string, object> filterRequest = null);
+
+        /// <summary>
+        /// Gets the invited contact list.
+        /// </summary>
+        /// <param name="eventId">The event identifier.</param>
+        /// <param name="perPage">The per page.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<InvitedContact>>> GetInvitedContactList(
+            int eventId, int perPage, int start, Dictionary<string, object> filterRequest = null);
+
+        /// <summary>
         /// Returns a collection of event registrations.
         /// </summary>
         /// <param name="eventId">The event identifier.</param>
@@ -55,14 +77,7 @@ namespace Ivvy
         Task<ResultOrError<ResultList<Event.Registration>>> GetEventRegistrationListAsync(
             int eventId, int perPage, int start, Dictionary<string, object> filterRequest = null);
 
-        /// <summary>
-        /// Returns a collection of event registrations across many events in the account.
-        /// </summary>
-        /// <param name="perPage">The per page.</param>
-        /// <param name="start">The start.</param>
-        /// <param name="filterRequest">The filter request.</param>
-        /// <returns></returns>
-        Task<ResultOrError<ResultList<Event.Registration>>> GetRegistrationListForAccountAsync(
-            int perPage, int start, Dictionary<string, object> filterRequest = null);
+
+        
     }
 }
