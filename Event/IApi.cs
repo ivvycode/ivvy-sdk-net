@@ -78,6 +78,12 @@ namespace Ivvy
             int eventId, int perPage, int start, Dictionary<string, object> filterRequest = null);
 
 
-        
+        /// <param name="perPage">The per page.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<Event.Registration>>> GetRegistrationListForAccountAsync(
+            int perPage, int start, Dictionary<string, object> filterRequest = null);
+
     }
 }
