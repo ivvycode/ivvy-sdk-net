@@ -27,7 +27,7 @@ namespace Ivvy.Event
         public string Response { get; set; }
 
         [JsonProperty("registrationId")]
-        public int RegistrationId { get; set; }
+        public int? RegistrationId { get; set; }
 
         [JsonProperty("modifiedDate")]
         public DateTime ModifiedDate { get; set; }
