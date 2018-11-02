@@ -23,5 +23,11 @@ namespace Ivvy.Venue
 
         [JsonProperty("phone")]
         public string Phone { get; set; }
+
+        [JsonProperty("createdDate")]
+        public DateTime CreatedDate { get; set; }
+
+        [JsonProperty("modifiedDate")]
+        public DateTime ModifiedDate { get; set; }
     }
 }
