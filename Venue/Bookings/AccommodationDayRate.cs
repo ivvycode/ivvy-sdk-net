@@ -20,5 +20,8 @@ namespace Ivvy.Venue.Bookings
 
         [JsonProperty("numPayableByGuest")]
         public int NumPayableByGuest { get; set; }
+
+        [JsonProperty("numFreeRooms")]
+        public int NumFreeRooms { get; set; }
     }
 }

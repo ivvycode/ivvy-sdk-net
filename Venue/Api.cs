@@ -70,18 +70,12 @@ namespace Ivvy
         /// <inheritdoc />
         public async Task<ResultOrError<ResultList<Venue.Bookings.Accommodation>>> GetVenueBookingAccommodationListAsync(
             int venueId,
-            int perPage,
-            int start, 
-            int? bookingId,
-            Dictionary<string, object> filterRequest)
+            int bookingId)
         {
             return await this.CallAsync<ResultList<Venue.Bookings.Accommodation>>(
                 "venue", "getBookingAccommodationList", new {
                     venueId = venueId,
-                    bookingId = bookingId,
-                    start = start,
-                    perPage = perPage,
-                    filter = filterRequest
+                    bookingId = bookingId
                 }
             );
         }

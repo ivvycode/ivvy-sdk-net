@@ -52,12 +52,10 @@ namespace Ivvy
         /// Returns a collection of booking accommodation groups in an iVvy venue.
         /// </summary>
         /// <param name="venueId">The unique id of the venue to which the bookings belong</param>
-        /// <param name="perPage">The number of booking accomodation groups to fetch</param>
-        /// <param name="start">The starting result of the page. Note this is zero based (i.e. sending start=0 will start from the first result.)</param>
         /// <param name="bookingId">The unique id of the booking to which the accommodation belongs</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Venue.Bookings.Accommodation>>> GetVenueBookingAccommodationListAsync(
-            int venueId, int perPage, int start, int? bookingId, Dictionary<string, object> filterRequest
+            int venueId, int bookingId
         );
 
         /// <summary>
