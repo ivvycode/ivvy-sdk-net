@@ -99,6 +99,34 @@ namespace Ivvy
             );
         }
 
+        /// <inheritdoc />
+        public async Task<ResultOrError<Venue.Bookings.RoomReservation>> GetVenueBookingRoomReservationAsync(
+            int venueId,
+            int bookingId,
+            int reservationId)
+        {
+            var listResult = await this.GetVenueBookingRoomReservationListAsync(
+                venueId, 1, 0, bookingId, new Dictionary<string, object>() {
+                    { "id", reservationId }
+                }
+            );
+            var newResult = new ResultOrError<Venue.Bookings.RoomReservation>() {
+                ErrorCode = listResult.ErrorCode,
+                ErrorCodeSpecific = listResult.ErrorCodeSpecific,
+                ErrorMessage = listResult.ErrorMessage
+            };
+            if (listResult.IsSuccess()) {
+                if (listResult.Result.Meta.Count == 1) {
+                    newResult.Result = listResult.Result.Results[0];
+                }
+                else {
+                    newResult.ErrorCode = "000000";
+                    newResult.ErrorMessage = "The room reservation does not exist";
+                }
+            }
+            return newResult;
+        }
+
         /// <summary>
         /// Returns a collection of venue bookings in an iVvy venue.
         /// </summary>

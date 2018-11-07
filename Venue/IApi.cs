@@ -49,7 +49,7 @@ namespace Ivvy
         Task<ResultOrError<Venue.Booking>> GetVenueBookingAsync(int venueId, int id);
 
         /// <summary>
-        /// Returns a collection of booking accommodation groups in an iVvy venue.
+        /// Returns a collection of booking accommodation groups in an iVvy venue booking.
         /// </summary>
         /// <param name="venueId">The unique id of the venue to which the bookings belong</param>
         /// <param name="bookingId">The unique id of the booking to which the accommodation belongs</param>
@@ -68,6 +68,17 @@ namespace Ivvy
         /// <returns></returns>
         Task<ResultOrError<ResultList<Venue.Bookings.RoomReservation>>> GetVenueBookingRoomReservationListAsync(
             int venueId, int PerPage, int start, int? bookingId, Dictionary<string, object> filterRequest
+        );
+
+        /// <summary>
+        /// Returns a room reservation in an iVvy venue booking.
+        /// </summary>
+        /// <param name="venueId">The unique id of the venue to which the bookings belong</param>
+        /// <param name="bookingId">The unique id of the booking to which the room reservation belongs</param>
+        /// <param name="reservationId">The unique id of the room reservation</param>
+        /// <returns></returns>
+        Task<ResultOrError<Venue.Bookings.RoomReservation>> GetVenueBookingRoomReservationAsync(
+            int venueId, int bookingId, int reservationId
         );
 
         /// <summary>
