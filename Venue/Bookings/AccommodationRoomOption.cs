@@ -28,10 +28,10 @@ namespace Ivvy.Venue.Bookings
         public int[] ExcludedTaxIds { get; set; }
 
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public float? TotalAmount { get; set; }
 
         [JsonProperty("totalTaxAmount")]
-        public float TotalTaxAmount { get; set; }
+        public float? TotalTaxAmount { get; set; }
 
         [JsonProperty("costcenterId")]
         public int? CostCenterId { get; set; }

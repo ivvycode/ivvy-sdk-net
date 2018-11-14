@@ -59,6 +59,24 @@ namespace Ivvy
         );
 
         /// <summary>
+        /// Adds or updates venue booking accommodation.
+        /// <param name="group">Details of the venue booking accommodation</param>
+        /// </summary>
+        Task<ResultOrError<ResultObject>> AddOrUpdateVenueBookingAccommodation(
+            Venue.Bookings.Accommodation group
+        );
+
+        /// <summary>
+        /// Removes a specific accommodation group from a venue booking.
+        /// <param name="venueId">The unique id of the venue to which the booking belongs</param>
+        /// <param name="bookingId">The unique id of the booking to which the accommodation belongs</param>
+        /// <param name="id">The unique id of the accommodation group to remove from the booking</param>
+        /// </summary>
+        Task<ResultOrError<Venue.Bookings.RemoveBookingAccommodationResult>> RemoveVenueBookingAccommodation(
+            int venueId, int bookingId, int id
+        );
+
+        /// <summary>
         /// Returns a collection of booking room reservations in an iVvy venue.
         /// </summary>
         /// <param name="venueId">The unique id of the venue to which the bookings belongs</param>

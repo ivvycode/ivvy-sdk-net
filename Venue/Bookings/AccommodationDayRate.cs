@@ -7,7 +7,7 @@ namespace Ivvy.Venue.Bookings
     /// <summary>
     /// A daily rate for a group accommodation block on an iVvy venue booking.
     /// </summary>
-    public class AccommodationDayRates : ISerializable
+    public class AccommodationDayRate : ISerializable
     {
         [JsonProperty("bookingDate")]
         public string BookingDate { get; set; }
@@ -22,6 +22,6 @@ namespace Ivvy.Venue.Bookings
         public int NumPayableByGuest { get; set; }
 
         [JsonProperty("numFreeRooms")]
-        public int NumFreeRooms { get; set; }
+        public int? NumFreeRooms { get; set; }
     }
 }

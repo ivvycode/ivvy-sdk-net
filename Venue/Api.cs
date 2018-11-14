@@ -81,6 +81,50 @@ namespace Ivvy
         }
 
         /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateVenueBookingAccommodation(
+            Venue.Bookings.Accommodation group)
+        {
+            // Null out the group properties that cannot be added/updated.
+            group.CostCenterId = null;
+            group.CreatedDate = null;
+            group.ModifiedDate = null;
+            if (group.DayRates != null) {
+                foreach (var dayRate in group.DayRates) {
+                    if (dayRate != null) {
+                        dayRate.NumFreeRooms = null;
+                    }
+                }
+            }
+            if (group.RoomOptions != null) {
+                foreach (var roomOpt in group.RoomOptions) {
+                    if (roomOpt != null) {
+                        roomOpt.TotalAmount = null;
+                        roomOpt.TotalTaxAmount = null;
+                    }
+                }
+            }
+
+            return await this.CallAsync<ResultObject>(
+                "venue", "addOrUpdateBookingAccommodation", group
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<Venue.Bookings.RemoveBookingAccommodationResult>> RemoveVenueBookingAccommodation(
+            int venueId,
+            int bookingId,
+            int id)
+        {
+            return await this.CallAsync<Venue.Bookings.RemoveBookingAccommodationResult>(
+                "venue", "removeBookingAccommodation", new {
+                    venueId = venueId,
+                    bookingId = bookingId,
+                    id = id,
+                }
+            );
+        }
+
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<Venue.Bookings.RoomReservation>>> GetVenueBookingRoomReservationListAsync(
             int venueId,
             int perPage,
