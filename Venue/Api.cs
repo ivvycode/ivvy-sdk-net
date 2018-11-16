@@ -164,7 +164,7 @@ namespace Ivvy
                     newResult.Result = listResult.Result.Results[0];
                 }
                 else {
-                    newResult.ErrorCode = "000000";
+                    newResult.ErrorCode = LibErrorCode;
                     newResult.ErrorMessage = "The room reservation does not exist";
                 }
             }

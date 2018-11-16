@@ -39,6 +39,11 @@ namespace Ivvy
         /// </summary>
         private static HttpClient httpClient = new HttpClient();
 
+        /// <summary>
+        /// This error code is used to represent an error related to this library implementation.
+        /// </summary>
+        private static string LibErrorCode = "000";
+
         public Api()
         {
             ApiVersion = "1.0";
@@ -83,9 +88,28 @@ namespace Ivvy
             message.Content.Headers.Add("IVVY-Date", ivvyDate);
             message.Content.Headers.Add("X-Api-Authorization", "IWS " + ApiKey + ":" + signature);
 
-            HttpResponseMessage httpResponse = await httpClient.SendAsync(message);
-            string data = await httpResponse.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
+            try {
+                HttpResponseMessage httpResponse = await httpClient.SendAsync(message);
+                string data = await httpResponse.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
+                if (result == null) {
+                    return new ResultOrError<T>() {
+                        ErrorCode = LibErrorCode,
+                        ErrorCodeSpecific = "CallAsync",
+                        ErrorMessage = "Received invalid response.",
+                    };
+                }
+                else {
+                    return result;
+                }
+            }
+            catch (Exception ex) {
+                return new ResultOrError<T>() {
+                    ErrorCode = LibErrorCode,
+                    ErrorCodeSpecific = "CallAsync",
+                    ErrorMessage = ex.Message,
+                };
+            }
         }
     }
 }
