@@ -81,7 +81,7 @@ namespace Ivvy
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<ResultObject>> AddOrUpdateVenueBookingAccommodation(
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateVenueBookingAccommodationAsync(
             Venue.Bookings.Accommodation group)
         {
             // Null out the group properties that cannot be added/updated.
@@ -110,7 +110,7 @@ namespace Ivvy
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<Venue.Bookings.RemoveBookingAccommodationResult>> RemoveVenueBookingAccommodation(
+        public async Task<ResultOrError<Venue.Bookings.RemoveBookingAccommodationResult>> RemoveVenueBookingAccommodationAsync(
             int venueId,
             int bookingId,
             int id)
@@ -169,6 +169,110 @@ namespace Ivvy
                 }
             }
             return newResult;
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<Venue.Bookings.AddUpdateBookingRoomReservationResult>> AddOrUpdateVenueBookingRoomReservationAsync(
+            Venue.Bookings.RoomReservation reservation)
+        {
+            // Null out the reservation properties that cannot be added/updated.
+            reservation.Reference = null;
+            reservation.MainGuestId = null;
+            if (reservation.MainGuest != null) {
+                reservation.MainGuest.CreatedDate = null;
+                reservation.MainGuest.ModifiedDate = null;
+                if (reservation.MainGuest.Contact != null) {
+                    reservation.MainGuest.Contact.CreatedDate = null;
+                    reservation.MainGuest.Contact.ModifiedDate = null;
+                }
+            }
+            reservation.CurrentStatus = null;
+            reservation.CancelledDate = null;
+            reservation.IsFromGroup = null;
+            reservation.TotalAmount = null;
+            reservation.CreatedDate = null;
+            reservation.ModifiedDate = null;
+            if (reservation.Rooms != null) {
+                foreach (var room in reservation.Rooms) {
+                    if (room == null) {
+                        continue;
+                    }
+                    room.GuestId = null;
+                    if (room.Guest != null) {
+                        room.Guest.CreatedDate = null;
+                        room.Guest.ModifiedDate = null;
+                        if (room.Guest.Contact != null) {
+                            room.Guest.Contact.CreatedDate = null;
+                            room.Guest.Contact.ModifiedDate = null;
+                        }
+                    }
+                    room.RatePlanId = null;
+                    room.RoomId = null;
+                    room.NumRooms = null;
+                    room.TotalAmount = null;
+                    room.CreatedDate = null;
+                    room.ModifiedDate = null;
+                    room.IsCancelled = null;
+                    room.CancelledDate = null;
+                    if (room.DayRates != null) {
+                        foreach (var rate in room.DayRates) {
+                            if (rate == null) {
+                                continue;
+                            }
+                            rate.RatePlanId = null;
+                        }
+                    }
+                }
+            }
+
+            return await this.CallAsync<Venue.Bookings.AddUpdateBookingRoomReservationResult>(
+                "venue", "addOrUpdateBookingRoomReservation", reservation
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<Venue.Bookings.RemoveBookingRoomReservationResult>> RemoveVenueBookingRoomReservationAsync(
+            int venueId,
+            int bookingId,
+            int id)
+        {
+            return await this.CallAsync<Venue.Bookings.RemoveBookingRoomReservationResult>(
+                "venue", "removeBookingRoomReservation", new {
+                    venueId = venueId,
+                    bookingId = bookingId,
+                    id = id,
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<Venue.Bookings.ConfirmBookingRoomReservationResult>> ConfirmVenueBookingRoomReservationAsync(
+            int venueId,
+            int bookingId,
+            int id)
+        {
+            return await this.CallAsync<Venue.Bookings.ConfirmBookingRoomReservationResult>(
+                "venue", "confirmBookingRoomReservation", new {
+                    venueId = venueId,
+                    bookingId = bookingId,
+                    id = id,
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<Venue.Bookings.CancelBookingRoomReservationResult>> CancelVenueBookingRoomReservationAsync(
+            int venueId,
+            int bookingId,
+            int id)
+        {
+            return await this.CallAsync<Venue.Bookings.CancelBookingRoomReservationResult>(
+                "venue", "cancelBookingRoomReservation", new {
+                    venueId = venueId,
+                    bookingId = bookingId,
+                    id = id,
+                }
+            );
         }
 
         /// <summary>

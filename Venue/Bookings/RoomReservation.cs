@@ -35,24 +35,27 @@ namespace Ivvy.Venue.Bookings
         public Guest MainGuest { get; set; }
 
         [JsonProperty("currentStatus")]
-        public StatusOptions CurrentStatus { get; set; }
+        public StatusOptions? CurrentStatus { get; set; }
 
         [JsonProperty("cancelledDate")]
         public DateTime? CancelledDate { get; set; }
 
         [JsonProperty("isFromGroup")]
-        public bool IsFromGroup { get; set; }
+        public bool? IsFromGroup { get; set; }
 
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public float? TotalAmount { get; set; }
 
         [JsonProperty("createdDate")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
         [JsonProperty("rooms")]
         public RoomReservationRoom[] Rooms { get; set; }
+
+        [JsonProperty("removeRooms")]
+        public int[] RemoveRooms { get; set; }
     }
 }

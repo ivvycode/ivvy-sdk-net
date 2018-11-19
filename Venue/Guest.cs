@@ -23,9 +23,9 @@ namespace Ivvy.Venue
         public Address Address { get; set; }
 
         [JsonProperty("createdDate")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
     }
 }

@@ -3,11 +3,18 @@ using Newtonsoft.Json;
 
 namespace Ivvy.Venue.Bookings
 {
-    public class RemoveBookingAccommodationResult : ISerializable
+    public class ConfirmBookingRoomReservationResult : ISerializable
     {
         public enum Errors {
-            Unknown = 1,
-            HasReservations = 2,
+            Unknown = 0,
+            AlreadyConfirmed = 1,
+            IsCancelled = 2,
+            NoRooms = 3,
+            GroupCannotConfirmAvailability = 4,
+            GroupNotEnoughRooms = 5,
+            UnknownChannelError1 = 6,
+            IndividualRoomsError = 7,
+            UnknownChannelError2 = 8,
         }
 
         /// <summary>
@@ -20,6 +27,6 @@ namespace Ivvy.Venue.Bookings
         /// The error code on failure.
         /// </summary>
         [JsonProperty("errorType")]
-        public Errors ErrorType { get; set; }
+        public Errors? ErrorType { get; set; }
     }
 }

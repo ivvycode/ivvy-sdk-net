@@ -28,7 +28,7 @@ namespace Ivvy.Venue.Bookings
         public int? GroupId { get; set; }
 
         [JsonProperty("numRooms")]
-        public int NumRooms { get; set; }
+        public int? NumRooms { get; set; }
 
         [JsonProperty("arrivalDate")]
         public string ArrivalDate { get; set; }
@@ -37,7 +37,7 @@ namespace Ivvy.Venue.Bookings
         public string DepartureDate { get; set; }
 
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public float? TotalAmount { get; set; }
 
         [JsonProperty("excludedTaxIds")]
         public int[] ExcludedTaxIds { get; set; }
@@ -49,13 +49,13 @@ namespace Ivvy.Venue.Bookings
         public int NumChildGuests { get; set; }
 
         [JsonProperty("createdDate")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
         [JsonProperty("isCancelled")]
-        public bool IsCancelled { get; set; }
+        public bool? IsCancelled { get; set; }
 
         [JsonProperty("cancelledDate")]
         public DateTime? CancelledDate { get; set; }
