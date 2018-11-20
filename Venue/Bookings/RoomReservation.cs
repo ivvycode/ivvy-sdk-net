@@ -17,7 +17,7 @@ namespace Ivvy.Venue.Bookings
         }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("venueId")]
         public int VenueId { get; set; }

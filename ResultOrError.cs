@@ -26,6 +26,12 @@ namespace Ivvy
         public string ErrorMessage;
 
         /// <summary>
+        /// Any additional messages on error.
+        /// </summary>
+        [JsonProperty("additionalMessages")]
+        public string[] AdditionalMessages;
+
+        /// <summary>
         /// The result of a successful api method call.
         /// </summary>
         public T Result { get; set; }

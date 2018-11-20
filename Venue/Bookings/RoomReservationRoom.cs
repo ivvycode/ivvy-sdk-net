@@ -10,7 +10,7 @@ namespace Ivvy.Venue.Bookings
     public class RoomReservationRoom : ISerializable
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("guestId")]
         public int? GuestId { get; set; }

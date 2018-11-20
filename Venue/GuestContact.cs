@@ -10,7 +10,7 @@ namespace Ivvy.Venue
     public class GuestContact : ISerializable
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("firstName")]
         public string FirstName { get; set; }

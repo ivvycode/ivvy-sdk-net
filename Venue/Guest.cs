@@ -11,7 +11,7 @@ namespace Ivvy.Venue
     public class Guest : ISerializable
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("contact")]
         public GuestContact Contact { get; set; }
