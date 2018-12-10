@@ -57,5 +57,13 @@ namespace Ivvy
                 }
             );
         }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> AddErrorReport(ErrorReport report)
+        {
+            return await CallAsync<ResultObject>(
+                "account", "addErrorReport", report
+            );
+        }
     }
 }

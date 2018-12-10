@@ -36,5 +36,11 @@ namespace Ivvy
             int perPage,
             int start,
             Dictionary<string, object> filterRequest);
+
+        /// <summary>
+        /// Adds an error report to an account.
+        /// <param name="report">The error report details.</param>
+        /// </summary>
+        Task<ResultOrError<ResultObject>> AddErrorReport(ErrorReport report);
     }
 }
