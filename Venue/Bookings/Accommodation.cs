@@ -39,6 +39,9 @@ namespace Ivvy.Venue.Bookings
         [JsonProperty("costcenterId")]
         public int? CostCenterId { get; set; }
 
+        [JsonProperty("cutOffDate")]
+        public string CutOffDate { get; set; }
+
         [JsonProperty("dayRates")]
         public AccommodationDayRate[] DayRates { get; set; }
 
