@@ -132,9 +132,10 @@ namespace Ivvy
         /// <param name="venueId">The unique id of the venue to which the booking belongs</param>
         /// <param name="bookingId">The unique id of the booking to which the room reservation belongs</param>
         /// <param name="id">The unique id of the room reservation to cancel</param>
+        /// <param name="roomId">Optionally cancel a single room on the reservation.</param>
         /// </summary>
         Task<ResultOrError<Venue.Bookings.CancelBookingRoomReservationResult>> CancelVenueBookingRoomReservationAsync(
-            int venueId, int bookingId, int id
+            int venueId, int bookingId, int id, int? roomId = null
         );
 
         /// <summary>

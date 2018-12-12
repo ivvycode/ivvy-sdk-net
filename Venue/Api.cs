@@ -264,13 +264,15 @@ namespace Ivvy
         public async Task<ResultOrError<Venue.Bookings.CancelBookingRoomReservationResult>> CancelVenueBookingRoomReservationAsync(
             int venueId,
             int bookingId,
-            int id)
+            int id,
+            int? roomId = null)
         {
             return await this.CallAsync<Venue.Bookings.CancelBookingRoomReservationResult>(
                 "venue", "cancelBookingRoomReservation", new {
                     venueId = venueId,
                     bookingId = bookingId,
                     id = id,
+                    roomId = roomId,
                 }
             );
         }
