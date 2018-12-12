@@ -275,6 +275,23 @@ namespace Ivvy
             );
         }
 
+        /// <inheritdoc />
+        public async Task<ResultOrError<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>> ChangeStatusOfBookingRoomReservationAsync(
+            int venueId,
+            int bookingId,
+            int id,
+            Venue.Bookings.RoomReservation.StatusOptions newStatus)
+        {
+            return await this.CallAsync<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>(
+                "venue", "changeStatusOfBookingRoomReservation", new {
+                    venueId = venueId,
+                    bookingId = bookingId,
+                    id = id,
+                    status = newStatus,
+                }
+            );
+        }
+
         /// <summary>
         /// Returns a collection of venue bookings in an iVvy venue.
         /// </summary>

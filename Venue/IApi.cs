@@ -138,6 +138,17 @@ namespace Ivvy
         );
 
         /// <summary>
+        /// Changes the status of a specific room reservation in a venue booking.
+        /// <param name="venueId">The unique id of the venue to which the booking belongs</param>
+        /// <param name="bookingId">The unique id of the booking to which the room reservation belongs</param>
+        /// <param name="id">The unique id of the room reservation to change status</param>
+        /// <param name="newStatus">The status to which the room reservation will be changed</param>
+        /// </summary>
+        Task<ResultOrError<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>> ChangeStatusOfBookingRoomReservationAsync(
+            int venueId, int bookingId, int id, Venue.Bookings.RoomReservation.StatusOptions newStatus
+        );
+
+        /// <summary>
         /// Returns a collection of venue bookings in an iVvy venue.
         /// </summary>
         /// <param name="venueId">The venue identifier.</param>

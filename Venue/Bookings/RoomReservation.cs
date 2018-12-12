@@ -13,7 +13,9 @@ namespace Ivvy.Venue.Bookings
         {
             NotConfirmed = 1,
             Confirmed = 2,
-            Cancelled = 3
+            Cancelled = 3,
+            CheckedIn = 4,
+            CheckedOut = 5,
         }
 
         [JsonProperty("id")]
