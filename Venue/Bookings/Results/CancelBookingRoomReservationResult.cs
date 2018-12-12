@@ -12,6 +12,7 @@ namespace Ivvy.Venue.Bookings
             UnknownChannelError1 = 3,
             UnknownChannelError2 = 4,
             IndividualRoomsError = 5,
+            BadStatus = 6,
         }
 
         /// <summary>
