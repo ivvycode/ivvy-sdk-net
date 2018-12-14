@@ -22,6 +22,9 @@ namespace Ivvy.Venue
         [JsonProperty("venueId")]
         public int VenueId { get; set; }
 
+        [JsonProperty("venueName")]
+        public string VenueName { get; set; }
+
         [JsonProperty("code")]
         public string Code { get; set; }
 
