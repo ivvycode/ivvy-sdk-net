@@ -49,10 +49,10 @@ namespace Ivvy.Contact
         public DateTime ModifiedDate { get; set; }
 
         [JsonProperty("status")]
-        public EmailStatusOptions EmailStatus { get; set; }
+        public EmailStatusOptions? EmailStatus { get; set; }
 
         [JsonProperty("smsStatus")]
-        public SmsStatusOptions SmsStatus { get; set; }
+        public SmsStatusOptions? SmsStatus { get; set; }
 
         [JsonProperty("customFields")]
         public List<CustomField> CustomFields { get; set; }
