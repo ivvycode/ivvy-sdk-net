@@ -1,4 +1,5 @@
-﻿using Ivvy.Common;
+﻿using System;
+using Ivvy.Common;
 using Newtonsoft.Json;
 
 namespace Ivvy.Contact
@@ -31,5 +32,8 @@ namespace Ivvy.Contact
 
         [JsonProperty("address")]
         public Address Address { get; set; }
+
+        [JsonProperty("modifiedDate")]
+        public DateTime ModifiedDate { get; set; }
     }
 }
