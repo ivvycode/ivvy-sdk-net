@@ -53,10 +53,10 @@ namespace Ivvy.Event
         public string TicketUrl { get; set; }
 
         [JsonProperty("attendedDatetime")]
-        public DateTime AttendedDatetime { get; set; }
+        public DateTime? AttendedDatetime { get; set; }
 
         [JsonProperty("sessionAttendedTimestamp")]
-        public DateTime SessionAttendedTimestamp { get; set; }
+        public DateTime? SessionAttendedTimestamp { get; set; }
 
         [JsonProperty("cost")]
         public float Cost { get; set; }
