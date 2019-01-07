@@ -53,9 +53,7 @@ namespace Ivvy
             );
         }
 
-        /// <summary>
-        /// Returns a collection of Companies.
-        /// </summary>
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<Contact.Company>>> GetCompanyListAsync(
             int perPage,
             int start,
@@ -72,9 +70,7 @@ namespace Ivvy
             );
         }
 
-        /// <summary>
-        /// Adds or updates a company.
-        /// </summary>
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultObject>> AddOrUpdateCompanyAsync(Contact.Company company)
         {
             return await this.CallAsync<ResultObject>(
