@@ -52,5 +52,30 @@ namespace Ivvy
                 "contact", "getCompany", new { id = id }
             );
         }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Contact.Company>>> GetCompanyListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest)
+        {
+            return await this.CallAsync<ResultList<Contact.Company>>(
+                "contact", "getCompanyList",
+                new
+                {
+                    perPage = perPage,
+                    start = start,
+                    filter = filterRequest
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateCompanyAsync(Contact.Company company)
+        {
+            return await this.CallAsync<ResultObject>(
+                "contact", "addOrUpdateCompany", company
+            );
+        }
     }
 }
