@@ -233,5 +233,11 @@ namespace Ivvy
             string startDate,
             string endDate,
             Venue.RatePlan.CloseOutStatusOptions closeOutStatus);
+
+        /// <summary>
+        /// Returns a collection of venue taxes in an iVvy account.
+        /// <param name="venueId">The unique id of the venue to which the taxes belong</param>
+        /// </summary>
+        Task<ResultOrError<ResultList<Venue.Tax>>> GetVenueTaxListAsync(int venueId);
     }
 }

@@ -414,5 +414,15 @@ namespace Ivvy
                 }
             );
         }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Venue.Tax>>> GetVenueTaxListAsync(int venueId)
+        {
+            return await this.CallAsync<ResultList<Venue.Tax>>(
+                "venue", "getTaxList", new {
+                    venueId = venueId,
+                }
+            );
+        }
     }
 }
