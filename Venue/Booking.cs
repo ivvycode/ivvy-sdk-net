@@ -31,8 +31,14 @@ namespace Ivvy.Venue
         [JsonProperty("name")]
         public string Name { get; set; }
 
+        [JsonProperty("companyId")]
+        public int? CompanyId { get; set; }
+
         [JsonProperty("company")]
         public Contact.Company Company { get; set; }
+
+        [JsonProperty("contactId")]
+        public int? ContactId { get; set; }
 
         [JsonProperty("contact")]
         public Contact.Contact Contact { get; set; }
