@@ -18,6 +18,11 @@ namespace Ivvy.Venue.Bookings
             CheckedOut = 5,
         }
 
+        public RoomReservation()
+        {
+            this.CanBeEdited = true;
+        }
+
         [JsonProperty("id")]
         public int? Id { get; set; }
 
@@ -26,6 +31,9 @@ namespace Ivvy.Venue.Bookings
 
         [JsonProperty("bookingId")]
         public int BookingId { get; set; }
+
+        [JsonProperty("canBeEdited")]
+        public bool CanBeEdited { get; set; }
 
         [JsonProperty("reference")]
         public string Reference { get; set; }

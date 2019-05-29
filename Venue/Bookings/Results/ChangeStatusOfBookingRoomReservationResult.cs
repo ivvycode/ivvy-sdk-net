@@ -10,6 +10,7 @@ namespace Ivvy.Venue.Bookings
             SameStatus = 1,
             InvalidTransition = 2,
             Unsupported = 3,
+            CanBeEditedFlag = 4,
         }
 
         /// <summary>

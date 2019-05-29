@@ -15,6 +15,7 @@ namespace Ivvy.Venue.Bookings
             UnknownChannelError1 = 6,
             IndividualRoomsError = 7,
             UnknownChannelError2 = 8,
+            CanBeEditedFlag = 9,
         }
 
         /// <summary>
