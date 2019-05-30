@@ -1,5 +1,4 @@
-﻿using Ivvy.API.Venue.Bookings;
-using Ivvy.Json;
+﻿using Ivvy.Json;
 using Newtonsoft.Json;
 using System;
 
@@ -99,6 +98,6 @@ namespace Ivvy.Venue
         public string EventType { get; set; }
 
         [JsonProperty("dailyRevenue")]
-        public DailyRevenue[] DailyRevenues { get; set; }
+        public Bookings.DailyRevenue[] DailyRevenues { get; set; }
     }
 }

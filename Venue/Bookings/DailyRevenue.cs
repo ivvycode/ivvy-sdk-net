@@ -1,8 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.API.Venue.Bookings
+namespace Ivvy.Venue.Bookings
 {
+    /// <summary>
+    /// The cost center revenue on a specific date.
+    /// </summary>
     public class DailyRevenue
     {
         [JsonProperty("costcenterId")]
