@@ -222,6 +222,21 @@ namespace Ivvy
                             rate.RatePlanId = null;
                         }
                     }
+                    if (room.AdditionalGuests != null) {
+                        foreach (var additionalGuest in room.AdditionalGuests) {
+                            if (additionalGuest == null) {
+                                continue;
+                            }
+                            if (additionalGuest.Guest != null) {
+                                additionalGuest.Guest.CreatedDate = null;
+                                additionalGuest.Guest.ModifiedDate = null;
+                                if (additionalGuest.Guest.Contact != null) {
+                                    additionalGuest.Guest.Contact.CreatedDate = null;
+                                    additionalGuest.Guest.Contact.ModifiedDate = null;
+                                }
+                            }
+                        }
+                    }
                 }
             }
 

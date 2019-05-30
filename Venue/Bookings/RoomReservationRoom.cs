@@ -18,6 +18,9 @@ namespace Ivvy.Venue.Bookings
         [JsonProperty("guest")]
         public Guest Guest { get; set; }
 
+        [JsonProperty("additionalGuests")]
+        public AdditionalGuest[] AdditionalGuests { get; set; }
+
         [JsonProperty("barId")]
         public int? RatePlanId { get; set; }
 

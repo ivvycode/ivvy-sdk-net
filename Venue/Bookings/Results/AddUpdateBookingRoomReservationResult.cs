@@ -48,6 +48,12 @@ namespace Ivvy.Venue.Bookings
             /// </summary>
             [JsonProperty("guest")]
             public Guest Guest { get; set; }
+
+            /// <summary>
+            /// Some details of the additional guests on the reserved room.
+            /// </summary>
+            [JsonProperty("additionalGuests")]
+            public AdditionalGuest[] AdditionalGuests { get; set; }
         }
 
         public class Guest : ISerializable
@@ -63,6 +69,27 @@ namespace Ivvy.Venue.Bookings
             /// </summary>
             [JsonProperty("contactId")]
             public int ContactId { get; set; }
+        }
+
+        public class AdditionalGuest : ISerializable
+        {
+            /// <summary>
+            /// The unique id of the guest.
+            /// </summary>
+            [JsonProperty("guestId")]
+            public int GuestId { get; set; }
+
+            /// <summary>
+            /// The unique id of the contact details of the guest.
+            /// </summary>
+            [JsonProperty("contactId")]
+            public int ContactId { get; set; }
+
+            /// <summary>
+            /// The type of additional guest.
+            /// </summary>
+            [JsonProperty("guestType")]
+            public Ivvy.Venue.AdditionalGuest.GuestTypes GuestType { get; set; }
         }
     }
 }
