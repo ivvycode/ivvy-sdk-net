@@ -42,5 +42,10 @@ namespace Ivvy
         /// <param name="report">The error report details.</param>
         /// </summary>
         Task<ResultOrError<ResultObject>> AddErrorReport(ErrorReport report);
+
+        /// <summary>
+        /// Returns a collection of cost centers in an account.
+        /// </summary>
+        Task<ResultOrError<ResultList<CostCenter>>> GetCostCenterListAsync();
     }
 }
