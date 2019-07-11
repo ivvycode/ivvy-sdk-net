@@ -82,5 +82,8 @@ namespace Ivvy.Venue
 
         [JsonProperty("isTaxExclusive")]
         public bool IsTaxExclusive { get; set; }
+
+        [JsonProperty("functionSpaces")]
+        public FunctionSpace[] FunctionSpaces { get; set; }
     }
 }
