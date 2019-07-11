@@ -14,7 +14,8 @@ namespace Ivvy
             string venuesEndpoint)
         {
             return await this.CallAsync<NotificationsResult>(
-                "account", "subscribeToNotifications", new {
+                "account", "subscribeToNotifications", new
+                {
                     eventsEndpoint = eventsEndpoint,
                     venuesEndpoint = venuesEndpoint
                 }
@@ -50,7 +51,8 @@ namespace Ivvy
             Dictionary<string, object> filterRequest)
         {
             return await CallAsync<ResultList<EmailLog>>(
-                "account", "getEmailLogList", new {
+                "account", "getEmailLogList", new
+                {
                     perPage = perPage,
                     start = start,
                     filter = filterRequest
@@ -64,6 +66,13 @@ namespace Ivvy
             return await CallAsync<ResultObject>(
                 "account", "addErrorReport", report
             );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<CostCenter>>> GetCostCenterListAsync()
+        {
+            return await CallAsync<ResultList<CostCenter>>(
+                "account", "getCostCenterList", null);
         }
     }
 }
