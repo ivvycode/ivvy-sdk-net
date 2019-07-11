@@ -68,15 +68,11 @@ namespace Ivvy
             );
         }
 
-        /// <summary>
-        /// Returns a collection of cost centers in an account.
-        /// </summary>
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<CostCenter>>> GetCostCenterListAsync()
         {
-            var result = await CallAsync<ResultList<CostCenter>>(
+            return await CallAsync<ResultList<CostCenter>>(
                 "account", "getCostCenterList", null);
-
-            return result;
         }
     }
 }
