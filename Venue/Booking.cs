@@ -102,5 +102,8 @@ namespace Ivvy.Venue
 
         [JsonProperty("agent")]
         public Bookings.Agent Agent { get; set; }
+
+        [JsonProperty("otaFolioRef")]
+        public string OtaFolioReference { get; set; }
     }
 }
