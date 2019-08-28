@@ -28,6 +28,9 @@ namespace Ivvy.Venue
         [JsonProperty("code")]
         public string Code { get; set; }
 
+        [JsonProperty("otaFolioRef")]
+        public string OtaFolioReference { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
