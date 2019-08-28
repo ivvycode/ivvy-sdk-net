@@ -99,5 +99,8 @@ namespace Ivvy.Venue
 
         [JsonProperty("dailyRevenue")]
         public Bookings.DailyRevenue[] DailyRevenues { get; set; }
+
+        [JsonProperty("sessions")]
+        public Bookings.Session[] Sessions { get; set; }
     }
 }
