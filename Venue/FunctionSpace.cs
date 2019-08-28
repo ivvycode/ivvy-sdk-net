@@ -1,8 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using Ivvy.Json;
+using Newtonsoft.Json;
 
 namespace Ivvy.Venue
 {
-    public class FunctionSpace
+    /// <summary>
+    /// An iVvy venue function space.
+    /// </summary>
+    public class FunctionSpace : ISerializable
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -12,6 +16,5 @@ namespace Ivvy.Venue
 
         [JsonProperty("description")]
         public string Description { get; set; }
-
     }
 }
