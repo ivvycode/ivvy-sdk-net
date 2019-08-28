@@ -1,9 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using Ivvy.Json;
+using Newtonsoft.Json;
 using System;
 
 namespace Ivvy.Venue.Bookings
 {
-    public class Session
+    /// <summary>
+    /// A single session on an iVvy venue booking.
+    /// </summary>
+    public class Session : ISerializable
     {
         [JsonProperty("id")]
         public int Id { get; set; }
