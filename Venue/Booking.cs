@@ -102,5 +102,8 @@ namespace Ivvy.Venue
 
         [JsonProperty("sessions")]
         public Bookings.Session[] Sessions { get; set; }
+
+        [JsonProperty("agent")]
+        public Contact.Agent Agent { get; set; }
     }
 }
