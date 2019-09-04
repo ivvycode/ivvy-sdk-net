@@ -239,5 +239,16 @@ namespace Ivvy
         /// <param name="venueId">The unique id of the venue to which the taxes belong</param>
         /// </summary>
         Task<ResultOrError<ResultList<Venue.Tax>>> GetVenueTaxListAsync(int venueId);
+
+        /// <summary>
+        /// Returns a collection of cost centers that belong to an iVvy venue.
+        /// </summary>
+        /// <param name="venueId">The unique id of the venue to which the cost centers belong</param>
+        /// <param name="perPage">The number of cost centers to fetch</param>
+        /// <param name="start">The starting result of the page. Note this is zero based (i.e. sending start=0 will start from the first result.)</param>
+        Task<ResultOrError<ResultList<Account.CostCenter>>> GetVenueCostCenterListAsync(
+            int venueId,
+            int perPage,
+            int start);
     }
 }

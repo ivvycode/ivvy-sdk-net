@@ -439,5 +439,20 @@ namespace Ivvy
                 }
             );
         }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Account.CostCenter>>> GetVenueCostCenterListAsync(
+            int venueId,
+            int perPage,
+            int start)
+        {
+            return await this.CallAsync<ResultList<Account.CostCenter>>(
+                "venue", "getCostCenterList", new {
+                    venueId = venueId,
+                    perPage = perPage,
+                    start = start,
+                }
+            );
+        }
     }
 }
