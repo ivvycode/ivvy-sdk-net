@@ -12,7 +12,7 @@ namespace Ivvy
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<CRM.LeadStages>>> GetLeadStageListAsync(
+        Task<ResultOrError<ResultList<Crm.LeadStage>>> GetLeadStageListAsync(
             int perPage, int start, Dictionary<string, object> filterRequest = null);
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace Ivvy
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<CRM.LeadTypes>>> GetLeadTypeListAsync(
+        Task<ResultOrError<ResultList<Crm.LeadType>>> GetLeadTypeListAsync(
             int perPage, int start, Dictionary<string, object> filterRequest = null);
     }
 }

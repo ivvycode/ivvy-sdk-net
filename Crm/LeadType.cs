@@ -1,17 +1,17 @@
 using Ivvy.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.CRM
+namespace Ivvy.Crm
 {
     /// <summary>
-    /// An iVvy Lead stages.
+    /// An iVvy CRM lead type.
     /// </summary>
-    public class LeadStages : ISerializable
+    public class LeadType : ISerializable
     {
         [JsonProperty("id")]
         public string Id { get; set; }
         
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
     }
 }
