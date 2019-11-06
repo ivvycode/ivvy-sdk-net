@@ -6,7 +6,7 @@ namespace Ivvy.Contact
     public class Agent : ISerializable
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("businessName")]
         public string BusinessName { get; set; }
