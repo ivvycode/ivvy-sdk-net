@@ -39,5 +39,22 @@ namespace Ivvy
                 }
             );
         }
+
+        /// <summary>
+        /// Returns a collection of opportunities.
+        /// </summary>
+        public async Task<ResultOrError<ResultList<Crm.Opportunity>>> GetOpportunityListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest = null)
+        {
+            return await this.CallAsync<ResultList<Crm.Opportunity>>(
+                "crm", "getOpportunityList", new
+                {
+                    perPage = perPage,
+                    start = start,
+                    filter = filterRequest
+                });
+        }
     }
 }
