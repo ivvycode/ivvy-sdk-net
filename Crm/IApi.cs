@@ -24,5 +24,16 @@ namespace Ivvy
         /// <returns></returns>
         Task<ResultOrError<ResultList<Crm.LeadType>>> GetLeadTypeListAsync(
             int perPage, int start, Dictionary<string, object> filterRequest = null);
+
+        /// <summary>
+        /// Returns a collection of opportunities.
+        /// </summary>
+        /// <param name="perPage">The per page records.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        Task<ResultOrError<ResultList<Crm.Opportunity>>> GetOpportunityListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest = null);
     }
 }
