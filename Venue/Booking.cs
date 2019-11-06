@@ -108,5 +108,8 @@ namespace Ivvy.Venue
 
         [JsonProperty("agent")]
         public Contact.Agent Agent { get; set; }
+
+        [JsonProperty("opportunityId")]
+        public int? OpportunityId { get; set; }
     }
 }
