@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace Ivvy
@@ -29,7 +30,7 @@ namespace Ivvy
         /// Any additional messages on error.
         /// </summary>
         [JsonProperty("additionalMessages")]
-        public string[] AdditionalMessages;
+        public Dictionary<string, string> AdditionalMessages;
 
         /// <summary>
         /// The result of a successful api method call.
