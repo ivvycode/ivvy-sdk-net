@@ -31,6 +31,9 @@ namespace Ivvy.Invoice
             Diners = 4
         }
 
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
         [JsonProperty("paymentId")]
         public string PaymentId { get; set; }
 
