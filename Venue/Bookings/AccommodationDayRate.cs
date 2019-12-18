@@ -16,7 +16,7 @@ namespace Ivvy.Venue.Bookings
         public int NumRooms { get; set; }
 
         [JsonProperty("cost")]
-        public float Cost { get; set; }
+        public float? Cost { get; set; }
 
         [JsonProperty("numPayableByGuest")]
         public int NumPayableByGuest { get; set; }
