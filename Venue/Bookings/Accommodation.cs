@@ -45,6 +45,9 @@ namespace Ivvy.Venue.Bookings
         [JsonProperty("dayRates")]
         public AccommodationDayRate[] DayRates { get; set; }
 
+        [JsonProperty("dayRatesActual")]
+        public AccommodationDayRate[] DayRatesActual { get; set; }
+
         [JsonProperty("excludedTaxIds")]
         public int[] ExcludedTaxIds {get; set; }
 
