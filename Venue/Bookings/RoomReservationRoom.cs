@@ -65,5 +65,8 @@ namespace Ivvy.Venue.Bookings
 
         [JsonProperty("dayRates")]
         public RoomReservationDayRate[] DayRates { get; set; }
+
+        [JsonProperty("overrideBlockCapacity")]
+        public bool OverrideBlockCapacity { get; set; }
     }
 }
