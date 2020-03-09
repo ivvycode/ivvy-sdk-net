@@ -35,5 +35,8 @@ namespace Ivvy.Contact
 
         [JsonProperty("modifiedDate")]
         public DateTime ModifiedDate { get; set; }
+
+        [JsonProperty("externalId")]
+        public string ExternalId { get; set; }
     }
 }
