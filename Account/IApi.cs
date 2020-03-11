@@ -11,7 +11,11 @@ namespace Ivvy
         /// </summary>
         Task<ResultOrError<Account.NotificationsResult>> SubscribeToNotifications(
             string eventsEndpoint,
-            string venuesEndpoint);
+            string venuesEndpoint,
+            string paymentsEndpoint,
+            string crmEndpoint,
+            string contactsEndpoint,
+            string companiesEndpoint);
 
         /// <summary>
         /// Returns the list of custom field definitions in an account.

@@ -11,13 +11,21 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<NotificationsResult>> SubscribeToNotifications(
             string eventsEndpoint,
-            string venuesEndpoint)
+            string venuesEndpoint,
+            string paymentsEndpoint,
+            string crmEndpoint,
+            string contactsEndpoint,
+            string companiesEndpoint)
         {
             return await this.CallAsync<NotificationsResult>(
                 "account", "subscribeToNotifications", new
                 {
                     eventsEndpoint = eventsEndpoint,
-                    venuesEndpoint = venuesEndpoint
+                    venuesEndpoint = venuesEndpoint,
+                    paymentsEndpoint = paymentsEndpoint,
+                    crmEndpoint = crmEndpoint,
+                    contactsEndpoint = contactsEndpoint,
+                    companiesEndpoint = companiesEndpoint
                 }
             );
         }
