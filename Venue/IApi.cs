@@ -59,6 +59,22 @@ namespace Ivvy
         );
 
         /// <summary>
+        /// Returns a collection of booking notes in an iVvy venue booking.
+        /// </summary>
+        /// <param name="venueId">The unique id of the venue to which the notes belong</param>
+        /// <param name="bookingId">The unique id of the boking to which the notes belong</param>
+        /// <param name="perPage">The number of booking notes to fetch with a single API call</param>
+        /// <param name="start">The starting result of the page. Note this is zero based.</param>
+        /// <param name="filterRequest">A dictionary of additional filter properties.</param>
+        /// <returns>Collection of booking notes in an iVvy venue booking.</returns>
+        Task<ResultOrError<ResultList<Venue.Note>>> GetVenueBookingNoteListAsync(
+            int venueId,
+            int bookingId,
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest);
+
+        /// <summary>
         /// Adds or updates venue booking accommodation.
         /// <param name="group">Details of the venue booking accommodation</param>
         /// </summary>
