@@ -81,6 +81,26 @@ namespace Ivvy
         }
 
         /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Venue.Note>>> GetVenueBookingNoteListAsync(
+            int venueId,
+            int bookingId,
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest)
+        {
+            return await this.CallAsync<ResultList<Venue.Note>>(
+                "venue", "getBookingNoteList", new
+                {
+                    venueId = venueId,
+                    bookingId = bookingId,
+                    perPage = perPage,
+                    start = start,
+                    filter = filterRequest
+                }
+            );
+        }
+
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultObject>> AddOrUpdateVenueBookingAccommodationAsync(
             Venue.Bookings.Accommodation group)
         {
