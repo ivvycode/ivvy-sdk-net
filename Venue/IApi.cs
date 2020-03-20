@@ -138,10 +138,10 @@ namespace Ivvy
         /// <param name="venueId">The unique id of the venue to which the booking belongs</param>
         /// <param name="bookingId">The unique id of the booking to which the room reservation belongs</param>
         /// <param name="id">The unique id of the room reservation to confirm</param>
+        /// <param name="roomIds">Optional parameter. The unique ids of the rooms to confirm</param>
         /// </summary>
         Task<ResultOrError<Venue.Bookings.ConfirmBookingRoomReservationResult>> ConfirmVenueBookingRoomReservationAsync(
-            int venueId, int bookingId, int id
-        );
+            int venueId, int bookingId, int id, int[] roomIds = null);
 
         /// <summary>
         /// Cancels a specific room reservation from a venue booking.
@@ -160,9 +160,10 @@ namespace Ivvy
         /// <param name="bookingId">The unique id of the booking to which the room reservation belongs</param>
         /// <param name="id">The unique id of the room reservation to change status</param>
         /// <param name="newStatus">The status to which the room reservation will be changed</param>
+        /// <param name="roomIds">Optional parameter. The unique ids of the rooms to change status</param>
         /// </summary>
         Task<ResultOrError<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>> ChangeStatusOfBookingRoomReservationAsync(
-            int venueId, int bookingId, int id, Venue.Bookings.RoomReservation.StatusOptions newStatus
+            int venueId, int bookingId, int id, Venue.Bookings.RoomReservation.StatusOptions newStatus, int[] roomIds = null
         );
 
         /// <summary>

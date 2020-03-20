@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -284,13 +283,15 @@ namespace Ivvy
         public async Task<ResultOrError<Venue.Bookings.ConfirmBookingRoomReservationResult>> ConfirmVenueBookingRoomReservationAsync(
             int venueId,
             int bookingId,
-            int id)
+            int id,
+            int[] roomIds = null)
         {
             return await this.CallAsync<Venue.Bookings.ConfirmBookingRoomReservationResult>(
                 "venue", "confirmBookingRoomReservation", new {
                     venueId = venueId,
                     bookingId = bookingId,
                     id = id,
+                    roomIds = roomIds
                 }
             );
         }
@@ -317,7 +318,8 @@ namespace Ivvy
             int venueId,
             int bookingId,
             int id,
-            Venue.Bookings.RoomReservation.StatusOptions newStatus)
+            Venue.Bookings.RoomReservation.StatusOptions newStatus,
+            int[] roomIds = null)
         {
             return await this.CallAsync<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>(
                 "venue", "changeStatusOfBookingRoomReservation", new {
@@ -325,6 +327,7 @@ namespace Ivvy
                     bookingId = bookingId,
                     id = id,
                     status = newStatus,
+                    roomIds = roomIds
                 }
             );
         }
