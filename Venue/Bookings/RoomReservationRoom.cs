@@ -68,5 +68,8 @@ namespace Ivvy.Venue.Bookings
 
         [JsonProperty("overrideBlockCapacity")]
         public bool OverrideBlockCapacity { get; set; }
+
+        [JsonProperty("currentStatus")]
+        public RoomReservation.StatusOptions CurrentStatus { get; set; }
     }
 }
