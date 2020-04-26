@@ -1,5 +1,7 @@
+using Ivvy.Common;
 using Ivvy.Json;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
@@ -78,11 +80,45 @@ namespace Ivvy.Contact
         [JsonProperty("fieldId")]
         public int FieldId { get; set; }
 
+        [JsonProperty("fieldType")]
+        public Ivvy.Account.CustomField.FieldTypes FieldType { get; set; }
+
         [JsonProperty("displayName")]
         public string DisplayName { get; set; }
 
         [JsonProperty("value")]
         public object Value { get; set; }
+
+        /// <summary>
+        /// Returns whether or not this field is an address custom field.
+        /// </summary>
+        public bool IsAddress()
+        {
+            return FieldType == Ivvy.Account.CustomField.FieldTypes.Address;
+        }
+
+        /// <summary>
+        /// Returns the custom field value as an address if the field
+        /// type is address.
+        /// </summary>
+        public Address ValueAsAddress()
+        {
+            if (!IsAddress()) {
+                return null;
+            }
+            if (Value == null) {
+                return null;
+            }
+            if (!(Value is JObject)) {
+                return null;
+            }
+            try {
+                return ((JObject)Value).ToObject<Address>();
+            }
+            catch (Exception ex) {
+                return null;
+            }
+        }
     }
 
     /// <summary>
