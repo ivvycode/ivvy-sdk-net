@@ -108,13 +108,18 @@ namespace Ivvy.Extensions
         private async Task<ResultOrError<T>> CallAsync<T>(
             string requestUri, Dictionary<string, string> dataMap)
         {
-            var httpContent = new FormUrlEncodedContent(dataMap);
-            HttpResponseMessage httpResponse = await httpClient.PostAsync(
-                requestUri, httpContent
-            );
-            string data = await httpResponse.Content.ReadAsStringAsync();
+            HttpResponseMessage httpResponse = null;
             var result = new ResultOrError<T>();
-            JsonConvert.PopulateObject(data, result);
+            try {
+                httpResponse = await httpClient.PostAsync(requestUri, new FormUrlEncodedContent(dataMap));
+                string data = await httpResponse.Content.ReadAsStringAsync();
+                JsonConvert.PopulateObject(data, result);
+            }
+            finally {
+                if (httpResponse != null) {
+                    httpResponse.Dispose();
+                }
+            }
             return result;
         }
     }

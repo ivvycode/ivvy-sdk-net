@@ -81,35 +81,40 @@ namespace Ivvy
             string stringToSign = initialStringToSign.ToLower();
             string signature = Utils.SignString(stringToSign, ApiSecret);
 
-            HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Post, BaseUrl + requestUri);
+            var message = new HttpRequestMessage(HttpMethod.Post, BaseUrl + requestUri);
             message.Headers.Clear();
             message.Content = new StringContent(postData, Encoding.UTF8, "application/json");
             message.Content.Headers.Add("Content-MD5", contentMD5);
             message.Content.Headers.Add("IVVY-Date", ivvyDate);
             message.Content.Headers.Add("X-Api-Authorization", "IWS " + ApiKey + ":" + signature);
 
+            HttpResponseMessage httpResponse = null;
+            ResultOrError<T> result = null;
             try {
-                HttpResponseMessage httpResponse = await httpClient.SendAsync(message);
+                httpResponse = await httpClient.SendAsync(message);
                 string data = await httpResponse.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
+                result = JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
                 if (result == null) {
-                    return new ResultOrError<T>() {
+                    result = new ResultOrError<T>() {
                         ErrorCode = LibErrorCode,
                         ErrorCodeSpecific = "CallAsync",
                         ErrorMessage = "Received invalid response.",
                     };
                 }
-                else {
-                    return result;
-                }
             }
             catch (Exception ex) {
-                return new ResultOrError<T>() {
+                result = new ResultOrError<T>() {
                     ErrorCode = LibErrorCode,
                     ErrorCodeSpecific = "CallAsync",
                     ErrorMessage = ex.Message,
                 };
             }
+            finally {
+                if (httpResponse != null) {
+                    httpResponse.Dispose();
+                }
+            }
+            return result;
         }
     }
 }

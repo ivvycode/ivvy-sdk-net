@@ -115,7 +115,7 @@ namespace Ivvy.Contact
             try {
                 return ((JObject)Value).ToObject<Address>();
             }
-            catch (Exception ex) {
+            catch {
                 return null;
             }
         }
