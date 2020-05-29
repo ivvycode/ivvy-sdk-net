@@ -71,5 +71,8 @@ namespace Ivvy.Venue.Bookings
 
         [JsonProperty("currentStatus")]
         public RoomReservation.StatusOptions CurrentStatus { get; set; }
+
+        [JsonProperty("externalReference")]
+        public string ExternalReference { get; set; }
     }
 }
