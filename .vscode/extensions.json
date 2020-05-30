@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-dotnettools.csharp",
+    "editorconfig.editorconfig",
+    "amazonwebservices.aws-toolkit-vscode",
+    "ryanluker.vscode-coverage-gutters",
+    "urbanoanderson.vscode-coverlet",
+    "formulahendry.dotnet-test-explorer"
+  ]
+}
