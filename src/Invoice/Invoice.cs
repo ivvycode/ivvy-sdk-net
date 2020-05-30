@@ -1,8 +1,8 @@
-using Ivvy.Common;
+using Ivvy.API.Common;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Ivvy.Invoice
+namespace Ivvy.API.Invoice
 {
     public class Invoice
     {

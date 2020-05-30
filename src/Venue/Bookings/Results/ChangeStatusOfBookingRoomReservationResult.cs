@@ -1,7 +1,7 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.Venue.Bookings
+namespace Ivvy.API.Venue.Bookings
 {
     public class ChangeStatusOfBookingRoomReservationResult : ISerializable
     {

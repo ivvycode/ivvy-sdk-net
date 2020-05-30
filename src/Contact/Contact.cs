@@ -1,11 +1,11 @@
-using Ivvy.Common;
-using Ivvy.Json;
+using Ivvy.API.Common;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
-namespace Ivvy.Contact
+namespace Ivvy.API.Contact
 {
     /// <summary>
     /// An iVvy contact.
@@ -126,7 +126,7 @@ namespace Ivvy.Contact
         }
 
         [JsonProperty("fieldType")]
-        public Ivvy.Account.CustomField.FieldTypes FieldType
+        public Ivvy.API.Account.CustomField.FieldTypes FieldType
         {
             get; set;
         }
@@ -148,7 +148,7 @@ namespace Ivvy.Contact
         /// </summary>
         public bool IsAddress()
         {
-            return FieldType == Ivvy.Account.CustomField.FieldTypes.Address;
+            return FieldType == Ivvy.API.Account.CustomField.FieldTypes.Address;
         }
 
         /// <summary>

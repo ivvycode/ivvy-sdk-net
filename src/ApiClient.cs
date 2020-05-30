@@ -1,4 +1,4 @@
-using Ivvy.Json.Converters;
+using Ivvy.API.Json.Converters;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Converters;
 
-namespace Ivvy
+namespace Ivvy.API
 {
     /// <summary>
     /// The primary class used to call methods of the iVvy api.
     /// </summary>
-    public partial class Api : IApi
+    public partial class ApiClient : IApiClient
     {
         /// <summary>
         /// The api version.
@@ -56,7 +56,7 @@ namespace Ivvy
         /// </summary>
         private static readonly string libErrorCode = "000";
 
-        public Api()
+        public ApiClient()
         {
             ApiVersion = "1.0";
         }

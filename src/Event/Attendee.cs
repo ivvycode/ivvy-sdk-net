@@ -1,9 +1,9 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
-namespace Ivvy.Event
+namespace Ivvy.API.Event
 {
     public class Attendee : ISerializable
     {

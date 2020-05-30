@@ -1,9 +1,9 @@
-using Ivvy.Common;
-using Ivvy.Json;
+using Ivvy.API.Common;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.Venue
+namespace Ivvy.API.Venue
 {
     /// <summary>
     /// A guest can be assigned to an accommodation room reservation on an iVvy venue booking.

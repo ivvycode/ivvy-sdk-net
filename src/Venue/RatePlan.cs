@@ -1,7 +1,7 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.Venue
+namespace Ivvy.API.Venue
 {
     /// <summary>
     /// An iVvy venue rate plan.

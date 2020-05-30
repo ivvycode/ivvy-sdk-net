@@ -1,8 +1,8 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.Venue
+namespace Ivvy.API.Venue
 {
     public class Booking : ISerializable
     {

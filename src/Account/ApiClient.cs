@@ -1,10 +1,10 @@
-using Ivvy.Account;
+using Ivvy.API.Account;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Ivvy
+namespace Ivvy.API
 {
-    public partial class Api : IApi
+    public partial class ApiClient : IApiClient
     {
         /// <summary>
         /// Subscribes to account notifications.

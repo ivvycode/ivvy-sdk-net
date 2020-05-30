@@ -1,4 +1,4 @@
-namespace Ivvy.Event
+namespace Ivvy.API.Event
 {
     /// <summary>
     /// This class encapsulates the optional params that can be

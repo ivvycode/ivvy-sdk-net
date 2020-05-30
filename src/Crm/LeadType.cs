@@ -1,7 +1,7 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.Crm
+namespace Ivvy.API.Crm
 {
     /// <summary>
     /// An iVvy CRM lead type.

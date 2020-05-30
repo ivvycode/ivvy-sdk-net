@@ -1,6 +1,6 @@
-namespace Ivvy
+namespace Ivvy.API
 {
-    public partial interface IApi
+    public partial interface IApiClient
     {
         /// <summary>
         /// The api version.

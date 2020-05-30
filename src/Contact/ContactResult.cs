@@ -1,11 +1,11 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.Contact
+namespace Ivvy.API.Contact
 {
     /// <summary>
     /// The result of adding or updating a contact.
     /// </summary>
-    public sealed class ContactResult : Ivvy.Json.ISerializable
+    public sealed class ContactResult : Ivvy.API.Json.ISerializable
     {
         [JsonProperty("success")]
         public bool Success

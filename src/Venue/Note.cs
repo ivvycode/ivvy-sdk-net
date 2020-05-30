@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.Venue
+namespace Ivvy.API.Venue
 {
     /// <summary>
     /// An iVvy note.

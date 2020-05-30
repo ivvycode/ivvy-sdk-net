@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Ivvy
+namespace Ivvy.API
 {
     /// <summary>
     /// This class is used to encapsulate the result of an api method call
     /// that returns a collection of data.
     /// </summary>
-    public sealed class ResultList<T> : Ivvy.Json.ISerializable
+    public sealed class ResultList<T> : Ivvy.API.Json.ISerializable
     {
         /// <summary>
         /// The metadata details of the collection result.

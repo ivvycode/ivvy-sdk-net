@@ -1,7 +1,7 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.Account
+namespace Ivvy.API.Account
 {
     public class ErrorReport : ISerializable
     {

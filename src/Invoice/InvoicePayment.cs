@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.Invoice
+namespace Ivvy.API.Invoice
 {
     public class InvoicePayment
     {

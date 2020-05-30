@@ -1,11 +1,11 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 using System;
 using System.Runtime.Serialization;
 
-namespace Ivvy.Account
+namespace Ivvy.API.Account
 {
-    public class EmailLog : Ivvy.Json.ISerializable
+    public class EmailLog : Ivvy.API.Json.ISerializable
     {
         public enum RefTypes
         {

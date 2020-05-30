@@ -1,7 +1,7 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.Common
+namespace Ivvy.API.Common
 {
     public class Address : ISerializable
     {

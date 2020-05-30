@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Ivvy
+namespace Ivvy.API
 {
-    public partial class Api : IApi
+    public partial class ApiClient : IApiClient
     {
         /// <inheritdoc />
         public async Task<ResultOrError<Batch.RunResponse>> BatchRunAsync(List<Batch.Job> jobs, string callbackUrl)

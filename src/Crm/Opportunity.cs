@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.Crm
+namespace Ivvy.API.Crm
 {
     /// <summary>
     /// An iVvy CRM opportunity.

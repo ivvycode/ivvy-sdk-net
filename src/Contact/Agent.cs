@@ -1,7 +1,7 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.Contact
+namespace Ivvy.API.Contact
 {
     public class Agent : ISerializable
     {

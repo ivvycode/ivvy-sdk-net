@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Ivvy
+namespace Ivvy.API
 {
     /// <summary>
     /// This class contains some utility methods.

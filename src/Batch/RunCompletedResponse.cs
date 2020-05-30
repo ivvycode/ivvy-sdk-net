@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Ivvy.Batch
+namespace Ivvy.API.Batch
 {
     public class RunCompletedResponse
     {

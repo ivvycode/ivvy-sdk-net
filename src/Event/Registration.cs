@@ -1,8 +1,8 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.Event
+namespace Ivvy.API.Event
 {
     public class Registration : ISerializable
     {

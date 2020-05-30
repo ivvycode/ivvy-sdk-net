@@ -1,8 +1,8 @@
 using System;
-using Ivvy.Common;
+using Ivvy.API.Common;
 using Newtonsoft.Json;
 
-namespace Ivvy.Contact
+namespace Ivvy.API.Contact
 {
     public class Company
     {

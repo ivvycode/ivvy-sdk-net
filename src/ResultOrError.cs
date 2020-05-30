@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Ivvy
+namespace Ivvy.API
 {
     /// <summary>
     /// This class is used to encapsulate the result of an api method call.

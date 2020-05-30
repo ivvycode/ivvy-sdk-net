@@ -1,10 +1,10 @@
-using Ivvy.Event;
+using Ivvy.API.Event;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Ivvy
+namespace Ivvy.API
 {
-    public partial class Api : IApi
+    public partial class ApiClient : IApiClient
     {
         /// <summary>
         /// Returns a specific event.

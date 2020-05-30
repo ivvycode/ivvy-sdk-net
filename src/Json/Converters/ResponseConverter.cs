@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 
-namespace Ivvy.Json.Converters
+namespace Ivvy.API.Json.Converters
 {
     /// <summary>
     /// This class is used to convert the json response of the iVvy api.
@@ -13,8 +13,8 @@ namespace Ivvy.Json.Converters
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(Ivvy.ResultOrError<T>)
-                || objectType is Ivvy.Json.ISerializable;
+            return objectType == typeof(Ivvy.API.ResultOrError<T>)
+                || objectType is Ivvy.API.Json.ISerializable;
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

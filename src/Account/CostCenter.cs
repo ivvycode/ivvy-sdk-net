@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.Account
+namespace Ivvy.API.Account
 {
     public class CostCenter
     {

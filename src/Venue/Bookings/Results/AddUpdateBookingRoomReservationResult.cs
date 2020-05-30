@@ -1,7 +1,7 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.Venue.Bookings
+namespace Ivvy.API.Venue.Bookings
 {
     public class AddUpdateBookingRoomReservationResult : ISerializable
     {
@@ -125,7 +125,7 @@ namespace Ivvy.Venue.Bookings
             /// The type of additional guest.
             /// </summary>
             [JsonProperty("guestType")]
-            public Ivvy.Venue.AdditionalGuest.GuestTypes GuestType
+            public Ivvy.API.Venue.AdditionalGuest.GuestTypes GuestType
             {
                 get; set;
             }

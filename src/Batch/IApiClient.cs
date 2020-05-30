@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Ivvy
+namespace Ivvy.API
 {
-    public partial interface IApi
+    public partial interface IApiClient
     {
         /// <summary>
         /// Runs a batch request.

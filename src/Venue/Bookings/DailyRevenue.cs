@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.Venue.Bookings
+namespace Ivvy.API.Venue.Bookings
 {
     /// <summary>
     /// The cost center revenue on a specific date.

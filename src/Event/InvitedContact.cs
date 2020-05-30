@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.Event
+namespace Ivvy.API.Event
 {
     public class InvitedContact
     {

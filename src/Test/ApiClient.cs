@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using Ivvy.Test;
+using Ivvy.API.Test;
 
-namespace Ivvy
+namespace Ivvy.API
 {
-    public partial class Api
+    public partial class ApiClient
     {
         /// <summary>
         /// Pings the iVvy api. Useful for testing.

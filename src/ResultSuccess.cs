@@ -1,12 +1,12 @@
 using Newtonsoft.Json;
 
-namespace Ivvy
+namespace Ivvy.API
 {
     /// <summary>
     /// This class is used to encapsulate the result of an api method call
     /// that only returns success or not.
     /// </summary>
-    public class ResultSuccess : Ivvy.Json.ISerializable
+    public class ResultSuccess : Ivvy.API.Json.ISerializable
     {
         /// <summary>
         /// Gets or sets a value indicating whether the result is successful.

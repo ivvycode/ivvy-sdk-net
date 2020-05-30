@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.Batch
+namespace Ivvy.API.Batch
 {
     public class JobResult
     {

@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.Invoice
+namespace Ivvy.API.Invoice
 {
     /// <summary>
     /// Object that can be used to add a payment to an invoice.

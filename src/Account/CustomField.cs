@@ -1,8 +1,8 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Ivvy.Account
+namespace Ivvy.API.Account
 {
     public class CustomField : ISerializable
     {

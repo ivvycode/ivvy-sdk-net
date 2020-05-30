@@ -1,8 +1,8 @@
 using System;
 using Newtonsoft.Json;
-using Ivvy.Json;
+using Ivvy.API.Json;
 
-namespace Ivvy.Test
+namespace Ivvy.API.Test
 {
     /// <summary>
     /// This class encapsulates the result of the ping method.

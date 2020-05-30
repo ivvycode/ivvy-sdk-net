@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.Invoice
+namespace Ivvy.API.Invoice
 {
     public class Item
     {

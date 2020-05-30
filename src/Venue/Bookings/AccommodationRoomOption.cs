@@ -1,8 +1,8 @@
-using Ivvy.Json;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 using System;
 
-namespace Ivvy.Venue.Bookings
+namespace Ivvy.API.Venue.Bookings
 {
     /// <summary>
     /// A room option that has been added to a group accommodation block on an iVvy venue booking.
