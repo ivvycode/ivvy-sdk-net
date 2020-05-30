@@ -1,4 +1,4 @@
-﻿using Ivvy.Account;
+using Ivvy.Account;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

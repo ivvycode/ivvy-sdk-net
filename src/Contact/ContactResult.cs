@@ -8,12 +8,21 @@ namespace Ivvy.Contact
     public sealed class ContactResult : Ivvy.Json.ISerializable
     {
         [JsonProperty("success")]
-        public bool Success { get; set; }
+        public bool Success
+        {
+            get; set;
+        }
 
         [JsonProperty("message")]
-        public string Message { get; set; }
+        public string Message
+        {
+            get; set;
+        }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
     }
 }

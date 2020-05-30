@@ -12,7 +12,10 @@ namespace Ivvy
         public async Task<ResultOrError<Event.Event>> GetEventAsync(int id)
         {
             return await this.CallAsync<Event.Event>(
-                "event", "getEvent", new { id = id }
+                "event", "getEvent", new
+                {
+                    id = id
+                }
             );
         }
 
@@ -25,14 +28,17 @@ namespace Ivvy
             Dictionary<string, object> filterRequest = null,
             Event.GetEventListOptions options = null)
         {
-            if (options == null) {
+            if (options == null)
+            {
                 options = new Event.GetEventListOptions();
             }
-            if (filterRequest == null) {
+            if (filterRequest == null)
+            {
                 filterRequest = new Dictionary<string, object>();
             }
             return await this.CallAsync<ResultList<Event.Event>>(
-                "event", "getEventList", new {
+                "event", "getEventList", new
+                {
                     perPage = perPage,
                     start = start,
                     includeVenueDetails = options.IncludeVenueDetails,
@@ -54,7 +60,8 @@ namespace Ivvy
             Dictionary<string, object> filterRequest = null)
         {
             return await this.CallAsync<ResultList<Event.Attendee>>(
-                "event", "getAttendeeList", new {
+                "event", "getAttendeeList", new
+                {
                     eventId = eventId,
                     perPage = perPage,
                     start = start,
@@ -72,7 +79,8 @@ namespace Ivvy
             Dictionary<string, object> filterRequest = null)
         {
             return await this.CallAsync<ResultList<Event.Attendee>>(
-                "event", "getAttendeeListForAccount", new {
+                "event", "getAttendeeListForAccount", new
+                {
                     perPage = perPage,
                     start = start,
                     filter = filterRequest
@@ -88,8 +96,8 @@ namespace Ivvy
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
         public async Task<ResultOrError<ResultList<InvitedContact>>> GetInvitedContactListForAccount(
-            int perPage, 
-            int start, 
+            int perPage,
+            int start,
             Dictionary<string, object> filterRequest = null)
         {
             return await this.CallAsync<ResultList<InvitedContact>>(
@@ -111,9 +119,9 @@ namespace Ivvy
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
         public async Task<ResultOrError<ResultList<InvitedContact>>> GetInvitedContactList(
-            int eventId, 
-            int perPage, 
-            int start, 
+            int eventId,
+            int perPage,
+            int start,
             Dictionary<string, object> filterRequest = null)
         {
             return await this.CallAsync<ResultList<InvitedContact>>(
@@ -137,7 +145,8 @@ namespace Ivvy
             Dictionary<string, object> filterRequest = null)
         {
             return await CallAsync<ResultList<Event.Registration>>(
-                "event", "getRegistrationList", new {
+                "event", "getRegistrationList", new
+                {
                     eventId = eventId,
                     perPage,
                     start,
@@ -155,7 +164,8 @@ namespace Ivvy
             Dictionary<string, object> filterRequest = null)
         {
             return await CallAsync<ResultList<Event.Registration>>(
-                "event", "getRegistrationListForAccount", new {
+                "event", "getRegistrationListForAccount", new
+                {
                     perPage,
                     start,
                     filter = filterRequest

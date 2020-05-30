@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 
 namespace Ivvy.Venue
@@ -49,30 +49,57 @@ namespace Ivvy.Venue
         }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
 
         [JsonProperty("venueId")]
-        public int VenueId { get; set; }
+        public int VenueId
+        {
+            get; set;
+        }
 
         [JsonProperty("bookingId")]
-        public int BookingId { get; set; }
+        public int BookingId
+        {
+            get; set;
+        }
 
         [JsonProperty("isPrivate")]
-        public bool IsPrivate { get; set; }
+        public bool IsPrivate
+        {
+            get; set;
+        }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description
+        {
+            get; set;
+        }
 
         [JsonProperty("typeId")]
-        public NoteType Type { get; set; }
+        public NoteType Type
+        {
+            get; set;
+        }
 
         [JsonProperty("createdBy")]
-        public int CreatorId { get; set; }
+        public int CreatorId
+        {
+            get; set;
+        }
 
         [JsonProperty("createdDate")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate
+        {
+            get; set;
+        }
     }
 }

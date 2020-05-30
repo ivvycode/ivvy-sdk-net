@@ -13,13 +13,19 @@ namespace Ivvy
         /// The metadata details of the collection result.
         /// </summary>
         [JsonProperty("meta")]
-        public Metadata Meta { get; set; }
+        public Metadata Meta
+        {
+            get; set;
+        }
 
         /// <summary>
         /// The collection of data returned by the api method call.
         /// </summary>
         [JsonProperty("results")]
-        public List<T> Results { get; set; }
+        public List<T> Results
+        {
+            get; set;
+        }
 
         /// <summary>
         /// This class is used to encapsulate the metadata details.
@@ -30,25 +36,37 @@ namespace Ivvy
             /// The total number of items in the collection.
             /// </summary>
             [JsonProperty("totalResults")]
-            public int TotalCount { get; set; }
+            public int TotalCount
+            {
+                get; set;
+            }
 
             /// <summary>
             /// The starting index of the results in the collection.
             /// </summary>
             [JsonProperty("start")]
-            public int Start { get; set; }
+            public int Start
+            {
+                get; set;
+            }
 
             /// <summary>
             /// The number of items that were requested.
             /// </summary>
             [JsonProperty("perPage")]
-            public int PerPage { get; set; }
+            public int PerPage
+            {
+                get; set;
+            }
 
             /// <summary>
             /// The number of items that were returned.
             /// </summary>
             [JsonProperty("count")]
-            public int Count { get; set; }
+            public int Count
+            {
+                get; set;
+            }
         }
     }
 }

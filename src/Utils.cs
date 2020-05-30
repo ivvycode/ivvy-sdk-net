@@ -45,7 +45,8 @@ namespace Ivvy
         public static string BytesToString(byte[] data)
         {
             StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < data.Length; i++) {
+            for (int i = 0; i < data.Length; i++)
+            {
                 builder.Append(data[i].ToString("x2"));
             }
             return builder.ToString();

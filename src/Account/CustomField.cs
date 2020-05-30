@@ -1,4 +1,4 @@
-﻿using Ivvy.Json;
+using Ivvy.Json;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
@@ -20,24 +20,45 @@ namespace Ivvy.Account
         }
 
         [JsonProperty("fieldId")]
-        public int FieldId { get; set; }
+        public int FieldId
+        {
+            get; set;
+        }
 
         [JsonProperty("fieldType")]
-        public FieldTypes FieldType { get; set; }
+        public FieldTypes FieldType
+        {
+            get; set;
+        }
 
         [JsonProperty("displayName")]
-        public string DisplayName { get; set; }
+        public string DisplayName
+        {
+            get; set;
+        }
 
         [JsonProperty("isRequired")]
-        public bool IsRequired { get; set; }
+        public bool IsRequired
+        {
+            get; set;
+        }
 
         [JsonProperty("sortOrder")]
-        public int SortOrder { get; set; }
+        public int SortOrder
+        {
+            get; set;
+        }
 
         [JsonProperty("selectValues")]
-        public Dictionary<string, string> SelectValues { get; set; }
+        public Dictionary<string, string> SelectValues
+        {
+            get; set;
+        }
 
         [JsonProperty("fileTypes")]
-        public string[] FileTypes { get; set; }
+        public string[] FileTypes
+        {
+            get; set;
+        }
     }
 }

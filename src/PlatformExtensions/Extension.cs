@@ -12,12 +12,30 @@ namespace Ivvy.PlatformExtensions
     /// </summary>
     public class Extension : IExtension
     {
-        public string SetupVerifyUrl { get; set; }
-        public string SetupConfigureUrl { get; set; }
-        public string EventSetupVerifyUrl { get; set; }
-        public string EventSetupConfigureUrl { get; set; }
-        public string VenueSetupVerifyUrl { get; set; }
-        public string VenueSetupConfigureUrl { get; set; }
+        public string SetupVerifyUrl
+        {
+            get; set;
+        }
+        public string SetupConfigureUrl
+        {
+            get; set;
+        }
+        public string EventSetupVerifyUrl
+        {
+            get; set;
+        }
+        public string EventSetupConfigureUrl
+        {
+            get; set;
+        }
+        public string VenueSetupVerifyUrl
+        {
+            get; set;
+        }
+        public string VenueSetupConfigureUrl
+        {
+            get; set;
+        }
 
         private static HttpClient httpClient = new HttpClient();
 
@@ -110,13 +128,16 @@ namespace Ivvy.PlatformExtensions
         {
             HttpResponseMessage httpResponse = null;
             var result = new ResultOrError<T>();
-            try {
+            try
+            {
                 httpResponse = await httpClient.PostAsync(requestUri, new FormUrlEncodedContent(dataMap));
                 string data = await httpResponse.Content.ReadAsStringAsync();
                 JsonConvert.PopulateObject(data, result);
             }
-            finally {
-                if (httpResponse != null) {
+            finally
+            {
+                if (httpResponse != null)
+                {
                     httpResponse.Dispose();
                 }
             }

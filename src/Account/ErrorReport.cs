@@ -23,30 +23,57 @@ namespace Ivvy.Account
         }
 
         [JsonProperty("refType")]
-        public RefTypes RefType { get; set; }
+        public RefTypes RefType
+        {
+            get; set;
+        }
 
         [JsonProperty("code")]
-        public string Code { get; set; }
+        public string Code
+        {
+            get; set;
+        }
 
         [JsonProperty("message")]
-        public string Message { get; set; }
+        public string Message
+        {
+            get; set;
+        }
 
         [JsonProperty("level")]
-        public Levels Level { get; set; }
+        public Levels Level
+        {
+            get; set;
+        }
 
         [JsonProperty("refId1")]
-        public int? RefId1 { get; set; }
+        public int? RefId1
+        {
+            get; set;
+        }
 
         [JsonProperty("refId2")]
-        public int? RefId2 { get; set; }
+        public int? RefId2
+        {
+            get; set;
+        }
 
         [JsonProperty("refId3")]
-        public int? RefId3 { get; set; }
+        public int? RefId3
+        {
+            get; set;
+        }
 
         [JsonProperty("refId4")]
-        public int? RefId4 { get; set; }
+        public int? RefId4
+        {
+            get; set;
+        }
 
         [JsonProperty("refId5")]
-        public int? RefId5 { get; set; }
+        public int? RefId5
+        {
+            get; set;
+        }
     }
 }

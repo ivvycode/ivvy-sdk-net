@@ -6,12 +6,30 @@ namespace Ivvy.PlatformExtensions
 {
     public interface IExtension
     {
-        string SetupVerifyUrl { get; set; }
-        string SetupConfigureUrl { get; set; }
-        string EventSetupVerifyUrl { get; set; }
-        string EventSetupConfigureUrl { get; set; }
-        string VenueSetupVerifyUrl { get; set; }
-        string VenueSetupConfigureUrl { get; set; }
+        string SetupVerifyUrl
+        {
+            get; set;
+        }
+        string SetupConfigureUrl
+        {
+            get; set;
+        }
+        string EventSetupVerifyUrl
+        {
+            get; set;
+        }
+        string EventSetupConfigureUrl
+        {
+            get; set;
+        }
+        string VenueSetupVerifyUrl
+        {
+            get; set;
+        }
+        string VenueSetupConfigureUrl
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Verifies an iVvy client's request to add the extension to their account.

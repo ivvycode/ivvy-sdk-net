@@ -1,4 +1,4 @@
-﻿using Ivvy.Json;
+using Ivvy.Json;
 using Newtonsoft.Json;
 using System;
 
@@ -18,42 +18,81 @@ namespace Ivvy.Event
         }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
 
         [JsonProperty("eventId")]
-        public int EventId { get; set; }
+        public int EventId
+        {
+            get; set;
+        }
 
         [JsonProperty("currentStatus")]
-        public StatusOptions CurrentStatus { get; set; }
+        public StatusOptions CurrentStatus
+        {
+            get; set;
+        }
 
         [JsonProperty("isExhibitor")]
-        public bool IsExhibitor { get; set; }
+        public bool IsExhibitor
+        {
+            get; set;
+        }
 
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public string FirstName
+        {
+            get; set;
+        }
 
         [JsonProperty("lastName")]
-        public string LastName { get; set; }
+        public string LastName
+        {
+            get; set;
+        }
 
         [JsonProperty("eventName")]
-        public string EventName { get; set; }
+        public string EventName
+        {
+            get; set;
+        }
 
         [JsonProperty("phone")]
-        public string Phone { get; set; }
+        public string Phone
+        {
+            get; set;
+        }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("completedDate")]
-        public DateTime? CompletedDate { get; set; }
+        public DateTime? CompletedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("mainContactId")]
-        public int MainContactId { get; set; }
+        public int MainContactId
+        {
+            get; set;
+        }
 
         [JsonProperty("invoiceTotalCost")]
-        public double InvoiceTotalCost { get; set; }
+        public double InvoiceTotalCost
+        {
+            get; set;
+        }
 
         [JsonProperty("invoiceTotalPaid")]
-        public double InvoiceTotalPaid { get; set; }
+        public double InvoiceTotalPaid
+        {
+            get; set;
+        }
     }
 }

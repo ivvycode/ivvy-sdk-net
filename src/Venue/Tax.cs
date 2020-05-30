@@ -9,9 +9,15 @@ namespace Ivvy.Venue
     public class Tax : ISerializable
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name
+        {
+            get; set;
+        }
     }
 }

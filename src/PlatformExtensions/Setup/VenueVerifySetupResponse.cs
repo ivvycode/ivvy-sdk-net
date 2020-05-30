@@ -9,15 +9,27 @@ namespace Ivvy.PlatformExtensions.Setup
     public sealed class VenueVerifySetupResponse
     {
         [JsonProperty("accountId")]
-        public string AccountId { get; set; }
+        public string AccountId
+        {
+            get; set;
+        }
 
         [JsonProperty("accountDomain")]
-        public string AccountDomain { get; set; }
+        public string AccountDomain
+        {
+            get; set;
+        }
 
         [JsonProperty("venueId")]
-        public string VenueId { get; set; }
+        public string VenueId
+        {
+            get; set;
+        }
 
         [JsonProperty("venueHashId")]
-        public string VenueHashId { get; set; }
+        public string VenueHashId
+        {
+            get; set;
+        }
     }
 }

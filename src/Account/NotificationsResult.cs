@@ -9,39 +9,75 @@ namespace Ivvy.Account
     public class NotificationsResult : ISerializable
     {
         [JsonProperty("eventsSuccess")]
-        public bool EventsSuccess { get; set; }
+        public bool EventsSuccess
+        {
+            get; set;
+        }
 
         [JsonProperty("eventsTopicId")]
-        public string EventsTopicId { get; set; }
+        public string EventsTopicId
+        {
+            get; set;
+        }
 
         [JsonProperty("venuesSuccess")]
-        public bool VenuesSuccess { get; set; }
+        public bool VenuesSuccess
+        {
+            get; set;
+        }
 
         [JsonProperty("venuesTopicId")]
-        public string VenuesTopicId { get; set; }
+        public string VenuesTopicId
+        {
+            get; set;
+        }
 
         [JsonProperty("paymentsSuccess")]
-        public bool PaymentsSuccess { get; set; }
+        public bool PaymentsSuccess
+        {
+            get; set;
+        }
 
         [JsonProperty("paymentsTopicId")]
-        public string PaymentsTopicId { get; set; }
+        public string PaymentsTopicId
+        {
+            get; set;
+        }
 
         [JsonProperty("crmSuccess")]
-        public bool CrmSuccess { get; set; }
+        public bool CrmSuccess
+        {
+            get; set;
+        }
 
         [JsonProperty("crmTopicId")]
-        public string CrmTopicId { get; set; }
+        public string CrmTopicId
+        {
+            get; set;
+        }
 
         [JsonProperty("contactsSuccess")]
-        public bool ContactsSuccess { get; set; }
+        public bool ContactsSuccess
+        {
+            get; set;
+        }
 
         [JsonProperty("contactsTopicId")]
-        public string ContactsTopicId { get; set; }
+        public string ContactsTopicId
+        {
+            get; set;
+        }
 
         [JsonProperty("companiesSuccess")]
-        public bool CompaniesSuccess { get; set; }
+        public bool CompaniesSuccess
+        {
+            get; set;
+        }
 
         [JsonProperty("companiesTopicId")]
-        public string CompaniesTopicId { get; set; }
+        public string CompaniesTopicId
+        {
+            get; set;
+        }
     }
 }

@@ -16,7 +16,10 @@ namespace Ivvy
         ///   <c>true</c> if success; otherwise, <c>false</c>.
         /// </value>
         [JsonProperty("success")]
-        public bool Success { get; set; }
+        public bool Success
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the error message (if success is false).
@@ -25,7 +28,10 @@ namespace Ivvy
         /// The error message.
         /// </value>
         [JsonProperty("message")]
-        public string Message { get; set; }
+        public string Message
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the unique id of the model object.
@@ -34,6 +40,9 @@ namespace Ivvy
         /// The unique id of the model object.
         /// </value>
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
     }
 }

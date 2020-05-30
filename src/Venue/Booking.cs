@@ -1,4 +1,4 @@
-﻿using Ivvy.Json;
+using Ivvy.Json;
 using Newtonsoft.Json;
 using System;
 
@@ -17,99 +17,195 @@ namespace Ivvy.Venue
         }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
 
         [JsonProperty("venueId")]
-        public int VenueId { get; set; }
+        public int VenueId
+        {
+            get; set;
+        }
 
         [JsonProperty("venueName")]
-        public string VenueName { get; set; }
+        public string VenueName
+        {
+            get; set;
+        }
 
         [JsonProperty("code")]
-        public string Code { get; set; }
+        public string Code
+        {
+            get; set;
+        }
 
         [JsonProperty("otaFolioRef")]
-        public string OtaFolioReference { get; set; }
+        public string OtaFolioReference
+        {
+            get; set;
+        }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name
+        {
+            get; set;
+        }
 
         [JsonProperty("companyId")]
-        public int? CompanyId { get; set; }
+        public int? CompanyId
+        {
+            get; set;
+        }
 
         [JsonProperty("company")]
-        public Contact.Company Company { get; set; }
+        public Contact.Company Company
+        {
+            get; set;
+        }
 
         [JsonProperty("contactId")]
-        public int? ContactId { get; set; }
+        public int? ContactId
+        {
+            get; set;
+        }
 
         [JsonProperty("contact")]
-        public Contact.Contact Contact { get; set; }
+        public Contact.Contact Contact
+        {
+            get; set;
+        }
 
         [JsonProperty("currentStatus")]
-        public StatusOptions CurrentStatus { get; set; }
+        public StatusOptions CurrentStatus
+        {
+            get; set;
+        }
 
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public float TotalAmount
+        {
+            get; set;
+        }
 
         [JsonProperty("totalTaxAmount")]
-        public float TotalTaxAmount { get; set; }
+        public float TotalTaxAmount
+        {
+            get; set;
+        }
 
         [JsonProperty("amountOutstanding")]
-        public float AmountOutstanding { get; set; }
+        public float AmountOutstanding
+        {
+            get; set;
+        }
 
         [JsonProperty("accountTimezone")]
-        public string AccountTimezone { get; set; }
+        public string AccountTimezone
+        {
+            get; set;
+        }
 
         [JsonProperty("venueTimezone")]
-        public string VenueTimezone { get; set; }
+        public string VenueTimezone
+        {
+            get; set;
+        }
 
         [JsonProperty("createdDate")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("dateEventStart")]
-        public DateTime DateEventStart { get; set; }
+        public DateTime DateEventStart
+        {
+            get; set;
+        }
 
         [JsonProperty("dateEventEnd")]
-        public DateTime DateEventEnd { get; set; }
+        public DateTime DateEventEnd
+        {
+            get; set;
+        }
 
         [JsonProperty("isAccommIncluded")]
-        public bool IsAccommIncluded { get; set; }
+        public bool IsAccommIncluded
+        {
+            get; set;
+        }
 
         [JsonProperty("dateAccomStart")]
-        public DateTime? DateAccomStart { get; set; }
+        public DateTime? DateAccomStart
+        {
+            get; set;
+        }
 
         [JsonProperty("dateAccomEnd")]
-        public DateTime? DateAccomEnd { get; set; }
+        public DateTime? DateAccomEnd
+        {
+            get; set;
+        }
 
         [JsonProperty("hasPackages")]
-        public bool HasPackages { get; set; }
+        public bool HasPackages
+        {
+            get; set;
+        }
 
         [JsonProperty("decisionDate")]
-        public DateTime? DecisionDate { get; set; }
+        public DateTime? DecisionDate
+        {
+            get; set;
+        }
 
         [JsonProperty("isBeoFinalised")]
-        public bool IsBeoFinalised { get; set; }
+        public bool IsBeoFinalised
+        {
+            get; set;
+        }
 
         [JsonProperty("beoFinalisedDate")]
-        public DateTime? BeoFinalisedDate { get; set; }
+        public DateTime? BeoFinalisedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("eventType")]
-        public string EventType { get; set; }
+        public string EventType
+        {
+            get; set;
+        }
 
         [JsonProperty("dailyRevenue")]
-        public Bookings.DailyRevenue[] DailyRevenues { get; set; }
+        public Bookings.DailyRevenue[] DailyRevenues
+        {
+            get; set;
+        }
 
         [JsonProperty("sessions")]
-        public Bookings.Session[] Sessions { get; set; }
+        public Bookings.Session[] Sessions
+        {
+            get; set;
+        }
 
         [JsonProperty("agent")]
-        public Contact.Agent Agent { get; set; }
+        public Contact.Agent Agent
+        {
+            get; set;
+        }
 
         [JsonProperty("opportunityId")]
-        public int? OpportunityId { get; set; }
+        public int? OpportunityId
+        {
+            get; set;
+        }
     }
 }

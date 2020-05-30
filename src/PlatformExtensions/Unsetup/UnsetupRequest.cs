@@ -9,12 +9,21 @@ namespace Ivvy.PlatformExtensions.Unsetup
     public sealed class UnsetupRequest
     {
         [JsonProperty("region")]
-        public string Region { get; set; }
+        public string Region
+        {
+            get; set;
+        }
 
         [JsonProperty("accountId")]
-        public string AccountId { get; set; }
+        public string AccountId
+        {
+            get; set;
+        }
 
         [JsonProperty("setupKey")]
-        public string SetupKey { get; set; }
+        public string SetupKey
+        {
+            get; set;
+        }
     }
 }

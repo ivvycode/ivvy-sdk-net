@@ -1,4 +1,4 @@
-﻿using Ivvy.Json;
+using Ivvy.Json;
 using Newtonsoft.Json;
 
 namespace Ivvy.Account
@@ -6,15 +6,27 @@ namespace Ivvy.Account
     public class SubscriptionGroup : ISerializable
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
 
         [JsonProperty("groupName")]
-        public string GroupName { get; set; }
+        public string GroupName
+        {
+            get; set;
+        }
 
         [JsonProperty("memberCount")]
-        public int MemberCount { get; set; }
+        public int MemberCount
+        {
+            get; set;
+        }
 
         [JsonProperty("tagColour")]
-        public string TagColour { get; set; }
+        public string TagColour
+        {
+            get; set;
+        }
     }
 }

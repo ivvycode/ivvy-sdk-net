@@ -9,12 +9,21 @@ namespace Ivvy.PlatformExtensions.Configure
     public sealed class EventConfigureRequest
     {
         [JsonProperty("accountId")]
-        public string AccountId { get; set; }
+        public string AccountId
+        {
+            get; set;
+        }
 
         [JsonProperty("eventId")]
-        public string EventId { get; set; }
+        public string EventId
+        {
+            get; set;
+        }
 
         [JsonProperty("setupKey")]
-        public string SetupKey { get; set; }
+        public string SetupKey
+        {
+            get; set;
+        }
     }
 }

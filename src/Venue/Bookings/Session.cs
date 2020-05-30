@@ -1,4 +1,4 @@
-﻿using Ivvy.Json;
+using Ivvy.Json;
 using Newtonsoft.Json;
 using System;
 
@@ -10,27 +10,51 @@ namespace Ivvy.Venue.Bookings
     public class Session : ISerializable
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name
+        {
+            get; set;
+        }
 
         [JsonProperty("startDate")]
-        public DateTime StartDate { get; set; }
+        public DateTime StartDate
+        {
+            get; set;
+        }
 
         [JsonProperty("endDate")]
-        public DateTime EndDate { get; set; }
+        public DateTime EndDate
+        {
+            get; set;
+        }
 
         [JsonProperty("spaceId")]
-        public int SpaceId { get; set; }
+        public int SpaceId
+        {
+            get; set;
+        }
 
         [JsonProperty("costCenterId")]
-        public int CostCenterId { get; set; }
+        public int CostCenterId
+        {
+            get; set;
+        }
 
         [JsonProperty("cost")]
-        public decimal Cost { get; set; }
+        public decimal Cost
+        {
+            get; set;
+        }
 
         [JsonProperty("totalAmount")]
-        public decimal TotalAmount { get; set; }
+        public decimal TotalAmount
+        {
+            get; set;
+        }
     }
 }

@@ -26,81 +26,159 @@ namespace Ivvy.Invoice
         }
 
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id
+        {
+            get; set;
+        }
 
         [JsonProperty("reference")]
-        public string Reference { get; set; }
+        public string Reference
+        {
+            get; set;
+        }
 
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Title
+        {
+            get; set;
+        }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description
+        {
+            get; set;
+        }
 
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string Currency
+        {
+            get; set;
+        }
 
         [JsonProperty("totalCost")]
-        public float? TotalCost { get; set; }
+        public float? TotalCost
+        {
+            get; set;
+        }
 
         [JsonProperty("totalTaxCost")]
-        public float? TotalTaxCost { get; set; }
+        public float? TotalTaxCost
+        {
+            get; set;
+        }
 
         [JsonProperty("amountPaid")]
-        public float? AmountPaid { get; set; }
+        public float? AmountPaid
+        {
+            get; set;
+        }
 
         [JsonProperty("toContactEmail")]
-        public string ToContactEmail { get; set; }
+        public string ToContactEmail
+        {
+            get; set;
+        }
 
         [JsonProperty("toContactName")]
-        public string ToContactName { get; set; }
+        public string ToContactName
+        {
+            get; set;
+        }
 
         [JsonProperty("currentStatus")]
-        public StatusOptions CurrentStatus { get; set; }
+        public StatusOptions CurrentStatus
+        {
+            get; set;
+        }
 
         [JsonProperty("createdDate")]
-        public string CreatedDate { get; set; }
+        public string CreatedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("modifiedDate")]
-        public string ModifiedDate { get; set; }
+        public string ModifiedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("refType")]
-        public RefTypes RefType { get; set; }
+        public RefTypes RefType
+        {
+            get; set;
+        }
 
         [JsonProperty("refId")]
-        public string refId { get; set; }
+        public string refId
+        {
+            get; set;
+        }
 
         [JsonProperty("taxRateUsed")]
-        public string taxRateUsed { get; set; }
+        public string taxRateUsed
+        {
+            get; set;
+        }
 
         [JsonProperty("isTaxCharged")]
-        public string isTaxCharged { get; set; }
+        public string isTaxCharged
+        {
+            get; set;
+        }
 
         [JsonProperty("paymentDueDate")]
-        public string PaymentDueDate { get; set; }
+        public string PaymentDueDate
+        {
+            get; set;
+        }
 
         [JsonProperty("eventId")]
-        public long? EventId { get; set; }
+        public long? EventId
+        {
+            get; set;
+        }
 
         [JsonProperty("venueId")]
-        public long? VenueId { get; set; }
+        public long? VenueId
+        {
+            get; set;
+        }
 
         [JsonProperty("toContactId")]
-        public string ToContactId { get; set; }
+        public string ToContactId
+        {
+            get; set;
+        }
 
         [JsonProperty("Contact")]
-        public Contact.Contact Contact { get; set; }
+        public Contact.Contact Contact
+        {
+            get; set;
+        }
 
         [JsonProperty("toAddress")]
-        public Address ToAddress { get; set; }
+        public Address ToAddress
+        {
+            get; set;
+        }
 
         [JsonProperty("items")]
-        public List<Item> Items { get; set; }
+        public List<Item> Items
+        {
+            get; set;
+        }
 
         [JsonProperty("payments")]
-        public List<InvoicePayment> Payments { get; set; }
+        public List<InvoicePayment> Payments
+        {
+            get; set;
+        }
 
         [JsonProperty("bookingCode")]
-        public string BookingCode { get; set; }
+        public string BookingCode
+        {
+            get; set;
+        }
     }
 }

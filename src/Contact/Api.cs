@@ -11,7 +11,10 @@ namespace Ivvy
         public async Task<ResultOrError<Contact.Contact>> GetContactAsync(int id)
         {
             return await this.CallAsync<Contact.Contact>(
-                "contact", "getContact", new { id = id }
+                "contact", "getContact", new
+                {
+                    id = id
+                }
             );
         }
 
@@ -25,7 +28,8 @@ namespace Ivvy
         {
             return await this.CallAsync<ResultList<Contact.Contact>>(
                 "contact", "getContactList",
-                new {
+                new
+                {
                     perPage = perPage,
                     start = start,
                     filter = filterRequest
@@ -49,7 +53,10 @@ namespace Ivvy
         public async Task<ResultOrError<Contact.Company>> GetCompanyAsync(int id)
         {
             return await this.CallAsync<Contact.Company>(
-                "contact", "getCompany", new { id = id }
+                "contact", "getCompany", new
+                {
+                    id = id
+                }
             );
         }
 

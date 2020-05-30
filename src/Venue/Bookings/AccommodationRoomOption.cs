@@ -10,33 +10,63 @@ namespace Ivvy.Venue.Bookings
     public class AccommodationRoomOption : ISerializable
     {
         [JsonProperty("bookingDate")]
-        public string BookingDate { get; set; }
+        public string BookingDate
+        {
+            get; set;
+        }
 
         [JsonProperty("roomOptionId")]
-        public int RoomOptionId { get; set; }
+        public int RoomOptionId
+        {
+            get; set;
+        }
 
         [JsonProperty("numRooms")]
-        public int NumRooms { get; set; }
+        public int NumRooms
+        {
+            get; set;
+        }
 
         [JsonProperty("numOptionsPerRoom")]
-        public int NumOptionsPerRoom { get; set; }
+        public int NumOptionsPerRoom
+        {
+            get; set;
+        }
 
         [JsonProperty("price")]
-        public float Price { get; set; }
-        
+        public float Price
+        {
+            get; set;
+        }
+
         [JsonProperty("excludedTaxIds")]
-        public int[] ExcludedTaxIds { get; set; }
+        public int[] ExcludedTaxIds
+        {
+            get; set;
+        }
 
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public float? TotalAmount
+        {
+            get; set;
+        }
 
         [JsonProperty("totalTaxAmount")]
-        public float? TotalTaxAmount { get; set; }
+        public float? TotalTaxAmount
+        {
+            get; set;
+        }
 
         [JsonProperty("costcenterId")]
-        public int? CostCenterId { get; set; }
+        public int? CostCenterId
+        {
+            get; set;
+        }
 
         [JsonProperty("numPayableByGuest")]
-        public int NumPayableByGuest { get; set; }
+        public int NumPayableByGuest
+        {
+            get; set;
+        }
     }
 }

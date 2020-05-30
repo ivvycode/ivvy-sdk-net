@@ -8,7 +8,8 @@ namespace Ivvy
         /// <inheritdoc />
         public async Task<ResultOrError<Batch.RunResponse>> BatchRunAsync(List<Batch.Job> jobs, string callbackUrl)
         {
-            return await this.CallAsync<Batch.RunResponse>("batch", "run", new {
+            return await this.CallAsync<Batch.RunResponse>("batch", "run", new
+            {
                 jobs = jobs,
                 callbackUrl = callbackUrl
             });
@@ -17,7 +18,8 @@ namespace Ivvy
         /// <inheritdoc />
         public async Task<ResultOrError<Batch.ProgressResponse>> BatchProgressAsync(string asyncId)
         {
-            return await this.CallAsync<Batch.ProgressResponse>("batch", "progress", new {
+            return await this.CallAsync<Batch.ProgressResponse>("batch", "progress", new
+            {
                 async = asyncId
             });
         }
@@ -25,7 +27,8 @@ namespace Ivvy
         /// <inheritdoc />
         public async Task<ResultOrError<Batch.RestartResponse>> BatchRestartAsync(string asyncId)
         {
-            return await this.CallAsync<Batch.RestartResponse>("batch", "restart", new {
+            return await this.CallAsync<Batch.RestartResponse>("batch", "restart", new
+            {
                 async = asyncId
             });
         }
@@ -33,7 +36,8 @@ namespace Ivvy
         /// <inheritdoc />
         public async Task<ResultOrError<Batch.RepostResponse>> BatchRepostAsync(string asyncId)
         {
-            return await this.CallAsync<Batch.RepostResponse>("batch", "repost", new {
+            return await this.CallAsync<Batch.RepostResponse>("batch", "repost", new
+            {
                 async = asyncId
             });
         }

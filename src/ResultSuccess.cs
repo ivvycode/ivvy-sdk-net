@@ -15,6 +15,9 @@ namespace Ivvy
         ///   <c>true</c> if success; otherwise, <c>false</c>.
         /// </value>
         [JsonProperty("success")]
-        public bool Success { get; set; }
+        public bool Success
+        {
+            get; set;
+        }
     }
 }

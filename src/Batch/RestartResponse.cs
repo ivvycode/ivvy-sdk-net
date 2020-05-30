@@ -5,6 +5,9 @@ namespace Ivvy.Batch
     public class RestartResponse
     {
         [JsonProperty("restarted")]
-        public bool Restarted { get; set; }
+        public bool Restarted
+        {
+            get; set;
+        }
     }
 }

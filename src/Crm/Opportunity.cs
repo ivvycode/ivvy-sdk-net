@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace Ivvy.Crm
 {
@@ -8,21 +8,39 @@ namespace Ivvy.Crm
     public class Opportunity
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
 
         [JsonProperty("venueId")]
-        public int VenueId { get; set; }
+        public int VenueId
+        {
+            get; set;
+        }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name
+        {
+            get; set;
+        }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description
+        {
+            get; set;
+        }
 
         [JsonProperty("stageId")]
-        public int StageId { get; set; }
+        public int StageId
+        {
+            get; set;
+        }
 
         [JsonProperty("typeId")]
-        public int TypeId { get; set; }
+        public int TypeId
+        {
+            get; set;
+        }
     }
 }

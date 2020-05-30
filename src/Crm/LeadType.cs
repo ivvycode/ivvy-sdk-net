@@ -9,9 +9,15 @@ namespace Ivvy.Crm
     public class LeadType : ISerializable
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
-        
+        public string Id
+        {
+            get; set;
+        }
+
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string Type
+        {
+            get; set;
+        }
     }
 }

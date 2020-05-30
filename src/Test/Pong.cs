@@ -10,6 +10,9 @@ namespace Ivvy.Test
     public class Pong : ISerializable
     {
         [JsonProperty("ack")]
-        public DateTime Ack { get; set; }
+        public DateTime Ack
+        {
+            get; set;
+        }
     }
 }

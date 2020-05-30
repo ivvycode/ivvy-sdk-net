@@ -36,7 +36,9 @@ namespace Ivvy
         public async Task<ResultOrError<List<CustomField>>> GetCustomFieldDefinition()
         {
             return await this.CallAsync<List<CustomField>>(
-                "contact", "getCustomFieldDefinition", new { }
+                "contact", "getCustomFieldDefinition", new
+                {
+                }
             );
         }
 
@@ -46,7 +48,9 @@ namespace Ivvy
         public async Task<ResultOrError<List<SubscriptionGroup>>> GetSubscriptionGroupListAsync()
         {
             return await this.CallAsync<List<SubscriptionGroup>>(
-                "contact", "getSubscriptionGroupList", new { }
+                "contact", "getSubscriptionGroupList", new
+                {
+                }
             );
         }
 

@@ -32,27 +32,51 @@ namespace Ivvy.Invoice
         }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id
+        {
+            get; set;
+        }
 
         [JsonProperty("paymentId")]
-        public string PaymentId { get; set; }
+        public string PaymentId
+        {
+            get; set;
+        }
 
         [JsonProperty("receiptNum")]
-        public string ReceiptNumber { get; set; }
+        public string ReceiptNumber
+        {
+            get; set;
+        }
 
         [JsonProperty("amountPaid")]
-        public float? AmountPaid { get; set; }
+        public float? AmountPaid
+        {
+            get; set;
+        }
 
         [JsonProperty("notes")]
-        public string Notes { get; set; }
+        public string Notes
+        {
+            get; set;
+        }
 
         [JsonProperty("chequeNumber")]
-        public string ChequeNumber { get; set; }
+        public string ChequeNumber
+        {
+            get; set;
+        }
 
         [JsonProperty("paymentMethod")]
-        public PaymentMethods PaymentMethod { get; set; }
+        public PaymentMethods PaymentMethod
+        {
+            get; set;
+        }
 
         [JsonProperty("paidDate")]
-        public DateTime? PaidDate { get; set; }
+        public DateTime? PaidDate
+        {
+            get; set;
+        }
     }
 }

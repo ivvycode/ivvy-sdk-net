@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -218,7 +218,7 @@ namespace Ivvy
             string startDate,
             string endDate,
             double cost);
-        
+
         /// <summary>
         /// Remove one or more dynamic rates from a specific venue room.
         /// <param name="venueId">The unique id of the venue to which the rate plan belongs</param>

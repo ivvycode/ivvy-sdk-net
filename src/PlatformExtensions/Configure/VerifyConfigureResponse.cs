@@ -6,6 +6,6 @@ namespace Ivvy.PlatformExtensions.Configure
     /// </summary>
     public sealed class VerifyConfigureResponse
     {
-        
+
     }
 }

@@ -14,7 +14,8 @@ namespace Ivvy
             Dictionary<string, object> filterRequest = null)
         {
             return await this.CallAsync<ResultList<Crm.LeadStage>>(
-                "crm", "getLeadStageList", new {
+                "crm", "getLeadStageList", new
+                {
                     perPage = perPage,
                     start = start,
                     filter = filterRequest

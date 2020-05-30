@@ -1,4 +1,4 @@
-﻿using Ivvy.Test;
+using Ivvy.Test;
 using System.Threading.Tasks;
 
 namespace Ivvy

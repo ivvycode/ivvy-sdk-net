@@ -9,9 +9,15 @@ namespace Ivvy.PlatformExtensions.Configure
     public sealed class ConfigureRequest
     {
         [JsonProperty("accountId")]
-        public string AccountId { get; set; }
+        public string AccountId
+        {
+            get; set;
+        }
 
         [JsonProperty("setupKey")]
-        public string SetupKey { get; set; }
+        public string SetupKey
+        {
+            get; set;
+        }
     }
 }

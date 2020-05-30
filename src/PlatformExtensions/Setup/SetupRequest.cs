@@ -9,33 +9,63 @@ namespace Ivvy.PlatformExtensions.Setup
     public sealed class SetupRequest
     {
         [JsonProperty("region")]
-        public string Region { get; set; }
+        public string Region
+        {
+            get; set;
+        }
 
         [JsonProperty("accountId")]
-        public string AccountId { get; set; }
+        public string AccountId
+        {
+            get; set;
+        }
 
         [JsonProperty("setupKey")]
-        public string SetupKey { get; set; }
+        public string SetupKey
+        {
+            get; set;
+        }
 
         [JsonProperty("ivvyApiEndPoint")]
-        public string IvvyApiEndPoint { get; set; }
+        public string IvvyApiEndPoint
+        {
+            get; set;
+        }
 
         [JsonProperty("ivvySetupVerifyUrl")]
-        public string IvvySetupVerifyUrl { get; set; }
+        public string IvvySetupVerifyUrl
+        {
+            get; set;
+        }
 
         [JsonProperty("ivvySetupConfigureUrl")]
-        public string IvvySetupConfigureUrl { get; set; }
+        public string IvvySetupConfigureUrl
+        {
+            get; set;
+        }
 
         [JsonProperty("ivvyEventSetupVerifyUrl")]
-        public string IvvyEventSetupVerifyUrl { get; set; }
+        public string IvvyEventSetupVerifyUrl
+        {
+            get; set;
+        }
 
         [JsonProperty("ivvyEventSetupConfigureUrl")]
-        public string IvvyEventSetupConfigureUrl { get; set; }
+        public string IvvyEventSetupConfigureUrl
+        {
+            get; set;
+        }
 
         [JsonProperty("ivvyVenueSetupVerifyUrl")]
-        public string IvvyVenueSetupVerifyUrl { get; set; }
+        public string IvvyVenueSetupVerifyUrl
+        {
+            get; set;
+        }
 
         [JsonProperty("ivvyVenueSetupConfigureUrl")]
-        public string IvvyVenueSetupConfigureUrl { get; set; }
+        public string IvvyVenueSetupConfigureUrl
+        {
+            get; set;
+        }
     }
 }

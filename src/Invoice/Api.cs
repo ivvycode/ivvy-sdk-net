@@ -11,7 +11,10 @@ namespace Ivvy
         public async Task<ResultOrError<Invoice.Invoice>> GetInvoiceAsync(int id)
         {
             return await this.CallAsync<Invoice.Invoice>(
-                "invoice", "getInvoice", new { id = id }
+                "invoice", "getInvoice", new
+                {
+                    id = id
+                }
             );
         }
 
@@ -22,7 +25,8 @@ namespace Ivvy
             int perPage, int start, Dictionary<string, object> filterRequest)
         {
             return await this.CallAsync<ResultList<Invoice.Invoice>>(
-                "invoice", "getInvoiceList", new {
+                "invoice", "getInvoiceList", new
+                {
                     perPage = perPage,
                     start = start,
                     filter = filterRequest

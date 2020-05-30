@@ -1,4 +1,4 @@
-﻿using Ivvy.Json;
+using Ivvy.Json;
 using Newtonsoft.Json;
 using System;
 using System.Runtime.Serialization;
@@ -109,45 +109,87 @@ namespace Ivvy.Account
         }
 
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id
+        {
+            get; set;
+        }
 
         [JsonProperty("contactId")]
-        public int? ContactId { get; set; }
+        public int? ContactId
+        {
+            get; set;
+        }
 
         [JsonProperty("eventId")]
-        public int? EventId { get; set; }
+        public int? EventId
+        {
+            get; set;
+        }
 
         [JsonProperty("userId")]
-        public int? UserId { get; set; }
+        public int? UserId
+        {
+            get; set;
+        }
 
         [JsonProperty("refType")]
-        public RefTypes EmailRefType { get; set; }
+        public RefTypes EmailRefType
+        {
+            get; set;
+        }
 
         [JsonProperty("type")]
-        public EmailTypes EmailType { get; set; }
+        public EmailTypes EmailType
+        {
+            get; set;
+        }
 
         [JsonProperty("refId")]
-        public int? RefId { get; set; }
+        public int? RefId
+        {
+            get; set;
+        }
 
         [JsonProperty("from")]
-        public string FromAddress { get; set; }
+        public string FromAddress
+        {
+            get; set;
+        }
 
         [JsonProperty("to")]
-        public string ToAddress { get; set; }
+        public string ToAddress
+        {
+            get; set;
+        }
 
         [JsonProperty("bcc")]
-        public string BccAddress { get; set; }
+        public string BccAddress
+        {
+            get; set;
+        }
 
         [JsonProperty("subject")]
-        public string Subject { get; set; }
+        public string Subject
+        {
+            get; set;
+        }
 
         [JsonProperty("body")]
-        public string Body { get; set; }
+        public string Body
+        {
+            get; set;
+        }
 
         [JsonProperty("sentTime")]
-        public DateTime SentTime { get; set; }
+        public DateTime SentTime
+        {
+            get; set;
+        }
 
         [JsonProperty("success")]
-        public bool Success { get; set; }
+        public bool Success
+        {
+            get; set;
+        }
     }
 }

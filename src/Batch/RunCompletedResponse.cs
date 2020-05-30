@@ -6,9 +6,15 @@ namespace Ivvy.Batch
     public class RunCompletedResponse
     {
         [JsonProperty("asyncId")]
-        public string AsyncId { get; set; }
+        public string AsyncId
+        {
+            get; set;
+        }
 
         [JsonProperty("results")]
-        public List<JobResult> JobResults { get; set; }
+        public List<JobResult> JobResults
+        {
+            get; set;
+        }
     }
 }

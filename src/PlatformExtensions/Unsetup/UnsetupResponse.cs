@@ -9,7 +9,10 @@ namespace Ivvy.PlatformExtensions.Unsetup
     public sealed class UnsetupResponse
     {
         [JsonProperty("success")]
-        public bool Success { get; }
+        public bool Success
+        {
+            get;
+        }
 
         public UnsetupResponse(bool success)
         {

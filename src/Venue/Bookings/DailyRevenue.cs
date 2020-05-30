@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 
 namespace Ivvy.Venue.Bookings
@@ -9,15 +9,27 @@ namespace Ivvy.Venue.Bookings
     public class DailyRevenue
     {
         [JsonProperty("costcenterId")]
-        public int CostCenterId { get; set; }
+        public int CostCenterId
+        {
+            get; set;
+        }
 
         [JsonProperty("revenueDate")]
-        public DateTime RevenueDate { get; set; }
+        public DateTime RevenueDate
+        {
+            get; set;
+        }
 
         [JsonProperty("totalAmount")]
-        public double TotalAmount { get; set; }
+        public double TotalAmount
+        {
+            get; set;
+        }
 
         [JsonProperty("totalTaxAmount")]
-        public double TotalTaxAmount { get; set; }
+        public double TotalTaxAmount
+        {
+            get; set;
+        }
     }
 }

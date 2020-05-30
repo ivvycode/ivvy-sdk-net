@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace Ivvy.Invoice
 {
@@ -26,24 +26,45 @@ namespace Ivvy.Invoice
         }
 
         [JsonProperty("refType")]
-        public RefTypes RefType { get; set; }
+        public RefTypes RefType
+        {
+            get; set;
+        }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description
+        {
+            get; set;
+        }
 
         [JsonProperty("quantity")]
-        public float Quantity { get; set; }
+        public float Quantity
+        {
+            get; set;
+        }
 
         [JsonProperty("unitCost")]
-        public float UnitCost { get; set; }
+        public float UnitCost
+        {
+            get; set;
+        }
 
         [JsonProperty("totalCost")]
-        public float TotalCost { get; set; }
+        public float TotalCost
+        {
+            get; set;
+        }
 
         [JsonProperty("totalTaxCost")]
-        public float TotalTaxCost { get; set; }
+        public float TotalTaxCost
+        {
+            get; set;
+        }
 
         [JsonProperty("amountPaid")]
-        public float? AmountPaid { get; set; }
+        public float? AmountPaid
+        {
+            get; set;
+        }
     }
 }

@@ -30,46 +30,88 @@ namespace Ivvy.Contact
         }
 
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id
+        {
+            get; set;
+        }
 
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public string FirstName
+        {
+            get; set;
+        }
 
         [JsonProperty("lastName")]
-        public string LastName { get; set; }
+        public string LastName
+        {
+            get; set;
+        }
 
         [JsonProperty("email")]
-        public string Email { get; set; }
+        public string Email
+        {
+            get; set;
+        }
 
         [JsonProperty("phone")]
-        public string Phone { get; set; }
+        public string Phone
+        {
+            get; set;
+        }
 
         [JsonProperty("createdDate")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("status")]
-        public EmailStatusOptions? EmailStatus { get; set; }
+        public EmailStatusOptions? EmailStatus
+        {
+            get; set;
+        }
 
         [JsonProperty("smsStatus")]
-        public SmsStatusOptions? SmsStatus { get; set; }
+        public SmsStatusOptions? SmsStatus
+        {
+            get; set;
+        }
 
         [JsonProperty("customFields")]
-        public List<CustomField> CustomFields { get; set; }
+        public List<CustomField> CustomFields
+        {
+            get; set;
+        }
 
         [JsonProperty("groups")]
-        public List<SubscriptionGroup> Groups { get; set; }
+        public List<SubscriptionGroup> Groups
+        {
+            get; set;
+        }
 
         [JsonProperty("companiesData")]
-        public List<Company> CompaniesData { get; set; }
+        public List<Company> CompaniesData
+        {
+            get; set;
+        }
 
         [JsonProperty("companies")]
-        public List<int> Companies { get; set; }
+        public List<int> Companies
+        {
+            get; set;
+        }
 
         [JsonProperty("externalId")]
-        public string ExternalId { get; set; }
+        public string ExternalId
+        {
+            get; set;
+        }
     }
 
     /// <summary>
@@ -78,16 +120,28 @@ namespace Ivvy.Contact
     public class CustomField : ISerializable
     {
         [JsonProperty("fieldId")]
-        public int FieldId { get; set; }
+        public int FieldId
+        {
+            get; set;
+        }
 
         [JsonProperty("fieldType")]
-        public Ivvy.Account.CustomField.FieldTypes FieldType { get; set; }
+        public Ivvy.Account.CustomField.FieldTypes FieldType
+        {
+            get; set;
+        }
 
         [JsonProperty("displayName")]
-        public string DisplayName { get; set; }
+        public string DisplayName
+        {
+            get; set;
+        }
 
         [JsonProperty("value")]
-        public object Value { get; set; }
+        public object Value
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Returns whether or not this field is an address custom field.
@@ -103,19 +157,24 @@ namespace Ivvy.Contact
         /// </summary>
         public Address ValueAsAddress()
         {
-            if (!IsAddress()) {
+            if (!IsAddress())
+            {
                 return null;
             }
-            if (Value == null) {
+            if (Value == null)
+            {
                 return null;
             }
-            if (!(Value is JObject)) {
+            if (!(Value is JObject))
+            {
                 return null;
             }
-            try {
+            try
+            {
                 return ((JObject)Value).ToObject<Address>();
             }
-            catch {
+            catch
+            {
                 return null;
             }
         }
@@ -127,9 +186,15 @@ namespace Ivvy.Contact
     public class SubscriptionGroup : ISerializable
     {
         [JsonProperty("groupId")]
-        public int GroupId { get; set; }
+        public int GroupId
+        {
+            get; set;
+        }
 
         [JsonProperty("groupName")]
-        public string GroupName { get; set; }
+        public string GroupName
+        {
+            get; set;
+        }
     }
 }

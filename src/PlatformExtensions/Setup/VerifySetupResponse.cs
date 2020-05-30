@@ -9,15 +9,27 @@ namespace Ivvy.PlatformExtensions.Setup
     public class VerifySetupResponse
     {
         [JsonProperty("accountId")]
-        public string AccountId { get; set; }
+        public string AccountId
+        {
+            get; set;
+        }
 
         [JsonProperty("accountDomain")]
-        public string AccountDomain { get; set; }
+        public string AccountDomain
+        {
+            get; set;
+        }
 
         [JsonProperty("apiKey")]
-        public string ApiKey { get; set; }
+        public string ApiKey
+        {
+            get; set;
+        }
 
         [JsonProperty("apiSecret")]
-        public string ApiSecret { get; set; }
+        public string ApiSecret
+        {
+            get; set;
+        }
     }
 }

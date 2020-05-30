@@ -9,7 +9,8 @@ namespace Ivvy.Event
     /// </summary>
     public class Event : ISerializable
     {
-        public enum EventTypes {
+        public enum EventTypes
+        {
             Other = 0,
             Party = 1,
             Festival = 2,
@@ -24,55 +25,101 @@ namespace Ivvy.Event
             Party18or21 = 11
         }
 
-        public enum StatusTypes {
+        public enum StatusTypes
+        {
             Draft = 0,
             Closed = 1,
             Launched = 3
         }
 
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id
+        {
+            get; set;
+        }
 
         [JsonProperty("code")]
-        public string Code { get; set; }
+        public string Code
+        {
+            get; set;
+        }
 
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Title
+        {
+            get; set;
+        }
 
         [JsonProperty("eventType")]
-        public EventTypes EventType { get; set; }
+        public EventTypes EventType
+        {
+            get; set;
+        }
 
         [JsonProperty("capacity")]
-        public int Capacity { get; set; }
+        public int Capacity
+        {
+            get; set;
+        }
 
         [JsonProperty("numRegistered")]
-        public int NumRegistered { get; set; }
+        public int NumRegistered
+        {
+            get; set;
+        }
 
         [JsonProperty("currentStatus")]
-        public StatusTypes CurrentStatus { get; set; }
+        public StatusTypes CurrentStatus
+        {
+            get; set;
+        }
 
         [JsonProperty("domainName")]
-        public string DomainName { get; set; }
+        public string DomainName
+        {
+            get; set;
+        }
 
         [JsonProperty("timezone")]
-        public string TimeZoneId { get; set; }
+        public string TimeZoneId
+        {
+            get; set;
+        }
 
         [JsonProperty("startDateTime")]
-        public DateTime StartDateTime { get; set; }
+        public DateTime StartDateTime
+        {
+            get; set;
+        }
 
         [JsonProperty("endDateTime")]
-        public DateTime EndDateTime { get; set; }
+        public DateTime EndDateTime
+        {
+            get; set;
+        }
 
         [JsonProperty("contactName")]
-        public string ContactName { get; set; }
+        public string ContactName
+        {
+            get; set;
+        }
 
         [JsonProperty("contactEmail")]
-        public string ContactEmail { get; set; }
+        public string ContactEmail
+        {
+            get; set;
+        }
 
         [JsonProperty("websiteUrl")]
-        public string WebsiteUrl { get; set; }
+        public string WebsiteUrl
+        {
+            get; set;
+        }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate
+        {
+            get; set;
+        }
     }
 }

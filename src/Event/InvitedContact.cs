@@ -6,30 +6,57 @@ namespace Ivvy.Event
     public class InvitedContact
     {
         [JsonProperty("contactId")]
-        public int ContactId { get; set; }
+        public int ContactId
+        {
+            get; set;
+        }
 
         [JsonProperty("eventId")]
-        public int EventId { get; set; }
+        public int EventId
+        {
+            get; set;
+        }
 
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public string FirstName
+        {
+            get; set;
+        }
 
         [JsonProperty("lastName")]
-        public string LastName { get; set; }
+        public string LastName
+        {
+            get; set;
+        }
 
         [JsonProperty("email")]
-        public string Email { get; set; }
+        public string Email
+        {
+            get; set;
+        }
 
         [JsonProperty("phone")]
-        public string Phone { get; set; }
+        public string Phone
+        {
+            get; set;
+        }
 
         [JsonProperty("response")]
-        public string Response { get; set; }
+        public string Response
+        {
+            get; set;
+        }
 
         [JsonProperty("registrationId")]
-        public int? RegistrationId { get; set; }
+        public int? RegistrationId
+        {
+            get; set;
+        }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate
+        {
+            get; set;
+        }
     }
 }

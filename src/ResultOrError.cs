@@ -34,7 +34,10 @@ namespace Ivvy
         /// <summary>
         /// The result of a successful api method call.
         /// </summary>
-        public T Result { get; set; }
+        public T Result
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Returns whether or not the api method call was successful.

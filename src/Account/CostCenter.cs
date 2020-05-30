@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace Ivvy.Account
 {
@@ -6,27 +6,42 @@ namespace Ivvy.Account
     {
         public enum DefaultTypes
         {
-             Other = 1,
-             VenueFood = 2,
-             VenueBeverage = 3,
-             VenueAudioVisual = 4,
-             VenueRoomHire = 5,
-             VenueAccommodation = 6,
+            Other = 1,
+            VenueFood = 2,
+            VenueBeverage = 3,
+            VenueAudioVisual = 4,
+            VenueRoomHire = 5,
+            VenueAccommodation = 6,
         }
 
         [JsonProperty("id")]
-        public int? Id { get; set; }
+        public int? Id
+        {
+            get; set;
+        }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name
+        {
+            get; set;
+        }
 
         [JsonProperty("code")]
-        public string Code { get; set; }
+        public string Code
+        {
+            get; set;
+        }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description
+        {
+            get; set;
+        }
 
         [JsonProperty("defaultType")]
-        public DefaultTypes? DefaultType { get; set; }
+        public DefaultTypes? DefaultType
+        {
+            get; set;
+        }
     }
 }

@@ -24,48 +24,93 @@ namespace Ivvy.Venue.Bookings
         }
 
         [JsonProperty("id")]
-        public int? Id { get; set; }
+        public int? Id
+        {
+            get; set;
+        }
 
         [JsonProperty("venueId")]
-        public int VenueId { get; set; }
+        public int VenueId
+        {
+            get; set;
+        }
 
         [JsonProperty("bookingId")]
-        public int BookingId { get; set; }
+        public int BookingId
+        {
+            get; set;
+        }
 
         [JsonProperty("canBeEdited")]
-        public bool CanBeEdited { get; set; }
+        public bool CanBeEdited
+        {
+            get; set;
+        }
 
         [JsonProperty("reference")]
-        public string Reference { get; set; }
+        public string Reference
+        {
+            get; set;
+        }
 
         [JsonProperty("mainGuestId")]
-        public int? MainGuestId { get; set; }
+        public int? MainGuestId
+        {
+            get; set;
+        }
 
         [JsonProperty("mainGuest")]
-        public Guest MainGuest { get; set; }
+        public Guest MainGuest
+        {
+            get; set;
+        }
 
         [JsonProperty("currentStatus")]
-        public StatusOptions? CurrentStatus { get; set; }
+        public StatusOptions? CurrentStatus
+        {
+            get; set;
+        }
 
         [JsonProperty("cancelledDate")]
-        public DateTime? CancelledDate { get; set; }
+        public DateTime? CancelledDate
+        {
+            get; set;
+        }
 
         [JsonProperty("isFromGroup")]
-        public bool? IsFromGroup { get; set; }
+        public bool? IsFromGroup
+        {
+            get; set;
+        }
 
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public float? TotalAmount
+        {
+            get; set;
+        }
 
         [JsonProperty("createdDate")]
-        public DateTime? CreatedDate { get; set; }
+        public DateTime? CreatedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("modifiedDate")]
-        public DateTime? ModifiedDate { get; set; }
+        public DateTime? ModifiedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("rooms")]
-        public RoomReservationRoom[] Rooms { get; set; }
+        public RoomReservationRoom[] Rooms
+        {
+            get; set;
+        }
 
         [JsonProperty("removeRooms")]
-        public int[] RemoveRooms { get; set; }
+        public int[] RemoveRooms
+        {
+            get; set;
+        }
     }
 }

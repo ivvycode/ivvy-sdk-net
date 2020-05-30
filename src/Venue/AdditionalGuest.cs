@@ -10,24 +10,40 @@ namespace Ivvy.Venue
     /// </summary>
     public class AdditionalGuest : ISerializable
     {
-        public enum GuestTypes {
+        public enum GuestTypes
+        {
             Sharer = 1,
             Accompanying = 2,
         }
 
         [JsonProperty("guestId")]
-        public int? GuestId { get; set; }
+        public int? GuestId
+        {
+            get; set;
+        }
 
         [JsonProperty("guest")]
-        public Guest Guest { get; set; }
+        public Guest Guest
+        {
+            get; set;
+        }
 
         [JsonProperty("arrivalDate")]
-        public string ArrivalDate { get; set; }
+        public string ArrivalDate
+        {
+            get; set;
+        }
 
         [JsonProperty("departureDate")]
-        public string DepartureDate { get; set; }
+        public string DepartureDate
+        {
+            get; set;
+        }
 
         [JsonProperty("guestType")]
-        public GuestTypes GuestType { get; set; }
+        public GuestTypes GuestType
+        {
+            get; set;
+        }
     }
 }

@@ -10,69 +10,135 @@ namespace Ivvy.Venue.Bookings
     public class RoomReservationRoom : ISerializable
     {
         [JsonProperty("id")]
-        public int? Id { get; set; }
+        public int? Id
+        {
+            get; set;
+        }
 
         [JsonProperty("guestId")]
-        public int? GuestId { get; set; }
+        public int? GuestId
+        {
+            get; set;
+        }
 
         [JsonProperty("guest")]
-        public Guest Guest { get; set; }
+        public Guest Guest
+        {
+            get; set;
+        }
 
         [JsonProperty("additionalGuests")]
-        public AdditionalGuest[] AdditionalGuests { get; set; }
+        public AdditionalGuest[] AdditionalGuests
+        {
+            get; set;
+        }
 
         [JsonProperty("barId")]
-        public int? RatePlanId { get; set; }
+        public int? RatePlanId
+        {
+            get; set;
+        }
 
         [JsonProperty("roomId")]
-        public int? RoomId { get; set; }
+        public int? RoomId
+        {
+            get; set;
+        }
 
         [JsonProperty("groupId")]
-        public int? GroupId { get; set; }
+        public int? GroupId
+        {
+            get; set;
+        }
 
         [JsonProperty("numRooms")]
-        public int? NumRooms { get; set; }
+        public int? NumRooms
+        {
+            get; set;
+        }
 
         [JsonProperty("arrivalDate")]
-        public string ArrivalDate { get; set; }
+        public string ArrivalDate
+        {
+            get; set;
+        }
 
         [JsonProperty("departureDate")]
-        public string DepartureDate { get; set; }
+        public string DepartureDate
+        {
+            get; set;
+        }
 
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public float? TotalAmount
+        {
+            get; set;
+        }
 
         [JsonProperty("excludedTaxIds")]
-        public int[] ExcludedTaxIds { get; set; }
+        public int[] ExcludedTaxIds
+        {
+            get; set;
+        }
 
         [JsonProperty("numAdultGuests")]
-        public int NumAdultGuests { get; set; }
+        public int NumAdultGuests
+        {
+            get; set;
+        }
 
         [JsonProperty("numChildGuests")]
-        public int NumChildGuests { get; set; }
+        public int NumChildGuests
+        {
+            get; set;
+        }
 
         [JsonProperty("createdDate")]
-        public DateTime? CreatedDate { get; set; }
+        public DateTime? CreatedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("modifiedDate")]
-        public DateTime? ModifiedDate { get; set; }
+        public DateTime? ModifiedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("isCancelled")]
-        public bool? IsCancelled { get; set; }
+        public bool? IsCancelled
+        {
+            get; set;
+        }
 
         [JsonProperty("cancelledDate")]
-        public DateTime? CancelledDate { get; set; }
+        public DateTime? CancelledDate
+        {
+            get; set;
+        }
 
         [JsonProperty("dayRates")]
-        public RoomReservationDayRate[] DayRates { get; set; }
+        public RoomReservationDayRate[] DayRates
+        {
+            get; set;
+        }
 
         [JsonProperty("overrideBlockCapacity")]
-        public bool OverrideBlockCapacity { get; set; }
+        public bool OverrideBlockCapacity
+        {
+            get; set;
+        }
 
         [JsonProperty("currentStatus")]
-        public RoomReservation.StatusOptions CurrentStatus { get; set; }
+        public RoomReservation.StatusOptions CurrentStatus
+        {
+            get; set;
+        }
 
         [JsonProperty("externalReference")]
-        public string ExternalReference { get; set; }
+        public string ExternalReference
+        {
+            get; set;
+        }
     }
 }

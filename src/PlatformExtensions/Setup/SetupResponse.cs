@@ -9,7 +9,10 @@ namespace Ivvy.PlatformExtensions.Setup
     public sealed class SetupResponse
     {
         [JsonProperty("success")]
-        public bool Success { get; }
+        public bool Success
+        {
+            get;
+        }
 
         public SetupResponse(bool success)
         {
