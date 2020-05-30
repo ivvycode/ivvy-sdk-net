@@ -11,10 +11,10 @@ namespace Ivvy
         public async Task<ResultOrError<Venue.Venue>> GetVenueAsync(
             int id)
         {
-            return await this.CallAsync<Venue.Venue>(
+            return await CallAsync<Venue.Venue>(
                 "venue", "getVenue", new
                 {
-                    id = id
+                    id,
                 }
             );
         }
@@ -27,12 +27,12 @@ namespace Ivvy
             int perPage,
             int start)
         {
-            return await this.CallAsync<ResultList<Venue.Room>>(
+            return await CallAsync<ResultList<Venue.Room>>(
                 "venue", "getVenueRoomList", new
                 {
-                    venueId = venueId,
-                    perPage = perPage,
-                    start = start
+                    venueId,
+                    perPage,
+                    start,
                 }
             );
         }
@@ -43,12 +43,12 @@ namespace Ivvy
             int perPage,
             int start)
         {
-            return await this.CallAsync<ResultList<Venue.RoomOption>>(
+            return await CallAsync<ResultList<Venue.RoomOption>>(
                 "venue", "getVenueRoomOptionList", new
                 {
-                    venueId = venueId,
-                    perPage = perPage,
-                    start = start
+                    venueId,
+                    perPage,
+                    start,
                 }
             );
         }
@@ -61,12 +61,12 @@ namespace Ivvy
             int perPage,
             int start)
         {
-            return await this.CallAsync<ResultList<Venue.RatePlan>>(
+            return await CallAsync<ResultList<Venue.RatePlan>>(
                 "venue", "getVenueRatePlanList", new
                 {
-                    venueId = venueId,
-                    perPage = perPage,
-                    start = start
+                    venueId,
+                    perPage,
+                    start,
                 }
             );
         }
@@ -76,11 +76,11 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<Venue.Booking>> GetVenueBookingAsync(int venueId, int id)
         {
-            return await this.CallAsync<Venue.Booking>(
+            return await CallAsync<Venue.Booking>(
                 "venue", "getBooking", new
                 {
-                    venueId = venueId,
-                    id = id
+                    venueId,
+                    id,
                 }
             );
         }
@@ -90,11 +90,11 @@ namespace Ivvy
             int venueId,
             int bookingId)
         {
-            return await this.CallAsync<ResultList<Venue.Bookings.Accommodation>>(
+            return await CallAsync<ResultList<Venue.Bookings.Accommodation>>(
                 "venue", "getBookingAccommodationList", new
                 {
-                    venueId = venueId,
-                    bookingId = bookingId
+                    venueId,
+                    bookingId,
                 }
             );
         }
@@ -107,13 +107,13 @@ namespace Ivvy
             int start,
             Dictionary<string, object> filterRequest)
         {
-            return await this.CallAsync<ResultList<Venue.Note>>(
+            return await CallAsync<ResultList<Venue.Note>>(
                 "venue", "getBookingNoteList", new
                 {
-                    venueId = venueId,
-                    bookingId = bookingId,
-                    perPage = perPage,
-                    start = start,
+                    venueId,
+                    bookingId,
+                    perPage,
+                    start,
                     filter = filterRequest
                 }
             );
@@ -149,7 +149,7 @@ namespace Ivvy
                 }
             }
 
-            return await this.CallAsync<ResultObject>(
+            return await CallAsync<ResultObject>(
                 "venue", "addOrUpdateBookingAccommodation", group
             );
         }
@@ -160,12 +160,12 @@ namespace Ivvy
             int bookingId,
             int id)
         {
-            return await this.CallAsync<Venue.Bookings.RemoveBookingAccommodationResult>(
+            return await CallAsync<Venue.Bookings.RemoveBookingAccommodationResult>(
                 "venue", "removeBookingAccommodation", new
                 {
-                    venueId = venueId,
-                    bookingId = bookingId,
-                    id = id,
+                    venueId,
+                    bookingId,
+                    id,
                 }
             );
         }
@@ -178,13 +178,13 @@ namespace Ivvy
             int? bookingId,
             Dictionary<string, object> filterRequest)
         {
-            return await this.CallAsync<ResultList<Venue.Bookings.RoomReservation>>(
+            return await CallAsync<ResultList<Venue.Bookings.RoomReservation>>(
                 "venue", "getBookingRoomReservationList", new
                 {
-                    venueId = venueId,
-                    bookingId = bookingId,
-                    start = start,
-                    perPage = perPage,
+                    venueId,
+                    bookingId,
+                    start,
+                    perPage,
                     filter = filterRequest
                 }
             );
@@ -196,7 +196,7 @@ namespace Ivvy
             int bookingId,
             int reservationId)
         {
-            var listResult = await this.GetVenueBookingRoomReservationListAsync(
+            var listResult = await GetVenueBookingRoomReservationListAsync(
                 venueId, 1, 0, bookingId, new Dictionary<string, object>() {
                     { "id", reservationId }
                 }
@@ -215,7 +215,7 @@ namespace Ivvy
                 }
                 else
                 {
-                    newResult.ErrorCode = LibErrorCode;
+                    newResult.ErrorCode = libErrorCode;
                     newResult.ErrorMessage = "The room reservation does not exist";
                 }
             }
@@ -306,7 +306,7 @@ namespace Ivvy
                 }
             }
 
-            return await this.CallAsync<Venue.Bookings.AddUpdateBookingRoomReservationResult>(
+            return await CallAsync<Venue.Bookings.AddUpdateBookingRoomReservationResult>(
                 "venue", "addOrUpdateBookingRoomReservation", reservation
             );
         }
@@ -317,12 +317,12 @@ namespace Ivvy
             int bookingId,
             int id)
         {
-            return await this.CallAsync<Venue.Bookings.RemoveBookingRoomReservationResult>(
+            return await CallAsync<Venue.Bookings.RemoveBookingRoomReservationResult>(
                 "venue", "removeBookingRoomReservation", new
                 {
-                    venueId = venueId,
-                    bookingId = bookingId,
-                    id = id,
+                    venueId,
+                    bookingId,
+                    id,
                 }
             );
         }
@@ -334,13 +334,13 @@ namespace Ivvy
             int id,
             int[] roomIds = null)
         {
-            return await this.CallAsync<Venue.Bookings.ConfirmBookingRoomReservationResult>(
+            return await CallAsync<Venue.Bookings.ConfirmBookingRoomReservationResult>(
                 "venue", "confirmBookingRoomReservation", new
                 {
-                    venueId = venueId,
-                    bookingId = bookingId,
-                    id = id,
-                    roomIds = roomIds
+                    venueId,
+                    bookingId,
+                    id,
+                    roomIds,
                 }
             );
         }
@@ -352,13 +352,13 @@ namespace Ivvy
             int id,
             int? roomId = null)
         {
-            return await this.CallAsync<Venue.Bookings.CancelBookingRoomReservationResult>(
+            return await CallAsync<Venue.Bookings.CancelBookingRoomReservationResult>(
                 "venue", "cancelBookingRoomReservation", new
                 {
-                    venueId = venueId,
-                    bookingId = bookingId,
-                    id = id,
-                    roomId = roomId,
+                    venueId,
+                    bookingId,
+                    id,
+                    roomId,
                 }
             );
         }
@@ -371,14 +371,14 @@ namespace Ivvy
             Venue.Bookings.RoomReservation.StatusOptions newStatus,
             int[] roomIds = null)
         {
-            return await this.CallAsync<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>(
+            return await CallAsync<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>(
                 "venue", "changeStatusOfBookingRoomReservation", new
                 {
-                    venueId = venueId,
-                    bookingId = bookingId,
-                    id = id,
+                    venueId,
+                    bookingId,
+                    id,
                     status = newStatus,
-                    roomIds = roomIds
+                    roomIds,
                 }
             );
         }
@@ -392,12 +392,12 @@ namespace Ivvy
             int start,
             Dictionary<string, object> filterRequest)
         {
-            return await this.CallAsync<ResultList<Venue.Booking>>(
+            return await CallAsync<ResultList<Venue.Booking>>(
                 "venue", "getBookingList", new
                 {
-                    venueId = venueId,
-                    perPage = perPage,
-                    start = start,
+                    venueId,
+                    perPage,
+                    start,
                     filter = filterRequest
                 }
             );
@@ -411,11 +411,11 @@ namespace Ivvy
             int start,
             Dictionary<string, object> filterRequest)
         {
-            return await this.CallAsync<ResultList<Venue.Booking>>(
+            return await CallAsync<ResultList<Venue.Booking>>(
                 "venue", "getBookingListForAccount", new
                 {
-                    perPage = perPage,
-                    start = start,
+                    perPage,
+                    start,
                     filter = filterRequest
                 }
             );
@@ -429,14 +429,14 @@ namespace Ivvy
             string endDate,
             int roomCount)
         {
-            return await this.CallAsync<ResultSuccess>(
+            return await CallAsync<ResultSuccess>(
                 "venue", "addOrUpdateRoomCounts", new
                 {
-                    venueId = venueId,
-                    roomId = roomId,
-                    startDate = startDate,
-                    endDate = endDate,
-                    roomCount = roomCount
+                    venueId,
+                    roomId,
+                    startDate,
+                    endDate,
+                    roomCount,
                 }
             );
         }
@@ -450,15 +450,15 @@ namespace Ivvy
             string endDate,
             double cost)
         {
-            return await this.CallAsync<ResultSuccess>(
+            return await CallAsync<ResultSuccess>(
                 "venue", "addOrUpdateRoomDynamicRates", new
                 {
-                    venueId = venueId,
+                    venueId,
                     barId = ratePlanId,
-                    roomId = roomId,
-                    startDate = startDate,
-                    endDate = endDate,
-                    cost = cost
+                    roomId,
+                    startDate,
+                    endDate,
+                    cost,
                 }
             );
         }
@@ -471,14 +471,14 @@ namespace Ivvy
             string startDate,
             string endDate)
         {
-            return await this.CallAsync<ResultSuccess>(
+            return await CallAsync<ResultSuccess>(
                 "venue", "removeRoomDynamicRates", new
                 {
-                    venueId = venueId,
+                    venueId,
                     barId = ratePlanId,
-                    roomId = roomId,
-                    startDate = startDate,
-                    endDate = endDate
+                    roomId,
+                    startDate,
+                    endDate,
                 }
             );
         }
@@ -492,15 +492,15 @@ namespace Ivvy
             string endDate,
             Venue.RatePlan.CloseOutStatusOptions closeOutStatus)
         {
-            return await this.CallAsync<ResultSuccess>(
+            return await CallAsync<ResultSuccess>(
                 "venue", "addOrUpdateRatePlanBookingRules", new
                 {
-                    venueId = venueId,
+                    venueId,
                     barId = ratePlanId,
-                    roomId = roomId,
-                    startDate = startDate,
-                    endDate = endDate,
-                    closeOutStatus = closeOutStatus
+                    roomId,
+                    startDate,
+                    endDate,
+                    closeOutStatus,
                 }
             );
         }
@@ -508,10 +508,10 @@ namespace Ivvy
         /// <inheritdoc />
         public async Task<ResultOrError<ResultList<Venue.Tax>>> GetVenueTaxListAsync(int venueId)
         {
-            return await this.CallAsync<ResultList<Venue.Tax>>(
+            return await CallAsync<ResultList<Venue.Tax>>(
                 "venue", "getTaxList", new
                 {
-                    venueId = venueId,
+                    venueId,
                 }
             );
         }
@@ -522,12 +522,12 @@ namespace Ivvy
             int perPage,
             int start)
         {
-            return await this.CallAsync<ResultList<Account.CostCenter>>(
+            return await CallAsync<ResultList<Account.CostCenter>>(
                 "venue", "getCostCenterList", new
                 {
-                    venueId = venueId,
-                    perPage = perPage,
-                    start = start,
+                    venueId,
+                    perPage,
+                    start,
                 }
             );
         }

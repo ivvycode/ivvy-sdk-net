@@ -10,10 +10,10 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<Invoice.Invoice>> GetInvoiceAsync(int id)
         {
-            return await this.CallAsync<Invoice.Invoice>(
+            return await CallAsync<Invoice.Invoice>(
                 "invoice", "getInvoice", new
                 {
-                    id = id
+                    id,
                 }
             );
         }
@@ -24,11 +24,11 @@ namespace Ivvy
         public async Task<ResultOrError<ResultList<Invoice.Invoice>>> GetInvoiceListAsync(
             int perPage, int start, Dictionary<string, object> filterRequest)
         {
-            return await this.CallAsync<ResultList<Invoice.Invoice>>(
+            return await CallAsync<ResultList<Invoice.Invoice>>(
                 "invoice", "getInvoiceList", new
                 {
-                    perPage = perPage,
-                    start = start,
+                    perPage,
+                    start,
                     filter = filterRequest
                 }
             );
@@ -39,7 +39,7 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<ResultObject>> AddInvoicePayment(Invoice.AddPayment invoicePayment)
         {
-            return await this.CallAsync<ResultObject>(
+            return await CallAsync<ResultObject>(
                 "invoice", "addPayment", invoicePayment
             );
         }

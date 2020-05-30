@@ -49,12 +49,12 @@ namespace Ivvy
         /// <summary>
         /// Http client used to call the iVvy api.
         /// </summary>
-        private static HttpClient httpClient = new HttpClient();
+        private static readonly HttpClient httpClient = new HttpClient();
 
         /// <summary>
         /// This error code is used to represent an error related to this library implementation.
         /// </summary>
-        private static string LibErrorCode = "000";
+        private static readonly string libErrorCode = "000";
 
         public Api()
         {
@@ -72,7 +72,7 @@ namespace Ivvy
             {
                 throw new ArgumentException("ApiVersion is not a valid version number");
             }
-            string postData = "";
+            var postData = "";
             if (requestData != null)
             {
                 postData = JsonConvert.SerializeObject(
@@ -85,16 +85,16 @@ namespace Ivvy
                     }
                 );
             }
-            string method = "POST";
-            string contentType = "application/json; charset=utf-8";
-            string contentMD5 = Utils.GetMD5Hash(postData);
-            string date = "";
-            string requestUri = "/api/" + ApiVersion + "/" + apiNamespace + "?action=" + action;
-            string ivvyDate = DateTime.Now.ToUniversalTime().ToString(Utils.DateTimeFormat);
-            string headersToSign = "IVVYDate=" + ivvyDate;
-            string initialStringToSign = method + contentMD5 + contentType + date + requestUri + ApiVersion + headersToSign;
-            string stringToSign = initialStringToSign.ToLower();
-            string signature = Utils.SignString(stringToSign, ApiSecret);
+            var method = "POST";
+            var contentType = "application/json; charset=utf-8";
+            var contentMD5 = Utils.GetMD5Hash(postData);
+            var date = "";
+            var requestUri = "/api/" + ApiVersion + "/" + apiNamespace + "?action=" + action;
+            var ivvyDate = DateTime.Now.ToUniversalTime().ToString(Utils.DateTimeFormat);
+            var headersToSign = "IVVYDate=" + ivvyDate;
+            var initialStringToSign = method + contentMD5 + contentType + date + requestUri + ApiVersion + headersToSign;
+            var stringToSign = initialStringToSign.ToLower();
+            var signature = Utils.SignString(stringToSign, ApiSecret);
 
             var message = new HttpRequestMessage(HttpMethod.Post, BaseUrl + requestUri);
             message.Headers.Clear();
@@ -108,13 +108,13 @@ namespace Ivvy
             try
             {
                 httpResponse = await httpClient.SendAsync(message);
-                string data = await httpResponse.Content.ReadAsStringAsync();
+                var data = await httpResponse.Content.ReadAsStringAsync();
                 result = JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
                 if (result == null)
                 {
                     result = new ResultOrError<T>()
                     {
-                        ErrorCode = LibErrorCode,
+                        ErrorCode = libErrorCode,
                         ErrorCodeSpecific = "CallAsync",
                         ErrorMessage = "Received invalid response.",
                     };
@@ -124,7 +124,7 @@ namespace Ivvy
             {
                 result = new ResultOrError<T>()
                 {
-                    ErrorCode = LibErrorCode,
+                    ErrorCode = libErrorCode,
                     ErrorCodeSpecific = "CallAsync",
                     ErrorMessage = ex.Message,
                 };

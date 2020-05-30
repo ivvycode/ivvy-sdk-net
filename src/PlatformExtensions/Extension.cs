@@ -37,7 +37,7 @@ namespace Ivvy.PlatformExtensions
             get; set;
         }
 
-        private static HttpClient httpClient = new HttpClient();
+        private static readonly HttpClient httpClient = new HttpClient();
 
         public Extension()
         {
@@ -52,7 +52,7 @@ namespace Ivvy.PlatformExtensions
                 { "accountId", accountId },
                 { "setupKey", setupKey }
             };
-            return await this.CallAsync<VerifySetupResponse>(SetupVerifyUrl, dataMap);
+            return await CallAsync<VerifySetupResponse>(SetupVerifyUrl, dataMap);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Ivvy.PlatformExtensions
                 { "accountId", accountId },
                 { "setupKey", setupKey }
             };
-            return await this.CallAsync<VerifyConfigureResponse>(SetupConfigureUrl, dataMap);
+            return await CallAsync<VerifyConfigureResponse>(SetupConfigureUrl, dataMap);
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace Ivvy.PlatformExtensions
                 { "eventId", eventId },
                 { "setupKey", setupKey }
             };
-            return await this.CallAsync<EventVerifySetupResponse>(EventSetupVerifyUrl, dataMap);
+            return await CallAsync<EventVerifySetupResponse>(EventSetupVerifyUrl, dataMap);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Ivvy.PlatformExtensions
                 { "eventId", eventId },
                 { "setupKey", setupKey }
             };
-            return await this.CallAsync<VerifyConfigureResponse>(EventSetupConfigureUrl, dataMap);
+            return await CallAsync<VerifyConfigureResponse>(EventSetupConfigureUrl, dataMap);
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Ivvy.PlatformExtensions
                 { "venueId", venueId },
                 { "setupKey", setupKey }
             };
-            return await this.CallAsync<VenueVerifySetupResponse>(VenueSetupVerifyUrl, dataMap);
+            return await CallAsync<VenueVerifySetupResponse>(VenueSetupVerifyUrl, dataMap);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Ivvy.PlatformExtensions
                 { "venueId", venueId },
                 { "setupKey", setupKey }
             };
-            return await this.CallAsync<VerifyConfigureResponse>(VenueSetupConfigureUrl, dataMap);
+            return await CallAsync<VerifyConfigureResponse>(VenueSetupConfigureUrl, dataMap);
         }
 
         private async Task<ResultOrError<T>> CallAsync<T>(
@@ -131,7 +131,7 @@ namespace Ivvy.PlatformExtensions
             try
             {
                 httpResponse = await httpClient.PostAsync(requestUri, new FormUrlEncodedContent(dataMap));
-                string data = await httpResponse.Content.ReadAsStringAsync();
+                var data = await httpResponse.Content.ReadAsStringAsync();
                 JsonConvert.PopulateObject(data, result);
             }
             finally

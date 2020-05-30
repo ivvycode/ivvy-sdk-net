@@ -32,8 +32,8 @@ namespace Ivvy
         /// <returns></returns>
         public static string GetMD5Hash(string input)
         {
-            MD5 md5 = MD5.Create();
-            byte[] data = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
+            var md5 = MD5.Create();
+            var data = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
             return BytesToString(data);
         }
 
@@ -44,8 +44,8 @@ namespace Ivvy
         /// <returns></returns>
         public static string BytesToString(byte[] data)
         {
-            StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < data.Length; i++)
+            var builder = new StringBuilder();
+            for (var i = 0; i < data.Length; i++)
             {
                 builder.Append(data[i].ToString("x2"));
             }
@@ -60,10 +60,10 @@ namespace Ivvy
         /// <returns></returns>
         public static string SignString(string stringToSign, string secret)
         {
-            Encoding encoding = Encoding.UTF8;
-            byte[] secretBytes = encoding.GetBytes(secret);
-            HMACSHA1 hmacsha1 = new HMACSHA1(secretBytes);
-            byte[] data = hmacsha1.ComputeHash(encoding.GetBytes(stringToSign));
+            var encoding = Encoding.UTF8;
+            var secretBytes = encoding.GetBytes(secret);
+            var hmacsha1 = new HMACSHA1(secretBytes);
+            var data = hmacsha1.ComputeHash(encoding.GetBytes(stringToSign));
             return BytesToString(data);
         }
 

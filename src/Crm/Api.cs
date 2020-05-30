@@ -13,11 +13,11 @@ namespace Ivvy
             int start,
             Dictionary<string, object> filterRequest = null)
         {
-            return await this.CallAsync<ResultList<Crm.LeadStage>>(
+            return await CallAsync<ResultList<Crm.LeadStage>>(
                 "crm", "getLeadStageList", new
                 {
-                    perPage = perPage,
-                    start = start,
+                    perPage,
+                    start,
                     filter = filterRequest
                 }
             );
@@ -31,11 +31,11 @@ namespace Ivvy
             int start,
             Dictionary<string, object> filterRequest = null)
         {
-            return await this.CallAsync<ResultList<Crm.LeadType>>(
+            return await CallAsync<ResultList<Crm.LeadType>>(
                 "crm", "getLeadTypeList", new
                 {
-                    perPage = perPage,
-                    start = start,
+                    perPage,
+                    start,
                     filter = filterRequest
                 }
             );
@@ -49,11 +49,11 @@ namespace Ivvy
             int start,
             Dictionary<string, object> filterRequest = null)
         {
-            return await this.CallAsync<ResultList<Crm.Opportunity>>(
+            return await CallAsync<ResultList<Crm.Opportunity>>(
                 "crm", "getOpportunityList", new
                 {
-                    perPage = perPage,
-                    start = start,
+                    perPage,
+                    start,
                     filter = filterRequest
                 });
         }

@@ -17,15 +17,15 @@ namespace Ivvy
             string contactsEndpoint,
             string companiesEndpoint)
         {
-            return await this.CallAsync<NotificationsResult>(
+            return await CallAsync<NotificationsResult>(
                 "account", "subscribeToNotifications", new
                 {
-                    eventsEndpoint = eventsEndpoint,
-                    venuesEndpoint = venuesEndpoint,
-                    paymentsEndpoint = paymentsEndpoint,
-                    crmEndpoint = crmEndpoint,
-                    contactsEndpoint = contactsEndpoint,
-                    companiesEndpoint = companiesEndpoint
+                    eventsEndpoint,
+                    venuesEndpoint,
+                    paymentsEndpoint,
+                    crmEndpoint,
+                    contactsEndpoint,
+                    companiesEndpoint
                 }
             );
         }
@@ -35,7 +35,7 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<List<CustomField>>> GetCustomFieldDefinition()
         {
-            return await this.CallAsync<List<CustomField>>(
+            return await CallAsync<List<CustomField>>(
                 "contact", "getCustomFieldDefinition", new
                 {
                 }
@@ -47,7 +47,7 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<List<SubscriptionGroup>>> GetSubscriptionGroupListAsync()
         {
-            return await this.CallAsync<List<SubscriptionGroup>>(
+            return await CallAsync<List<SubscriptionGroup>>(
                 "contact", "getSubscriptionGroupList", new
                 {
                 }
@@ -65,8 +65,8 @@ namespace Ivvy
             return await CallAsync<ResultList<EmailLog>>(
                 "account", "getEmailLogList", new
                 {
-                    perPage = perPage,
-                    start = start,
+                    perPage,
+                    start,
                     filter = filterRequest
                 }
             );

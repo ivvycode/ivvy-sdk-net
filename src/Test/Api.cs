@@ -10,7 +10,7 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<Pong>> PingAsync()
         {
-            return await this.CallAsync<Pong>("test", "ping", null);
+            return await CallAsync<Pong>("test", "ping", null);
         }
     }
 }

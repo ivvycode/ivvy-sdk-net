@@ -110,19 +110,19 @@ namespace Ivvy.Invoice
         }
 
         [JsonProperty("refId")]
-        public string refId
+        public string RefId
         {
             get; set;
         }
 
         [JsonProperty("taxRateUsed")]
-        public string taxRateUsed
+        public string TaxRateUsed
         {
             get; set;
         }
 
         [JsonProperty("isTaxCharged")]
-        public string isTaxCharged
+        public string IsTaxCharged
         {
             get; set;
         }

@@ -37,7 +37,7 @@ namespace Ivvy.Json.Converters
                 var jsonObject = JObject.Load(reader);
                 if (jsonObject["errorCode"] == null)
                 {
-                    T result = new T();
+                    var result = new T();
                     serializer.Populate(jsonObject.CreateReader(), result);
                     resultOrError.Result = result;
                 }
@@ -49,7 +49,7 @@ namespace Ivvy.Json.Converters
             else
             {
                 var jsonArray = JArray.Load(reader);
-                T result = new T();
+                var result = new T();
                 serializer.Populate(jsonArray.CreateReader(), result);
                 resultOrError.Result = result;
             }

@@ -20,7 +20,7 @@ namespace Ivvy.Venue.Bookings
 
         public RoomReservation()
         {
-            this.CanBeEdited = true;
+            CanBeEdited = true;
         }
 
         [JsonProperty("id")]

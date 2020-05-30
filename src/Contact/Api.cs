@@ -10,10 +10,10 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<Contact.Contact>> GetContactAsync(int id)
         {
-            return await this.CallAsync<Contact.Contact>(
+            return await CallAsync<Contact.Contact>(
                 "contact", "getContact", new
                 {
-                    id = id
+                    id
                 }
             );
         }
@@ -26,12 +26,12 @@ namespace Ivvy
             int start,
             Dictionary<string, object> filterRequest)
         {
-            return await this.CallAsync<ResultList<Contact.Contact>>(
+            return await CallAsync<ResultList<Contact.Contact>>(
                 "contact", "getContactList",
                 new
                 {
-                    perPage = perPage,
-                    start = start,
+                    perPage,
+                    start,
                     filter = filterRequest
                 }
             );
@@ -42,7 +42,7 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<Contact.ContactResult>> AddOrUpdateContactAsync(Contact.Contact contact)
         {
-            return await this.CallAsync<Contact.ContactResult>(
+            return await CallAsync<Contact.ContactResult>(
                 "contact", "addOrUpdateContact", contact
             );
         }
@@ -52,10 +52,10 @@ namespace Ivvy
         /// </summary>
         public async Task<ResultOrError<Contact.Company>> GetCompanyAsync(int id)
         {
-            return await this.CallAsync<Contact.Company>(
+            return await CallAsync<Contact.Company>(
                 "contact", "getCompany", new
                 {
-                    id = id
+                    id,
                 }
             );
         }
@@ -66,12 +66,12 @@ namespace Ivvy
             int start,
             Dictionary<string, object> filterRequest)
         {
-            return await this.CallAsync<ResultList<Contact.Company>>(
+            return await CallAsync<ResultList<Contact.Company>>(
                 "contact", "getCompanyList",
                 new
                 {
-                    perPage = perPage,
-                    start = start,
+                    perPage,
+                    start,
                     filter = filterRequest
                 }
             );
@@ -80,7 +80,7 @@ namespace Ivvy
         /// <inheritdoc />
         public async Task<ResultOrError<ResultObject>> AddOrUpdateCompanyAsync(Contact.Company company)
         {
-            return await this.CallAsync<ResultObject>(
+            return await CallAsync<ResultObject>(
                 "contact", "addOrUpdateCompany", company
             );
         }

@@ -101,7 +101,7 @@ namespace Ivvy
         /// <param name="bookingId">The unique id of the booking to which the room reservations belong</param>
         /// <returns></returns>
         Task<ResultOrError<ResultList<Venue.Bookings.RoomReservation>>> GetVenueBookingRoomReservationListAsync(
-            int venueId, int PerPage, int start, int? bookingId, Dictionary<string, object> filterRequest
+            int venueId, int perPage, int start, int? bookingId, Dictionary<string, object> filterRequest
         );
 
         /// <summary>
