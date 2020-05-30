@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Ivvy.PlatformExtensions
 {
-    public interface IExtension
+    public interface IPlatformExtension
     {
         string SetupVerifyUrl
         {

@@ -10,7 +10,7 @@ namespace Ivvy.PlatformExtensions
     /// <summary>
     /// The primary class used to call the extension endpoints.
     /// </summary>
-    public class Extension : IExtension
+    public class PlatformExtension : IPlatformExtension
     {
         public string SetupVerifyUrl
         {
@@ -39,7 +39,7 @@ namespace Ivvy.PlatformExtensions
 
         private static readonly HttpClient httpClient = new HttpClient();
 
-        public Extension()
+        public PlatformExtension()
         {
         }
 
