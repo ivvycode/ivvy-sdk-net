@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.Extensions.Configure
+namespace Ivvy.PlatformExtensions.Configure
 {
     /// <summary>
     /// This class encapsulates the details required by iVvy when

@@ -1,11 +1,11 @@
-using Ivvy.Extensions.Configure;
-using Ivvy.Extensions.Setup;
+using Ivvy.PlatformExtensions.Configure;
+using Ivvy.PlatformExtensions.Setup;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Ivvy.Extensions
+namespace Ivvy.PlatformExtensions
 {
     /// <summary>
     /// The primary class used to call the extension endpoints.

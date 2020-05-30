@@ -1,12 +1,12 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.Extensions.Setup
+namespace Ivvy.PlatformExtensions.Setup
 {
     /// <summary>
     /// This class encapsulates the details returned by iVvy when
-    /// an extension verifies an event setup request.
+    /// an extension verifies a setup request.
     /// </summary>
-    public sealed class EventVerifySetupResponse
+    public class VerifySetupResponse
     {
         [JsonProperty("accountId")]
         public string AccountId { get; set; }
@@ -14,10 +14,10 @@ namespace Ivvy.Extensions.Setup
         [JsonProperty("accountDomain")]
         public string AccountDomain { get; set; }
 
-        [JsonProperty("eventId")]
-        public string EventId { get; set; }
+        [JsonProperty("apiKey")]
+        public string ApiKey { get; set; }
 
-        [JsonProperty("eventHashId")]
-        public string EventHashId { get; set; }
+        [JsonProperty("apiSecret")]
+        public string ApiSecret { get; set; }
     }
 }

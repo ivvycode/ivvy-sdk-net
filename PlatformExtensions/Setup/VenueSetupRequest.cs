@@ -1,13 +1,16 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.Extensions.Configure
+namespace Ivvy.PlatformExtensions.Setup
 {
     /// <summary>
-    /// This class encapsulates the details required by iVvy when
-    /// an extension calls the venue configure endpoint.
+    /// This class encapsulates the details sent by iVvy to an extension
+    /// when it is added to a venue within a client account.
     /// </summary>
-    public sealed class VenueConfigureRequest
+    public sealed class VenueSetupRequest
     {
+        [JsonProperty("region")]
+        public string Region { get; set; }
+
         [JsonProperty("accountId")]
         public string AccountId { get; set; }
 
