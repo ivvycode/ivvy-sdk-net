@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 
 namespace Ivvy.Account
 {
-    public class EmailLog : ISerializable
+    public class EmailLog : Ivvy.Json.ISerializable
     {
         public enum RefTypes
         {
