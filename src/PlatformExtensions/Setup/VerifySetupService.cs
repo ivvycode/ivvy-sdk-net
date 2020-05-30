@@ -17,7 +17,8 @@ namespace Ivvy.PlatformExtensions.Setup
 
             var result =
                 await ext.VerifySetupAsync(request.AccountId, request.SetupKey);
-            if (result.Success) {
+            if (result.Success)
+            {
                 return result.Result;
             }
             return null;
