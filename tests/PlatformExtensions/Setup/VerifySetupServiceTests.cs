@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace NslCrm.Tests.IvvyApi.Extensions
+namespace Ivvy.Tests.PlatformExtensions.Setup
 {
     public class VerifySetupServiceTests
     {
