@@ -1,12 +1,12 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.PlatformExtensions.Unsetup
+namespace Ivvy.PlatformExtensions.Installation.Unsetup
 {
     /// <summary>
     /// This class encapsulates the details sent by iVvy to an extension
-    /// when it is removed from a client venue.
+    /// when it is removed from a client event.
     /// </summary>
-    public sealed class VenueUnsetupRequest
+    public sealed class EventUnsetupRequest
     {
         [JsonProperty("region")]
         public string Region
@@ -20,8 +20,8 @@ namespace Ivvy.PlatformExtensions.Unsetup
             get; set;
         }
 
-        [JsonProperty("venueId")]
-        public string VenueId
+        [JsonProperty("eventId")]
+        public string EventId
         {
             get; set;
         }

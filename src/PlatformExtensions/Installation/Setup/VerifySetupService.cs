@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Ivvy.PlatformExtensions.Setup
+namespace Ivvy.PlatformExtensions.Installation.Setup
 {
     public class VerifySetupService : IVerifySetupService
     {

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.PlatformExtensions
+namespace Ivvy.PlatformExtensions.Installation
 {
     /// <summary>
     /// This class is used to encapsulate the result of an extension endpoint request.

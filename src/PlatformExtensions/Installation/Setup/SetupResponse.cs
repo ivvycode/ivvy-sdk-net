@@ -1,12 +1,12 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.PlatformExtensions.Unsetup
+namespace Ivvy.PlatformExtensions.Installation.Setup
 {
     /// <summary>
     /// This class encapsulates the response an extension must return to
-    /// iVvy after receiving an unsetup request.
+    /// iVvy after verifying a setup request.
     /// </summary>
-    public sealed class UnsetupResponse
+    public sealed class SetupResponse
     {
         [JsonProperty("success")]
         public bool Success
@@ -14,7 +14,7 @@ namespace Ivvy.PlatformExtensions.Unsetup
             get;
         }
 
-        public UnsetupResponse(bool success)
+        public SetupResponse(bool success)
         {
             Success = success;
         }

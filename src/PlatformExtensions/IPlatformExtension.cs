@@ -1,5 +1,6 @@
-using Ivvy.PlatformExtensions.Configure;
-using Ivvy.PlatformExtensions.Setup;
+using Ivvy.PlatformExtensions.Installation;
+using Ivvy.PlatformExtensions.Installation.Configure;
+using Ivvy.PlatformExtensions.Installation.Setup;
 using System.Threading.Tasks;
 
 namespace Ivvy.PlatformExtensions
@@ -37,7 +38,7 @@ namespace Ivvy.PlatformExtensions
         /// <param name="accountId">The account identifier.</param>
         /// <param name="setupKey">The setup key.</param>
         /// <returns></returns>
-        Task<Ivvy.PlatformExtensions.ResultOrError<VerifySetupResponse>> VerifySetupAsync(string accountId, string setupKey);
+        Task<ResultOrError<VerifySetupResponse>> VerifySetupAsync(string accountId, string setupKey);
 
         /// <summary>
         /// This method is used by an extension to inform iVvy that it has been configured.

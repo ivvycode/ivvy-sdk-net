@@ -1,5 +1,6 @@
-using Ivvy.PlatformExtensions.Configure;
-using Ivvy.PlatformExtensions.Setup;
+using Ivvy.PlatformExtensions.Installation;
+using Ivvy.PlatformExtensions.Installation.Configure;
+using Ivvy.PlatformExtensions.Installation.Setup;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;

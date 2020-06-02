@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Ivvy.PlatformExtensions.Setup
+namespace Ivvy.PlatformExtensions.Installation.Setup
 {
     /// <summary>
     /// Verifies a new account extension setup request.

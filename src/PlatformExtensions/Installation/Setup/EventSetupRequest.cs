@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Ivvy.PlatformExtensions.Setup
+namespace Ivvy.PlatformExtensions.Installation.Setup
 {
     /// <summary>
     /// This class encapsulates the details sent by iVvy to an extension

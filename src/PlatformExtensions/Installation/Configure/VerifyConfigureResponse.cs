@@ -1,4 +1,4 @@
-namespace Ivvy.PlatformExtensions.Configure
+namespace Ivvy.PlatformExtensions.Installation.Configure
 {
     /// <summary>
     /// This class encapsulates the details returned by iVvy when
