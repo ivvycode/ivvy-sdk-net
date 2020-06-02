@@ -30,6 +30,12 @@ namespace Ivvy.API.Contact
             get; set;
         }
 
+        [JsonProperty("primaryContact")]
+        public Contact PrimaryContact
+        {
+            get; set;
+        }
+
         [JsonProperty("email")]
         public string Email
         {
