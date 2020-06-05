@@ -32,7 +32,7 @@ namespace Ivvy.API.Venue.ARI
         }
 
         [JsonProperty("cost")]
-        public int Cost
+        public double Cost
         {
             get; set;
         }
