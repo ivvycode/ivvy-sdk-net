@@ -1,3 +1,5 @@
+using Ivvy.API.Venue.ARI;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -422,6 +424,7 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
+        [Obsolete("Use AddOrUpdateVenueRoomCountsCollection() instead")]
         public async Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomCounts(
             int venueId,
             int roomId,
@@ -442,6 +445,21 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
+        public async Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomCountsCollection(
+            int venueId,
+            List<RoomCount> items)
+        {
+            return await CallAsync<ResultSuccess>(
+                "venue", "addOrUpdateRoomCountsCollection", new
+                {
+                    venueId,
+                    items,
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        [Obsolete("Use AddOrUpdateVenueRoomDynamicRatesCollection() instead")]
         public async Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomDynamicRates(
             int venueId,
             int ratePlanId,
@@ -459,6 +477,20 @@ namespace Ivvy.API
                     startDate,
                     endDate,
                     cost,
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomDynamicRatesCollection(
+            int venueId,
+            List<RatePlanRoomRate> items)
+        {
+            return await CallAsync<ResultSuccess>(
+                "venue", "addOrUpdateRoomDynamicRatesCollection", new
+                {
+                    venueId,
+                    items,
                 }
             );
         }
@@ -484,6 +516,7 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
+        [Obsolete("Use AddOrUpdateVenueRatePlanRulesCollection() instead")]
         public async Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRatePlanRules(
             int venueId,
             int ratePlanId,
@@ -501,6 +534,20 @@ namespace Ivvy.API
                     startDate,
                     endDate,
                     closeOutStatus,
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRatePlanRulesCollection(
+            int venueId,
+            List<RatePlanBookingRule> items)
+        {
+            return await CallAsync<ResultSuccess>(
+                "venue", "addOrUpdateRatePlanBookingRulesCollection", new
+                {
+                    venueId,
+                    items,
                 }
             );
         }

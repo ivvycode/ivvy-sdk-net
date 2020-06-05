@@ -1,3 +1,4 @@
+using Ivvy.API.Venue.ARI;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -195,12 +196,22 @@ namespace Ivvy.API
         /// <param name="endDate">The end date from which the room inventory count will be set (Date Format)</param>
         /// <param name="roomCount">The inventory count of the room from startDate to endDate</param>
         /// </summary>
+        [Obsolete("Use AddOrUpdateVenueRoomCountsCollection() instead")]
         Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomCounts(
             int venueId,
             int roomId,
             string startDate,
             string endDate,
             int roomCount);
+
+        /// <summary>
+        /// Adds/updates a collection of dynamic inventory counts of a venue.
+        /// <param name="venueId">The unique id of the venue to which the inventory counts belong</param>
+        /// <param name="items">The collection of room inventory counts</param>
+        /// </summary>
+        Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomCountsCollection(
+            int venueId,
+            List<RoomCount> items);
 
         /// <summary>
         /// Add or update the dynamic rates of a specific venue room.
@@ -211,6 +222,7 @@ namespace Ivvy.API
         /// <param name="endDate">The end date from which the dynamic rate will be set (Date Format)</param>
         /// <param name="cost">The rate amount from startDate to endDate. The amount must either include or exclude tax depending on how the venue has been configured</param>
         /// </summary>
+        [Obsolete("Use AddOrUpdateVenueRoomDynamicRatesCollection() instead")]
         Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomDynamicRates(
             int venueId,
             int ratePlanId,
@@ -218,6 +230,15 @@ namespace Ivvy.API
             string startDate,
             string endDate,
             double cost);
+
+        /// <summary>
+        /// Adds/updates a collection of dynamic room rates of a venue rate plan.
+        /// <param name="venueId">The unique id of the venue to which the dynamic room rates belong</param>
+        /// <param name="items">The collection of rate plan room rates</param>
+        /// </summary>
+        Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRoomDynamicRatesCollection(
+            int venueId,
+            List<RatePlanRoomRate> items);
 
         /// <summary>
         /// Remove one or more dynamic rates from a specific venue room.
@@ -243,6 +264,7 @@ namespace Ivvy.API
         /// <param name="endDate">The end date until which the booking rule will apply (Date Format)</param>
         /// <param name="closeOutStatus">The close out status of the booking rule from startDate to endDate</param>
         /// </summary>
+        [Obsolete("Use AddOrUpdateVenueRatePlanRulesCollection() instead")]
         Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRatePlanRules(
             int venueId,
             int ratePlanId,
@@ -250,6 +272,15 @@ namespace Ivvy.API
             string startDate,
             string endDate,
             Venue.RatePlan.CloseOutStatusOptions closeOutStatus);
+
+        /// <summary>
+        /// Adds/updates a collection of booking rules of a venue rate plan.
+        /// <param name="venueId">The unique id of the venue to which the booking rules belong</param>
+        /// <param name="items">The collection of rate plan booking rules</param>
+        /// </summary>
+        Task<ResultOrError<ResultSuccess>> AddOrUpdateVenueRatePlanRulesCollection(
+            int venueId,
+            List<RatePlanBookingRule> items);
 
         /// <summary>
         /// Returns a collection of venue taxes in an iVvy account.
