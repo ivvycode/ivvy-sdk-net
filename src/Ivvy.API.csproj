@@ -13,6 +13,8 @@
     <Company>Ivvy Pty Ltd</Company>
     <Product>Ivvy API</Product>
     <Copyright>Copyright (c) Ivvy Pty Ltd</Copyright>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
