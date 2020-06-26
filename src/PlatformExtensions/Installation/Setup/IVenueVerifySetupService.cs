@@ -10,7 +10,9 @@ namespace Ivvy.PlatformExtensions.Installation.Setup
         /// <summary>
         /// Verifies an iVvy venue extension setup request.
         /// </summary>
-        Task<VenueVerifySetupResponse> VenueVerifySetupAsync (
-            VenueSetupRequest request, string IvvyVenueSetupVerifyUrl);
+        Task<VenueVerifySetupResponse> VerifySetupAsync(
+            VenueSetupRequest request,
+            string ivvyVenueSetupVerifyUrl
+        );
     }
 }
