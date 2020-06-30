@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
 using Ivvy.API.Json;
+using Newtonsoft.Json;
 
 namespace Ivvy.API.Test
 {

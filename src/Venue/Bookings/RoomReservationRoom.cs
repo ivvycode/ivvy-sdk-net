@@ -1,6 +1,6 @@
+using System;
 using Ivvy.API.Json;
 using Newtonsoft.Json;
-using System;
 
 namespace Ivvy.API.Venue.Bookings
 {

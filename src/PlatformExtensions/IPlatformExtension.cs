@@ -1,7 +1,7 @@
+using System.Threading.Tasks;
 using Ivvy.PlatformExtensions.Installation;
 using Ivvy.PlatformExtensions.Installation.Configure;
 using Ivvy.PlatformExtensions.Installation.Setup;
-using System.Threading.Tasks;
 
 namespace Ivvy.PlatformExtensions
 {

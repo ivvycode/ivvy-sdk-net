@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using Ivvy.API.Common;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace Ivvy.API.Invoice
 {

@@ -1,9 +1,9 @@
+using System;
+using System.Collections.Generic;
 using Ivvy.API.Common;
 using Ivvy.API.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
 
 namespace Ivvy.API.Contact
 {

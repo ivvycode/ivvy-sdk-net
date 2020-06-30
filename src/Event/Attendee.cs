@@ -1,7 +1,7 @@
-using Ivvy.API.Json;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using Ivvy.API.Json;
+using Newtonsoft.Json;
 
 namespace Ivvy.API.Event
 {

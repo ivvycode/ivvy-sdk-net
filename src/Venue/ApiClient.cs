@@ -1,7 +1,7 @@
-using Ivvy.API.Venue.ARI;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Ivvy.API.Venue.ARI;
 
 namespace Ivvy.API
 {

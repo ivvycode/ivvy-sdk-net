@@ -1,10 +1,10 @@
-using Ivvy.API.Json.Converters;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Ivvy.API.Json.Converters;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace Ivvy.API

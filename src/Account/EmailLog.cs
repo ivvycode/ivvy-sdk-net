@@ -1,7 +1,7 @@
-using Ivvy.API.Json;
-using Newtonsoft.Json;
 using System;
 using System.Runtime.Serialization;
+using Ivvy.API.Json;
+using Newtonsoft.Json;
 
 namespace Ivvy.API.Account
 {

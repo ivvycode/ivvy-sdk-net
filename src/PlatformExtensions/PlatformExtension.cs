@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Ivvy.PlatformExtensions.Installation;
 using Ivvy.PlatformExtensions.Installation.Configure;
 using Ivvy.PlatformExtensions.Installation.Setup;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace Ivvy.PlatformExtensions
 {

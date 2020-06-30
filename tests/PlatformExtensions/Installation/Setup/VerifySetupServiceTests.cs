@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using FluentAssertions;
 using Ivvy.PlatformExtensions;
 using Ivvy.PlatformExtensions.Installation;
 using Ivvy.PlatformExtensions.Installation.Setup;
 using Moq;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Ivvy.Tests.PlatformExtensions.Setup

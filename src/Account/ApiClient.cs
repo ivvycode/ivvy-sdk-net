@@ -1,6 +1,6 @@
-using Ivvy.API.Account;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Ivvy.API.Account;
 
 namespace Ivvy.API
 {
