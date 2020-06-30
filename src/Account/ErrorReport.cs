@@ -75,5 +75,11 @@ namespace Ivvy.API.Account
         {
             get; set;
         }
+
+        [JsonProperty("debugData")]
+        public string DebugData
+        {
+            get; set;
+        }
     }
 }
