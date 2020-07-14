@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Ivvy.API.Crm;
 
 namespace Ivvy.API
 {
@@ -57,5 +58,13 @@ namespace Ivvy.API
                     filter = filterRequest
                 });
         }
+
+        /// <summary>
+        /// Adds or updates an opportunity.
+        /// </summary>
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateOpportunityAsync(Opportunity opportunity)
+        => await CallAsync<ResultObject>(
+                "venue", "addOrUpdateOpportunity", opportunity
+            );
     }
 }
