@@ -44,13 +44,13 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("contactId")]
-        public int? contactId
+        public int? ContactId
         {
             get; set;
         }
 
         [JsonProperty("companyId")]
-        public int? companyId
+        public int? CompanyId
         {
             get; set;
         }
