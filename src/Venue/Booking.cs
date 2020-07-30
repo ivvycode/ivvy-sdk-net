@@ -125,13 +125,13 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("dateEventStart")]
-        public string DateEventStart
+        public DateTime DateEventStart
         {
             get; set;
         }
 
         [JsonProperty("dateEventEnd")]
-        public string DateEventEnd
+        public DateTime DateEventEnd
         {
             get; set;
         }
@@ -143,13 +143,13 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("dateAccomStart")]
-        public string DateAccomStart
+        public DateTime? DateAccomStart
         {
             get; set;
         }
 
         [JsonProperty("dateAccomEnd")]
-        public string DateAccomEnd
+        public DateTime? DateAccomEnd
         {
             get; set;
         }
@@ -161,7 +161,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("decisionDate")]
-        public string DecisionDate
+        public DateTime? DecisionDate
         {
             get; set;
         }
