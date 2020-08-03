@@ -54,5 +54,17 @@ namespace Ivvy.API.Crm
         {
             get; set;
         }
+
+        [JsonProperty("referralCompanyId")]
+        public int? ReferralCompanyId
+        {
+            get; set;
+        }
+
+        [JsonProperty("referralContactId")]
+        public int? ReferralContactId
+        {
+            get; set;
+        }
     }
 }

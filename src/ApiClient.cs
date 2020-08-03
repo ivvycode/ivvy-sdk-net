@@ -65,7 +65,7 @@ namespace Ivvy.API
         /// Calls a method of the iVvy api. Encapsulates the header and
         /// signing requirements.
         /// </summary>
-        protected async Task<ResultOrError<T>> CallAsync<T>(
+        public async Task<ResultOrError<T>> CallAsync<T>(
             string apiNamespace, string action, object requestData) where T : new()
         {
             if (ApiVersion != "1.0")
