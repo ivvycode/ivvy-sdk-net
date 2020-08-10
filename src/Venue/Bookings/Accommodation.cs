@@ -69,7 +69,7 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
-        [JsonProperty("cutOffDate")]
+        [JsonProperty("cutOffDate", NullValueHandling = NullValueHandling.Include)]
         public string CutOffDate
         {
             get; set;
