@@ -93,6 +93,12 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("dayRatesNet")]
+        public AccommodationDayRate[] DayRatesNet
+        {
+            get; set;
+        }
+
         [JsonProperty("excludedTaxIds")]
         public int[] ExcludedTaxIds
         {
