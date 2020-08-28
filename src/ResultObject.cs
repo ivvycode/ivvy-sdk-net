@@ -6,8 +6,8 @@ namespace Ivvy.API
     /// This class is used to encapsulate the result of an api method call
     /// that adds or updates a model object.
     /// </summary>
-    /// <seealso cref="Ivvy.API.Json.ISerializable" />
-    public class ResultObject : Ivvy.API.Json.ISerializable
+    /// <seealso cref="Json.ISerializable" />
+    public class ResultObject : Json.ISerializable
     {
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="ResultObject"/> is success.

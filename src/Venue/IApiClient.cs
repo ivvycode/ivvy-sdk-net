@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Ivvy.API.Venue.ARI;
+using Ivvy.API.Venue.Bookings;
 
 namespace Ivvy.API
 {
@@ -50,12 +51,18 @@ namespace Ivvy.API
         Task<ResultOrError<Venue.Booking>> GetVenueBookingAsync(int venueId, int id);
 
         /// <summary>
+        /// Adds or updates a booking.
+        /// <param name="reservation">Details of the booking</param>
+        /// </summary>
+        Task<ResultOrError<AddUpdateBookingResult>> AddOrUpdateVenueBookingAsync(Venue.Booking booking);
+
+        /// <summary>
         /// Returns a collection of booking accommodation groups in an iVvy venue booking.
         /// </summary>
         /// <param name="venueId">The unique id of the venue to which the bookings belong</param>
         /// <param name="bookingId">The unique id of the booking to which the accommodation belongs</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Venue.Bookings.Accommodation>>> GetVenueBookingAccommodationListAsync(
+        Task<ResultOrError<ResultList<Accommodation>>> GetVenueBookingAccommodationListAsync(
             int venueId, int bookingId
         );
 
@@ -79,9 +86,7 @@ namespace Ivvy.API
         /// Adds or updates venue booking accommodation.
         /// <param name="group">Details of the venue booking accommodation</param>
         /// </summary>
-        Task<ResultOrError<ResultObject>> AddOrUpdateVenueBookingAccommodationAsync(
-            Venue.Bookings.Accommodation group
-        );
+        Task<ResultOrError<ResultObject>> AddOrUpdateVenueBookingAccommodationAsync(Accommodation group);
 
         /// <summary>
         /// Removes a specific accommodation group from a venue booking.
@@ -89,7 +94,7 @@ namespace Ivvy.API
         /// <param name="bookingId">The unique id of the booking to which the accommodation belongs</param>
         /// <param name="id">The unique id of the accommodation group to remove from the booking</param>
         /// </summary>
-        Task<ResultOrError<Venue.Bookings.RemoveBookingAccommodationResult>> RemoveVenueBookingAccommodationAsync(
+        Task<ResultOrError<RemoveBookingAccommodationResult>> RemoveVenueBookingAccommodationAsync(
             int venueId, int bookingId, int id
         );
 
@@ -101,7 +106,7 @@ namespace Ivvy.API
         /// <param name="start">The starting result of the page. Note this is zero based (i.e. sending start=0 will start from the first result.)</param>
         /// <param name="bookingId">The unique id of the booking to which the room reservations belong</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Venue.Bookings.RoomReservation>>> GetVenueBookingRoomReservationListAsync(
+        Task<ResultOrError<ResultList<RoomReservation>>> GetVenueBookingRoomReservationListAsync(
             int venueId, int perPage, int start, int? bookingId, Dictionary<string, object> filterRequest
         );
 
@@ -112,7 +117,7 @@ namespace Ivvy.API
         /// <param name="bookingId">The unique id of the booking to which the room reservation belongs</param>
         /// <param name="reservationId">The unique id of the room reservation</param>
         /// <returns></returns>
-        Task<ResultOrError<Venue.Bookings.RoomReservation>> GetVenueBookingRoomReservationAsync(
+        Task<ResultOrError<RoomReservation>> GetVenueBookingRoomReservationAsync(
             int venueId, int bookingId, int reservationId
         );
 
@@ -120,9 +125,7 @@ namespace Ivvy.API
         /// Adds or updates a booking room reservation.
         /// <param name="reservation">Details of the booking room reservation</param>
         /// </summary>
-        Task<ResultOrError<Venue.Bookings.AddUpdateBookingRoomReservationResult>> AddOrUpdateVenueBookingRoomReservationAsync(
-            Venue.Bookings.RoomReservation reservation
-        );
+        Task<ResultOrError<AddUpdateBookingRoomReservationResult>> AddOrUpdateVenueBookingRoomReservationAsync(RoomReservation reservation);
 
         /// <summary>
         /// Removes a specific room reservation from a venue booking.
@@ -130,7 +133,7 @@ namespace Ivvy.API
         /// <param name="bookingId">The unique id of the booking to which the room reservation belongs</param>
         /// <param name="id">The unique id of the room reservation to remove from the booking</param>
         /// </summary>
-        Task<ResultOrError<Venue.Bookings.RemoveBookingRoomReservationResult>> RemoveVenueBookingRoomReservationAsync(
+        Task<ResultOrError<RemoveBookingRoomReservationResult>> RemoveVenueBookingRoomReservationAsync(
             int venueId, int bookingId, int id
         );
 
@@ -141,7 +144,7 @@ namespace Ivvy.API
         /// <param name="id">The unique id of the room reservation to confirm</param>
         /// <param name="roomIds">Optional parameter. The unique ids of the rooms to confirm</param>
         /// </summary>
-        Task<ResultOrError<Venue.Bookings.ConfirmBookingRoomReservationResult>> ConfirmVenueBookingRoomReservationAsync(
+        Task<ResultOrError<ConfirmBookingRoomReservationResult>> ConfirmVenueBookingRoomReservationAsync(
             int venueId, int bookingId, int id, int[] roomIds = null);
 
         /// <summary>
@@ -151,7 +154,7 @@ namespace Ivvy.API
         /// <param name="id">The unique id of the room reservation to cancel</param>
         /// <param name="roomId">Optionally cancel a single room on the reservation.</param>
         /// </summary>
-        Task<ResultOrError<Venue.Bookings.CancelBookingRoomReservationResult>> CancelVenueBookingRoomReservationAsync(
+        Task<ResultOrError<CancelBookingRoomReservationResult>> CancelVenueBookingRoomReservationAsync(
             int venueId, int bookingId, int id, int? roomId = null
         );
 
@@ -163,8 +166,8 @@ namespace Ivvy.API
         /// <param name="newStatus">The status to which the room reservation will be changed</param>
         /// <param name="roomIds">Optional parameter. The unique ids of the rooms to change status</param>
         /// </summary>
-        Task<ResultOrError<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>> ChangeStatusOfBookingRoomReservationAsync(
-            int venueId, int bookingId, int id, Venue.Bookings.RoomReservation.StatusOptions newStatus, int[] roomIds = null
+        Task<ResultOrError<ChangeStatusOfBookingRoomReservationResult>> ChangeStatusOfBookingRoomReservationAsync(
+            int venueId, int bookingId, int id, RoomReservation.StatusOptions newStatus, int[] roomIds = null
         );
 
         /// <summary>

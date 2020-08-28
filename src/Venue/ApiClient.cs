@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Ivvy.API.Venue.ARI;
+using Ivvy.API.Venue.Bookings;
 
 namespace Ivvy.API
 {
@@ -88,11 +89,19 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<ResultList<Venue.Bookings.Accommodation>>> GetVenueBookingAccommodationListAsync(
+        public async Task<ResultOrError<AddUpdateBookingResult>> AddOrUpdateVenueBookingAsync(Venue.Booking booking)
+        {
+            return await CallAsync<AddUpdateBookingResult>(
+                "venue", "addOrUpdateBooking", booking
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Accommodation>>> GetVenueBookingAccommodationListAsync(
             int venueId,
             int bookingId)
         {
-            return await CallAsync<ResultList<Venue.Bookings.Accommodation>>(
+            return await CallAsync<ResultList<Accommodation>>(
                 "venue", "getBookingAccommodationList", new
                 {
                     venueId,
@@ -123,7 +132,7 @@ namespace Ivvy.API
 
         /// <inheritdoc />
         public async Task<ResultOrError<ResultObject>> AddOrUpdateVenueBookingAccommodationAsync(
-            Venue.Bookings.Accommodation group)
+            Accommodation group)
         {
             // Null out the group properties that cannot be added/updated.
             group.CostCenterId = null;
@@ -157,12 +166,12 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<Venue.Bookings.RemoveBookingAccommodationResult>> RemoveVenueBookingAccommodationAsync(
+        public async Task<ResultOrError<RemoveBookingAccommodationResult>> RemoveVenueBookingAccommodationAsync(
             int venueId,
             int bookingId,
             int id)
         {
-            return await CallAsync<Venue.Bookings.RemoveBookingAccommodationResult>(
+            return await CallAsync<RemoveBookingAccommodationResult>(
                 "venue", "removeBookingAccommodation", new
                 {
                     venueId,
@@ -173,14 +182,14 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<ResultList<Venue.Bookings.RoomReservation>>> GetVenueBookingRoomReservationListAsync(
+        public async Task<ResultOrError<ResultList<RoomReservation>>> GetVenueBookingRoomReservationListAsync(
             int venueId,
             int perPage,
             int start,
             int? bookingId,
             Dictionary<string, object> filterRequest)
         {
-            return await CallAsync<ResultList<Venue.Bookings.RoomReservation>>(
+            return await CallAsync<ResultList<RoomReservation>>(
                 "venue", "getBookingRoomReservationList", new
                 {
                     venueId,
@@ -193,7 +202,7 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<Venue.Bookings.RoomReservation>> GetVenueBookingRoomReservationAsync(
+        public async Task<ResultOrError<RoomReservation>> GetVenueBookingRoomReservationAsync(
             int venueId,
             int bookingId,
             int reservationId)
@@ -203,7 +212,7 @@ namespace Ivvy.API
                     { "id", reservationId }
                 }
             );
-            var newResult = new ResultOrError<Venue.Bookings.RoomReservation>()
+            var newResult = new ResultOrError<RoomReservation>()
             {
                 ErrorCode = listResult.ErrorCode,
                 ErrorCodeSpecific = listResult.ErrorCodeSpecific,
@@ -225,8 +234,8 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<Venue.Bookings.AddUpdateBookingRoomReservationResult>> AddOrUpdateVenueBookingRoomReservationAsync(
-            Venue.Bookings.RoomReservation reservation)
+        public async Task<ResultOrError<AddUpdateBookingRoomReservationResult>> AddOrUpdateVenueBookingRoomReservationAsync(
+            RoomReservation reservation)
         {
             // Null out the reservation properties that cannot be added/updated.
             reservation.Reference = null;
@@ -308,18 +317,18 @@ namespace Ivvy.API
                 }
             }
 
-            return await CallAsync<Venue.Bookings.AddUpdateBookingRoomReservationResult>(
+            return await CallAsync<AddUpdateBookingRoomReservationResult>(
                 "venue", "addOrUpdateBookingRoomReservation", reservation
             );
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<Venue.Bookings.RemoveBookingRoomReservationResult>> RemoveVenueBookingRoomReservationAsync(
+        public async Task<ResultOrError<RemoveBookingRoomReservationResult>> RemoveVenueBookingRoomReservationAsync(
             int venueId,
             int bookingId,
             int id)
         {
-            return await CallAsync<Venue.Bookings.RemoveBookingRoomReservationResult>(
+            return await CallAsync<RemoveBookingRoomReservationResult>(
                 "venue", "removeBookingRoomReservation", new
                 {
                     venueId,
@@ -330,13 +339,13 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<Venue.Bookings.ConfirmBookingRoomReservationResult>> ConfirmVenueBookingRoomReservationAsync(
+        public async Task<ResultOrError<ConfirmBookingRoomReservationResult>> ConfirmVenueBookingRoomReservationAsync(
             int venueId,
             int bookingId,
             int id,
             int[] roomIds = null)
         {
-            return await CallAsync<Venue.Bookings.ConfirmBookingRoomReservationResult>(
+            return await CallAsync<ConfirmBookingRoomReservationResult>(
                 "venue", "confirmBookingRoomReservation", new
                 {
                     venueId,
@@ -348,13 +357,13 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<Venue.Bookings.CancelBookingRoomReservationResult>> CancelVenueBookingRoomReservationAsync(
+        public async Task<ResultOrError<CancelBookingRoomReservationResult>> CancelVenueBookingRoomReservationAsync(
             int venueId,
             int bookingId,
             int id,
             int? roomId = null)
         {
-            return await CallAsync<Venue.Bookings.CancelBookingRoomReservationResult>(
+            return await CallAsync<CancelBookingRoomReservationResult>(
                 "venue", "cancelBookingRoomReservation", new
                 {
                     venueId,
@@ -366,14 +375,14 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>> ChangeStatusOfBookingRoomReservationAsync(
+        public async Task<ResultOrError<ChangeStatusOfBookingRoomReservationResult>> ChangeStatusOfBookingRoomReservationAsync(
             int venueId,
             int bookingId,
             int id,
-            Venue.Bookings.RoomReservation.StatusOptions newStatus,
+            RoomReservation.StatusOptions newStatus,
             int[] roomIds = null)
         {
-            return await CallAsync<Venue.Bookings.ChangeStatusOfBookingRoomReservationResult>(
+            return await CallAsync<ChangeStatusOfBookingRoomReservationResult>(
                 "venue", "changeStatusOfBookingRoomReservation", new
                 {
                     venueId,
