@@ -69,7 +69,7 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
-        [JsonProperty("cutOffDate")]
+        [JsonProperty("cutOffDate", NullValueHandling = NullValueHandling.Include)]
         public string CutOffDate
         {
             get; set;
@@ -89,6 +89,12 @@ namespace Ivvy.API.Venue.Bookings
 
         [JsonProperty("dayRatesForecast")]
         public AccommodationDayRate[] DayRatesForecast
+        {
+            get; set;
+        }
+
+        [JsonProperty("dayRatesNet")]
+        public AccommodationDayRate[] DayRatesNet
         {
             get; set;
         }
