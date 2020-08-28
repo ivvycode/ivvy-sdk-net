@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Ivvy.API.Crm;
 
 namespace Ivvy.API
 {
@@ -8,12 +9,12 @@ namespace Ivvy.API
         /// <summary>
         /// Returns a collection of lead stages.
         /// </summary>
-        public async Task<ResultOrError<ResultList<Crm.LeadStage>>> GetLeadStageListAsync(
+        public async Task<ResultOrError<ResultList<LeadStage>>> GetLeadStageListAsync(
             int perPage,
             int start,
             Dictionary<string, object> filterRequest = null)
         {
-            return await CallAsync<ResultList<Crm.LeadStage>>(
+            return await CallAsync<ResultList<LeadStage>>(
                 "crm", "getLeadStageList", new
                 {
                     perPage,
@@ -26,12 +27,12 @@ namespace Ivvy.API
         /// <summary>
         /// Returns a collection of lead types.
         /// </summary>
-        public async Task<ResultOrError<ResultList<Crm.LeadType>>> GetLeadTypeListAsync(
+        public async Task<ResultOrError<ResultList<LeadType>>> GetLeadTypeListAsync(
             int perPage,
             int start,
             Dictionary<string, object> filterRequest = null)
         {
-            return await CallAsync<ResultList<Crm.LeadType>>(
+            return await CallAsync<ResultList<LeadType>>(
                 "crm", "getLeadTypeList", new
                 {
                     perPage,
@@ -44,18 +45,28 @@ namespace Ivvy.API
         /// <summary>
         /// Returns a collection of opportunities.
         /// </summary>
-        public async Task<ResultOrError<ResultList<Crm.Opportunity>>> GetOpportunityListAsync(
+        public async Task<ResultOrError<ResultList<Opportunity>>> GetOpportunityListAsync(
             int perPage,
             int start,
             Dictionary<string, object> filterRequest = null)
         {
-            return await CallAsync<ResultList<Crm.Opportunity>>(
+            return await CallAsync<ResultList<Opportunity>>(
                 "crm", "getOpportunityList", new
                 {
                     perPage,
                     start,
                     filter = filterRequest
                 });
+        }
+
+        /// <summary>
+        /// Adds or updates an opportunity.
+        /// </summary>
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateOpportunityAsync(Opportunity opportunity)
+        {
+            return await CallAsync<ResultObject>(
+                "venue", "addOrUpdateOpportunity", opportunity
+            );
         }
     }
 }

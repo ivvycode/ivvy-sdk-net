@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace Ivvy.API
 {
     public partial interface IApiClient
@@ -33,5 +35,11 @@ namespace Ivvy.API
         {
             get; set;
         }
+
+        /// <summary>
+        /// Calls a method of the iVvy api
+        /// </summary>
+        Task<ResultOrError<T>> CallAsync<T>(
+            string apiNamespace, string action, object requestData) where T : new();
     }
 }
