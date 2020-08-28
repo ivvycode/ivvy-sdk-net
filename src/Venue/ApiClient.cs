@@ -564,12 +564,12 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<ResultList<Account.CostCenter>>> GetVenueCostCenterListAsync(
+        public async Task<ResultOrError<ResultList<Venue.CostCenter>>> GetVenueCostCenterListAsync(
             int venueId,
             int perPage,
             int start)
         {
-            return await CallAsync<ResultList<Account.CostCenter>>(
+            return await CallAsync<ResultList<Venue.CostCenter>>(
                 "venue", "getCostCenterList", new
                 {
                     venueId,

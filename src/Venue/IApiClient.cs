@@ -294,7 +294,7 @@ namespace Ivvy.API
         /// <param name="venueId">The unique id of the venue to which the cost centers belong</param>
         /// <param name="perPage">The number of cost centers to fetch</param>
         /// <param name="start">The starting result of the page. Note this is zero based (i.e. sending start=0 will start from the first result.)</param>
-        Task<ResultOrError<ResultList<Account.CostCenter>>> GetVenueCostCenterListAsync(
+        Task<ResultOrError<ResultList<Venue.CostCenter>>> GetVenueCostCenterListAsync(
             int venueId,
             int perPage,
             int start);
