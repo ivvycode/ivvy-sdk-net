@@ -66,5 +66,11 @@ namespace Ivvy.API.Invoice
         {
             get; set;
         }
+
+        [JsonProperty("costCenters")]
+        public ItemCostCenter[] CostCenters
+        {
+            get; set;
+        }
     }
 }
