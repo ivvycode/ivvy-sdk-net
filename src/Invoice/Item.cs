@@ -26,7 +26,7 @@ namespace Ivvy.API.Invoice
         }
 
         [JsonProperty("refType")]
-        public RefTypes RefType
+        public int RefType
         {
             get; set;
         }
