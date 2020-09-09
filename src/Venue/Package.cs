@@ -6,7 +6,7 @@ namespace Ivvy.API.Venue
     /// <summary>
     /// An iVvy venue function space.
     /// </summary>
-    public class FunctionSpace : ISerializable
+    public class Package : ISerializable
     {
         [JsonProperty("id")]
         public int Id
@@ -20,20 +20,32 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
-        [JsonProperty("description")]
-        public string Description
-        {
-            get; set;
-        }
-
         [JsonProperty("minPax")]
         public int MinPax
         {
             get; set;
         }
 
-        [JsonProperty("maxPax")]
-        public int MaxPax
+        [JsonProperty("price")]
+        public string Price
+        {
+            get; set;
+        }
+
+        [JsonProperty("priceMethod")]
+        public string PriceMethod
+        {
+            get; set;
+        }
+
+        [JsonProperty("smallDescription")]
+        public string SmallDescription
+        {
+            get; set;
+        }
+
+        [JsonProperty("largeDescription")]
+        public string LargeDescription
         {
             get; set;
         }
