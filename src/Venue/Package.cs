@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace Ivvy.API.Venue
 {
     /// <summary>
-    /// An iVvy venue function space.
+    /// iVvy venue package.
     /// </summary>
     public class Package : ISerializable
     {
