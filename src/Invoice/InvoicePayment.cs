@@ -68,7 +68,7 @@ namespace Ivvy.API.Invoice
         }
 
         [JsonProperty("paymentMethod")]
-        public PaymentMethods PaymentMethod
+        public int PaymentMethod
         {
             get; set;
         }
