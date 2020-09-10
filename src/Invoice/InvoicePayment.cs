@@ -14,12 +14,13 @@ namespace Ivvy.API.Invoice
             PayPal = 4,
             Cheque = 5,
             Cash = 6,
-            Custom = 7,
+            CustomPaymentGateway = 7,
             AccountsReceivable = 8,
             Eftpos = 9,
             WriteOff = 10,
             Pos = 11,
-            WireTransfer = 12
+            WireTransfer = 12,
+            Custom = 13
         }
 
         public enum CardTypes
