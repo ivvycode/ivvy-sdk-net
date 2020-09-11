@@ -74,6 +74,12 @@ namespace Ivvy.API.Invoice
             get; set;
         }
 
+        [JsonProperty("customPaymentMethodId")]
+        public int? CustomPaymentMethodId
+        {
+            get; set;
+        }
+
         [JsonProperty("paidDate")]
         public DateTime? PaidDate
         {
