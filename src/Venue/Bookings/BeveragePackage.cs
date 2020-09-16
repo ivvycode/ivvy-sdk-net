@@ -28,7 +28,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("endDate")]
-        public string EndDate
+        public DateTime EndDate
         {
             get; set;
         }
