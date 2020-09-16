@@ -202,6 +202,36 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
+        [JsonProperty("menus")]
+        public Bookings.Menu[] Menus
+        {
+            get; set;
+        }
+
+        [JsonProperty("beveragePackages")]
+        public Bookings.BeveragePackage[] BeveragePackages
+        {
+            get; set;
+        }
+
+        [JsonProperty("resources")]
+        public Bookings.Resource[] Resources
+        {
+            get; set;
+        }
+
+        [JsonProperty("products")]
+        public Bookings.Product[] Products
+        {
+            get; set;
+        }
+
+        [JsonProperty("additionalItems")]
+        public Bookings.AdditionalItem[] AdditionalItems
+        {
+            get; set;
+        }
+
         [JsonProperty("agent")]
         public Contact.Agent Agent
         {
