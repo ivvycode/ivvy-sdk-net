@@ -31,5 +31,12 @@ namespace Ivvy.API.Venue.Bookings
         {
             get; set;
         }
+
+        [JsonProperty("smallDescription")]
+        public string SmallDescription
+        {
+            get; set;
+        }
+
     }
 }
