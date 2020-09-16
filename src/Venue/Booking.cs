@@ -190,6 +190,12 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
+        [JsonProperty("packages")]
+        public Bookings.Package[] Packages
+        {
+            get; set;
+        }
+
         [JsonProperty("sessions")]
         public Bookings.Session[] Sessions
         {
