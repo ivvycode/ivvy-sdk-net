@@ -38,5 +38,11 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("costcenters")]
+        public PackageCostCenter[] CostCenters
+        {
+            get; set;
+        }
+
     }
 }

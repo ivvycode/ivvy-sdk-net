@@ -19,5 +19,11 @@ namespace Ivvy.API.Venue
         {
             get; set;
         }
+
+        [JsonProperty("rate")]
+        public string Rate
+        {
+            get; set;
+        }
     }
 }
