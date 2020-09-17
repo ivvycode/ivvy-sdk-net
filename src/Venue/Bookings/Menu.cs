@@ -63,10 +63,16 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("taxDetails")]
+        public Tax[] TaxDetails
+        {
+            get; set;
+        }
+
         public string GetMenuCategory()
         {
             var menuCategory = "";
-            switch(MenuTypeCategory)
+            switch (MenuTypeCategory)
             {
                 case 1:
                     menuCategory = "Breakfast";
