@@ -64,7 +64,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("taxDetails")]
-        public Tax[] TaxDetails
+        public TaxDetail[] TaxDetails
         {
             get; set;
         }
