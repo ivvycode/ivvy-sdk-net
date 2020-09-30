@@ -21,7 +21,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("name")]
-        public int Name
+        public string Name
         {
             get; set;
         }
