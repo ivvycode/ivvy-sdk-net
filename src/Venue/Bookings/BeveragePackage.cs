@@ -58,13 +58,13 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("smallDescription")]
-        public decimal SmallDescription
+        public string SmallDescription
         {
             get; set;
         }
 
         [JsonProperty("marketplaceName")]
-        public decimal MarketplaceName
+        public string MarketplaceName
         {
             get; set;
         }
