@@ -202,6 +202,12 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
+        [JsonProperty("accommExternalBlockId")]
+        public string AccommExternalBlockId
+        {
+            get; set;
+        }
+
         [JsonProperty("bookedById")]
         public int? BookedById
         {
@@ -216,6 +222,12 @@ namespace Ivvy.API.Venue
 
         [JsonProperty("isConfidential")]
         public bool IsConfidential
+        {
+            get; set;
+        }
+
+        [JsonProperty("canBeMoved")]
+        public bool CanBeMoved
         {
             get; set;
         }
