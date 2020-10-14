@@ -16,7 +16,13 @@ namespace Ivvy.API.Venue
             NotAccepted = 6
         }
 
-        [JsonProperty("id")]
+        public enum BookingTypeOptions
+        {
+            Detailed = 1,
+            AccommodationOnly = 4
+        }
+
+        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int Id
         {
             get; set;
@@ -180,6 +186,48 @@ namespace Ivvy.API.Venue
 
         [JsonProperty("eventType")]
         public string EventType
+        {
+            get; set;
+        }
+
+        [JsonProperty("eventTypeId")]
+        public int? EventTypeId
+        {
+            get; set;
+        }
+
+        [JsonProperty("bookingType")]
+        public BookingTypeOptions BookingType
+        {
+            get; set;
+        }
+
+        [JsonProperty("accommExternalBlockId")]
+        public string AccommExternalBlockId
+        {
+            get; set;
+        }
+
+        [JsonProperty("bookedById")]
+        public int? BookedById
+        {
+            get; set;
+        }
+
+        [JsonProperty("totalAttendees")]
+        public int? TotalAttendees
+        {
+            get; set;
+        }
+
+        [JsonProperty("isConfidential")]
+        public bool IsConfidential
+        {
+            get; set;
+        }
+
+        [JsonProperty("canBeMoved")]
+        public bool CanBeMoved
         {
             get; set;
         }
