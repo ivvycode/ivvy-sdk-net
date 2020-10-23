@@ -163,5 +163,11 @@ namespace Ivvy.API.Venue
         {
             get; set;
         }
+
+        [JsonProperty("packages")]
+        public Package[] Packages
+        {
+            get; set;
+        }
     }
 }

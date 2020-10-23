@@ -238,8 +238,44 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
+        [JsonProperty("packages")]
+        public Bookings.Package[] Packages
+        {
+            get; set;
+        }
+
         [JsonProperty("sessions")]
         public Bookings.Session[] Sessions
+        {
+            get; set;
+        }
+
+        [JsonProperty("menus")]
+        public Bookings.Menu[] Menus
+        {
+            get; set;
+        }
+
+        [JsonProperty("beveragePackages")]
+        public Bookings.BeveragePackage[] BeveragePackages
+        {
+            get; set;
+        }
+
+        [JsonProperty("resources")]
+        public Bookings.Resource[] Resources
+        {
+            get; set;
+        }
+
+        [JsonProperty("products")]
+        public Bookings.Product[] Products
+        {
+            get; set;
+        }
+
+        [JsonProperty("additionalItems")]
+        public Bookings.AdditionalItem[] AdditionalItems
         {
             get; set;
         }

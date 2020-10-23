@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 namespace Ivvy.API.Venue
 {
     /// <summary>
-    /// An iVvy venue tax.
+    /// A booking tax detail object.
     /// </summary>
-    public class Tax : ISerializable
+    public class TaxDetail : ISerializable
     {
         [JsonProperty("id")]
         public int Id
@@ -14,14 +14,8 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
-        [JsonProperty("name")]
-        public string Name
-        {
-            get; set;
-        }
-
-        [JsonProperty("rate")]
-        public decimal Rate
+        [JsonProperty("tax")]
+        public string Tax
         {
             get; set;
         }

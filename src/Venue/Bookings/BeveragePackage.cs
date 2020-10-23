@@ -5,9 +5,9 @@ using Newtonsoft.Json;
 namespace Ivvy.API.Venue.Bookings
 {
     /// <summary>
-    /// A single session on an iVvy venue booking.
+    /// Beverage Package details on an iVvy venue booking.
     /// </summary>
-    public class Session : ISerializable
+    public class BeveragePackage : ISerializable
     {
         [JsonProperty("id")]
         public int Id
@@ -33,20 +33,8 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
-        [JsonProperty("spaceId")]
-        public int SpaceId
-        {
-            get; set;
-        }
-
-        [JsonProperty("costCenterId")]
-        public int CostCenterId
-        {
-            get; set;
-        }
-
-        [JsonProperty("cost")]
-        public decimal Cost
+        [JsonProperty("includeInPackage")]
+        public bool IncludeInPackage
         {
             get; set;
         }
@@ -57,14 +45,26 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("cost")]
+        public decimal Cost
+        {
+            get; set;
+        }
+
         [JsonProperty("totalDiscount")]
         public decimal TotalDiscount
         {
             get; set;
         }
 
-        [JsonProperty("includeInPackage")]
-        public bool IncludeInPackage
+        [JsonProperty("smallDescription")]
+        public string SmallDescription
+        {
+            get; set;
+        }
+
+        [JsonProperty("marketplaceName")]
+        public string MarketplaceName
         {
             get; set;
         }
