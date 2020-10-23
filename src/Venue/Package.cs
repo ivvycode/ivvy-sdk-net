@@ -8,6 +8,12 @@ namespace Ivvy.API.Venue
     /// </summary>
     public class Package : ISerializable
     {
+        public enum PriceMethods
+        {
+            PerPerson = 1,
+            Fixed = 2
+        }
+
         [JsonProperty("id")]
         public int Id
         {
@@ -27,13 +33,13 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("price")]
-        public string Price
+        public decimal Price
         {
             get; set;
         }
 
         [JsonProperty("priceMethod")]
-        public string PriceMethod
+        public PriceMethods PriceMethod
         {
             get; set;
         }

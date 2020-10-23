@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace Ivvy.API.Venue.Bookings
 {
     /// <summary>
-    /// Additional Item details on an iVvy venue booking.
+    /// Details of an additional item on a venue booking.
     /// </summary>
     public class AdditionalItem : ISerializable
     {
@@ -21,7 +21,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("quantity")]
-        public int Quantity
+        public float Quantity
         {
             get; set;
         }

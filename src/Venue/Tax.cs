@@ -20,6 +20,7 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
+        // IVVY-TODO: AE-1786: I don't think this is in the iVvy api.
         [JsonProperty("rate")]
         public decimal Rate
         {

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace Ivvy.API.Venue.Bookings
 {
     /// <summary>
-    /// Product details on an iVvy venue booking.
+    /// Details of a product on a venue booking session.
     /// </summary>
     public class Product : ISerializable
     {

@@ -1,21 +1,21 @@
 using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.API.Venue
+namespace Ivvy.API.Venue.Bookings
 {
     /// <summary>
-    /// A booking tax detail object.
+    /// A description of tax applied to a booking item.
     /// </summary>
     public class TaxDetail : ISerializable
     {
         [JsonProperty("id")]
-        public int Id
+        public int TaxId
         {
             get; set;
         }
 
         [JsonProperty("tax")]
-        public string Tax
+        public decimal TaxAmount
         {
             get; set;
         }

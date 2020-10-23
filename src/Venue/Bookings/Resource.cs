@@ -5,12 +5,18 @@ using Newtonsoft.Json;
 namespace Ivvy.API.Venue.Bookings
 {
     /// <summary>
-    /// Resource details on an iVvy venue booking.
+    /// Details of a resource on a venue booking session.
     /// </summary>
     public class Resource : ISerializable
     {
         [JsonProperty("id")]
         public int Id
+        {
+            get; set;
+        }
+
+        [JsonProperty("sessionId")]
+        public int SessionId
         {
             get; set;
         }
