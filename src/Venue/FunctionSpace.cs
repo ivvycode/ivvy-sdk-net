@@ -25,5 +25,17 @@ namespace Ivvy.API.Venue
         {
             get; set;
         }
+
+        [JsonProperty("minPax")]
+        public int? MinPax
+        {
+            get; set;
+        }
+
+        [JsonProperty("maxPax")]
+        public int? MaxPax
+        {
+            get; set;
+        }
     }
 }
