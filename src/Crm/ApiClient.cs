@@ -6,9 +6,7 @@ namespace Ivvy.API
 {
     public partial class ApiClient : IApiClient
     {
-        /// <summary>
-        /// Returns a collection of lead stages.
-        /// </summary>
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<LeadStage>>> GetLeadStageListAsync(
             int perPage,
             int start,
@@ -24,9 +22,7 @@ namespace Ivvy.API
             );
         }
 
-        /// <summary>
-        /// Returns a collection of lead types.
-        /// </summary>
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<LeadType>>> GetLeadTypeListAsync(
             int perPage,
             int start,
@@ -42,9 +38,7 @@ namespace Ivvy.API
             );
         }
 
-        /// <summary>
-        /// Returns a collection of opportunities.
-        /// </summary>
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<Opportunity>>> GetOpportunityListAsync(
             int perPage,
             int start,
@@ -59,13 +53,29 @@ namespace Ivvy.API
                 });
         }
 
-        /// <summary>
-        /// Adds or updates an opportunity.
-        /// </summary>
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultObject>> AddOrUpdateOpportunityAsync(Opportunity opportunity)
         {
             return await CallAsync<ResultObject>(
                 "venue", "addOrUpdateOpportunity", opportunity
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<OpportunityAllocationUserDetail>>> GetOpportunityAllocationRulesEmailListAsync(
+            int venueId,
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest = null)
+        {
+            return await CallAsync<ResultList<OpportunityAllocationUserDetail>>(
+                "crm", "getOpportunityAllocationUsers", new
+                {
+                    venueId,
+                    perPage,
+                    start,
+                    filter = filterRequest
+                }
             );
         }
     }
