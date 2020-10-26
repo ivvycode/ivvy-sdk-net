@@ -72,5 +72,11 @@ namespace Ivvy.API.Invoice
         {
             get; set;
         }
+
+        [JsonProperty("taxes")]
+        public ItemTax[] Taxes
+        {
+            get; set;
+        }
     }
 }
