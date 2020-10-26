@@ -50,5 +50,11 @@ namespace Ivvy.API
             int perPage,
             int start,
             Dictionary<string, object> filterRequest = null);
+
+        /// <summary>
+        /// Adds or updates an opportunity.
+        /// </summary>
+        /// <param name="opportunity">Opportunity object</param>
+        Task<ResultOrError<ResultObject>> AddOrUpdateOpportunityAsync(Opportunity opportunity);
     }
 }
