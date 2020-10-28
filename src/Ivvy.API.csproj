@@ -6,7 +6,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Ivvy.API makes it easy to use the iVvy API version 1+ and build extensions on the iVvy platform.</Description>
     <AssemblyTitle>Ivvy.API</AssemblyTitle>
-    <VersionPrefix>0.58.0</VersionPrefix>
+    <VersionPrefix>0.59.0</VersionPrefix>
     <AssemblyName>Ivvy.API</AssemblyName>
     <PackageId>Ivvy.API</PackageId>
     <PackageTags>Ivvy;API</PackageTags>
