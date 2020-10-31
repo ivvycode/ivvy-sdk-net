@@ -43,5 +43,18 @@ namespace Ivvy.API
         /// <param name="opportunity">Opportunity object</param>
         /// <returns></returns>
         Task<ResultOrError<ResultObject>> AddOrUpdateOpportunityAsync(Opportunity opportunity);
+
+        /// <summary>
+        /// Returns the description of how an opportunity should be allocated based the online booking rules of a venue.
+        /// </summary>
+        /// <param name="venueId">The id of the venue.</param>
+        /// <param name="opportunityType">The type of opportunity.</param>
+        /// <param name="eventTypeId">The id of the venue event type.</param>
+        /// <param name="estimatedValue">The estimated value of the opportunity.</param>
+        Task<ResultOrError<HowToAllocateOpportunity>> GetHowToAllocateOpportunity(
+            int venueId,
+            HowToAllocateOpportunity.OpportunityTypes opportunityType,
+            int eventTypeId,
+            int estimatedValue);
     }
 }
