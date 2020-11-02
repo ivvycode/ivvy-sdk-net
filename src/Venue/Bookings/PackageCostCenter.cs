@@ -23,7 +23,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("totalDiscount")]
-        public decimal TotalDiscount
+        public decimal? TotalDiscount
         {
             get; set;
         }
