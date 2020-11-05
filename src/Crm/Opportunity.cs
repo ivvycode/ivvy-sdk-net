@@ -78,5 +78,11 @@ namespace Ivvy.API.Crm
         {
             get; set;
         }
+
+        [JsonProperty("stageReasonId")]
+        public int? StageReasonId
+        {
+            get; set;
+        }
     }
 }
