@@ -33,7 +33,7 @@ namespace Ivvy.API
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Crm.LeadType>>> GetLeadSourceListAsync(
+        Task<ResultOrError<ResultList<LeadSource>>> GetLeadSourceListAsync(
             int perPage, int start, Dictionary<string, object> filterRequest = null);
 
         /// <summary>
