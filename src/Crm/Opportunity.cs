@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json;
 
 namespace Ivvy.API.Crm
@@ -7,7 +8,7 @@ namespace Ivvy.API.Crm
     /// </summary>
     public class Opportunity
     {
-        [JsonProperty("id")]
+        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int Id
         {
             get; set;
@@ -80,7 +81,7 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("closedDate")]
-        public string ClosedDate
+        public DateTime ClosedDate
         {
             get; set;
         }
