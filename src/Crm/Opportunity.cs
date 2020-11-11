@@ -78,5 +78,11 @@ namespace Ivvy.API.Crm
         {
             get; set;
         }
+
+        [JsonProperty("closedDate")]
+        public string ClosedDate
+        {
+            get; set;
+        }
     }
 }
