@@ -67,12 +67,6 @@ namespace Ivvy.API.Crm
             get; set;
         }
 
-        [JsonProperty("sourceId")]
-        public int? SourceId
-        {
-            get; set;
-        }
-
         [JsonProperty("companyLeadContactId")]
         public int? CompanyLeadContactId
         {
