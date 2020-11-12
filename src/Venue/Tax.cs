@@ -19,5 +19,11 @@ namespace Ivvy.API.Venue
         {
             get; set;
         }
+
+        [JsonProperty("amount")]
+        public decimal? Amount
+        {
+            get; set;
+        }
     }
 }
