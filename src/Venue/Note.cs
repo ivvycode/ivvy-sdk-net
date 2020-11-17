@@ -85,7 +85,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("createdBy")]
-        public int CreatorId
+        public int? CreatorId
         {
             get; set;
         }
