@@ -19,5 +19,11 @@ namespace Ivvy.API.Crm
         {
             get; set;
         }
+
+        [JsonProperty("reasons")]
+        public StageReason[] Reasons
+        {
+            get; set;
+        }
     }
 }

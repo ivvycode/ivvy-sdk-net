@@ -27,6 +27,16 @@ namespace Ivvy.API
             int perPage, int start, Dictionary<string, object> filterRequest = null);
 
         /// <summary>
+        /// Returns a collection of lead sources.
+        /// </summary>
+        /// <param name="perPage">The per page records.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<LeadSource>>> GetLeadSourceListAsync(
+            int perPage, int start, Dictionary<string, object> filterRequest = null);
+
+        /// <summary>
         /// Returns a collection of opportunities.
         /// </summary>
         /// <param name="perPage">The per page records.</param>

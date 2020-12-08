@@ -9,13 +9,19 @@ namespace Ivvy.API.Venue.Bookings
     public class TaxDetail : ISerializable
     {
         [JsonProperty("id")]
-        public int TaxId
+        public int Id
         {
             get; set;
         }
 
         [JsonProperty("tax")]
-        public decimal TaxAmount
+        public float Tax
+        {
+            get; set;
+        }
+
+        [JsonProperty("rateAmount")]
+        public float RateAmount
         {
             get; set;
         }
