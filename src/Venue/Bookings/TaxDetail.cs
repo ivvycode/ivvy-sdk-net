@@ -15,13 +15,13 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("tax")]
-        public decimal Tax
+        public float Tax
         {
             get; set;
         }
 
         [JsonProperty("rateAmount")]
-        public decimal RateAmount
+        public float RateAmount
         {
             get; set;
         }

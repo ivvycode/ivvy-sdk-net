@@ -81,7 +81,7 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("closedDate")]
-        public DateTime ClosedDate
+        public DateTime? ClosedDate
         {
             get; set;
         }

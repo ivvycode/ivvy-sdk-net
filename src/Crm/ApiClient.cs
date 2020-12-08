@@ -66,7 +66,8 @@ namespace Ivvy.API
             int perPage,
             int start,
             Dictionary<string, object> filterRequest = null)
-            => await CallAsync<ResultList<LeadSource>>(
+        {
+            return await CallAsync<ResultList<LeadSource>>(
                 "crm", "getLeadSourceList", new
                 {
                     perPage,
@@ -74,6 +75,7 @@ namespace Ivvy.API
                     filter = filterRequest
                 }
             );
+        }
 
         /// <inheritdoc />
         public async Task<ResultOrError<HowToAllocateOpportunity>> GetHowToAllocateOpportunity(

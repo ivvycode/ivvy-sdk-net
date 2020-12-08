@@ -9,7 +9,7 @@ namespace Ivvy.API.Crm
     public class LeadSource : ISerializable
     {
         [JsonProperty("id")]
-        public string Id
+        public int Id
         {
             get; set;
         }
@@ -27,19 +27,19 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("cost")]
-        public string Cost
+        public float Cost
         {
             get; set;
         }
 
         [JsonProperty("isReferral")]
-        public string IsReferral
+        public bool IsReferral
         {
             get; set;
         }
 
         [JsonProperty("defaultType")]
-        public string DefaultType
+        public int? DefaultType
         {
             get; set;
         }

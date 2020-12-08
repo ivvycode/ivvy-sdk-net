@@ -21,7 +21,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("amount")]
-        public decimal? Amount
+        public float? Amount
         {
             get; set;
         }

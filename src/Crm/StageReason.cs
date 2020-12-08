@@ -3,12 +3,12 @@ using Newtonsoft.Json;
 namespace Ivvy.API.Crm
 {
     /// <summary>
-    /// Encapsulates the details of reason that is sent with lead stages
+    /// The reason why an opportunity/lead is at a specific stage.
     /// </summary>
     public class StageReason
     {
         [JsonProperty("id")]
-        public string Id
+        public int Id
         {
             get; set;
         }
