@@ -33,13 +33,13 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("stageId")]
-        public int StageId
+        public int? StageId
         {
             get; set;
         }
 
         [JsonProperty("typeId")]
-        public int TypeId
+        public int? TypeId
         {
             get; set;
         }
