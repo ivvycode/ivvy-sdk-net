@@ -25,6 +25,12 @@ namespace Ivvy.API.Invoice
             ServiceFee = 513
         }
 
+        [JsonProperty("id")]
+        public int Id
+        {
+            get; set;
+        }
+
         [JsonProperty("refType")]
         public int RefType
         {
@@ -69,6 +75,12 @@ namespace Ivvy.API.Invoice
 
         [JsonProperty("costCenters")]
         public ItemCostCenter[] CostCenters
+        {
+            get; set;
+        }
+
+        [JsonProperty("taxes")]
+        public ItemTax[] Taxes
         {
             get; set;
         }
