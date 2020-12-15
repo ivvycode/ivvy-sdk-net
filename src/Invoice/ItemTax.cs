@@ -17,7 +17,7 @@ namespace Ivvy.API.Invoice
         }
 
         [JsonProperty("amount")]
-        public decimal Amount
+        public float Amount
         {
             get; set;
         }
@@ -29,7 +29,7 @@ namespace Ivvy.API.Invoice
         }
 
         [JsonProperty("taxRateAmount")]
-        public decimal TaxRateAmount
+        public float TaxRateAmount
         {
             get; set;
         }
