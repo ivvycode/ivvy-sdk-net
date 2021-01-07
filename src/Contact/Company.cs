@@ -48,6 +48,12 @@ namespace Ivvy.API.Contact
             get; set;
         }
 
+        [JsonProperty("otherPhone")]
+        public string OtherPhone
+        {
+            get; set;
+        }
+
         [JsonProperty("fax")]
         public string Fax
         {
