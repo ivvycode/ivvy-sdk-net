@@ -84,7 +84,8 @@ namespace Ivvy.API
             int eventTypeId,
             int estimatedValue)
         {
-            if (eventTypeId > 0) {
+            if (eventTypeId > 0)
+            {
                 return await CallAsync<HowToAllocateOpportunity>(
                     "crm", "getHowToAllocateOpportunity", new
                     {
@@ -95,7 +96,8 @@ namespace Ivvy.API
                     }
                 );
             }
-            else {
+            else
+            {
                 return await CallAsync<HowToAllocateOpportunity>(
                     "crm", "getHowToAllocateOpportunity", new
                     {
