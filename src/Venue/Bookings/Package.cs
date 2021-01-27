@@ -43,17 +43,5 @@ namespace Ivvy.API.Venue.Bookings
         {
             get; set;
         }
-
-        [JsonProperty("packageId")]
-        public int PackageId
-        {
-            get; set;
-        }
-
-        [JsonProperty("packageName")]
-        public string PackageName
-        {
-            get; set;
-        }
     }
 }
