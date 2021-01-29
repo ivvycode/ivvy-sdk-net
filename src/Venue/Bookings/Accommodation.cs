@@ -99,6 +99,30 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("dayRatesMultiOcc")]
+        public AccommodationOccupancyDayRate[] DayRatesMultiOccupancy
+        {
+            get; set;
+        }
+
+        [JsonProperty("dayRatesActualMultiOcc")]
+        public AccommodationOccupancyDayRate[] DayRatesActualMultiOccupancy
+        {
+            get; set;
+        }
+
+        [JsonProperty("dayRatesForecastMultiOcc")]
+        public AccommodationOccupancyDayRate[] DayRatesForecastMultiOccupancy
+        {
+            get; set;
+        }
+
+        [JsonProperty("dayRatesNetMultiOcc")]
+        public AccommodationOccupancyDayRate[] DayRatesNetMultiOccupancy
+        {
+            get; set;
+        }
+
         [JsonProperty("excludedTaxIds")]
         public int[] ExcludedTaxIds
         {
