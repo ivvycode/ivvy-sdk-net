@@ -103,6 +103,12 @@ namespace Ivvy.API.Invoice
             get; set;
         }
 
+        [JsonProperty("issuedDate")]
+        public string IssuedDate
+        {
+            get; set;
+        }
+
         [JsonProperty("refType")]
         public RefTypes RefType
         {
@@ -177,6 +183,12 @@ namespace Ivvy.API.Invoice
 
         [JsonProperty("bookingCode")]
         public string BookingCode
+        {
+            get; set;
+        }
+
+        [JsonProperty("bookingId")]
+        public int? BookingId
         {
             get; set;
         }
