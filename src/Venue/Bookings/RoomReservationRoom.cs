@@ -140,5 +140,11 @@ namespace Ivvy.API.Venue.Bookings
         {
             get; set;
         }
+
+        [JsonProperty("occType")]
+        public int? OccupancyType
+        {
+            get; set;
+        }
     }
 }
