@@ -36,5 +36,23 @@ namespace Ivvy.API.Venue.ARI
         {
             get; set;
         }
+
+        [JsonProperty("costDouble")]
+        public double? CostDouble
+        {
+            get; set;
+        }
+
+        [JsonProperty("costTriple")]
+        public double? CostTriple
+        {
+            get; set;
+        }
+
+        [JsonProperty("costQuad")]
+        public double? CostQuadruple
+        {
+            get; set;
+        }
     }
 }
