@@ -169,5 +169,12 @@ namespace Ivvy.API.Venue
         {
             get; set;
         }
+
+        [JsonProperty("accommodationSetting")]
+
+        public AccommodationSetting AccommodationSetting
+        {
+            get; set;
+        }
     }
 }
