@@ -160,6 +160,12 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
+        [JsonProperty("accommCutOffDate")]
+        public DateTime? AccommCutOffDate
+        {
+            get; set;
+        }
+
         [JsonProperty("hasPackages")]
         public bool HasPackages
         {
