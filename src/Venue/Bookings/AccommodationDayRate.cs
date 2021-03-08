@@ -27,7 +27,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("numPayableByGuest")]
-        public int NumPayableByGuest
+        public int? NumPayableByGuest
         {
             get; set;
         }
