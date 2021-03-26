@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Ivvy.API.Venue;
 using Ivvy.API.Venue.ARI;
 using Ivvy.API.Venue.Bookings;
 
@@ -586,6 +587,14 @@ namespace Ivvy.API
                     start,
                 }
             );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> ChangeBookingStatusAsync(
+            ChangeBookingStatusRequest request)
+        {
+            return await CallAsync<ResultObject>(
+                "venue", "changeBookingStatus", request);
         }
     }
 }

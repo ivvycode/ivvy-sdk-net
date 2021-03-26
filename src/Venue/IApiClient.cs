@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Ivvy.API.Venue;
 using Ivvy.API.Venue.ARI;
 using Ivvy.API.Venue.Bookings;
 
@@ -301,5 +302,12 @@ namespace Ivvy.API
             int venueId,
             int perPage,
             int start);
+
+        /// <summary>
+        /// Changes the status of a given booking.
+        /// </summary>
+        /// <param name="request">The request that contains the booking status change details.</param>
+        Task<ResultOrError<ResultObject>> ChangeBookingStatusAsync(
+            ChangeBookingStatusRequest request);
     }
 }
