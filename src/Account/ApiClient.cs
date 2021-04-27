@@ -86,5 +86,21 @@ namespace Ivvy.API
             return await CallAsync<ResultList<CostCenter>>(
                 "account", "getCostCenterList", null);
         }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<User>>> GetUserListAsync(
+            int perPage,
+            int start,
+            int? venueId)
+        {
+            return await CallAsync<ResultList<User>>(
+                "account", "getUserList", new
+                {
+                    venueId,
+                    perPage,
+                    start,
+                }
+            );
+        }
     }
 }

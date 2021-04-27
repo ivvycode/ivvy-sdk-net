@@ -51,5 +51,17 @@ namespace Ivvy.API
         /// Returns a collection of cost centers in an account.
         /// </summary>
         Task<ResultOrError<ResultList<CostCenter>>> GetCostCenterListAsync();
+
+        /// <summary>
+        /// Returns a collection of users in an account.
+        /// </summary>
+        /// <param name="perPage">The per page.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="venueId">Optional. An additional filter by specific venue.</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<User>>> GetUserListAsync(
+            int perPage,
+            int start,
+            int? venueId);
     }
 }
