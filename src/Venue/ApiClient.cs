@@ -75,6 +75,20 @@ namespace Ivvy.API
             );
         }
 
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Venue.EventType>>> GetEventTypeListAsync(
+            int perPage,
+            int start)
+        {
+            return await CallAsync<ResultList<Venue.EventType>>(
+                "venue", "getEventTypeList", new
+                {
+                    perPage,
+                    start,
+                }
+            );
+        }
+
         /// <summary>
         /// Returns a specific venue booking.
         /// </summary>

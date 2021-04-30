@@ -44,6 +44,14 @@ namespace Ivvy.API
         Task<ResultOrError<ResultList<Venue.RatePlan>>> GetVenueRatePlanListAsync(int venueId, int perPage, int start);
 
         /// <summary>
+        /// Returns a collection of event types.
+        /// </summary>
+        /// <param name="perPage">The per page.</param>
+        /// <param name="start">The start.</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<Venue.EventType>>> GetEventTypeListAsync(int perPage, int start);
+
+        /// <summary>
         /// Returns a specific venue booking.
         /// </summary>
         /// <param name="venueId">The venue identifier.</param>
