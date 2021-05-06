@@ -69,6 +69,12 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("costCenterId")]
+        public int CostCenterId
+        {
+            get; set;
+        }
+
         [JsonProperty("marketplaceName")]
         public string MarketplaceName
         {

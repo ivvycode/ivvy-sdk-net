@@ -51,6 +51,12 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("costCenterId")]
+        public int CostCenterId
+        {
+            get; set;
+        }
+
         [JsonProperty("totalAmount")]
         public decimal TotalAmount
         {
