@@ -146,5 +146,11 @@ namespace Ivvy.API.Venue.Bookings
         {
             get; set;
         }
+
+        [JsonProperty("includeInPackage")]
+        public bool IncludedInBookingPackage
+        {
+            get; set;
+        }
     }
 }
