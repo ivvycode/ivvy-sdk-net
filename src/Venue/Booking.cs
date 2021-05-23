@@ -297,5 +297,11 @@ namespace Ivvy.API.Venue
         {
             get; set;
         }
+
+        [JsonProperty("commissionByCostCentres")]
+        public Bookings.CostCentreCommission[] CostCentreCommissions
+        {
+            get; set;
+        }
     }
 }

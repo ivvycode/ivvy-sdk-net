@@ -75,6 +75,12 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("costCenterId")]
+        public int CostCenterId
+        {
+            get; set;
+        }
+
         public string GetMenuCategory()
         {
             var menuCategory = "";
