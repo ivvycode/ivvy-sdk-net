@@ -27,8 +27,20 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("startTime")]
+        public DateTime StartTime
+        {
+            get; set;
+        }
+
         [JsonProperty("endDate")]
         public DateTime EndDate
+        {
+            get; set;
+        }
+
+        [JsonProperty("endTime")]
+        public DateTime EndTime
         {
             get; set;
         }
