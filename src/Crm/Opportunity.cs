@@ -85,5 +85,11 @@ namespace Ivvy.API.Crm
         {
             get; set;
         }
+
+        [JsonProperty("ownerUser")]
+        public OpportunityOwner OwnerUser
+        {
+            get; set;
+        }
     }
 }
