@@ -7,7 +7,7 @@ namespace Ivvy.API.Venue.Bookings
     /// <summary>
     /// Details of a cost centre commission in a venue booking.
     /// </summary>
-    public class CostCentreCommissions : ISerializable
+    public class CostCentreCommission : ISerializable
     {
         [JsonProperty("costCentreId")]
         public int CostCentreId
