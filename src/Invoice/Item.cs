@@ -37,6 +37,18 @@ namespace Ivvy.API.Invoice
             get; set;
         }
 
+        [JsonProperty("refId")]
+        public int? RefId
+        {
+            get; set;
+        }
+
+        [JsonProperty("ref2Id")]
+        public int? Ref2Id
+        {
+            get; set;
+        }
+
         [JsonProperty("description")]
         public string Description
         {
