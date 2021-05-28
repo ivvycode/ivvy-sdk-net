@@ -17,7 +17,7 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("id")]
-        public string Id
+        public int Id
         {
             get; set;
         }
