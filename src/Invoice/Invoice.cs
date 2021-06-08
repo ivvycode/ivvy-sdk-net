@@ -157,6 +157,12 @@ namespace Ivvy.API.Invoice
             get; set;
         }
 
+        [JsonProperty("toContactId")]
+        public string ToContactId
+        {
+            get; set;
+        }
+
         [JsonProperty("Contact")]
         public Contact.Contact Contact
         {
