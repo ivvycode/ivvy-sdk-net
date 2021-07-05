@@ -18,21 +18,20 @@ namespace Ivvy.API.Crm
             Completed = 4
         }
 
-
-        [JsonProperty("id")]
+        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int Id
         {
             get; set;
         }
 
         [JsonProperty("venueId")]
-        public string VenueId
+        public int? VenueId
         {
             get; set;
         }
 
         [JsonProperty("leadId")]
-        public string LeadId
+        public int? LeadId
         {
             get; set;
         }
@@ -62,25 +61,25 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("contactId")]
-        public string ContactId
+        public int? ContactId
         {
             get; set;
         }
 
         [JsonProperty("companyId")]
-        public string CompanyId
+        public int? CompanyId
         {
             get; set;
         }
 
         [JsonProperty("companyContactId")]
-        public string CompanyContactId
+        public int? CompanyContactId
         {
             get; set;
         }
 
         [JsonProperty("assignedUserId")]
-        public string AssignedUserId
+        public int? AssignedUserId
         {
             get; set;
         }
@@ -98,19 +97,19 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("endDatetime")]
-        public string EndDatetime
+        public DateTime? EndDatetime
         {
             get; set;
         }
 
         [JsonProperty("startDatetime")]
-        public string StartDatetime
+        public DateTime? StartDatetime
         {
             get; set;
         }
 
         [JsonProperty("progress")]
-        public string Progress
+        public int Progress
         {
             get; set;
         }
