@@ -11,25 +11,34 @@ namespace Ivvy.API.Crm
     {
         public enum SubTypeOptions
         {
+            NotSet = 0,
             Meeting = 1,
             Call = 2,
             Email = 3,
         }
 
-        [JsonProperty("id")]
+        public enum PurposeTypeOptions
+        {
+            Account = 1,
+            Function = 2,
+            Corporate = 3,
+            Group = 4,
+        }
+
+        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int Id
         {
             get; set;
         }
 
         [JsonProperty("venueId")]
-        public string VenueId
+        public int? VenueId
         {
             get; set;
         }
 
         [JsonProperty("leadId")]
-        public string LeadId
+        public int? LeadId
         {
             get; set;
         }
@@ -41,7 +50,7 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("subType")]
-        public SubTypeOptions SubType
+        public SubTypeOptions? SubType
         {
             get; set;
         }
@@ -59,7 +68,7 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("purposeType")]
-        public string PurposeType
+        public PurposeTypeOptions? PurposeType
         {
             get; set;
         }
@@ -71,25 +80,25 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("contactId")]
-        public string ContactId
+        public int? ContactId
         {
             get; set;
         }
 
         [JsonProperty("companyId")]
-        public string CompanyId
+        public int? CompanyId
         {
             get; set;
         }
 
         [JsonProperty("companyContactId")]
-        public string CompanyContactId
+        public int? CompanyContactId
         {
             get; set;
         }
 
         [JsonProperty("assignedUserId")]
-        public string AssignedUserId
+        public int? AssignedUserId
         {
             get; set;
         }
