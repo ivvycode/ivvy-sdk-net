@@ -13,7 +13,8 @@ namespace Ivvy.API.Venue
             Confirmed = 3,
             Cancelled = 4,
             Ordering = 5,
-            NotAccepted = 6
+            NotAccepted = 6,
+            ProspectiveHold = 9
         }
 
         public enum BookingTypeOptions
