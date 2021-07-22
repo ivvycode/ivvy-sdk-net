@@ -46,6 +46,8 @@ namespace Ivvy.API
             get; set;
         }
 
+        public readonly ApiClientEvents Events;
+
         /// <summary>
         /// Http client used to call the iVvy api.
         /// </summary>
@@ -59,6 +61,13 @@ namespace Ivvy.API
         public ApiClient()
         {
             ApiVersion = "1.0";
+            Events = new ApiClientEvents();
+        }
+
+        public ApiClient(ApiClientEvents events)
+        {
+            ApiVersion = "1.0";
+            Events = events;
         }
 
         /// <summary>
@@ -109,6 +118,17 @@ namespace Ivvy.API
             {
                 httpResponse = await httpClient.SendAsync(message);
                 var data = await httpResponse.Content.ReadAsStringAsync();
+
+                await Events.AfterApiCalledAsync(new ApiCallDetails(
+                    apiNamespace,
+                    action,
+                    message.Headers,
+                    postData,
+                    httpResponse.StatusCode,
+                    httpResponse.Headers,
+                    data
+                ));
+
                 result = JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
                 if (result == null)
                 {
