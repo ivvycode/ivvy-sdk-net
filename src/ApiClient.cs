@@ -46,7 +46,10 @@ namespace Ivvy.API
             get; set;
         }
 
-        public readonly ApiClientEvents Events;
+        /// <summary>
+        /// The events that hook into the api caller code.
+        /// </summary>
+        public readonly IApiClientEvents Events;
 
         /// <summary>
         /// Http client used to call the iVvy api.
@@ -64,7 +67,7 @@ namespace Ivvy.API
             Events = new ApiClientEvents();
         }
 
-        public ApiClient(ApiClientEvents events)
+        public ApiClient(IApiClientEvents events)
         {
             ApiVersion = "1.0";
             Events = events;

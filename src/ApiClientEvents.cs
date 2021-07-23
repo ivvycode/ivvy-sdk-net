@@ -3,7 +3,10 @@ using System.Threading.Tasks;
 
 namespace Ivvy.API
 {
-    public class ApiClientEvents
+    /// <summary>
+    /// ApiClientEvents provides a default implementation of IApiClientEvents which does nothing.
+    /// </summary>
+    public class ApiClientEvents : IApiClientEvents
     {
         public ApiClientEvents()
         {
