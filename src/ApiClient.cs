@@ -47,6 +47,11 @@ namespace Ivvy.API
         }
 
         /// <summary>
+        /// The events that hook into the api caller code.
+        /// </summary>
+        public readonly IApiClientEvents Events;
+
+        /// <summary>
         /// Http client used to call the iVvy api.
         /// </summary>
         private static readonly HttpClient httpClient = new HttpClient();
@@ -59,6 +64,13 @@ namespace Ivvy.API
         public ApiClient()
         {
             ApiVersion = "1.0";
+            Events = new ApiClientEvents();
+        }
+
+        public ApiClient(IApiClientEvents events)
+        {
+            ApiVersion = "1.0";
+            Events = events;
         }
 
         /// <summary>
@@ -109,6 +121,17 @@ namespace Ivvy.API
             {
                 httpResponse = await httpClient.SendAsync(message);
                 var data = await httpResponse.Content.ReadAsStringAsync();
+
+                await Events.AfterApiCalledAsync(new ApiCallDetails(
+                    apiNamespace,
+                    action,
+                    message.Headers,
+                    postData,
+                    httpResponse.StatusCode,
+                    httpResponse.Headers,
+                    data
+                ));
+
                 result = JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
                 if (result == null)
                 {
