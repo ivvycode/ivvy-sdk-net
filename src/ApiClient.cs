@@ -126,7 +126,7 @@ namespace Ivvy.API
                     apiNamespace,
                     action,
                     message.Headers,
-                    message.Content.Headers,
+                    message.Content?.Headers,
                     postData,
                     httpResponse.StatusCode,
                     httpResponse.Headers,
