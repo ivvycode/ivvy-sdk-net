@@ -29,6 +29,11 @@ namespace Ivvy.API
         public readonly HttpHeaders RequestHeaders;
 
         /// <summary>
+        /// The http request content headers.
+        /// </summary>
+        public readonly HttpHeaders RequestContentHeaders;
+
+        /// <summary>
         /// The json encoded response body.
         /// </summary>
         public readonly string ResponseBody;
@@ -47,6 +52,7 @@ namespace Ivvy.API
             string apiNamespace,
             string apiAction,
             HttpHeaders requestHeaders,
+            HttpHeaders requestContentHeaders,
             string requestBody,
             HttpStatusCode responseStatusCode,
             HttpHeaders responseHeaders,
@@ -55,6 +61,7 @@ namespace Ivvy.API
             ApiNamespace = apiNamespace;
             ApiAction = apiAction;
             RequestHeaders = requestHeaders;
+            RequestContentHeaders = requestContentHeaders;
             RequestBody = requestBody;
             ResponseStatusCode = responseStatusCode;
             ResponseHeaders = responseHeaders;
