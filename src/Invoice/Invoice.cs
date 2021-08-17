@@ -187,6 +187,12 @@ namespace Ivvy.API.Invoice
             get; set;
         }
 
+        [JsonProperty("refunds")]
+        public List<InvoiceRefund> Refunds
+        {
+            get; set;
+        }
+
         [JsonProperty("bookingCode")]
         public string BookingCode
         {
