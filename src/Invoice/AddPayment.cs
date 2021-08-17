@@ -68,6 +68,18 @@ namespace Ivvy.API.Invoice
             get; set;
         }
 
+        [JsonProperty("feeAmount")]
+        public decimal? FeeAmount
+        {
+            get; set;
+        }
+
+        [JsonProperty("feeExcludedTaxIds")]
+        public int[] FeeExcludedTaxIds
+        {
+            get; set;
+        }
+
         [JsonProperty("chequeNumber")]
         public string ChequeNumber
         {
