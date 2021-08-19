@@ -9,7 +9,7 @@ namespace Ivvy.API.Crm
     public class LeadChannel : ISerializable
     {
         [JsonProperty("id")]
-        public string Id
+        public int Id
         {
             get; set;
         }
