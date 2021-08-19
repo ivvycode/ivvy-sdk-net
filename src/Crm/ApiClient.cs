@@ -78,6 +78,39 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateLeadSourceAsync(
+            LeadSource source)
+        {
+            return await CallAsync<ResultObject>(
+                "crm", "addOrUpdateLeadSource", source);
+        }
+
+                /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<LeadChannel>>> GetLeadChannelListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest = null)
+        {
+            return await CallAsync<ResultList<LeadChannel>>(
+                "crm", "getLeadChannelList", new
+                {
+                    perPage,
+                    start,
+                    filter = filterRequest
+                }
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateLeadChannelAsync(
+            LeadChannel channel)
+        {
+            return await CallAsync<ResultObject>(
+                "crm", "addOrUpdateLeadChannel", channel);
+        }
+
+
+        /// <inheritdoc />
         public async Task<ResultOrError<HowToAllocateOpportunity>> GetHowToAllocateOpportunity(
             int venueId,
             HowToAllocateOpportunity.OpportunityTypes opportunityType,

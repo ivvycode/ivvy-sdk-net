@@ -37,6 +37,30 @@ namespace Ivvy.API
             int perPage, int start, Dictionary<string, object> filterRequest = null);
 
         /// <summary>
+        /// Adds or updates a lead source.
+        /// </summary>
+        /// <param name="source">Source object</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultObject>> AddOrUpdateLeadSourceAsync(LeadSource source);
+
+        /// <summary>
+        /// Returns a collection of lead channels.
+        /// </summary>
+        /// <param name="perPage">The per page records.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<LeadChannel>>> GetLeadChannelListAsync(
+            int perPage, int start, Dictionary<string, object> filterRequest = null);
+
+        /// <summary>
+        /// Adds or updates a lead channel.
+        /// </summary>
+        /// <param name="channel">Channel object</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultObject>> AddOrUpdateLeadChannelAsync(LeadChannel channel);
+
+        /// <summary>
         /// Returns a collection of opportunities.
         /// </summary>
         /// <param name="perPage">The per page records.</param>
