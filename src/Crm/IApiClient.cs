@@ -79,6 +79,13 @@ namespace Ivvy.API
         Task<ResultOrError<ResultObject>> AddOrUpdateOpportunityAsync(Opportunity opportunity);
 
         /// <summary>
+        /// Adds or updates a task.
+        /// </summary>
+        /// <param name="task">EventTask object</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultObject>> AddOrUpdateTaskAsync(EventTask task);
+
+        /// <summary>
         /// Returns the description of how an opportunity should be allocated based the online booking rules of a venue.
         /// </summary>
         /// <param name="venueId">The id of the venue.</param>
