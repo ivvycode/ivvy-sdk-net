@@ -4,7 +4,7 @@ namespace Ivvy.API.Crm
 {
     public class OpportunityOwner
     {
-        [JsonProperty("id")]
+        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int Id
         {
             get; set;

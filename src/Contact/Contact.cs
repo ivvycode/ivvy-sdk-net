@@ -29,7 +29,7 @@ namespace Ivvy.API.Contact
             NoMarketing = 4
         }
 
-        [JsonProperty("id")]
+        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Id
         {
             get; set;

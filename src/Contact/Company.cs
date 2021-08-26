@@ -6,7 +6,7 @@ namespace Ivvy.API.Contact
 {
     public class Company
     {
-        [JsonProperty("id")]
+        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Id
         {
             get; set;

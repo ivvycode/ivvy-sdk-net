@@ -8,7 +8,7 @@ namespace Ivvy.API.Crm
     /// </summary>
     public class LeadType : ISerializable
     {
-        [JsonProperty("id")]
+        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Id
         {
             get; set;

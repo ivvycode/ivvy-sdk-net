@@ -5,7 +5,7 @@ namespace Ivvy.API.Contact
 {
     public class Agent : ISerializable
     {
-        [JsonProperty("id")]
+        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int Id
         {
             get; set;
