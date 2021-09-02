@@ -5,9 +5,9 @@ using Newtonsoft.Json;
 namespace Ivvy.API.Venue.Bookings
 {
     /// <summary>
-    /// Details of an additional item on a venue booking.
+    /// A container for the attributes common to all Packageable items
     /// </summary>
-    public class AdditionalItem : ISerializable
+    public abstract class PackageableBookingItem : ISerializable
     {
         [JsonProperty("id")]
         public int Id
@@ -15,69 +15,56 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
-        [JsonProperty("description")]
-        public string Description
+        [JsonProperty("name")]
+        public string Name
         {
             get; set;
         }
 
-        [JsonProperty("quantity")]
-        public double Quantity
+        [JsonProperty("startDate")]
+        public DateTime StartDate
         {
             get; set;
         }
 
-        [JsonProperty("totalCost")]
-        public double TotalCost
+        [JsonProperty("endDate")]
+        public DateTime EndDate
         {
             get; set;
         }
 
-        [JsonProperty("totalCostDiscount")]
-        public double TotalCostDiscount
+        [JsonProperty("startTime")]
+        public DateTime StartTime
         {
             get; set;
         }
 
-        [JsonProperty("totalCostSurcharge")]
-        public double TotalCostSurcharge
+        [JsonProperty("endTime")]
+        public DateTime EndTime
         {
             get; set;
         }
 
-        [JsonProperty("totalCostExcludedTaxIds")]
-        public int[] TotalCostExcludedTaxIds
+        [JsonProperty("cost")]
+        public double? Cost
         {
             get; set;
         }
 
-        [JsonProperty("actualCost")]
-        public double ActualCost
+        [JsonProperty("discount")]
+        public double Discount
         {
             get; set;
         }
 
-        [JsonProperty("actualCostExcludedTaxIds")]
-        public int[] ActualCostExcludedTaxIds
+        [JsonProperty("surcharge")]
+        public double Surcharge
         {
             get; set;
         }
 
-
-        [JsonProperty("createdDate")]
-        public DateTime CreatedDate
-        {
-            get; set;
-        }
-
-        [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate
-        {
-            get; set;
-        }
-
-        [JsonProperty("costCenterId")]
-        public int CostCenterId
+        [JsonProperty("excludedTaxIds")]
+        public int[] ExcludedTaxIds
         {
             get; set;
         }
@@ -106,18 +93,35 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
-        [JsonProperty("startDateTime")]
-        public DateTime? StartDateTime
+        [JsonProperty("includeInPackage")]
+        public bool IncludeInPackage
         {
             get; set;
         }
 
-        [JsonProperty("endDateTime")]
-        public DateTime? EndDateTime
+        [JsonProperty("bookingPackageId")]
+        public int? BookingPackageId
         {
             get; set;
         }
 
+        [JsonProperty("costCenterId")]
+        public int CostCenterId
+        {
+            get; set;
+        }
+
+        [JsonProperty("createdDate")]
+        public DateTime CreatedDate
+        {
+            get; set;
+        }
+
+        [JsonProperty("modifiedDate")]
+        public DateTime ModifiedDate
+        {
+            get; set;
+        }
 
         [JsonProperty("taxDetails")]
         public TaxDetail[] TaxDetails
@@ -125,8 +129,8 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
-        [JsonProperty("dayTaxDetails")]
-        public DayTaxDetail[] DayTaxDetails
+        [JsonProperty("totalAttendees")]
+        public int TotalAttendees
         {
             get; set;
         }

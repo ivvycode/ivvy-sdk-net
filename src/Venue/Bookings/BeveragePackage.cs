@@ -1,5 +1,3 @@
-using System;
-using Ivvy.API.Json;
 using Newtonsoft.Json;
 
 namespace Ivvy.API.Venue.Bookings
@@ -7,58 +5,17 @@ namespace Ivvy.API.Venue.Bookings
     /// <summary>
     /// Details of a beverage package on a venue booking session.
     /// </summary>
-    public class BeveragePackage : ISerializable
+    public class BeveragePackage : SessionablePackageableBookingItem
     {
-        [JsonProperty("id")]
-        public int Id
+
+        [JsonProperty("beverageVenueId")]
+        public int BeverageVenueId
         {
             get; set;
         }
 
-        [JsonProperty("sessionId")]
-        public int SessionId
-        {
-            get; set;
-        }
-
-        [JsonProperty("name")]
-        public string Name
-        {
-            get; set;
-        }
-
-        [JsonProperty("startDate")]
-        public DateTime? StartDate
-        {
-            get; set;
-        }
-
-        [JsonProperty("endDate")]
-        public DateTime? EndDate
-        {
-            get; set;
-        }
-
-        [JsonProperty("includeInPackage")]
-        public bool IncludeInPackage
-        {
-            get; set;
-        }
-
-        [JsonProperty("totalAmount")]
-        public decimal TotalAmount
-        {
-            get; set;
-        }
-
-        [JsonProperty("cost")]
-        public decimal? Cost
-        {
-            get; set;
-        }
-
-        [JsonProperty("totalDiscount")]
-        public decimal? TotalDiscount
+        [JsonProperty("beverageId")]
+        public int BeverageId
         {
             get; set;
         }
@@ -68,21 +25,9 @@ namespace Ivvy.API.Venue.Bookings
         {
             get; set;
         }
-
-        [JsonProperty("costCenterId")]
-        public int CostCenterId
-        {
-            get; set;
-        }
-
+        
         [JsonProperty("marketplaceName")]
         public string MarketplaceName
-        {
-            get; set;
-        }
-
-        [JsonProperty("taxDetails")]
-        public TaxDetail[] TaxDetails
         {
             get; set;
         }

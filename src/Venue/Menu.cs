@@ -1,29 +1,45 @@
-using System;
 using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.API.Venue.Bookings
+namespace Ivvy.API.Venue
 {
     /// <summary>
-    /// Details of a menu on a venue booking session.
+    /// iVvy venue menu.
     /// </summary>
-    public class Menu : SessionablePackageableBookingItem
+    public class Menu : VenueItem
     {
-
-        [JsonProperty("menuVenueId")]
-        public int MenuVenueId
+        public enum CostTypes
         {
-            get; set;
-        }
-
-        [JsonProperty("menuId")]
-        public int MenuId
-        {
-            get; set;
+            PerPerson = 1,
+            FlatRate = 2,
+            TotalOfItems = 3
         }
 
         [JsonProperty("menuTypeCategory")]
         public int MenuTypeCategory
+        {
+            get; set;
+        }
+
+        [JsonProperty("minimumPax")]
+        public int? MinimumPax
+        {
+            get; set;
+        }
+
+        [JsonProperty("maximumPax")]
+        public int? MaximumPax
+        {
+            get; set;
+        }
+        [JsonProperty("cost")]
+        public int? Cost
+        {
+            get; set;
+        }
+
+        [JsonProperty("costType")]
+        public CostTypes CostType
         {
             get; set;
         }
@@ -33,6 +49,9 @@ namespace Ivvy.API.Venue.Bookings
             var menuCategory = "";
             switch (MenuTypeCategory)
             {
+                case 0:
+                    menuCategory = "Unassigned";
+                    break;
                 case 1:
                     menuCategory = "Breakfast";
                     break;
@@ -57,5 +76,6 @@ namespace Ivvy.API.Venue.Bookings
 
             return menuCategory;
         }
+
     }
 }

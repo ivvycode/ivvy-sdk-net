@@ -26,6 +26,12 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("discount")]
+        public float? Discount
+        {
+            get; set;
+        }
+
         [JsonProperty("numPayableByGuest")]
         public int? NumPayableByGuest
         {

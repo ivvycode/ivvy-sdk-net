@@ -11,19 +11,43 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("value")]
-        public decimal Value
+        public double Value
+        {
+            get; set;
+        }
+
+        [JsonProperty("discount")]
+        public double Discount
+        {
+            get; set;
+        }
+
+        [JsonProperty("surcharge")]
+        public double Surcharge
+        {
+            get; set;
+        }
+
+        [JsonProperty("excludedTaxIds")]
+        public int[] ExcludedTaxIds
         {
             get; set;
         }
 
         [JsonProperty("totalAmount")]
-        public decimal TotalAmount
+        public double TotalAmount
         {
             get; set;
         }
 
-        [JsonProperty("totalDiscount")]
-        public decimal? TotalDiscount
+        [JsonProperty("totalSurcharge")]
+        public double TotalSurcharge
+        {
+            get; set;
+        }
+
+        [JsonProperty("totalTaxAmount")]
+        public double TotalTaxAmount
         {
             get; set;
         }

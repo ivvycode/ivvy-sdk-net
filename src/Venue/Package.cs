@@ -33,7 +33,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("price")]
-        public decimal Price
+        public double Price
         {
             get; set;
         }

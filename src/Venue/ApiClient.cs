@@ -76,6 +76,39 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Venue.Menu>>> GetMenuListAsync(
+            int venueId,
+            int perPage,
+            int start)
+        {
+            return await CallAsync<ResultList<Venue.Menu>>(
+                "venue", "getMenuList", new
+                {
+                    venueId,
+                    perPage,
+                    start,
+                }
+            );
+        }
+
+
+        /// <inheritdoc />>
+        public async Task<ResultOrError<ResultList<Venue.BeveragePackage>>> GetBeveragePackageListAsync(
+            int venueId,
+            int perPage,
+            int start)
+        {
+            return await CallAsync<ResultList<Venue.BeveragePackage>>(
+                "venue", "getBeveragePackageList", new
+                {
+                    venueId,
+                    perPage,
+                    start,
+                }
+            );
+
+        }
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<Venue.EventType>>> GetEventTypeListAsync(
             int perPage,
             int start)
