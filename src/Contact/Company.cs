@@ -83,5 +83,11 @@ namespace Ivvy.API.Contact
         {
             get; set;
         }
+
+        [JsonProperty("updateIfExists")]
+        public bool UpdateIfExists
+        {
+            get; set;
+        }
     }
 }
