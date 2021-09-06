@@ -39,6 +39,11 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("discount")]
+        public float? Discount
+        {
+            get; set;
+        }
         [JsonProperty("excludedTaxIds")]
         public int[] ExcludedTaxIds
         {
@@ -51,6 +56,11 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("totalDiscount")]
+        public float? TotalDiscount
+        {
+            get; set;
+        }
         [JsonProperty("totalTaxAmount")]
         public float? TotalTaxAmount
         {
