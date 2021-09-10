@@ -252,7 +252,7 @@ namespace Ivvy.API
         /// <inheritdoc />
         public async Task<ResultOrError<RoomReservation>> GetVenueBookingRoomReservationAsync(
             int venueId,
-            int bookingId,
+            int? bookingId,
             int reservationId)
         {
             var listResult = await GetVenueBookingRoomReservationListAsync(

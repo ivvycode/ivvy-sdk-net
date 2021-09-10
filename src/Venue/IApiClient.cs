@@ -144,7 +144,7 @@ namespace Ivvy.API
         /// <param name="reservationId">The unique id of the room reservation</param>
         /// <returns></returns>
         Task<ResultOrError<RoomReservation>> GetVenueBookingRoomReservationAsync(
-            int venueId, int bookingId, int reservationId
+            int venueId, int? bookingId, int reservationId
         );
 
         /// <summary>
