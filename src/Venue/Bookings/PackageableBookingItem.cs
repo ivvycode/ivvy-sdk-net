@@ -22,25 +22,25 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("startDate")]
-        public DateTime StartDate
+        public DateTime? StartDate
         {
             get; set;
         }
 
         [JsonProperty("endDate")]
-        public DateTime EndDate
+        public DateTime? EndDate
         {
             get; set;
         }
 
         [JsonProperty("startTime")]
-        public DateTime StartTime
+        public DateTime? StartTime
         {
             get; set;
         }
 
         [JsonProperty("endTime")]
-        public DateTime EndTime
+        public DateTime? EndTime
         {
             get; set;
         }
@@ -112,13 +112,13 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("createdDate")]
-        public DateTime CreatedDate
+        public DateTime? CreatedDate
         {
             get; set;
         }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate
+        public DateTime? ModifiedDate
         {
             get; set;
         }
