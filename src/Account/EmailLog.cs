@@ -181,7 +181,7 @@ namespace Ivvy.API.Account
         }
 
         [JsonProperty("sentTime")]
-        public DateTime SentTime
+        public DateTime? SentTime
         {
             get; set;
         }

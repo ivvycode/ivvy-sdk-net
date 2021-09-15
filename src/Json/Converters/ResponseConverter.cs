@@ -31,6 +31,10 @@ namespace Ivvy.API.Json.Converters
             serializer.DateFormatString = Utils.DateTimeFormat;
             serializer.DateParseHandling = DateParseHandling.DateTime;
 
+            // At this time we have chosen NOT to use the NullValueHandling.Ignore setting
+            // to the serializer. As a result, all DateTime structures within API objects should
+            // be flagged as nullable to avoid deserialization errors when null is supplied.
+
             var resultOrError = new ResultOrError<T>();
             if (reader.TokenType == JsonToken.StartObject)
             {

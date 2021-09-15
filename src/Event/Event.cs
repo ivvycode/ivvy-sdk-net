@@ -87,13 +87,13 @@ namespace Ivvy.API.Event
         }
 
         [JsonProperty("startDateTime")]
-        public DateTime StartDateTime
+        public DateTime? StartDateTime
         {
             get; set;
         }
 
         [JsonProperty("endDateTime")]
-        public DateTime EndDateTime
+        public DateTime? EndDateTime
         {
             get; set;
         }
@@ -117,7 +117,7 @@ namespace Ivvy.API.Event
         }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate
+        public DateTime? ModifiedDate
         {
             get; set;
         }

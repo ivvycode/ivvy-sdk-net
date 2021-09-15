@@ -24,7 +24,7 @@ namespace Ivvy.API.Invoice
         }
 
         [JsonProperty("refundDate")]
-        public DateTime RefundDate
+        public DateTime? RefundDate
         {
             get; set;
         }

@@ -66,7 +66,7 @@ namespace Ivvy.API.Event
         }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate
+        public DateTime? ModifiedDate
         {
             get; set;
         }

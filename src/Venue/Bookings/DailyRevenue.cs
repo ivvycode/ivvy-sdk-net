@@ -15,7 +15,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("revenueDate")]
-        public DateTime RevenueDate
+        public DateTime? RevenueDate
         {
             get; set;
         }

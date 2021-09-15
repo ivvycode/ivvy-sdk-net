@@ -39,7 +39,7 @@ namespace Ivvy.API.Invoice
         }
 
         [JsonProperty("paidDate")]
-        public DateTime PaidDate
+        public DateTime? PaidDate
         {
             get; set;
         }

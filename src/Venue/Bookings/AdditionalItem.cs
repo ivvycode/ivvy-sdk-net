@@ -65,13 +65,13 @@ namespace Ivvy.API.Venue.Bookings
 
 
         [JsonProperty("createdDate")]
-        public DateTime CreatedDate
+        public DateTime? CreatedDate
         {
             get; set;
         }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate
+        public DateTime? ModifiedDate
         {
             get; set;
         }

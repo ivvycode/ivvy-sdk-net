@@ -73,7 +73,7 @@ namespace Ivvy.API.Contact
         }
 
         [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate
+        public DateTime? ModifiedDate
         {
             get; set;
         }

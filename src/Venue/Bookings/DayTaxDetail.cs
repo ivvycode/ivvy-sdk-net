@@ -10,7 +10,7 @@ namespace Ivvy.API.Venue.Bookings
     public class DayTaxDetail : ISerializable
     {
         [JsonProperty("date")]
-        public DateTime Date
+        public DateTime? Date
         {
             get; set;
         }
