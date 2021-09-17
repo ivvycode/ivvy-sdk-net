@@ -24,6 +24,20 @@ namespace Ivvy.API.UnitTests
             Assert.Equal(AdjustToNearestSecond(expectedResult.EndDateTime), result.Result.EndDateTime);
         }
 
+        [Theory]
+        [MemberData(nameof(JsonConvert_DeserializesUnexpectedNull_IntegerValues_DataProvider))]
+        public void JsonConvert_DeserializesUnexpectedNull_IntegerValues(string data, Event.Event expectedResult)
+        {
+            // Note that the usage of the Event class here is because it has date fields
+            var result =
+                JsonConvert.DeserializeObject<ResultOrError<Event.Event>>(
+                    data,
+                    new ResponseConverter<Event.Event>());
+
+            Assert.Equal(expectedResult.Id, result.Result.Id);
+            Assert.Equal(0,result.Result.Capacity);
+        }
+
         private static DateTime? AdjustToNearestSecond(DateTime? preciseDateTime)
         {
             if (preciseDateTime == null)
@@ -37,7 +51,7 @@ namespace Ivvy.API.UnitTests
         {
             var nullDatesEvent = new Event.Event
             {
-                Id = "eventId"
+                Id = "eventId",
             };
             var nullDatesEventAsString = JsonConvert.SerializeObject(
                 new ResultOrError<Event.Event> {Result = nullDatesEvent},
@@ -52,8 +66,6 @@ namespace Ivvy.API.UnitTests
 
             yield return new object[]
             {
-                // dates can come from API as actually null string, however our conversion inserted
-                // the default date/time string so replace that for test purposes
                 nullDatesEventAsString,
                 nullDatesEvent
             };
@@ -79,6 +91,33 @@ namespace Ivvy.API.UnitTests
             {
                 nonNullDatesEventAsString,
                 nonNullDatesEvent
+            };
+        }
+
+        public static IEnumerable<object[]> JsonConvert_DeserializesUnexpectedNull_IntegerValues_DataProvider()
+        {
+            var nullCapacityEvent = new Event.Event
+            {
+                Id = "eventId",
+                Capacity = int.MaxValue
+            };
+            var nullCapacityEventAsString = JsonConvert.SerializeObject(
+                new ResultOrError<Event.Event> {Result = nullCapacityEvent},
+                Formatting.None,
+                new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Include,
+                    Converters = new List<JsonConverter>()
+                        { new IsoDateTimeConverter() { DateTimeFormat = Utils.DateTimeFormat } }
+                }
+            );
+
+            yield return new object[]
+            {
+                // dates can come from API as actually null string, however our conversion inserted
+                // the default date/time string so replace that for test purposes
+                nullCapacityEventAsString.Replace(int.MaxValue.ToString(), "null"),
+                nullCapacityEvent
             };
         }
     }
