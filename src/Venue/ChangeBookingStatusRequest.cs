@@ -62,7 +62,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("cancelClosedDate")]
-        public DateTime? CancelClosedDate
+        public string CancelClosedDate
         {
             get; set;
         }
@@ -80,7 +80,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("convertedClosedDate")]
-        public DateTime? ConvertedClosedDate
+        public string ConvertedClosedDate
         {
             get; set;
         }
