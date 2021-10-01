@@ -70,6 +70,14 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateActivityAsync(EventActivity activity)
+        {
+            return await CallAsync<ResultObject>(
+                "crm", "addOrUpdateActivity", activity
+            );
+        }
+
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<LeadSource>>> GetLeadSourceListAsync(
             int perPage,
             int start,

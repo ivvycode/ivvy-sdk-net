@@ -61,6 +61,12 @@ namespace Ivvy.API.Crm
             get; set;
         }
 
+        [JsonProperty("purposeId")]
+        public int? PurposeId
+        {
+            get; set;
+        }
+
         [JsonProperty("purposeName")]
         public string PurposeName
         {

@@ -8,6 +8,13 @@ namespace Ivvy.API.Crm
     /// </summary>
     public class LeadStage : ISerializable
     {
+
+        public enum ApplyToOptions
+        {
+            Opportunity = 1,
+            Lead = 2
+        };
+
         [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Id
         {
@@ -16,6 +23,12 @@ namespace Ivvy.API.Crm
 
         [JsonProperty("name")]
         public string Name
+        {
+            get; set;
+        }
+
+        [JsonProperty("applyTo")]
+        public ApplyToOptions? ApplyTo
         {
             get; set;
         }
