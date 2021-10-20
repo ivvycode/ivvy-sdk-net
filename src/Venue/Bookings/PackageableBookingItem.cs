@@ -1,5 +1,6 @@
 using System;
 using Ivvy.API.Json;
+using Ivvy.API.Json.Converters;
 using Newtonsoft.Json;
 
 namespace Ivvy.API.Venue.Bookings
@@ -22,24 +23,28 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("startDate")]
+        [JsonConverter(typeof(IsoDateOnlyConverter))]
         public DateTime? StartDate
         {
             get; set;
         }
 
         [JsonProperty("endDate")]
+        [JsonConverter(typeof(IsoDateOnlyConverter))]
         public DateTime? EndDate
         {
             get; set;
         }
 
         [JsonProperty("startTime")]
+        [JsonConverter(typeof(IsoTimeOnlyConverter))]
         public DateTime? StartTime
         {
             get; set;
         }
 
         [JsonProperty("endTime")]
+        [JsonConverter(typeof(IsoTimeOnlyConverter))]
         public DateTime? EndTime
         {
             get; set;
@@ -70,7 +75,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("totalAmount")]
-        public double TotalAmount
+        public virtual double TotalAmount
         {
             get; set;
         }
@@ -130,7 +135,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("totalAttendees")]
-        public int TotalAttendees
+        public virtual int TotalAttendees
         {
             get; set;
         }

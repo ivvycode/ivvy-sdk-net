@@ -119,6 +119,17 @@ namespace Ivvy.API
             ResultOrError<T> result = null;
             try
             {
+                await Events.BeforeApiCalledAsync(new ApiCallDetails(
+                    apiNamespace,
+                    action,
+                    message.Headers,
+                    message.Content?.Headers,
+                    postData,
+                    System.Net.HttpStatusCode.InternalServerError,
+                    null,
+                    null
+                ));
+
                 httpResponse = await httpClient.SendAsync(message);
                 var data = await httpResponse.Content.ReadAsStringAsync();
 

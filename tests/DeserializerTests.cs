@@ -13,7 +13,7 @@ namespace Ivvy.API.UnitTests
         [MemberData(nameof(JsonConvert_DeserializesUnexpectedNull_DateTimeValues_DataProvider))]
         public void JsonConvert_DeserializesUnexpectedNull_DateTimeValues(string data, Event.Event expectedResult)
         {
-            // Note that the usage of the Event class here is because it has date fields
+            // Note that the usage of the Event class here is because it has datetime fields
             var result =
                 JsonConvert.DeserializeObject<ResultOrError<Event.Event>>(
                     data,
@@ -28,7 +28,7 @@ namespace Ivvy.API.UnitTests
         [MemberData(nameof(JsonConvert_DeserializesUnexpectedNull_IntegerValues_DataProvider))]
         public void JsonConvert_DeserializesUnexpectedNull_IntegerValues(string data, Event.Event expectedResult)
         {
-            // Note that the usage of the Event class here is because it has date fields
+            // Note that the usage of the Event class here is because it has datetime fields
             var result =
                 JsonConvert.DeserializeObject<ResultOrError<Event.Event>>(
                     data,

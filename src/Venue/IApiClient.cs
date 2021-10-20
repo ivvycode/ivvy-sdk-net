@@ -77,6 +77,22 @@ namespace Ivvy.API
         Task<ResultOrError<Venue.Booking>> GetVenueBookingAsync(int venueId, int id);
 
         /// <summary>
+        /// Returns all sessions associated with a specific venue booking.
+        /// </summary>
+        /// <param name="venueId">The venue identifier</param>
+        /// <param name="bookingId">The booking identifier</param>
+        /// <param name="perPage">Number of results per page</param>
+        /// <param name="start">Start offset</param>
+        /// <param name="filterRequest">Any filter requests for the session list within the booking</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<DetailedSession>>> GetBookingSessionListAsync(
+            int venueId,
+            int bookingId,
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest);
+
+        /// <summary>
         /// Adds or updates a booking.
         /// <param name="reservation">Details of the booking</param>
         /// </summary>

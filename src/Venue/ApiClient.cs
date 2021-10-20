@@ -136,6 +136,26 @@ namespace Ivvy.API
             );
         }
 
+        /// <inheritdoc/>
+        public async Task<ResultOrError<ResultList<DetailedSession>>> GetBookingSessionListAsync(
+            int venueId,
+            int bookingId,
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest)
+        {
+            return await CallAsync<ResultList<DetailedSession>>(
+                "venue", "getBookingSessionList", new
+                {
+                    venueId,
+                    bookingId,
+                    perPage,
+                    start,
+                    filter = filterRequest
+                }
+            );
+        }
+
         /// <inheritdoc />
         public async Task<ResultOrError<AddUpdateBookingResult>> AddOrUpdateVenueBookingAsync(Venue.Booking booking)
         {

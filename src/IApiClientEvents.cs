@@ -9,6 +9,19 @@ namespace Ivvy.API
     public interface IApiClientEvents
     {
         /// <summary>
+        /// A function that is called before an iVvy api request is initiated.
+        /// </summary>
+        Func<ApiCallRequestDetails, Task> OnBeforeApiCalled
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// An iVvy api request is about to be made.
+        /// </summary>
+        Task BeforeApiCalledAsync(ApiCallRequestDetails details);
+
+        /// <summary>
         /// A function that is called after an iVvy api request is completed.
         /// </summary>
         Func<ApiCallDetails, Task> OnAfterApiCalled

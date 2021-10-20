@@ -1,4 +1,5 @@
 using System;
+using Ivvy.API.Json.Converters;
 using Newtonsoft.Json;
 
 namespace Ivvy.API.Venue
@@ -62,7 +63,8 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("cancelClosedDate")]
-        public string CancelClosedDate
+        [JsonConverter(typeof(IsoDateOnlyConverter))]
+        public DateTime? CancelClosedDate
         {
             get; set;
         }
@@ -80,7 +82,8 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("convertedClosedDate")]
-        public string ConvertedClosedDate
+        [JsonConverter(typeof(IsoDateOnlyConverter))]
+        public DateTime? ConvertedClosedDate
         {
             get; set;
         }

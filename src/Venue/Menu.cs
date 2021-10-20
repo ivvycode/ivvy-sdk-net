@@ -44,6 +44,12 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
+        [JsonProperty("costPerPerson")]
+        public int? CostPerPerson
+        {
+            get; set;
+        }
+
         public string GetMenuCategory()
         {
             var menuCategory = "";
