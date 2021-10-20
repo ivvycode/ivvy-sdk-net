@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Ivvy.API.Json;
 using Ivvy.API.Venue.Bookings;
-using Moq;
 using Newtonsoft.Json;
 using Xunit;
 
@@ -9,31 +9,19 @@ namespace Ivvy.API.UnitTests
 {
     public class ApiClientSerializerTests
     {
-        private readonly ApiClient apiClient;
-        private readonly Mock<IApiClientEvents> events;
-
-        private string lastPostData;
+        private readonly IApiClientSerializer serializer;
 
         public ApiClientSerializerTests()
         {
-            events = new Mock<IApiClientEvents>();
-            apiClient = new ApiClient(events.Object)
-            {
-                BaseUrl = "http://localhost",
-                ApiKey = "apiKey",
-                ApiSecret = "apiSecret"
-            };
-
-            events.Setup(e => e.BeforeApiCalledAsync(It.IsAny<ApiCallRequestDetails>()))
-                .Callback<ApiCallRequestDetails>(a => lastPostData = a.RequestBody);
+            serializer = new ApiClientSerializer();
         }
 
         [Theory]
-        [MemberData(nameof(JsonConvert_SerializeDateAndTimeValues_MatchesExpectedDataProvider))]
-        public async void JsonConvert_SerializeDateAndTimeValues_MatchesExpected(Session session, Dictionary<string, string> expectedResult)
+        [MemberData(nameof(SerializeDateAndTimeValues_MatchesExpectedDataProvider))]
+        public void SerializeDateAndTimeValues_MatchesExpected(Session session, Dictionary<string, string> expectedResult)
         {
             // Note that the usage of the Session class here is because it has date and time fields
-            await apiClient.CallAsync<object>("test", "test", session);
+            var result = serializer.Serialize(session);
 
             var serialized = JsonConvert.SerializeObject(
                 expectedResult,
@@ -45,17 +33,17 @@ namespace Ivvy.API.UnitTests
             );
 
             // Strip the { } from start and end of serialized substring
-            Assert.Contains(serialized.TrimStart('{').TrimEnd('}'), lastPostData);
+            Assert.Contains(serialized.TrimStart('{').TrimEnd('}'), result);
         }
 
         [Theory]
-        [MemberData(nameof(JsonConvert_SerializeDateTimeValues_MatchesExpectedDataProvider))]
-        public async void JsonConvert_SerializeDateTimeValues_MatchesExpected(
+        [MemberData(nameof(SerializeDateTimeValues_MatchesExpectedDataProvider))]
+        public  void SerializeDateTimeValues_MatchesExpected(
             Event.Event data,
             Dictionary<string, string> expectedResult)
         {
             // Note that the usage of the Event class here is because it has dateTime fields
-            await apiClient.CallAsync<object>("test", "test", data);
+            var result = serializer.Serialize(data);
 
             var serialized = JsonConvert.SerializeObject(
                 expectedResult,
@@ -67,10 +55,10 @@ namespace Ivvy.API.UnitTests
             );
 
             // Strip the { } from start and end of serialized substring
-            Assert.Contains(serialized.TrimStart('{').TrimEnd('}'), lastPostData);
+            Assert.Contains(serialized.TrimStart('{').TrimEnd('}'), result);
         }
 
-        public static IEnumerable<object[]> JsonConvert_SerializeDateAndTimeValues_MatchesExpectedDataProvider()
+        public static IEnumerable<object[]> SerializeDateAndTimeValues_MatchesExpectedDataProvider()
         {
             var today = DateTime.Today;
             var now = DateTime.Now;
@@ -133,7 +121,7 @@ namespace Ivvy.API.UnitTests
             };
         }
 
-        public static IEnumerable<object[]> JsonConvert_SerializeDateTimeValues_MatchesExpectedDataProvider()
+        public static IEnumerable<object[]> SerializeDateTimeValues_MatchesExpectedDataProvider()
         {
             var today = DateTime.Today;
             var now = DateTime.Now;

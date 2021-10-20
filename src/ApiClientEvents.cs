@@ -10,7 +10,6 @@ namespace Ivvy.API
     {
         public ApiClientEvents()
         {
-            OnBeforeApiCalled = details => Task.CompletedTask;
             OnAfterApiCalled = details => Task.CompletedTask;
         }
 
@@ -19,13 +18,6 @@ namespace Ivvy.API
             get; set;
         }
 
-        public Func<ApiCallRequestDetails, Task> OnBeforeApiCalled
-        {
-            get; set;
-        }
-
         public virtual Task AfterApiCalledAsync(ApiCallDetails details) => OnAfterApiCalled(details);
-
-        public virtual Task BeforeApiCalledAsync(ApiCallRequestDetails details) => OnBeforeApiCalled(details);
     }
 }

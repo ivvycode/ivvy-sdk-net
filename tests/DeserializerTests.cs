@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Ivvy.API.Json.Converters;
+using Ivvy.API.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Xunit;
@@ -9,15 +9,19 @@ namespace Ivvy.API.UnitTests
 {
     public class DeserializerTests
     {
+        private readonly IApiClientDeserializer deserializer;
+
+        public DeserializerTests()
+        {
+            deserializer = new ApiClientDeserializer();
+        }
+
         [Theory]
         [MemberData(nameof(JsonConvert_DeserializesUnexpectedNull_DateTimeValues_DataProvider))]
         public void JsonConvert_DeserializesUnexpectedNull_DateTimeValues(string data, Event.Event expectedResult)
         {
             // Note that the usage of the Event class here is because it has datetime fields
-            var result =
-                JsonConvert.DeserializeObject<ResultOrError<Event.Event>>(
-                    data,
-                    new ResponseConverter<Event.Event>());
+            var result = deserializer.Deserialize<Event.Event>(data);
 
             Assert.Equal(expectedResult.Id, result.Result.Id);
             Assert.Equal(AdjustToNearestSecond(expectedResult.StartDateTime),result.Result.StartDateTime);
@@ -29,10 +33,7 @@ namespace Ivvy.API.UnitTests
         public void JsonConvert_DeserializesUnexpectedNull_IntegerValues(string data, Event.Event expectedResult)
         {
             // Note that the usage of the Event class here is because it has datetime fields
-            var result =
-                JsonConvert.DeserializeObject<ResultOrError<Event.Event>>(
-                    data,
-                    new ResponseConverter<Event.Event>());
+            var result = deserializer.Deserialize<Event.Event>(data);
 
             Assert.Equal(expectedResult.Id, result.Result.Id);
             Assert.Equal(0,result.Result.Capacity);

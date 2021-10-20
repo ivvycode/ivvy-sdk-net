@@ -6,8 +6,33 @@ namespace Ivvy.API
     /// <summary>
     /// ApiCallDetails encapsulates the details of an iVvy api call.
     /// </summary>
-    public sealed class ApiCallDetails : ApiCallRequestDetails
+    public sealed class ApiCallDetails
     {
+        /// <summary>
+        /// The namespace of the api request.
+        /// </summary>
+        public readonly string ApiNamespace;
+
+        /// <summary>
+        /// The action of the api request.
+        /// </summary>
+        public readonly string ApiAction;
+
+        /// <summary>
+        /// The json encoded request body.
+        /// </summary>
+        public readonly string RequestBody;
+
+        /// <summary>
+        /// The http request headers.
+        /// </summary>
+        public readonly HttpHeaders RequestHeaders;
+
+        /// <summary>
+        /// The http request content headers.
+        /// </summary>
+        public readonly HttpHeaders RequestContentHeaders;
+
         /// <summary>
         /// The json encoded response body.
         /// </summary>
@@ -32,13 +57,12 @@ namespace Ivvy.API
             HttpStatusCode responseStatusCode,
             HttpHeaders responseHeaders,
             string responseBody)
-            : base(
-                  apiNamespace,
-                  apiAction,
-                  requestHeaders,
-                  requestContentHeaders,
-                  requestBody)
         {
+            ApiNamespace = apiNamespace;
+            ApiAction = apiAction;
+            RequestHeaders = requestHeaders;
+            RequestContentHeaders = requestContentHeaders;
+            RequestBody = requestBody;
             ResponseStatusCode = responseStatusCode;
             ResponseHeaders = responseHeaders;
             ResponseBody = responseBody;

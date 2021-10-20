@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Ivvy.API.Json;
 using Ivvy.API.Json.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -52,6 +53,18 @@ namespace Ivvy.API
         public readonly IApiClientEvents Events;
 
         /// <summary>
+        /// iVvy API message serializer. If not specified at construction time,
+        /// a default implementation will be used.
+        /// </summary>
+        private readonly IApiClientSerializer serializer;
+
+        /// <summary>
+        /// iVvy API message deserializer. If not specified at construction time,
+        /// a default implementation will be used.
+        /// </summary>
+        private readonly IApiClientDeserializer deserializer;
+
+        /// <summary>
         /// Http client used to call the iVvy api.
         /// </summary>
         private static readonly HttpClient httpClient = new HttpClient();
@@ -61,16 +74,25 @@ namespace Ivvy.API
         /// </summary>
         private static readonly string libErrorCode = "000";
 
-        public ApiClient()
+        public ApiClient() :
+            this(new ApiClientEvents(), new ApiClientSerializer(), new ApiClientDeserializer())
         {
-            ApiVersion = "1.0";
-            Events = new ApiClientEvents();
         }
 
-        public ApiClient(IApiClientEvents events)
+        public ApiClient(IApiClientEvents events) :
+            this(events, new ApiClientSerializer(), new ApiClientDeserializer())
+        {
+        }
+
+        public ApiClient(
+            IApiClientEvents events,
+            IApiClientSerializer serializer,
+            IApiClientDeserializer deserializer)
         {
             ApiVersion = "1.0";
             Events = events;
+            this.serializer = serializer;
+            this.deserializer = deserializer;
         }
 
         /// <summary>
@@ -87,15 +109,7 @@ namespace Ivvy.API
             var postData = "";
             if (requestData != null)
             {
-                postData = JsonConvert.SerializeObject(
-                    requestData,
-                    Formatting.None,
-                    new JsonSerializerSettings
-                    {
-                        NullValueHandling = NullValueHandling.Ignore,
-                        Converters = new List<JsonConverter>() { new IsoDateTimeConverter() { DateTimeFormat = Utils.DateTimeFormat } }
-                    }
-                );
+                postData = serializer.Serialize(requestData);
             }
             var method = "POST";
             var contentType = "application/json; charset=utf-8";
@@ -119,17 +133,6 @@ namespace Ivvy.API
             ResultOrError<T> result = null;
             try
             {
-                await Events.BeforeApiCalledAsync(new ApiCallDetails(
-                    apiNamespace,
-                    action,
-                    message.Headers,
-                    message.Content?.Headers,
-                    postData,
-                    System.Net.HttpStatusCode.InternalServerError,
-                    null,
-                    null
-                ));
-
                 httpResponse = await httpClient.SendAsync(message);
                 var data = await httpResponse.Content.ReadAsStringAsync();
 
@@ -144,7 +147,7 @@ namespace Ivvy.API
                     data
                 ));
 
-                result = JsonConvert.DeserializeObject<ResultOrError<T>>(data, new ResponseConverter<T>());
+                result = deserializer.Deserialize<T>(data);
                 if (result == null)
                 {
                     result = new ResultOrError<T>()
