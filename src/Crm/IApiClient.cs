@@ -79,11 +79,33 @@ namespace Ivvy.API
         Task<ResultOrError<ResultObject>> AddOrUpdateOpportunityAsync(Opportunity opportunity);
 
         /// <summary>
+        /// Returns a collection of tasks.
+        /// </summary>
+        /// <param name="perPage">The per page records.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        Task<ResultOrError<ResultList<Crm.EventTask>>> GetTaskListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest = null);
+
+        /// <summary>
         /// Adds or updates a task.
         /// </summary>
         /// <param name="task">EventTask object</param>
         /// <returns></returns>
         Task<ResultOrError<ResultObject>> AddOrUpdateTaskAsync(EventTask task);
+
+        /// <summary>
+        /// Returns a collection of activities.
+        /// </summary>
+        /// <param name="perPage">The per page records.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        Task<ResultOrError<ResultList<Crm.EventActivity>>> GetActivityListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest = null);
 
         /// <summary>
         /// Adds or updates an activity.
