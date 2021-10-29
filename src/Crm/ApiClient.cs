@@ -7,6 +7,22 @@ namespace Ivvy.API
     public partial class ApiClient : IApiClient
     {
         /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Lead>>> GetLeadListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest = null)
+        {
+            return await CallAsync<ResultList<Lead>>(
+                "crm", "getLeadList", new
+                {
+                    perPage,
+                    start,
+                    filter = filterRequest
+                }
+            );
+        }
+
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<LeadStage>>> GetLeadStageListAsync(
             int perPage,
             int start,

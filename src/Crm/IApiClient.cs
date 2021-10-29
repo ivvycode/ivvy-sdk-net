@@ -7,6 +7,16 @@ namespace Ivvy.API
     public partial interface IApiClient
     {
         /// <summary>
+        /// Returns a collection of leads.
+        /// </summary>
+        /// <param name="perPage">The per page records.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="filterRequest">The filter request.</param>
+        /// <returns></returns>
+        Task<ResultOrError<ResultList<Crm.Lead>>> GetLeadListAsync(
+            int perPage, int start, Dictionary<string, object> filterRequest = null);
+
+        /// <summary>
         /// Returns a collection of lead stages.
         /// </summary>
         /// <param name="perPage">The per page records.</param>
