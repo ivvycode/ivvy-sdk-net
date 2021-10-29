@@ -62,11 +62,41 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Crm.EventTask>>> GetTaskListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest = null)
+        {
+            return await CallAsync<ResultList<Crm.EventTask>>(
+                "crm", "getTaskList", new
+                {
+                    perPage,
+                    start,
+                    filter = filterRequest
+                });
+        }
+
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultObject>> AddOrUpdateTaskAsync(EventTask task)
         {
             return await CallAsync<ResultObject>(
                 "crm", "addOrUpdateTask", task
             );
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Crm.EventActivity>>> GetActivityListAsync(
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest = null)
+        {
+            return await CallAsync<ResultList<Crm.EventActivity>>(
+                "crm", "getActivityList", new
+                {
+                    perPage,
+                    start,
+                    filter = filterRequest
+                });
         }
 
         /// <inheritdoc />
