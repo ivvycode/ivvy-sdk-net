@@ -23,6 +23,14 @@ namespace Ivvy.API.Venue
             AccommodationOnly = 4
         }
 
+        public enum AccommodationReservationMethodOptions
+        {
+            RoomingList = 1,
+            IndividualCallIn = 2,
+            BookingEngine = 3,
+            HousingForm = 4
+        }
+
         [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int Id
         {
@@ -301,6 +309,12 @@ namespace Ivvy.API.Venue
 
         [JsonProperty("commissionByCostCentres")]
         public Bookings.CostCentreCommission[] CostCentreCommissions
+        {
+            get; set;
+        }
+
+        [JsonProperty("accommReservationMethod")]
+        public AccommodationReservationMethodOptions[] AccommodationReservationMethods
         {
             get; set;
         }
