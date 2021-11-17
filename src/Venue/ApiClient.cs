@@ -92,7 +92,7 @@ namespace Ivvy.API
         }
 
 
-        /// <inheritdoc />>
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<Venue.BeveragePackage>>> GetBeveragePackageListAsync(
             int venueId,
             int perPage,
@@ -108,6 +108,25 @@ namespace Ivvy.API
             );
 
         }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<FunctionSpace>>> GetFunctionSpaceListAsync(
+            int venueId,
+            int perPage,
+            int start,
+            Dictionary<string, object> filterRequest)
+        {
+            return await CallAsync<ResultList<FunctionSpace>>(
+                "venue", "getFunctionSpaceList", new
+                {
+                    venueId,
+                    perPage,
+                    start,
+                    filter = filterRequest
+                }
+            );
+        }
+
         /// <inheritdoc />
         public async Task<ResultOrError<ResultList<Venue.EventType>>> GetEventTypeListAsync(
             int perPage,
