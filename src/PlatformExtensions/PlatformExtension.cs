@@ -38,7 +38,16 @@ namespace Ivvy.PlatformExtensions
             get; set;
         }
 
-        private static readonly HttpClient httpClient = new HttpClient();
+        /// <summary>
+        /// multi-threaded protection for the static httpClient.
+        /// </summary>
+        private static API.Utils.HttpClientWrapper httpClientWrapper =
+            new API.Utils.HttpClientWrapper();
+
+        public static HttpClient SetHttpClient(HttpClient newClient)
+        {
+            return httpClientWrapper.SetHttpClient(newClient);
+        }
 
         public PlatformExtension()
         {
@@ -131,6 +140,7 @@ namespace Ivvy.PlatformExtensions
             var result = new ResultOrError<T>();
             try
             {
+                var httpClient = httpClientWrapper.GetHttpClient();
                 httpResponse = await httpClient.PostAsync(requestUri, new FormUrlEncodedContent(dataMap));
                 var data = await httpResponse.Content.ReadAsStringAsync();
                 JsonConvert.PopulateObject(data, result);

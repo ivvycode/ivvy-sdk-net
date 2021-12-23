@@ -67,12 +67,20 @@ namespace Ivvy.API
         /// <summary>
         /// Http client used to call the iVvy api.
         /// </summary>
-        private static readonly HttpClient httpClient = new HttpClient();
+        private static Utils.HttpClientWrapper httpClientWrapper = new Utils.HttpClientWrapper();
 
         /// <summary>
         /// This error code is used to represent an error related to this library implementation.
         /// </summary>
         private static readonly string libErrorCode = "000";
+
+        /// <summary>
+        /// Allow consumers of the library to specify an httpClient other than the default
+        /// </summary>
+        public static HttpClient SetHttpClient(HttpClient newClient)
+        {
+            return httpClientWrapper.SetHttpClient(newClient);
+        }
 
         public ApiClient() :
             this(new ApiClientEvents(), new ApiClientSerializer(), new ApiClientDeserializer())
@@ -133,6 +141,7 @@ namespace Ivvy.API
             ResultOrError<T> result = null;
             try
             {
+                var httpClient = httpClientWrapper.GetHttpClient();
                 httpResponse = await httpClient.SendAsync(message);
                 var data = await httpResponse.Content.ReadAsStringAsync();
 

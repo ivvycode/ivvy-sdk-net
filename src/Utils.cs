@@ -1,10 +1,12 @@
+using System;
+using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Ivvy.API
 {
     /// <summary>
-    /// This class contains some utility methods.
+    /// This class contains some utility functionality.
     /// </summary>
     public static class Utils
     {
@@ -18,6 +20,46 @@ namespace Ivvy.API
             Greaterthan​, //Return the results that are greater than or equal to the
             Not​, //Return the results that are not equal to the value.
             Empty​ //Returns results that are empty
+        }
+
+        /// <summary>
+        /// A threadsafe wrapper around an http client. This provides a default httpclient
+        /// which can be overwritten by callers, thread-safely, at any time.
+        /// The httpclient must always be non-null.
+        /// </summary>
+        internal class HttpClientWrapper
+        {
+            /// <summary>
+            /// multi-threaded protection for the httpClient attribute.
+            /// </summary>
+            private readonly object httpClientLock = new object();
+
+            private HttpClient httpClient;
+
+            public HttpClientWrapper()
+            {
+                SetHttpClient(new HttpClient());
+            }
+
+            public HttpClient SetHttpClient(HttpClient newClient)
+            {
+                lock (httpClientLock)
+                {
+                    var oldClient = httpClient;
+                    httpClient = newClient;
+
+                    return oldClient;
+                }
+            }
+
+            public HttpClient GetHttpClient()
+            {
+                lock (httpClientLock)
+                {
+                    return httpClient
+                        ?? throw new Exception("Invalid or missing HttpClient specified");
+                }
+            }
         }
 
         /// <summary>
