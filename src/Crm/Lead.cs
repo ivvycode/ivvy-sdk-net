@@ -32,6 +32,12 @@ namespace Ivvy.API.Crm
             get; set;
         }
 
+        [JsonProperty("company")]
+        public API.Contact.Company Company
+        {
+            get; set;
+        }
+
         [JsonProperty("companyLeadContactId")]
         public int? CompanyLeadContactId
         {
@@ -40,6 +46,12 @@ namespace Ivvy.API.Crm
 
         [JsonProperty("contactId")]
         public int? ContactId
+        {
+            get; set;
+        }
+
+        [JsonProperty("contact")]
+        public API.Contact.Contact Contact
         {
             get; set;
         }
