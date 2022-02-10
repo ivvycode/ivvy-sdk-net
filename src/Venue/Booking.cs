@@ -169,7 +169,7 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
-        [JsonProperty("accommCutOffDate")]
+        [JsonProperty("accommCutOffDate", NullValueHandling = NullValueHandling.Include)]
         public DateTime? AccommCutOffDate
         {
             get; set;
