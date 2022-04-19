@@ -676,6 +676,20 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<Venue.SessionType>>> GetSessionTypeListAsync(
+            int perPage,
+            int start)
+        {
+            return await CallAsync<ResultList<Venue.SessionType>>(
+                "venue", "getSessionTypeList", new
+                {
+                    perPage,
+                    start,
+                }
+            );
+        }
+
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultObject>> ChangeBookingStatusAsync(
             ChangeBookingStatusRequest request)
         {

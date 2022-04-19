@@ -360,6 +360,15 @@ namespace Ivvy.API
             int start);
 
         /// <summary>
+        /// Returns a collection of session types as defined in an iVvy account
+        /// </summary>
+        /// <param name="perPage">The number of session types to fetch</param>
+        /// <param name="start">The starting result of the page. Note this is zero based (i.e. sending start=0 will start from the first result.)</param>
+        Task<ResultOrError<ResultList<Venue.SessionType>>> GetSessionTypeListAsync(
+            int perPage,
+            int start);
+
+        /// <summary>
         /// Changes the status of a given booking.
         /// </summary>
         /// <param name="request">The request that contains the booking status change details.</param>
