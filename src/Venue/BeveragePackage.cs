@@ -14,7 +14,7 @@ namespace Ivvy.API.Venue
             FixedRate = 102,
             TotalOfItems = 103
         }
-        
+
         [JsonProperty("minPax")]
         public int? MinPax
         {

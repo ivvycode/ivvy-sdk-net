@@ -18,7 +18,7 @@ namespace Ivvy.API.Venue.Bookings
         [JsonProperty("taxDetails")]
         public TaxDetail[] TaxDetails
         {
-            get;set;
+            get; set;
         }
     }
 }

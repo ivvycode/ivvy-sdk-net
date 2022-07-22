@@ -17,8 +17,8 @@ namespace Ivvy.API.UnitTests.Venue
             {
                 Id = 42
             };
-            var bookingAsString = this.SerializeBooking(booking);
-            var response = this.GetBookingResultOrError(bookingAsString);
+            var bookingAsString = SerializeBooking(booking);
+            var response = GetBookingResultOrError(bookingAsString);
 
             Assert.Null(response.Result.AccommodationReservationMethods);
         }
@@ -32,8 +32,8 @@ namespace Ivvy.API.UnitTests.Venue
                 AccommodationReservationMethods =
                     Array.Empty<Booking.AccommodationReservationMethodOptions>()
             };
-            var bookingAsString = this.SerializeBooking(booking);
-            var response = this.GetBookingResultOrError(bookingAsString);
+            var bookingAsString = SerializeBooking(booking);
+            var response = GetBookingResultOrError(bookingAsString);
 
             Assert.Empty(response.Result.AccommodationReservationMethods);
         }
@@ -51,8 +51,8 @@ namespace Ivvy.API.UnitTests.Venue
                         Booking.AccommodationReservationMethodOptions.BookingEngine,
                     }
             };
-            var bookingAsString = this.SerializeBooking(booking);
-            var response = this.GetBookingResultOrError(bookingAsString);
+            var bookingAsString = SerializeBooking(booking);
+            var response = GetBookingResultOrError(bookingAsString);
 
             Assert.Contains(
                 response.Result.AccommodationReservationMethods,

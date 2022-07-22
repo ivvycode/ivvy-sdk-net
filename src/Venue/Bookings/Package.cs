@@ -18,7 +18,7 @@ namespace Ivvy.API.Venue.Bookings
         [JsonProperty("bookingDate")]
         public string BookingDate
         {
-            get;set;
+            get; set;
         }
 
         [JsonProperty("numberAttendees")]
@@ -54,7 +54,7 @@ namespace Ivvy.API.Venue.Bookings
         [JsonProperty("totalDiscount")]
         public double TotalDiscount
         {
-            get;set;
+            get; set;
         }
 
         [JsonProperty("totalSurcharge")]

@@ -25,7 +25,7 @@ namespace Ivvy.API.Venue.Bookings
         {
             get; set;
         }
-        
+
         [JsonProperty("marketplaceName")]
         public string MarketplaceName
         {

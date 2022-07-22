@@ -24,7 +24,7 @@ namespace Ivvy.API.UnitTests
             var result = deserializer.Deserialize<Event.Event>(data);
 
             Assert.Equal(expectedResult.Id, result.Result.Id);
-            Assert.Equal(AdjustToNearestSecond(expectedResult.StartDateTime),result.Result.StartDateTime);
+            Assert.Equal(AdjustToNearestSecond(expectedResult.StartDateTime), result.Result.StartDateTime);
             Assert.Equal(AdjustToNearestSecond(expectedResult.EndDateTime), result.Result.EndDateTime);
         }
 
@@ -36,7 +36,7 @@ namespace Ivvy.API.UnitTests
             var result = deserializer.Deserialize<Event.Event>(data);
 
             Assert.Equal(expectedResult.Id, result.Result.Id);
-            Assert.Equal(0,result.Result.Capacity);
+            Assert.Equal(0, result.Result.Capacity);
         }
 
         private static DateTime? AdjustToNearestSecond(DateTime? preciseDateTime)
@@ -45,7 +45,7 @@ namespace Ivvy.API.UnitTests
             {
                 return null;
             }
-            return ((DateTime)preciseDateTime).AddTicks( -1 * (((DateTime)preciseDateTime).Ticks % TimeSpan.TicksPerSecond));
+            return ((DateTime)preciseDateTime).AddTicks(-1 * (((DateTime)preciseDateTime).Ticks % TimeSpan.TicksPerSecond));
         }
 
         public static IEnumerable<object[]> JsonConvert_DeserializesUnexpectedNull_DateTimeValues_DataProvider()
@@ -55,7 +55,7 @@ namespace Ivvy.API.UnitTests
                 Id = "eventId",
             };
             var nullDatesEventAsString = JsonConvert.SerializeObject(
-                new ResultOrError<Event.Event> {Result = nullDatesEvent},
+                new ResultOrError<Event.Event> { Result = nullDatesEvent },
                 Formatting.None,
                 new JsonSerializerSettings
                 {
@@ -78,7 +78,7 @@ namespace Ivvy.API.UnitTests
                 EndDateTime = DateTime.MaxValue
             };
             var nonNullDatesEventAsString = JsonConvert.SerializeObject(
-                new ResultOrError<Event.Event> {Result = nonNullDatesEvent},
+                new ResultOrError<Event.Event> { Result = nonNullDatesEvent },
                 Formatting.None,
                 new JsonSerializerSettings
                 {
@@ -103,7 +103,7 @@ namespace Ivvy.API.UnitTests
                 Capacity = int.MaxValue
             };
             var nullCapacityEventAsString = JsonConvert.SerializeObject(
-                new ResultOrError<Event.Event> {Result = nullCapacityEvent},
+                new ResultOrError<Event.Event> { Result = nullCapacityEvent },
                 Formatting.None,
                 new JsonSerializerSettings
                 {

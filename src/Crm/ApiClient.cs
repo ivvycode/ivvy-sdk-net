@@ -147,7 +147,7 @@ namespace Ivvy.API
                 "crm", "addOrUpdateLeadSource", source);
         }
 
-                /// <inheritdoc />
+        /// <inheritdoc />
         public async Task<ResultOrError<ResultList<LeadChannel>>> GetLeadChannelListAsync(
             int perPage,
             int start,

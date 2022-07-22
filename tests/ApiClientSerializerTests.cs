@@ -38,7 +38,7 @@ namespace Ivvy.API.UnitTests
 
         [Theory]
         [MemberData(nameof(SerializeDateTimeValues_MatchesExpectedDataProvider))]
-        public  void SerializeDateTimeValues_MatchesExpected(
+        public void SerializeDateTimeValues_MatchesExpected(
             Event.Event data,
             Dictionary<string, string> expectedResult)
         {
