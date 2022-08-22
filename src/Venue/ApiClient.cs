@@ -329,6 +329,7 @@ namespace Ivvy.API
             reservation.MainGuestId = null;
             if (reservation.MainGuest != null)
             {
+                reservation.MainGuest.Id = null;
                 reservation.MainGuest.CreatedDate = null;
                 reservation.MainGuest.ModifiedDate = null;
                 if (reservation.MainGuest.GuestContact != null)
