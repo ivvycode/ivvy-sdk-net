@@ -17,7 +17,14 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("contact")]
+        [Obsolete("This member is deprecated and will be removed. Use 'guestContact' instead.", error: true)]
         public GuestContact Contact
+        {
+            get; set;
+        }
+
+        [JsonProperty("guestContact")]
+        public GuestContact GuestContact
         {
             get; set;
         }
@@ -42,6 +49,12 @@ namespace Ivvy.API.Venue
 
         [JsonProperty("modifiedDate")]
         public DateTime? ModifiedDate
+        {
+            get; set;
+        }
+
+        [JsonProperty("isAnonymised")]
+        public bool IsAnonymised
         {
             get; set;
         }
