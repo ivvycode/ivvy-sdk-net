@@ -329,12 +329,13 @@ namespace Ivvy.API
             reservation.MainGuestId = null;
             if (reservation.MainGuest != null)
             {
+                reservation.MainGuest.Id = null;
                 reservation.MainGuest.CreatedDate = null;
                 reservation.MainGuest.ModifiedDate = null;
-                if (reservation.MainGuest.Contact != null)
+                if (reservation.MainGuest.GuestContact != null)
                 {
-                    reservation.MainGuest.Contact.CreatedDate = null;
-                    reservation.MainGuest.Contact.ModifiedDate = null;
+                    reservation.MainGuest.GuestContact.CreatedDate = null;
+                    reservation.MainGuest.GuestContact.ModifiedDate = null;
                 }
             }
             reservation.CurrentStatus = null;
@@ -354,12 +355,13 @@ namespace Ivvy.API
                     room.GuestId = null;
                     if (room.Guest != null)
                     {
+                        room.Guest.Id = null;
                         room.Guest.CreatedDate = null;
                         room.Guest.ModifiedDate = null;
-                        if (room.Guest.Contact != null)
+                        if (room.Guest.GuestContact != null)
                         {
-                            room.Guest.Contact.CreatedDate = null;
-                            room.Guest.Contact.ModifiedDate = null;
+                            room.Guest.GuestContact.CreatedDate = null;
+                            room.Guest.GuestContact.ModifiedDate = null;
                         }
                     }
                     room.RatePlanId = null;
@@ -391,12 +393,13 @@ namespace Ivvy.API
                             }
                             if (additionalGuest.Guest != null)
                             {
+                                additionalGuest.Guest.Id = null;
                                 additionalGuest.Guest.CreatedDate = null;
                                 additionalGuest.Guest.ModifiedDate = null;
-                                if (additionalGuest.Guest.Contact != null)
+                                if (additionalGuest.Guest.GuestContact != null)
                                 {
-                                    additionalGuest.Guest.Contact.CreatedDate = null;
-                                    additionalGuest.Guest.Contact.ModifiedDate = null;
+                                    additionalGuest.Guest.GuestContact.CreatedDate = null;
+                                    additionalGuest.Guest.GuestContact.ModifiedDate = null;
                                 }
                             }
                         }
@@ -695,6 +698,14 @@ namespace Ivvy.API
         {
             return await CallAsync<ResultObject>(
                 "venue", "changeBookingStatus", request);
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> UpdateBookingRoomReservationGuestContactAsync(
+            GuestContact guestContact)
+        {
+            return await CallAsync<ResultObject>(
+                "venue", "updateBookingRoomReservationGuestContact", guestContact);
         }
     }
 }
