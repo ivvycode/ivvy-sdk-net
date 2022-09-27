@@ -381,5 +381,12 @@ namespace Ivvy.API
         /// <param name="guestContact">The guest contact object to be updated.</param>
         Task<ResultOrError<ResultObject>> UpdateBookingRoomReservationGuestContactAsync(
             GuestContact guestContact);
+
+        /// <summary>
+        /// Adds/updates a note to a booking
+        /// </summary>
+        /// <param name="noteRequest">The note details that need to be posted.</param>
+        Task<ResultOrError<ResultObject>> AddOrUpdateBookingNoteAsync(
+            AddUpdateNoteRequest noteRequest);
     }
 }
