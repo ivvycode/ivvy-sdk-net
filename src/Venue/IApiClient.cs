@@ -387,6 +387,6 @@ namespace Ivvy.API
         /// </summary>
         /// <param name="noteRequest">The note details that need to be posted.</param>
         Task<ResultOrError<ResultObject>> AddOrUpdateBookingNoteAsync(
-            AddUpdateNoteRequest noteRequest);
+            Venue.Bookings.Note noteRequest);
     }
 }

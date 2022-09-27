@@ -710,7 +710,7 @@ namespace Ivvy.API
 
         /// <inheritdoc />
         public async Task<ResultOrError<ResultObject>> AddOrUpdateBookingNoteAsync(
-            AddUpdateNoteRequest noteRequest)
+            Venue.Bookings.Note noteRequest)
         {
             return await CallAsync<ResultObject>(
                 "venue", "addOrUpdateBookingNote", noteRequest);
