@@ -1,3 +1,4 @@
+using System;
 using Ivvy.API.Json;
 using Newtonsoft.Json;
 
@@ -95,7 +96,17 @@ namespace Ivvy.API.Venue.Bookings
             /// The unique id of the contact details of the guest.
             /// </summary>
             [JsonProperty("contactId")]
+            [Obsolete("This member is deprecated and will be removed. Use 'guestContactId' instead.", error: true)]
             public int ContactId
+            {
+                get; set;
+            }
+
+            /// <summary>
+            /// The unique id of the guest contact details of the guest.
+            /// </summary>
+            [JsonProperty("guestContactId")]
+            public int GuestContactId
             {
                 get; set;
             }
@@ -116,7 +127,17 @@ namespace Ivvy.API.Venue.Bookings
             /// The unique id of the contact details of the guest.
             /// </summary>
             [JsonProperty("contactId")]
+            [Obsolete("This member is deprecated and will be removed. Use 'guestContactId' instead.", error: true)]
             public int ContactId
+            {
+                get; set;
+            }
+
+            /// <summary>
+            /// The unique id of the guest contact details of the guest.
+            /// </summary>
+            [JsonProperty("guestContactId")]
+            public int GuestContactId
             {
                 get; set;
             }
