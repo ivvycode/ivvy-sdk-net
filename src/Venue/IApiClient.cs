@@ -388,5 +388,14 @@ namespace Ivvy.API
         /// <param name="noteRequest">The note details that need to be posted.</param>
         Task<ResultOrError<ResultObject>> AddOrUpdateBookingNoteAsync(
             Venue.Bookings.Note noteRequest);
+
+        /// <summary>
+        /// Return the tax list for the venue booking.
+        /// </summary>
+        Task<ResultOrError<ResultList<Venue.Tax>>> GetVenueBookingTaxListAsync(
+            int venueId,
+            int bookingId,
+            int perPage,
+            int start);
     }
 }
