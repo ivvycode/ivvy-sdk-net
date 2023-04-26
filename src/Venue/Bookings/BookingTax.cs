@@ -1,13 +1,11 @@
-using System.Collections.Generic;
-using Ivvy.API.Json;
 using Newtonsoft.Json;
 
-namespace Ivvy.API.Venue
+namespace Ivvy.API.Venue.Bookings
 {
     /// <summary>
-    /// An iVvy venue tax.
+    /// An iVvy venue booking tax.
     /// </summary>
-    public class Tax : ISerializable
+    public class BookingTax
     {
         public enum AmountTypeOptions
         {
@@ -36,6 +34,24 @@ namespace Ivvy.API.Venue
 
         [JsonProperty("id")]
         public int Id
+        {
+            get; set;
+        }
+
+        [JsonProperty("venueId")]
+        public int VenueId
+        {
+            get; set;
+        }
+
+        [JsonProperty("bookingId")]
+        public int BookingId
+        {
+            get; set;
+        }
+
+        [JsonProperty("venueTaxId")]
+        public int VenueTaxId
         {
             get; set;
         }

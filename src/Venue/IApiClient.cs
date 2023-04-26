@@ -390,9 +390,9 @@ namespace Ivvy.API
             Venue.Bookings.Note noteRequest);
 
         /// <summary>
-        /// Return the tax list for the venue booking.
+        /// Returns the tax list for the venue booking.
         /// </summary>
-        Task<ResultOrError<ResultList<Venue.Tax>>> GetVenueBookingTaxListAsync(
+        Task<ResultOrError<ResultList<Venue.Bookings.BookingTax>>> GetVenueBookingTaxListAsync(
             int venueId,
             int bookingId,
             int perPage,
