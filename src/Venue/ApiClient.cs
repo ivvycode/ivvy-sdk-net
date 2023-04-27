@@ -717,13 +717,13 @@ namespace Ivvy.API
         }
                 
         /// <inheritdoc />
-        public async Task<ResultOrError<ResultList<Venue.Tax>>> GetVenueBookingTaxListAsync(
+        public async Task<ResultOrError<ResultList<Venue.Bookings.BookingTax>>> GetVenueBookingTaxListAsync(
             int venueId,
             int bookingId,
             int perPage,
             int start)
         {
-            return await CallAsync<ResultList<Venue.Tax>>(
+            return await CallAsync<ResultList<Venue.Bookings.BookingTax>>(
                 "venue", "getBookingTaxList", new
                 {
                     venueId,
