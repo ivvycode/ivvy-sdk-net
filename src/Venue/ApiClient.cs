@@ -733,5 +733,55 @@ namespace Ivvy.API
                 }
             );
         }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateSpaceBlockout(
+            string venueId,
+            string name,
+            int spaceId,
+            string startDateTime,
+            string endDateTime)
+        {
+            return await CallAsync<ResultObject>(
+                "venue", "addOrUpdateSpaceBlockout", new
+                {
+                    venueId,
+                    name,
+                    spaceId,
+                    startDateTime,
+                    endDateTime
+                });                
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> RemoveSpaceBlockout(
+            int venueId, int blockoutId)
+        {
+            return await CallAsync<ResultObject>(
+                "venue", "removeBlockoutSpace", new
+                {
+                    venueId,
+                    id = blockoutId
+                });
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultOrError<ResultList<SpaceBlockout>>> GetVenueSpaceBlockoutList(
+            int venueId)
+        {
+            return await CallAsync<ResultList<SpaceBlockout>>(
+                "venue", "getSpaceBlockoutList", new
+                {
+                    venueId
+                });
+        }
+
+         /// <inheritdoc />
+        public async Task<ResultOrError<ResultObject>> AddOrUpdateBookingSession(
+            Venue.Bookings.DetailedSession sessionRequest)
+        {
+            return await CallAsync<ResultObject>(
+                "venue", "addOrUpdateBookingSession", sessionRequest);
+        }
     }
 }
