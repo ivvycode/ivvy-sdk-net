@@ -398,7 +398,8 @@ namespace Ivvy.API
             int perPage,
             int start);
 
-         /// <summary>        /// Creates or updates a blockout space.        /// </summary>        Task<ResultOrError<ResultObject>> AddOrUpdateSpaceBlockout(            string venueId,            string name,            int spaceId,            string startDateTime,            string endDateTime);        /// <summary>        /// Deletes blockout sppace.        /// </summary>        Task<ResultOrError<ResultObject>> RemoveSpaceBlockout(            int venueId, int blockoutId);        /// <summary>        /// Returns a list of blockouts related to a specific venue.        /// </summary>        Task<ResultOrError<ResultList<Venue.Bookings.SpaceBlockout>>> GetVenueSpaceBlockoutList(            int venueId);
+         /// <summary>        /// Creates or updates a blockout space.        /// </summary>        Task<ResultOrError<ResultObject>> AddOrUpdateSpaceBlockout(
+            string id,            string venueId,            string name,            int spaceId,            string startDateTime,            string endDateTime);        /// <summary>        /// Deletes blockout sppace.        /// </summary>        Task<ResultOrError<ResultObject>> RemoveSpaceBlockout(            int venueId, int blockoutId);        /// <summary>        /// Returns a list of blockouts related to a specific venue.        /// </summary>        Task<ResultOrError<ResultList<Venue.Bookings.SpaceBlockout>>> GetVenueSpaceBlockoutList(            int venueId, int perPage, int start);
 
-        /// <summary>        /// Creates or updates a booking session.        /// </summary>        Task<ResultOrError<ResultObject>> AddOrUpdateBookingSession(            Venue.Bookings.DetailedSession sessionRequest);    }
+        /// <summary>        /// Creates or updates a booking session.        /// </summary>        Task<ResultOrError<ResultObject>> AddOrUpdateBookingSession(            Venue.Bookings.DetailedSession sessionRequest);    }
 }

@@ -736,6 +736,7 @@ namespace Ivvy.API
 
         /// <inheritdoc />
         public async Task<ResultOrError<ResultObject>> AddOrUpdateSpaceBlockout(
+            string id,
             string venueId,
             string name,
             int spaceId,
@@ -745,6 +746,7 @@ namespace Ivvy.API
             return await CallAsync<ResultObject>(
                 "venue", "addOrUpdateSpaceBlockout", new
                 {
+                    id,
                     venueId,
                     name,
                     spaceId,
@@ -767,12 +769,14 @@ namespace Ivvy.API
 
         /// <inheritdoc />
         public async Task<ResultOrError<ResultList<SpaceBlockout>>> GetVenueSpaceBlockoutList(
-            int venueId)
+            int venueId, int perPage, int start)
         {
             return await CallAsync<ResultList<SpaceBlockout>>(
                 "venue", "getSpaceBlockoutList", new
                 {
-                    venueId
+                    venueId,
+                    perPage,
+                    start
                 });
         }
 
