@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Ivvy.API.Json;
 using Newtonsoft.Json;
 
@@ -105,7 +106,7 @@ namespace Ivvy.API.Crm
         }
 
         [JsonProperty("customFields")]
-        public CustomField CustomFields
+        public List<CustomField> CustomFields
         {
             get; set;
         }
