@@ -89,5 +89,11 @@ namespace Ivvy.API.Contact
         {
             get; set;
         }
+
+        [JsonProperty("isAgent")]
+        public bool IsAgent
+        {
+            get; set;
+        }
     }
 }
