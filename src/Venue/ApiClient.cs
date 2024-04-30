@@ -760,7 +760,7 @@ namespace Ivvy.API
             int venueId, int blockoutId)
         {
             return await CallAsync<ResultObject>(
-                "venue", "removeBlockoutSpace", new
+                "venue", "removeSpaceBlockout", new
                 {
                     venueId,
                     id = blockoutId
