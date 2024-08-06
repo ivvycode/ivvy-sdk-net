@@ -27,6 +27,12 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("numOptions")]
+        public int? NumOptions
+        {
+            get; set;
+        }
+
         [JsonProperty("numOptionsPerRoom")]
         public int NumOptionsPerRoom
         {

@@ -92,6 +92,12 @@ namespace Ivvy.API.Venue.Bookings
             get; set;
         }
 
+        [JsonProperty("largeDescription")]
+        public string LargeDescription
+        {
+            get; set;
+        }
+
         [JsonProperty("packageId")]
         public int PackageId
         {

@@ -118,6 +118,12 @@ namespace Ivvy.API.Contact
         {
             get; set;
         }
+
+        [JsonProperty("isAnonymised")]
+        public bool IsAnonymised
+        {
+            get; set;
+        }
     }
 
     /// <summary>
