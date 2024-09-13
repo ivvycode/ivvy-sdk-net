@@ -295,6 +295,12 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
+        [JsonProperty("serviceFees")]
+        public Bookings.ServiceFee[] ServiceFees
+        {
+            get; set;
+        }
+
         [JsonProperty("agent")]
         public Contact.Agent Agent
         {
