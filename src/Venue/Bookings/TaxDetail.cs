@@ -25,5 +25,17 @@ namespace Ivvy.API.Venue.Bookings
         {
             get; set;
         }
+
+        [JsonProperty("rateAmountType")]
+        public int RateAmountType
+        {
+            get; set;
+        }
+
+        [JsonProperty("rateId")]
+        public int RateId
+        {
+            get; set;
+        }
     }
 }
