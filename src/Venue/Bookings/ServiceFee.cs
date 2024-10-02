@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Ivvy.API.Venue.Bookings
@@ -8,6 +9,20 @@ namespace Ivvy.API.Venue.Bookings
     /// </summary>
     public class ServiceFee
     {
+        public enum RefTypes
+        {
+            Room = 1,
+            RoomExtra = 2,
+            Package = 3,
+            Session = 4,
+            Menu = 5,
+            BeveragePackage = 6,
+            Product = 7,
+            Resource = 8,
+            AdditionalItem = 9,
+            ServiceFee = 10,
+        }
+
         [JsonProperty("id")]
         public int Id
         {
@@ -15,7 +30,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("refType")]
-        public int RefType
+        public RefTypes RefType
         {
             get; set;
         }
@@ -63,13 +78,13 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("createdDate")]
-        public string CreatedDate
+        public DateTime? CreatedDate
         {
             get; set;
         }
 
         [JsonProperty("modifiedDate")]
-        public string ModifiedDate
+        public DateTime? ModifiedDate
         {
             get; set;
         }
