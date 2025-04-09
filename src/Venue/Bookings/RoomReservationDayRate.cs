@@ -26,5 +26,17 @@ namespace Ivvy.API.Venue.Bookings
         {
             get; set;
         }
+
+        [JsonProperty("totalAmount")]
+        public float? TotalAmount
+        {
+            get; set;
+        }
+
+        [JsonProperty("totalTaxAmount")]
+        public float? TotalTaxAmount
+        {
+            get; set;
+        }
     }
 }
