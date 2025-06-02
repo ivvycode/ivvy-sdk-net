@@ -84,5 +84,11 @@ namespace Ivvy.API.Venue.Bookings
         {
             get; set;
         }
+
+        [JsonProperty("commission")]
+        public float? Commission
+        {
+            get; set;
+        }
     }
 }
