@@ -9,5 +9,11 @@ namespace Ivvy.API.Venue
         {
             get; set;
         }
+
+        [JsonProperty("parentDefaultType")]
+        public DefaultTypes ParentDefaultType
+        {
+            get; set;
+        }
     }
 }
