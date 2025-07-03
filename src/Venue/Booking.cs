@@ -31,6 +31,12 @@ namespace Ivvy.API.Venue
             HousingForm = 4
         }
 
+        public enum CommissionTypes
+        {
+            Fixed = 1,
+            Percentage = 2
+        }
+
         [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int Id
         {
@@ -326,6 +332,102 @@ namespace Ivvy.API.Venue
 
         [JsonProperty("accommReservationMethod")]
         public AccommodationReservationMethodOptions[] AccommodationReservationMethods
+        {
+            get; set;
+        }
+
+        [JsonProperty("hasCommissions")]
+        public bool HasCommissions
+        {
+            get; set;
+        }
+
+        [JsonProperty("hasCommissionPaid")]
+        public bool HasCommissionPaid
+        {
+            get; set;
+        }
+
+        [JsonProperty("agentCompanyId")]
+        public int? AgentCompanyId
+        {
+            get; set;
+        }
+
+        [JsonProperty("agentCompany")]
+        public Contact.Company AgentCompany
+        {
+            get; set;
+        }
+
+        [JsonProperty("agentContactId")]
+        public int? AgentContactId
+        {
+            get; set;
+        }
+
+        [JsonProperty("agentContact")]
+        public Contact.Contact AgentContact
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionAccommodationType")]
+        public CommissionTypes? CommissionAccommodationType
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionAccommodation")]
+        public float? CommissionAccommodation
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionSpaceType")]
+        public CommissionTypes? CommissionSpaceType
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionSpace")]
+        public float? CommissionSpace
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionFoodType")]
+        public CommissionTypes? CommissionFoodType
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionFood")]
+        public float? CommissionFood
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionBeverageType")]
+        public CommissionTypes? CommissionBeverageType
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionBeverage")]
+        public float? CommissionBeverage
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionAudioVisualType")]
+        public CommissionTypes? CommissionAudioVisualType
+        {
+            get; set;
+        }
+
+        [JsonProperty("commissionAudioVisual")]
+        public float? CommissionAudioVisual
         {
             get; set;
         }
