@@ -4,20 +4,8 @@ using Newtonsoft.Json;
 
 namespace Ivvy.API.Contact
 {
-    public class Company
+    public class Company : CompanyReference
     {
-        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Id
-        {
-            get; set;
-        }
-
-        [JsonProperty("businessName")]
-        public string BusinessName
-        {
-            get; set;
-        }
-
         [JsonProperty("tradingName")]
         public string TradingName
         {

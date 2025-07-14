@@ -80,7 +80,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("company")]
-        public Contact.Company Company
+        public Contact.CompanyReference Company
         {
             get; set;
         }
