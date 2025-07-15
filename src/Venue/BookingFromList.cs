@@ -4,14 +4,17 @@ using Newtonsoft.Json;
 
 namespace Ivvy.API.Venue
 {
-    public class Booking : ISerializable
+    public class BookingFromList : ISerializable
     {
         // Missing:
+        // bookingType (in "getBooking")
+        // totalAttendees (in "getBooking")
+        // opportunityId (in "getBooking")
         // lastModifiedDate
         // convertedToTentative
         // convertedToConfirmed
         // convertedToCancelled
-        // convertedToProspectiveHolds
+        // convertedToProspectiveHold
         // focRoomsDenominator
         // maxNumFocRoomsPerDay
         // beoNumbers
@@ -19,50 +22,6 @@ namespace Ivvy.API.Venue
         // accommChargingMethod
         // accommGuaranteeRequired
         // revenueTemplateId
-        // customFields
-        // salesPersonUser
-        // bookedByUser
-        // leadBccEmail
-        // foodBeveragePayableBy
-        // hasCateringWebsite
-        // cateringWebsiteLogoId
-        // cateringWebsiteLogo
-        // cateringWebsiteBannerId
-        // cateringWebsiteBanner
-        // cateringWebsiteEventDesc
-        // cateringWebsiteEndNumDays
-        // externalUrls
-
-        public enum StatusOptions
-        {
-            Prospective = 1,
-            Tentative = 2,
-            Confirmed = 3,
-            Cancelled = 4,
-            Ordering = 5,
-            NotAccepted = 6,
-            ProspectiveHold = 9
-        }
-
-        public enum BookingTypeOptions
-        {
-            Detailed = 1,
-            AccommodationOnly = 4
-        }
-
-        public enum AccommodationReservationMethodOptions
-        {
-            RoomingList = 1,
-            IndividualCallIn = 2,
-            BookingEngine = 3,
-            HousingForm = 4
-        }
-
-        public enum CommissionTypes
-        {
-            Fixed = 1,
-            Percentage = 2
-        }
 
         [JsonProperty("id")]
         public int Id
@@ -119,7 +78,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("currentStatus")]
-        public StatusOptions CurrentStatus
+        public Booking.StatusOptions CurrentStatus
         {
             get; set;
         }
@@ -196,7 +155,7 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
-        [JsonProperty("accommCutOffDate", NullValueHandling = NullValueHandling.Include)]
+        [JsonProperty("accommCutOffDate")]
         public DateTime? AccommCutOffDate
         {
             get; set;
@@ -238,12 +197,6 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
-        [JsonProperty("bookingType")]
-        public BookingTypeOptions BookingType
-        {
-            get; set;
-        }
-
         [JsonProperty("accommExternalBlockId")]
         public string AccommExternalBlockId
         {
@@ -252,12 +205,6 @@ namespace Ivvy.API.Venue
 
         [JsonProperty("bookedById")]
         public int? BookedById
-        {
-            get; set;
-        }
-
-        [JsonProperty("totalAttendees")]
-        public int? TotalAttendees
         {
             get; set;
         }
@@ -274,80 +221,8 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
-        [JsonProperty("dailyRevenue")]
-        public Bookings.DailyRevenue[] DailyRevenues
-        {
-            get; set;
-        }
-
-        [JsonProperty("packages")]
-        public Bookings.Package[] Packages
-        {
-            get; set;
-        }
-
-        [JsonProperty("sessions")]
-        public Bookings.Session[] Sessions
-        {
-            get; set;
-        }
-
-        [JsonProperty("menus")]
-        public Bookings.Menu[] Menus
-        {
-            get; set;
-        }
-
-        [JsonProperty("beveragePackages")]
-        public Bookings.BeveragePackage[] BeveragePackages
-        {
-            get; set;
-        }
-
-        [JsonProperty("resources")]
-        public Bookings.Resource[] Resources
-        {
-            get; set;
-        }
-
-        [JsonProperty("products")]
-        public Bookings.Product[] Products
-        {
-            get; set;
-        }
-
-        [JsonProperty("additionalItems")]
-        public Bookings.AdditionalItem[] AdditionalItems
-        {
-            get; set;
-        }
-
-        [JsonProperty("serviceFees")]
-        public Bookings.ServiceFee[] ServiceFees
-        {
-            get; set;
-        }
-
-        [JsonProperty("agent")]
-        public Contact.Agent Agent
-        {
-            get; set;
-        }
-
-        [JsonProperty("opportunityId")]
-        public int? OpportunityId
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionByCostCentres")]
-        public Bookings.CostCentreCommission[] CostCentreCommissions
-        {
-            get; set;
-        }
-
         [JsonProperty("accommReservationMethod")]
-        public AccommodationReservationMethodOptions[] AccommodationReservationMethods
+        public Booking.AccommodationReservationMethodOptions[] AccommodationReservationMethods
         {
             get; set;
         }
@@ -389,7 +264,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionAccommodationType")]
-        public CommissionTypes? CommissionAccommodationType
+        public Booking.CommissionTypes? CommissionAccommodationType
         {
             get; set;
         }
@@ -401,7 +276,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionSpaceType")]
-        public CommissionTypes? CommissionSpaceType
+        public Booking.CommissionTypes? CommissionSpaceType
         {
             get; set;
         }
@@ -413,7 +288,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionFoodType")]
-        public CommissionTypes? CommissionFoodType
+        public Booking.CommissionTypes? CommissionFoodType
         {
             get; set;
         }
@@ -425,7 +300,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionBeverageType")]
-        public CommissionTypes? CommissionBeverageType
+        public Booking.CommissionTypes? CommissionBeverageType
         {
             get; set;
         }
@@ -437,7 +312,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionAudioVisualType")]
-        public CommissionTypes? CommissionAudioVisualType
+        public Booking.CommissionTypes? CommissionAudioVisualType
         {
             get; set;
         }
@@ -472,7 +347,6 @@ namespace Ivvy.API.Venue
                 IsConfidential = IsConfidential,
                 CanBeMoved = CanBeMoved,
                 AccommodationReservationMethods = AccommodationReservationMethods,
-                LeadId = OpportunityId,
             };
         }
     }
