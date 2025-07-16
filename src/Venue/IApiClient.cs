@@ -111,7 +111,7 @@ namespace Ivvy.API
         /// Adds or updates a booking.
         /// <param name="reservation">Details of the booking</param>
         /// </summary>
-        Task<ResultOrError<AddUpdateBookingResult>> AddOrUpdateVenueBookingAsync(Venue.Booking booking);
+        Task<ResultOrError<AddUpdateBookingResult>> AddOrUpdateVenueBookingAsync(Venue.BookingMutable booking);
 
         /// <summary>
         /// Returns a collection of booking accommodation groups in an iVvy venue booking.
@@ -235,7 +235,7 @@ namespace Ivvy.API
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListAsync(
+        Task<ResultOrError<ResultList<Venue.BookingFromList>>> GetVenueBookingListAsync(
             int venueId, int perPage, int start, Dictionary<string, object> filterRequest);
 
         /// <summary>
@@ -245,7 +245,7 @@ namespace Ivvy.API
         /// <param name="start">The start.</param>
         /// <param name="filterRequest">The filter request.</param>
         /// <returns></returns>
-        Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListForAccountAsync(
+        Task<ResultOrError<ResultList<Venue.BookingFromList>>> GetVenueBookingListForAccountAsync(
             int perPage, int start, Dictionary<string, object> filterRequest);
 
         /// <summary>
@@ -398,8 +398,33 @@ namespace Ivvy.API
             int perPage,
             int start);
 
-         /// <summary>        /// Creates or updates a blockout space.        /// </summary>        Task<ResultOrError<ResultObject>> AddOrUpdateSpaceBlockout(
-            string id,            string venueId,            string name,            int spaceId,            string startDateTime,            string endDateTime);        /// <summary>        /// Deletes blockout sppace.        /// </summary>        Task<ResultOrError<ResultObject>> RemoveSpaceBlockout(            int venueId, int blockoutId);        /// <summary>        /// Returns a list of blockouts related to a specific venue.        /// </summary>        Task<ResultOrError<ResultList<Venue.Bookings.SpaceBlockout>>> GetVenueSpaceBlockoutList(            int venueId, int perPage, int start);
+         /// <summary>
+        /// Creates or updates a blockout space.
+        /// </summary>
+        Task<ResultOrError<ResultObject>> AddOrUpdateSpaceBlockout(
+            string id,
+            string venueId,
+            string name,
+            int spaceId,
+            string startDateTime,
+            string endDateTime);
 
-        /// <summary>        /// Creates or updates a booking session.        /// </summary>        Task<ResultOrError<ResultObject>> AddOrUpdateBookingSession(            Venue.Bookings.DetailedSession sessionRequest);    }
+        /// <summary>
+        /// Deletes blockout sppace.
+        /// </summary>
+        Task<ResultOrError<ResultObject>> RemoveSpaceBlockout(
+            int venueId, int blockoutId);
+
+        /// <summary>
+        /// Returns a list of blockouts related to a specific venue.
+        /// </summary>
+        Task<ResultOrError<ResultList<Venue.Bookings.SpaceBlockout>>> GetVenueSpaceBlockoutList(
+            int venueId, int perPage, int start);
+
+        /// <summary>
+        /// Creates or updates a booking session.
+        /// </summary>
+        Task<ResultOrError<ResultObject>> AddOrUpdateBookingSession(
+            Venue.Bookings.DetailedSession sessionRequest);
+    }
 }

@@ -176,7 +176,7 @@ namespace Ivvy.API
         }
 
         /// <inheritdoc />
-        public async Task<ResultOrError<AddUpdateBookingResult>> AddOrUpdateVenueBookingAsync(Venue.Booking booking)
+        public async Task<ResultOrError<AddUpdateBookingResult>> AddOrUpdateVenueBookingAsync(Venue.BookingMutable booking)
         {
             return await CallAsync<AddUpdateBookingResult>(
                 "venue", "addOrUpdateBooking", booking
@@ -487,13 +487,13 @@ namespace Ivvy.API
         /// <summary>
         /// Returns a collection of venue bookings in an iVvy venue.
         /// </summary>
-        public async Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListAsync(
+        public async Task<ResultOrError<ResultList<Venue.BookingFromList>>> GetVenueBookingListAsync(
             int venueId,
             int perPage,
             int start,
             Dictionary<string, object> filterRequest)
         {
-            return await CallAsync<ResultList<Venue.Booking>>(
+            return await CallAsync<ResultList<Venue.BookingFromList>>(
                 "venue", "getBookingList", new
                 {
                     venueId,
@@ -507,12 +507,12 @@ namespace Ivvy.API
         /// <summary>
         /// Returns a collection of venue bookings in an iVvy account.
         /// </summary>
-        public async Task<ResultOrError<ResultList<Venue.Booking>>> GetVenueBookingListForAccountAsync(
+        public async Task<ResultOrError<ResultList<Venue.BookingFromList>>> GetVenueBookingListForAccountAsync(
             int perPage,
             int start,
             Dictionary<string, object> filterRequest)
         {
-            return await CallAsync<ResultList<Venue.Booking>>(
+            return await CallAsync<ResultList<Venue.BookingFromList>>(
                 "venue", "getBookingListForAccount", new
                 {
                     perPage,
@@ -715,7 +715,7 @@ namespace Ivvy.API
             return await CallAsync<ResultObject>(
                 "venue", "addOrUpdateBookingNote", noteRequest);
         }
-                
+
         /// <inheritdoc />
         public async Task<ResultOrError<ResultList<Venue.Bookings.BookingTax>>> GetVenueBookingTaxListAsync(
             int venueId,
@@ -752,7 +752,7 @@ namespace Ivvy.API
                     spaceId,
                     startDateTime,
                     endDateTime
-                });                
+                });
         }
 
         /// <inheritdoc />

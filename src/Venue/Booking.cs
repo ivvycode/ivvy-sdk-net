@@ -1,239 +1,35 @@
-using System;
-using Ivvy.API.Json;
 using Newtonsoft.Json;
 
 namespace Ivvy.API.Venue
 {
-    public class Booking : ISerializable
+    public class Booking : BookingFromList
     {
-        public enum StatusOptions
-        {
-            Prospective = 1,
-            Tentative = 2,
-            Confirmed = 3,
-            Cancelled = 4,
-            Ordering = 5,
-            NotAccepted = 6,
-            ProspectiveHold = 9
-        }
-
-        public enum BookingTypeOptions
-        {
-            Detailed = 1,
-            AccommodationOnly = 4
-        }
-
-        public enum AccommodationReservationMethodOptions
-        {
-            RoomingList = 1,
-            IndividualCallIn = 2,
-            BookingEngine = 3,
-            HousingForm = 4
-        }
-
-        public enum CommissionTypes
-        {
-            Fixed = 1,
-            Percentage = 2
-        }
-
-        [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int Id
-        {
-            get; set;
-        }
-
-        [JsonProperty("venueId")]
-        public int VenueId
-        {
-            get; set;
-        }
-
-        [JsonProperty("venueName")]
-        public string VenueName
-        {
-            get; set;
-        }
-
-        [JsonProperty("code")]
-        public string Code
-        {
-            get; set;
-        }
-
-        [JsonProperty("otaFolioRef")]
-        public string OtaFolioReference
-        {
-            get; set;
-        }
-
-        [JsonProperty("name")]
-        public string Name
-        {
-            get; set;
-        }
-
-        [JsonProperty("companyId")]
-        public int? CompanyId
-        {
-            get; set;
-        }
-
-        [JsonProperty("company")]
-        public Contact.Company Company
-        {
-            get; set;
-        }
-
-        [JsonProperty("contactId")]
-        public int? ContactId
-        {
-            get; set;
-        }
-
-        [JsonProperty("contact")]
-        public Contact.Contact Contact
-        {
-            get; set;
-        }
-
-        [JsonProperty("currentStatus")]
-        public StatusOptions CurrentStatus
-        {
-            get; set;
-        }
-
-        [JsonProperty("totalAmount")]
-        public float TotalAmount
-        {
-            get; set;
-        }
-
-        [JsonProperty("totalTaxAmount")]
-        public float TotalTaxAmount
-        {
-            get; set;
-        }
-
-        [JsonProperty("amountOutstanding")]
-        public float AmountOutstanding
-        {
-            get; set;
-        }
-
-        [JsonProperty("accountTimezone")]
-        public string AccountTimezone
-        {
-            get; set;
-        }
-
-        [JsonProperty("venueTimezone")]
-        public string VenueTimezone
-        {
-            get; set;
-        }
-
-        [JsonProperty("createdDate")]
-        public DateTime? CreatedDate
-        {
-            get; set;
-        }
-
-        [JsonProperty("modifiedDate")]
-        public DateTime? ModifiedDate
-        {
-            get; set;
-        }
-
-        [JsonProperty("dateEventStart")]
-        public DateTime? DateEventStart
-        {
-            get; set;
-        }
-
-        [JsonProperty("dateEventEnd")]
-        public DateTime? DateEventEnd
-        {
-            get; set;
-        }
-
-        [JsonProperty("isAccommIncluded")]
-        public bool IsAccommIncluded
-        {
-            get; set;
-        }
-
-        [JsonProperty("dateAccomStart")]
-        public DateTime? DateAccomStart
-        {
-            get; set;
-        }
-
-        [JsonProperty("dateAccomEnd")]
-        public DateTime? DateAccomEnd
-        {
-            get; set;
-        }
-
-        [JsonProperty("accommCutOffDate", NullValueHandling = NullValueHandling.Include)]
-        public DateTime? AccommCutOffDate
-        {
-            get; set;
-        }
-
-        [JsonProperty("hasPackages")]
-        public bool HasPackages
-        {
-            get; set;
-        }
-
-        [JsonProperty("decisionDate")]
-        public DateTime? DecisionDate
-        {
-            get; set;
-        }
-
-        [JsonProperty("isBeoFinalised")]
-        public bool IsBeoFinalised
-        {
-            get; set;
-        }
-
-        [JsonProperty("beoFinalisedDate")]
-        public DateTime? BeoFinalisedDate
-        {
-            get; set;
-        }
-
-        [JsonProperty("eventType")]
-        public string EventType
-        {
-            get; set;
-        }
-
-        [JsonProperty("eventTypeId")]
-        public int? EventTypeId
-        {
-            get; set;
-        }
-
-        [JsonProperty("bookingType")]
-        public BookingTypeOptions BookingType
-        {
-            get; set;
-        }
-
-        [JsonProperty("accommExternalBlockId")]
-        public string AccommExternalBlockId
-        {
-            get; set;
-        }
-
-        [JsonProperty("bookedById")]
-        public int? BookedById
-        {
-            get; set;
-        }
+        // Missing:
+        // lastModifiedDate
+        // convertedToTentative
+        // convertedToConfirmed
+        // convertedToCancelled
+        // convertedToProspectiveHolds
+        // focRoomsDenominator
+        // maxNumFocRoomsPerDay
+        // beoNumbers
+        // accommCancellationDate
+        // accommChargingMethod
+        // accommGuaranteeRequired
+        // revenueTemplateId
+        // customFields
+        // salesPersonUser
+        // bookedByUser
+        // leadBccEmail
+        // foodBeveragePayableBy
+        // hasCateringWebsite
+        // cateringWebsiteLogoId
+        // cateringWebsiteLogo
+        // cateringWebsiteBannerId
+        // cateringWebsiteBanner
+        // cateringWebsiteEventDesc
+        // cateringWebsiteEndNumDays
+        // externalUrls
 
         [JsonProperty("totalAttendees")]
         public int? TotalAttendees
@@ -241,14 +37,21 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
-        [JsonProperty("isConfidential")]
-        public bool IsConfidential
+        private int? opportunityId;
+
+        [JsonProperty("opportunityId")]
+        public int? OpportunityId
         {
-            get; set;
+            get => opportunityId;
+            set
+            {
+                opportunityId = value;
+                LeadId = value;
+            }
         }
 
-        [JsonProperty("canBeMoved")]
-        public bool CanBeMoved
+        [JsonIgnore]
+        public new int? LeadId
         {
             get; set;
         }
@@ -313,123 +116,18 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
-        [JsonProperty("opportunityId")]
-        public int? OpportunityId
-        {
-            get; set;
-        }
-
-        [JsonProperty("leadId")]
-        public int? LeadId
-        {
-            get; set;
-        }
         [JsonProperty("commissionByCostCentres")]
         public Bookings.CostCentreCommission[] CostCentreCommissions
         {
             get; set;
         }
 
-        [JsonProperty("accommReservationMethod")]
-        public AccommodationReservationMethodOptions[] AccommodationReservationMethods
+        public override BookingMutable InitMutableBooking()
         {
-            get; set;
-        }
-
-        [JsonProperty("hasCommissions")]
-        public bool HasCommissions
-        {
-            get; set;
-        }
-
-        [JsonProperty("hasCommissionPaid")]
-        public bool HasCommissionPaid
-        {
-            get; set;
-        }
-
-        [JsonProperty("agentCompanyId")]
-        public int? AgentCompanyId
-        {
-            get; set;
-        }
-
-        [JsonProperty("agentCompany")]
-        public Contact.Company AgentCompany
-        {
-            get; set;
-        }
-
-        [JsonProperty("agentContactId")]
-        public int? AgentContactId
-        {
-            get; set;
-        }
-
-        [JsonProperty("agentContact")]
-        public Contact.Contact AgentContact
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionAccommodationType")]
-        public CommissionTypes? CommissionAccommodationType
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionAccommodation")]
-        public float? CommissionAccommodation
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionSpaceType")]
-        public CommissionTypes? CommissionSpaceType
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionSpace")]
-        public float? CommissionSpace
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionFoodType")]
-        public CommissionTypes? CommissionFoodType
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionFood")]
-        public float? CommissionFood
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionBeverageType")]
-        public CommissionTypes? CommissionBeverageType
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionBeverage")]
-        public float? CommissionBeverage
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionAudioVisualType")]
-        public CommissionTypes? CommissionAudioVisualType
-        {
-            get; set;
-        }
-
-        [JsonProperty("commissionAudioVisual")]
-        public float? CommissionAudioVisual
-        {
-            get; set;
+            var mutable = base.InitMutableBooking();
+            mutable.LeadId = OpportunityId;
+            mutable.TotalAttendees = TotalAttendees;
+            return mutable;
         }
     }
 }
