@@ -1,5 +1,4 @@
 using System;
-using Ivvy.API.Json;
 using Newtonsoft.Json;
 
 namespace Ivvy.API.Venue
@@ -7,9 +6,7 @@ namespace Ivvy.API.Venue
     public class BookingFromList : BookingBase
     {
         // Missing:
-        // bookingType (in "getBooking")
-        // totalAttendees (in "getBooking")
-        // opportunityId (in "getBooking")
+        // totalAttendees (in "getBooking" but the value is different)
         // lastModifiedDate
         // convertedToTentative
         // convertedToConfirmed
@@ -144,7 +141,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionAccommodationType")]
-        public Booking.CommissionTypes? CommissionAccommodationType
+        public CommissionTypes? CommissionAccommodationType
         {
             get; set;
         }
@@ -156,7 +153,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionSpaceType")]
-        public Booking.CommissionTypes? CommissionSpaceType
+        public CommissionTypes? CommissionSpaceType
         {
             get; set;
         }
@@ -168,7 +165,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionFoodType")]
-        public Booking.CommissionTypes? CommissionFoodType
+        public CommissionTypes? CommissionFoodType
         {
             get; set;
         }
@@ -180,7 +177,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionBeverageType")]
-        public Booking.CommissionTypes? CommissionBeverageType
+        public CommissionTypes? CommissionBeverageType
         {
             get; set;
         }
@@ -192,7 +189,7 @@ namespace Ivvy.API.Venue
         }
 
         [JsonProperty("commissionAudioVisualType")]
-        public Booking.CommissionTypes? CommissionAudioVisualType
+        public CommissionTypes? CommissionAudioVisualType
         {
             get; set;
         }
@@ -209,12 +206,14 @@ namespace Ivvy.API.Venue
             {
                 Id = Id,
                 VenueId = VenueId,
+                LeadId = LeadId,
                 Code = Code,
                 OtaFolioReference = OtaFolioReference,
                 Name = Name,
                 CompanyId = CompanyId,
                 ContactId = ContactId,
                 CurrentStatus = CurrentStatus,
+                BookingType = BookingType,
                 DateEventStart = DateEventStart,
                 DateEventEnd = DateEventEnd,
                 IsAccommIncluded = IsAccommIncluded,

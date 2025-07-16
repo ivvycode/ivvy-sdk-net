@@ -31,51 +31,27 @@ namespace Ivvy.API.Venue
         // cateringWebsiteEndNumDays
         // externalUrls
 
-        public enum StatusOptions
-        {
-            Prospective = 1,
-            Tentative = 2,
-            Confirmed = 3,
-            Cancelled = 4,
-            Ordering = 5,
-            NotAccepted = 6,
-            ProspectiveHold = 9
-        }
-
-        public enum BookingTypeOptions
-        {
-            Detailed = 1,
-            AccommodationOnly = 4
-        }
-
-        public enum AccommodationReservationMethodOptions
-        {
-            RoomingList = 1,
-            IndividualCallIn = 2,
-            BookingEngine = 3,
-            HousingForm = 4
-        }
-
-        public enum CommissionTypes
-        {
-            Fixed = 1,
-            Percentage = 2
-        }
-
-        [JsonProperty("bookingType")]
-        public BookingTypeOptions BookingType
-        {
-            get; set;
-        }
-
         [JsonProperty("totalAttendees")]
         public int? TotalAttendees
         {
             get; set;
         }
 
+        private int? opportunityId;
+
         [JsonProperty("opportunityId")]
         public int? OpportunityId
+        {
+            get => opportunityId;
+            set
+            {
+                opportunityId = value;
+                LeadId = value;
+            }
+        }
+
+        [JsonIgnore]
+        public new int? LeadId
         {
             get; set;
         }
@@ -150,7 +126,6 @@ namespace Ivvy.API.Venue
         {
             var mutable = base.InitMutableBooking();
             mutable.LeadId = OpportunityId;
-            mutable.BookingType = BookingType;
             mutable.TotalAttendees = TotalAttendees;
             return mutable;
         }

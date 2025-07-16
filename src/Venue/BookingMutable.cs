@@ -1,5 +1,3 @@
-using System;
-using Ivvy.API.Json;
 using Newtonsoft.Json;
 
 namespace Ivvy.API.Venue
@@ -43,20 +41,8 @@ namespace Ivvy.API.Venue
             get; set;
         }
 
-        [JsonProperty("bookingType")]
-        public Booking.BookingTypeOptions BookingType
-        {
-            get; set;
-        }
-
         [JsonProperty("totalAttendees")]
         public int? TotalAttendees
-        {
-            get; set;
-        }
-
-        [JsonProperty("leadId")]
-        public int? LeadId
         {
             get; set;
         }
