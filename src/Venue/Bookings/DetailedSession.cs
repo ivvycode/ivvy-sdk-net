@@ -1,4 +1,5 @@
 using Ivvy.API.Common;
+using Ivvy.API.Json.Converters;
 using Newtonsoft.Json;
 
 namespace Ivvy.API.Venue.Bookings
@@ -81,6 +82,7 @@ namespace Ivvy.API.Venue.Bookings
         }
 
         [JsonProperty("sfExcludedTaxIds")]
+        [JsonConverter(typeof(IntArrayOrObjectConverter))]
         public int[] SFExcludedTaxIds
         {
             get; set;
