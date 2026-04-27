@@ -21,14 +21,6 @@ namespace Ivvy.API.Contact
             NoMarketing = 5
         }
 
-        public enum SmsStatusOptions
-        {
-            Subscribed = 1,
-            Unsubscribed = 2,
-            Failed = 3,
-            NoMarketing = 4
-        }
-
         [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Id
         {
@@ -73,12 +65,6 @@ namespace Ivvy.API.Contact
 
         [JsonProperty("status")]
         public EmailStatusOptions? EmailStatus
-        {
-            get; set;
-        }
-
-        [JsonProperty("smsStatus")]
-        public SmsStatusOptions? SmsStatus
         {
             get; set;
         }
